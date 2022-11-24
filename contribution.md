@@ -11,7 +11,7 @@ Nomen 说的要高亮，可惜 GSAP 官网还在维护查不到文档(Nomen：�
 - api/event/Box3RespawnEvent
 - api/type/Box3Animation
 - api/type/Box3AnimationPlaybackConfig
-- api/type/Box3Quaternion
+- api/type/Box3Quaternion（制作中）
 - api/type/Box3EntityKeyframe
 - api/type/Box3EventChannel
 - api/type/Box3EventFuture
