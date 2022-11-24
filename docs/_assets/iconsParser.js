@@ -22,6 +22,7 @@ const defsMap = {
   String: ["object", "type/base/String"],
   string: ["static", "type/base/String"],
   Box3Bounds3: ["class", "type/Box3Bounds3"],
+  Box3Quaternion: ["class", "type/Box3Quaternion"],
   Box3WorldKeyframe: ["class", "type/Box3WorldKeyframe"],
   Box3ButtonType: ["type", "type/Box3ButtonType"],
   Box3AnimationPlaybackConfig: [

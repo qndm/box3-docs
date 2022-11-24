@@ -160,6 +160,7 @@ nav:
               - <def>Partial</def>: api/type/base/Partial.md
               - <def>URL</def>: api/type/base/URL.md
           - <def>Box3Vector3</def>: api/type/Box3Vector3.md
+          - <def>Box3Quaternion</def>: api/type/Box3Quaternion.md
           - <def>Box3EventChannel</def>: api/type/Box3EventChannel.md
           - <def>Box3EventFuture</def>: api/type/Box3EventFuture.md
           - <def>Box3EntityConfig</def>: api/type/Box3EntityConfig.md

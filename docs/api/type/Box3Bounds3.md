@@ -18,22 +18,30 @@ new <def>Box3Bounds3</def>(lo: <def>Box3Vector3</def>, hi: <def>Box3Vector3</def
 
 !!! warning "警告"
 
-    <def>Box3Bounds3</def>不能像<def>Box3Vector3</def>一样定义时必须有两个参数，不然你会收到一条：``TypeError: Cannot read property 'toString' of undefined``
+    <def>Box3Bounds3</def>不能像<def>Box3Vector3</def>一样，定义时必须有两个参数，不然你会收到一条：``TypeError: Cannot read property 'toString' of undefined``
 
+---
+
+## 常用
+[<method>set</method>](#set)
+[<method>copy</method>](#copy)  
+[<method>intersect</method>](#intersect)
+[<method>intersects</method>](#intersects)  
+[<method>contains</method>](#contains)
+[<method>containsBounds</method>](#containsBounds)  
 ## 方法
 
 !!! note "提示"
-
     下列全部\[示例\]的代码后面的注释为预期的运行结果，可以不用看“<~”，这只是一个提示符
 
-<method>intersect</method> (b: <def>Box3Bounds3</def>): <def>Box3Bounds3</def>
+<span anchor="intersect"><method>intersect</method> (b: <def>Box3Bounds3</def>): <def>Box3Bounds3</def></span>
 : 计算与此包围盒相交的部分
 ??? example "示例"
     ```javascript
     new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(5, 5, 5)).intersect(new Box3Bounds3(new Box3Vector3(2, 2, 2), new Box3Vector3(7, 7, 7))) //<~ { lo:{ x:2, y:2, z:2 }, hi:{ x:5, y:5, z:5 } }
     ```
 
-<method>contains</method> (b: <def>Box3Vector3</def>): <def>boolean</def>
+<span anchor="contains"><method>contains</method> (b: <def>Box3Vector3</def>): <def>boolean</def></span>
 : 判断一个<def>Box3Vector3</def>是否在这个<def>Box3Bounds3</def>里（边界也算）
 ??? example "示例"
     ```javascript
@@ -41,7 +49,7 @@ new <def>Box3Bounds3</def>(lo: <def>Box3Vector3</def>, hi: <def>Box3Vector3</def
     new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(5, 5, 5)).contains(new Box3Vector3(-2, -2, -2)) //<~ false
     ```
 
-<method>containsBounds</method> (b: <def>Box3Vector3</def>): <def>boolean</def>
+<span anchor="containsBounds"><method>containsBounds</method> (b: <def>Box3Vector3</def>): <def>boolean</def></span>
 : 检测一个<def>Box3Bounds3</def>是否完全在<def>Box3Bounds3</def>里（边界也算）
 ??? example "示例"
     ```javascript
@@ -51,7 +59,7 @@ new <def>Box3Bounds3</def>(lo: <def>Box3Vector3</def>, hi: <def>Box3Vector3</def
     new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(7, 7, 7)).containsBounds(new Box3Bounds3(new Box3Vector3(2, 2, 0), new Box3Vector3(5, 7, 5)))
     ```
 
-<method>intersects</method> (b: <def>Box3Bounds3</def>): <def>boolean</def>
+<span anchor="intersects"><method>intersects</method> (b: <def>Box3Bounds3</def>): <def>boolean</def></span>
 : 判断一个<def>Box3Bounds3</def>是否与这个<def>Box3Bounds3</def>相交（挨着不算）
 ??? example "示例"
     ```javascript
@@ -60,14 +68,14 @@ new <def>Box3Bounds3</def>(lo: <def>Box3Vector3</def>, hi: <def>Box3Vector3</def
     new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(5, 5, 5)).intersects(new Box3Bounds3(new Box3Vector3(4.99999, 4.99999, 4.99999), new Box3Vector3(7, 7, 7))) //<~ true
     ```
 
-<method>set</method> (lox: <def>number</def>, loy: <def>number</def>, loz: <def>number</def>, hix: <def>number</def>, hiy: <def>number</def>, hiz: <def>number</def>): <def>boolean</def>
+<span anchor="set"><method>set</method> (lox: <def>number</def>, loy: <def>number</def>, loz: <def>number</def>, hix: <def>number</def>, hiy: <def>number</def>, hiz: <def>number</def>): <def>boolean</def></span>
 : 设置这个<def>Box3Bounds3</def>
 ??? example "示例"
     ```javascript
     new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(0, 0, 0)).set(1, 1, 4, 5, 1, 4) //<~ { lo:{ x:1, y:1, z:4 }, hi:{ x:5, y:1, z:4 } }
     ```
 
-<method>copy</method> (b: <def>Box3Bounds3</def>): <def>Box3Bounds3</def>
+<span anchor="copy"><method>copy</method> (b: <def>Box3Bounds3</def>): <def>Box3Bounds3</def></span>
 : 把一个<def>Box3Bounds3</def>的值复制到这个<def>Box3Bounds3</def>上
 
 <method>toString</method> (): <def>string</def>
