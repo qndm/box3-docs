@@ -1,3 +1,5 @@
+# <def>Box3ButtonType</def> / <def>GameButtonType</def>
+
 玩家按下的按钮类型
 
 |    属性     |    值     |        说明         |

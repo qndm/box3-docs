@@ -22,7 +22,8 @@ const url = new URL(
 : 主机名（`#!javascript "www.alanserver.com"`）
 
 <property>port</property> : ^^<def>string</def>^^
-: 端口号（`#!javascript "80"`注意是字符串）
+: 端口号  
+!!! warning "`#!javascript "80"`注意是字符串"
 
 <property>href</property> : <def>string</def>
 : 完整的链接（`#!javascript "https://alan:passwd@www.alanserver.com:123/login?id=114514#step1"`）
@@ -45,7 +46,7 @@ const url = new URL(
 <property>search</property> : <def>string</def>
 : 参数部分（`#!javascript "?id=114514&dev=1"`）
 
-<property>searchParams</property> : <def>string[][]</def>
+<property>searchParams</property> : <def>string</def>[][]
 : 解析后的参数数组（二维数组，每一组为`[key,value]`）
 !!! example "获取链接中的参数"
 

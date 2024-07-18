@@ -1,0 +1,51 @@
+# 文档计划
+- API
+    - [x] <def>Box3World</def>
+    - [ ] <def>GameWorld</def>
+    - [ ] <def>Box3Entity</def> & <def>GameEntity</def>
+    - [ ] <def>Box3Player</def> & <def>GamePlayer</def>
+    - 结构类型
+        - 基本数据类型
+            - [ ] <def>String</def>
+            - [x] <def>Number</def>
+            - [x] <def>Boolean</def>
+            - [x] <def>Partial</def>
+            - [x] <def>URL</def>
+        - Box3 基本数据类型
+            - [x] <def>Box3Vector3</def> & <def>GameVector3</def>
+            - [x] <def>Box3Bounds3</def> & <def>GameBounds3</def>
+            - [ ] <def>Box3Quaternion</def> & <def>GameQuaternion</def>
+            - [x] <def>Box3RGBColor</def> & <def>GameRGBColor</def>
+            - [x] <def>Box3RGBAColor</def> & <def>GameRGBAColor</def>
+        - 动画
+            - [ ] <def>Box3Animation</def> & <def>GameAnimation</def>
+            - [ ] <def>Box3AnimationPlaybackConfig</def> & <def>GameAnimationPlaybackConfig</def>
+            - [ ] <def>Box3EntityKeyframe</def> & <def>GameEntityKeyframe</def>
+            - [ ] <def>Box3PlayerKeyframe</def> & <def>GamePlayerKeyframe</def>
+            - [ ] <def>Box3WorldKeyframe</def> & <def>GameWorldKeyframe</def>
+        - [ ] <def>Box3SelectorString</def> & <def>GameSelectorString</def>
+        - [ ] <def>Box3RaycastOptions</def> & <def>GameRaycastOptions</def>
+        - [x] <def>Box3RaycastResult</def> & <def>GameRaycastResult</def>
+        - [ ] <def>Box3SoundEffect</def> & <def>GameSoundEffect</def>
+        - [ ] <def>Box3ZoneConfig</def> & <def>GameZoneConfig</def>
+        - [ ] <def>Box3SkinInvisible</def> & <def>GameSkinInvisible</def>
+        - [ ] <def>Box3DialogParams</def> & <def>GameDialogParams</def>
+        - [ ] <def>Box3DialogResponse</def> & <def>GameDialogResponse</def>
+        - [ ] <def>Box3BodyPart</def> & <def>GameBodyPart</def>
+    - 事件
+        - [x] <def>Box3TickEvent</def> & <def>GameTickEvent</def>
+        - [x] <def>Box3DieEvent</def> & <def>GameDieEvent</def>
+        - [x] <def>Box3DamageEvent</def> & <def>GameDamageEvent</def>
+        - [x] <def>Box3EntityEvent</def> & <def>GameEntityEvent</def>
+        - [x] <def>Box3RespawnEvent</def> & <def>GameRespawnEvent</def>
+        - [ ] <def>Box3EventChannel</def> & <def>GameEventChannel</def>
+        - [ ] <def>Box3EventFuture</def> & <def>GameEventFuture</def>
+        - [x] <def>Box3ChatEvent</def> & <def>GameChatEvent</def>
+        - [x] <def>Box3ClickEvent</def> & <def>GameClickEvent</def>
+        - [x] <def>Box3InputEvent</def> & <def>GameInputEvent</def>
+        - [x] <def>Box3PlayerEntityEvent</def> & <def>GamePlayerEntityEvent</def>
+        - [x] <def>Box3InteractEvent</def> & <def>GameInteractEvent</def>
+        - [x] <def>Box3AnimationEvent</def> & <def>GameAnimationEvent</def>
+    - 数据库
+        - [ ] <def>db</def> & <def>Box3DataBase</def>
+        - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>

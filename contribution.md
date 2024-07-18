@@ -5,21 +5,18 @@
 Nomen 说的要高亮，可惜 GSAP 官网还在维护查不到文档(Nomen：这里是常用部分的内容传送到某个词条时短暂的高亮该词条的名字)
 
 - api/type/base/String
-- api/event/Box3DamageEvent
 - api/event/Box3DieEvent
 - api/event/Box3EntityEvent
 - api/event/Box3RespawnEvent
 - api/type/Box3Animation
 - api/type/Box3AnimationPlaybackConfig
-- api/type/Box3Quaternion（制作中）
+- api/type/Box3Quaternion
 - api/type/Box3EntityKeyframe
 - api/type/Box3EventChannel
 - api/type/Box3EventFuture
 - api/type/Box3PlayerKeyframe
 - api/type/Box3RaycastOptions
-- api/type/Box3RGBColor
 - api/type/Box3SelectorString
-- api/type/Box3RGBAColor
 - api/type/Box3SoundEffect
 - api/type/Box3WorldKeyframe
 

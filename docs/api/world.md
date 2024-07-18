@@ -1,6 +1,6 @@
-# <def>Box3World</def>
+# <def>world</def> / <def>Box3World</def> / <def>GameWorld</def>
 
-此类无法（很难）被实例化，但在全局存在一个单例对象<object>world</object>
+<def>Box3World</def> / <def>GameWorld</def>无法（很难）被实例化，但在全局存在一个单例对象<def>world</def>
 
 ---
 
@@ -333,11 +333,13 @@
 
 # 事件
 
-<listener>onRespawn</listener> / <promiseEvent>nextRespawn</promiseEvent> : <def> Box3EventChannel</def> / <def>Box3EventFuture</def><<def>Box3RespawnEvent</def>>
+<listener>onRespawn</listener> : <def> Box3EventChannel</def> / <def> GameEventChannel</def> <<def>Box3RespawnEvent</def>>  
+<promiseEvent>nextRespawn</promiseEvent> : <def>Box3EventFuture</def> / <def>GameEventFuture</def> <<def>Box3RespawnEvent</def>>
 
 : 玩家复活(或未来)触发
 
-<span anchor="c1"><listener>onTick</listener> / <promiseEvent>nextTick</promiseEvent> : <def> Box3EventChannel</def> / <def> Box3EventFuture</def><<def>Box3TickEvent</def>></span>
+<span anchor="c1"><listener>onTick</listener> : <def> Box3EventChannel</def> / <def> GameEventChannel</def> <<def>Box3TickEvent</def>>  
+<promiseEvent>nextTick</promiseEvent> : <def>Box3EventFuture</def> / <def>GameEventFuture</def> <<def>Box3TickEvent</def>></span>
 
 : Tick 事件，详情请看<def>Box3TickEvent</def>
 
@@ -417,3 +419,5 @@
 <listener>onFluidLeave</listener> / <promiseEvent>nextFluidLeave</promiseEvent> : <def> Box3EventChannel</def> / <def> Box3EventFuture</def><<def>Box3FluidContactEvent</def>>
 
 : 当实体离开液体(或未来)触发
+
+<listener>onPlayerPurchaseSuccess</listener> / <promiseEvent>nextPlayerPurchaseSuccess</promiseEvent> : <def>GameEventChannel<def>

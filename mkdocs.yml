@@ -1,5 +1,5 @@
 site_name: Box3 社区文档
-repo_url: https://github.com/alan-best/box3-docs
+repo_url: https://github.com/qndm/box3-docs
 edit_uri: edit/main/docs/
 repo_name: box3-docs
 theme:
@@ -101,6 +101,7 @@ nav:
           - 欢迎: index.md
           - 关于文档: about.md
           - 更新: changes.md
+          - 计划: todo.md
   - 学习:
       - learn/index.md
       - 粒子特效:
@@ -117,6 +118,9 @@ nav:
           - OOP（面向对象编程）快速入门: learn/community-articles/Nomen-oop.md
           - 如何优雅地写注释: learn/community-articles/Nomen-comment.md
           - 快速上手函数: learn/community-articles/Nomen-function.md
+      - 算法:
+          - BFS: learn/arithmetic/BFS.md
+          - DFS: learn/arithmetic/DFS.md
   - 实例教程:
       - example/index.md
       - LightDotCutter 简单PVE游戏:
@@ -131,10 +135,10 @@ nav:
   - API参考:
       - api/index.md
       - <icon name='namespace'>图标参考</icon>: api/icons.md
-      - <icon name='object'>世界</icon>: api/world.md
-      - <icon name='object'>方块</icon>: api/voxels.md
-      - <icon name='class'>实体</icon>: api/entity.md
-      - <icon name='class'>玩家</icon>: api/player.md
+      - <def>world</def> /<br><def>Box3World</def> / <def>GameWorld</def>: api/world.md
+      - <def>voxels</def> /<br><def>Box3Voxels</def> /<def>GameVoxels</def>: api/voxels.md
+      - <def>Box3Entity</def> / <def>GameEntity</def>: api/entity.md
+      - <def>Box3Player</def> / <def>GamePlayer</def>: api/player.md
       - <icon name='event'>事件</icon>:
           - <def>Box3TickEvent</def>: api/event/Box3TickEvent.md
           - <def>Box3RespawnEvent</def>: api/event/Box3RespawnEvent.md
@@ -151,34 +155,36 @@ nav:
           - <def>Box3FluidContactEvent</def>: api/event/Box3FluidContactEvent.md
           - <def>Box3VoxelContactEvent</def>: api/event/Box3VoxelContactEvent.md
 
-      - <icon name='enum'>数据库</icon>: api/database.md
+      - <def>db</def> /<br><def>Box3DataBase</def>: api/database.md
+      - <def>storage</def> /<def>GameStorage</def> /<br><def>GameDataStorage</def>: api/storage.md
       - <icon name='type'>结构类型</icon>:
           - <icon name='namespace'>基本数据类型</icon>:
-              - <def>String</def>: api/type/base/String.md
-              - <def>Number</def>: api/type/base/Number.md
-              - <def>Boolean</def>: api/type/base/Boolean.md
+              - <def>string</def> / <def>String</def>: api/type/base/String.md
+              - <def>number</def> / <def>Number</def>: api/type/base/Number.md
+              - <def>boolean</def> / <def>Boolean</def>: api/type/base/Boolean.md
               - <def>Partial</def>: api/type/base/Partial.md
               - <def>URL</def>: api/type/base/URL.md
-          - <def>Box3Vector3</def>: api/type/Box3Vector3.md
-          - <def>Box3Quaternion</def>: api/type/Box3Quaternion.md
-          - <def>Box3EventChannel</def>: api/type/Box3EventChannel.md
-          - <def>Box3EventFuture</def>: api/type/Box3EventFuture.md
-          - <def>Box3EntityConfig</def>: api/type/Box3EntityConfig.md
-          - <def>Box3SelectorString</def>: api/type/Box3SelectorString.md
-          - <def>Box3RaycastOptions</def>: api/type/Box3RaycastOptions.md
-          - <def>Box3Bounds3</def>: api/type/Box3Bounds3.md
-          - <def>Box3RGBColor</def>: api/type/Box3RGBColor.md
-          - <def>Box3RGBAColor</def>: api/type/Box3RGBAColor.md
-          - <def>Box3SoundEffect</def>: api/type/Box3SoundEffect.md
-          - <def>Box3ButtonType</def>: api/type/Box3ButtonType.md
-          - <def>Box3RaycastResult</def>: api/type/Box3RaycastResult.md
+          - <def>Box3Vector3</def> /<br><def>GameVector3</def>: api/type/Vector3.md
+          - <def>Box3Quaternion</def> /<br><def>GameQuaternion</def>: api/type/Quaternion.md
+          - <def>Box3EventChannel</def> /<br><def>GameEventChannel</def>: api/type/EventChannel.md
+          - <def>Box3EventFuture</def> /<br><def>GameEventFuture</def>: api/type/EventFuture.md
+          - <def>Box3EntityConfig</def> /<br><def>GameEntityConfig</def>: api/type/EntityConfig.md
+          - <def>Box3PlayerEntityConfig</def> /<br><def>GamePlayerEntityConfig</def>: api/type/EntityConfig.md
+          - <def>Box3SelectorString</def> /<br><def>GameSelectorString</def>: api/type/SelectorString.md
+          - <def>Box3RaycastOptions</def> /<br><def>GameRaycastOptions</def>: api/type/RaycastOptions.md
+          - <def>Box3RaycastResult</def> /<br><def>GameRaycastResult</def>: api/type/RaycastResult.md
+          - <def>Box3Bounds3</def> /<br><def>GameBounds3</def>: api/type/Bounds3.md
+          - <def>Box3RGBColor</def> /<br><def>GameRGBColor</def>: api/type/RGBColor.md
+          - <def>Box3RGBAColor</def> /<br><def>GameRGBAColor</def>: api/type/RGBAColor.md
+          - <def>Box3SoundEffect</def> /<br><def>GameSoundEffect</def>: api/type/SoundEffect.md
+          - <def>Box3ButtonType</def> /<br><def>GameButtonType</def>: api/type/ButtonType.md
 
       - <icon name='signature'>动画</icon>:
-          - <def>Box3WorldKeyframe</def>: api/type/Box3WorldKeyframe.md
-          - <def>Box3AnimationPlaybackConfig</def>: api/type/Box3AnimationPlaybackConfig.md
-          - <def>Box3Animation</def>: api/type/Box3Animation.md
-          - <def>Box3EntityKeyframe</def>: api/type/Box3EntityKeyframe.md
-          - <def>Box3PlayerKeyframe</def>: api/type/Box3PlayerKeyframe.md
+          - <def>Box3WorldKeyframe</def>: api/type/WorldKeyframe.md
+          - <def>Box3AnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
+          - <def>Box3Animation</def>: api/type/Animation.md
+          - <def>Box3EntityKeyframe</def>: api/type/EntityKeyframe.md
+          - <def>Box3PlayerKeyframe</def>: api/type/PlayerKeyframe.md
 # - Getting started:
 #   - Installation: getting-started.md
 #   - Creating your site: creating-your-site.md
