@@ -103,8 +103,8 @@ const iconTagMap = {
   constructor: "constructor parent-class",
   interface: "interface",
   class: "class",
-  staticMethod:"static method parent-class",
-  hiddenStaticMethod:"static function parent-class private",
+  staticMethod: "static method parent-class",
+  hiddenStaticMethod: "static function parent-class private",
   inheritedEvent: "event parent-class inherited",
 };
 function createIconElement(text, id) {
@@ -122,6 +122,39 @@ function createIconElement(text, id) {
   return i;
 }
 function parse() {
+  document.querySelectorAll("a").forEach((el) => {
+    const def = el.href.trim().slice(el.href.trim().lastIndexOf('/') + 1);
+    let href = "";
+    let isError = false;
+    let iconId = "property";
+    if (Object.keys(defsMap).includes(def) && el.innerHTML.trim() === '') {
+      iconId = defsMap[def][0];
+      const prefix = location.href.includes("github.io")
+        ? "/box3-docs/api/"
+        : "/api/";
+      if (defsMap[def][1]) {
+        href = prefix + defsMap[def][1];
+      } else {
+        href = `javascript:alert("❌ 找不到对应页面")`;
+      }
+    } else if (Object.keys(iconTagMap).includes(def) && el.innerHTML.trim()) {
+      iconId = iconTagMap[def];
+      el.parentElement.replaceChild(createIconElement(el.innerHTML.trim() || def, iconId), el);
+      return;
+    } else return;
+    const a = document.createElement("a");
+    a.href = href;
+    const i = createIconElement(el.innerHTML.trim() || def, iconId);
+    a.appendChild(i);
+    el.parentElement.replaceChild(a, el);
+    if (isError) {
+      i.style.pointerEvents = "none"; //禁用icon交互
+      a.style.color = "#f00";
+      a.style.border = "1px dashed #f00";
+      a.style.cursor = "not-allowed";
+      a.title = "未定义的标识符";
+    }
+  });
   Object.keys(iconTagMap).forEach((key) => {
     document.querySelectorAll(key).forEach((el) => {
       const text = el.getAttribute("label") || el.innerHTML;

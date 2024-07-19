@@ -47,5 +47,5 @@
         - [x] <def>Box3InteractEvent</def> & <def>GameInteractEvent</def>
         - [x] <def>Box3AnimationEvent</def> & <def>GameAnimationEvent</def>
     - 数据库
-        - [ ] <def>db</def> & <def>Box3DataBase</def>
+        - [ ] [](db) & [](Box3DataBase)
         - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>

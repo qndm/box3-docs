@@ -63,7 +63,7 @@ new <def>GameVector3</def>(x: <def>number</def>, y: <def>number</def>, z: <def>n
 !!! note "说明"
     下列全部\[示例\]的代码后面的注释为预期的运行结果，可以不用看“<~”，这只是一个提示符
 
-<span anchor="set"><method>set</method> (x: <def>number</def>, y: <def>number</def>, z: <def>number</def>): <def>Box3Vector3</def>  
+<span anchor="set">[set](method) (x: <def>number</def>, y: <def>number</def>, z: <def>number</def>): <def>Box3Vector3</def>  
 <method>set</method> (x: <def>number</def>, y: <def>number</def>, z: <def>number</def>): <def>GameVector3</def></span>
 
 : 设置三维向量的值  
