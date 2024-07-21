@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["RGBA"]
+  "cSpell.words": [
+    "RGBA"
+  ],
+  "editor.suggest.snippetsPreventQuickSuggestions": true
 }

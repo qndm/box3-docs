@@ -1,3 +1,5 @@
+# [](Box3TickEvent) / [](GameTickEvent)
+
 Box3 中的 Tick 事件
 
 Tick 本意为钟表的滴答声，在这里被当作一种时间周期或时间单位，同时还可以表示一种事件。

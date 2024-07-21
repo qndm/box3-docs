@@ -11,9 +11,9 @@
 
     本文档中收集了未知或隐藏 API，尚未被官方公布，具体含义可能与本文档可能存在偏差，以<hiddenMethod> </hiddenMethod>标识
 
-??? question "如何读`typescipt`"
+??? question "如何读定义声明（1）"
 
-    在这篇文档里，所有的参数和返回值的表达全部使用`typescript`代码（~~懒得做表格~~），对不认识`typescript`的人来说难以理解  
+    在这篇文档里，所有的参数和返回值的表达全部使用`typescript`代码，对不认识`typescript`的人来说难以理解  
     不过，这篇文档的`typescript`代码还是非常容易理解的  
     我们以[<method>set</method>](#set)函数为例：  
     : set(x: <def>number</def>, y: <def>number</def>, z: <def>number</def>): <def>Box3Vector3</def>
@@ -36,3 +36,13 @@
 
     输出：
     <def>Box3Vector3</def>类型
+
+??? question "如何读定义声明（2）"
+
+    这是关于该文档中方法定义出现默认值的情况，以[](Box3Entity).[interactRadius](property) / [](GameEntity).[interactRadius](property)为例：  
+    [interactRadius](property): [](number) = `#!javascript 16`  
+    其中，[interactRadius](property)的类型为[](number)，默认值为`#!javascript 16`
+
+    ---
+
+    很多地方并没有标默认值，有时候是因为此处默认值无意义（地图运行会立刻修改/不同环境默认值不一样/无默认值），有时候是因为文档编写工作繁忙，不过无需在意，一般不需理会这些默认值

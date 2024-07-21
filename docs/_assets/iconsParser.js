@@ -9,10 +9,10 @@ const defsMap = {
   Box3Player: ["class", "player"],
   GamePlayer: ["class", "player"],
   URL: ["class", "type/base/URL"],
-  Box3EventChannel: ["type generic", "type/EventChannel"],
   Box3ClickEvent: ["event", "event/ClickEvent"],
   GameClickEvent: ["event", "event/ClickEvent"],
-  GameEventChannel: ["event", "event/ClickEvent"],
+  Box3EventChannel: ["type generic", "type/EventChannel"],
+  GameEventChannel: ["type generic", "event/ClickEvent"],
   Box3EventFuture: ["type generic", "type/EventFuture"],
   GameEventFuture: ["type generic", "type/EventFuture"],
   Box3RespawnEvent: ["event", "event/RespawnEvent"],
@@ -35,6 +35,7 @@ const defsMap = {
   GameRaycastResult: ["class", "type/RaycastResult"],
   String: ["object", "type/base/String"],
   string: ["static", "type/base/String"],
+  void: ["static"],
   Box3Bounds3: ["class", "type/Bounds3"],
   GameBounds3: ["class", "type/Bounds3"],
   Box3Quaternion: ["class", "type/Quaternion"],
@@ -43,10 +44,14 @@ const defsMap = {
   GameWorldKeyframe: ["class", "type/WorldKeyframe"],
   Box3ButtonType: ["enum", "type/ButtonType"],
   GameButtonType: ["enum", "type/ButtonType"],
-  Box3AnimationPlaybackConfig: ["interface", "type/AnimationPlaybackConfig",],
+  Box3AnimationPlaybackConfig: ["interface", "type/AnimationPlaybackConfig"],
+  GameAnimationPlaybackConfig: ["interface", "type/AnimationPlaybackConfig"],
   Box3Animation: ["class", "type/Animation"],
+  GameAnimation: ["class", "type/Animation"],
   Box3EntityKeyframe: ["class", "type/EntityKeyframe"],
+  GameEntityKeyframe: ["class", "type/EntityKeyframe"],
   Box3PlayerKeyframe: ["class", "type/PlayerKeyframe"],
+  GamePlayerKeyframe: ["class", "type/PlayerKeyframe"],
   Box3RGBColor: ["class", "type/RGBColor"],
   Box3RGBAColor: ["class", "type/RGBAColor"],
   GameRGBColor: ["class", "type/RGBColor"],
@@ -74,19 +79,20 @@ const defsMap = {
   GameInteractEvent: ["event", "event/InteractEvent"],
   Box3FluidContactEvent: ["event", "event/FluidContactEvent"],
   GameFluidContactEvent: ["event", "event/FluidContactEvent"],
+  GamePurchaseSuccessEvent: ["event", "event/PurchaseSuccessEvent"],
 
   Box3DataBase: ["class", "database.md"],
   GameStorage: ["class", "storage.md"],
   GameDataStorage: ["class", "storage.md"],
   db: ["object", "database.md"],
-  storage: ["class", "storage.md"],
+  storage: ["object", "storage.md"],
 
-  Box3Voxels: ["class", "voxels.md"],
-  GameVoxels: ["class", "voxels.md"],
-  voxels: ["object", "voxels.md"],
+  Box3Voxels: ["class", "voxels"],
+  GameVoxels: ["class", "voxels"],
+  voxels: ["object", "voxels"],
 
-  Box3BodyPart: ["enum", "type/BodyPart.md"],
-  GameBodyPart: ["enum", "type/BodyPart.md"],
+  Box3BodyPart: ["enum", "type/BodyPart"],
+  GameBodyPart: ["enum", "type/BodyPart"],
 };
 const iconTagMap = {
   method: "method parent-class",
@@ -96,7 +102,6 @@ const iconTagMap = {
   function: "function",
   arg: "variable parent-enum",
   property: "property parent-class",
-  bool: "static",
   readonly: "property parent-class protected",
   hiddenMethod: "method parent-class private",
   object: "object",
@@ -106,13 +111,15 @@ const iconTagMap = {
   staticMethod: "static method parent-class",
   hiddenStaticMethod: "static function parent-class private",
   inheritedEvent: "event parent-class inherited",
+  enumMember: "enum-member",
+  variable: "variable",
 };
 function createIconElement(text, id) {
   const list = id.split(" ");
   const i = document.createElement("span");
   i.classList.add("kind-icon", ...list.filter((s) => !!s));
   i.innerText = text.trim();
-
+  i.style.display = "inline-block";
   i.setAttribute("title", "右键单击可复制此处内容");
   i.addEventListener("contextmenu", (e) => {
     e.preventDefault();
@@ -127,7 +134,8 @@ function parse() {
     let href = "";
     let isError = false;
     let iconId = "property";
-    if (Object.keys(defsMap).includes(def) && el.innerHTML.trim() === '') {
+    if (el.innerHTML.trim() === '' && Object.keys(defsMap).includes(def)) {
+
       iconId = defsMap[def][0];
       const prefix = location.href.includes("github.io")
         ? "/box3-docs/api/"
@@ -153,6 +161,13 @@ function parse() {
       a.style.border = "1px dashed #f00";
       a.style.cursor = "not-allowed";
       a.title = "未定义的标识符";
+    }
+  });
+  document.querySelectorAll("span").forEach((el) => {
+    if(false && el.hasAttribute('anchor')){
+      let a = document.createElement('a');
+      a.id = el.getAttribute('anchor');
+      el.appendChild(a);
     }
   });
   Object.keys(iconTagMap).forEach((key) => {

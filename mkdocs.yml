@@ -135,56 +135,53 @@ nav:
   - API参考:
       - api/index.md
       - <icon name='namespace'>图标参考</icon>: api/icons.md
-      - <def>world</def> /<br><def>Box3World</def> / <def>GameWorld</def>: api/world.md
-      - <def>voxels</def> /<br><def>Box3Voxels</def> /<def>GameVoxels</def>: api/voxels.md
+      - <def>world</def> & <def>Box3World</def> / <def>GameWorld</def>: api/world.md
+      - <def>voxels</def> & <def>Box3Voxels</def> / <def>GameVoxels</def>: api/voxels.md
       - <def>Box3Entity</def> / <def>GameEntity</def>: api/entity.md
       - <def>Box3Player</def> / <def>GamePlayer</def>: api/player.md
+      - <def>db</def> & <def>Box3DataBase</def>: api/database.md
+      - <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>: api/storage.md
       - <icon name='event'>事件</icon>:
-          - <def>Box3TickEvent</def>: api/event/Box3TickEvent.md
-          - <def>Box3RespawnEvent</def>: api/event/Box3RespawnEvent.md
-          - <def>Box3DamageEvent</def>: api/event/Box3DamageEvent.md
-          - <def>Box3DieEvent</def>: api/event/Box3DieEvent.md
-          - <def>Box3PlayerEntityEvent</def>: api/event/Box3PlayerEntityEvent.md
-          - <def>Box3EntityEvent</def>: api/event/Box3EntityEvent.md
-          - <def>Box3ChatEvent</def>: api/event/Box3ChatEvent.md
-          - <def>Box3ClickEvent</def>: api/event/Box3ClickEvent.md
-          - <def>Box3InputEvent</def>: api/event/Box3InputEvent.md
-          - <def>Box3EntityContactEvent</def>: api/event/Box3EntityContactEvent.md
-          - <def>Box3VoxelContactEvent</def>: api/event/Box3VoxelContactEvent.md
-          - <def>Box3InteractEvent</def>: api/event/Box3InteractEvent.md
-          - <def>Box3FluidContactEvent</def>: api/event/Box3FluidContactEvent.md
-          - <def>Box3VoxelContactEvent</def>: api/event/Box3VoxelContactEvent.md
+          - <def>Box3TickEvent</def>: api/event/TickEvent.md
+          - <def>Box3RespawnEvent</def>: api/event/RespawnEvent.md
+          - <def>Box3DamageEvent</def>: api/event/DamageEvent.md
+          - <def>Box3DieEvent</def>: api/event/DieEvent.md
+          - <def>Box3EntityEvent</def>: api/event/EntityEvent.md
+          - <def>Box3PlayerEntityEvent</def> / <def>GamePlayerEntityEvent</def>: api/event/PlayerEntityEvent.md
+          - <def>Box3ChatEvent</def>: api/event/ChatEvent.md
+          - <def>Box3ClickEvent</def>: api/event/ClickEvent.md
+          - <def>Box3InputEvent</def>: api/event/InputEvent.md
+          - <def>Box3EntityContactEvent</def>: api/event/EntityContactEvent.md
+          - <def>Box3VoxelContactEvent</def>: api/event/VoxelContactEvent.md
+          - <def>Box3FluidContactEvent</def>: api/event/FluidContactEvent.md
+          - <def>Box3InteractEvent</def>: api/event/InteractEvent.md
 
-      - <def>db</def> /<br><def>Box3DataBase</def>: api/database.md
-      - <def>storage</def> /<def>GameStorage</def> /<br><def>GameDataStorage</def>: api/storage.md
       - <icon name='type'>结构类型</icon>:
           - <icon name='namespace'>基本数据类型</icon>:
-              - <def>string</def> / <def>String</def>: api/type/base/String.md
-              - <def>number</def> / <def>Number</def>: api/type/base/Number.md
-              - <def>boolean</def> / <def>Boolean</def>: api/type/base/Boolean.md
-              - <def>Partial</def>: api/type/base/Partial.md
-              - <def>URL</def>: api/type/base/URL.md
-          - <def>Box3Vector3</def> /<br><def>GameVector3</def>: api/type/Vector3.md
-          - <def>Box3Quaternion</def> /<br><def>GameQuaternion</def>: api/type/Quaternion.md
-          - <def>Box3EventChannel</def> /<br><def>GameEventChannel</def>: api/type/EventChannel.md
-          - <def>Box3EventFuture</def> /<br><def>GameEventFuture</def>: api/type/EventFuture.md
-          - <def>Box3EntityConfig</def> /<br><def>GameEntityConfig</def>: api/type/EntityConfig.md
-          - <def>Box3PlayerEntityConfig</def> /<br><def>GamePlayerEntityConfig</def>: api/type/EntityConfig.md
-          - <def>Box3SelectorString</def> /<br><def>GameSelectorString</def>: api/type/SelectorString.md
-          - <def>Box3RaycastOptions</def> /<br><def>GameRaycastOptions</def>: api/type/RaycastOptions.md
-          - <def>Box3RaycastResult</def> /<br><def>GameRaycastResult</def>: api/type/RaycastResult.md
-          - <def>Box3Bounds3</def> /<br><def>GameBounds3</def>: api/type/Bounds3.md
-          - <def>Box3RGBColor</def> /<br><def>GameRGBColor</def>: api/type/RGBColor.md
-          - <def>Box3RGBAColor</def> /<br><def>GameRGBAColor</def>: api/type/RGBAColor.md
-          - <def>Box3SoundEffect</def> /<br><def>GameSoundEffect</def>: api/type/SoundEffect.md
-          - <def>Box3ButtonType</def> /<br><def>GameButtonType</def>: api/type/ButtonType.md
-
-      - <icon name='signature'>动画</icon>:
-          - <def>Box3WorldKeyframe</def>: api/type/WorldKeyframe.md
-          - <def>Box3AnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
-          - <def>Box3Animation</def>: api/type/Animation.md
-          - <def>Box3EntityKeyframe</def>: api/type/EntityKeyframe.md
-          - <def>Box3PlayerKeyframe</def>: api/type/PlayerKeyframe.md
+            - <def>string</def> & <def>String</def>: api/type/base/String.md
+            - <def>number</def> & <def>Number</def>: api/type/base/Number.md
+            - <def>boolean</def> & <def>Boolean</def>: api/type/base/Boolean.md
+            - <def>Partial</def>: api/type/base/Partial.md
+            - <def>URL</def>: api/type/base/URL.md
+          - <icon name='namespace'>Box3 基本数据类型</icon>:
+            - <def>Box3Vector3</def> / <def>GameVector3</def>: api/type/Vector3.md
+            - <def>Box3Quaternion</def> / <def>GameQuaternion</def>: api/type/Quaternion.md
+            - <def>Box3Bounds3</def> / <def>GameBounds3</def>: api/type/Bounds3.md
+            - <def>Box3RGBColor</def> / <def>GameRGBColor</def>: api/type/RGBColor.md
+            - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def>: api/type/RGBAColor.md
+          - <def>Box3EventChannel</def> / <def>GameEventChannel</def>: api/type/EventChannel.md
+          - <def>Box3EventFuture</def> / <def>GameEventFuture</def>: api/type/EventFuture.md
+          - <def>Box3EntityConfig</def> / <def>GameEntityConfig</def>: api/type/EntityConfig.md
+          - <def>Box3SelectorString</def> / <def>GameSelectorString</def>: api/type/SelectorString.md
+          - <def>Box3RaycastOptions</def> / <def>GameRaycastOptions</def>: api/type/RaycastOptions.md
+          - <def>Box3RaycastResult</def> / <def>GameRaycastResult</def>: api/type/RaycastResult.md
+          - <def>Box3SoundEffect</def> / <def>GameSoundEffect</def>: api/type/SoundEffect.md
+          - <def>Box3ButtonType</def> / <def>GameButtonType</def>: api/type/ButtonType.md
+          - <def>Box3Animation</def> / <def>GameAnimation</def>: api/type/Animation.md
+          - <def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>: api/type/WorldKeyframe.md
+          - <def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>: api/type/EntityKeyframe.md
+          - <def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>: api/type/PlayerKeyframe.md
+          - <def>Box3AnimationPlaybackConfig</def> / <def>GameAnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
 # - Getting started:
 #   - Installation: getting-started.md
 #   - Creating your site: creating-your-site.md
