@@ -8,7 +8,7 @@
             "name": "Launch Mkdoc",
             "type": "PowerShell",
             "request": "launch",
-            "script": "mkdocs serve",
+            "script": "mkdocs serve --dirtyreload",
             "cwd": "${cwd}"
         },
         {
