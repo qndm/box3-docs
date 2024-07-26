@@ -1,5 +1,9 @@
 # API 参考
 
+!!! info "这是服务端API"
+    这些API仅在服务端脚本使用  
+    不过下面的几个提示都是通用的
+
 此处是关于代码中各种内容的详细说明，需要一定的基础知识。查阅前建议先掌握 [JavaScript 基础教程](../learn/js/index.md)
 
 !!! warning "API 参考文档并不完整"
@@ -46,3 +50,19 @@
     ---
 
     很多地方并没有标默认值，有时候是因为此处默认值无意义（地图运行会立刻修改/不同环境默认值不一样/无默认值），有时候是因为文档编写工作繁忙，不过无需在意，一般不需理会这些默认值
+
+??? question "如何读定义声明（3）"
+
+    这是关于该文档中旧版API和新版API在一起声明的情况  
+    分为两种，一种是类似于[](Box3Vector3) / [](GameVector3)页面的，另一种是类似于[](world)页面的  
+
+    - 第一种  
+    [Box3Vector3](constructor) ([x](arg): <def>number</def>, [y](arg): <def>number</def>, [z](arg): <def>number</def>): <def>Box3Vector3</def>  
+    [GameVector3](constructor) ([x](arg): <def>number</def>, [y](arg): <def>number</def>, [z](arg): <def>number</def>): <def>GameVector3</def>  
+    两种编辑器分两行分开定义，第一行为旧版编辑器，第二行为Arena 编辑器  
+    有时只有一行，那是因为两种编辑器定义完全一样，故合并成一行  
+    一般这种在Box3 通用属性中出现
+    - 第二种
+    [fogColor](property) : [](Box3RGBColor) / [](GameRGBColor)  
+    两种编辑器的不同定义用“`/`”分开，“`/`”之前是旧版编辑器定义，之后是新版编辑器定义  
+    “`/`”两边应看作一个整体

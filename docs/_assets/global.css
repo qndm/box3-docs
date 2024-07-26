@@ -6,6 +6,7 @@ a:hover {
 anchor {
   height: 0;
 }
+
 summary,
 img {
   border: 1px solid transparent;
@@ -23,9 +24,26 @@ img:active {
 }
 
 /*解决双层active效果*/
-a > a:active,
-a > .kind-icon:active {
+a>a:active,
+a>.kind-icon:active {
   border-color: transparent !important;
   box-shadow: none !important;
   background-color: transparent !important;
+}
+
+/*解决方块速查表颜色太深看不见字问题*/
+.voxelsTableTableData span,
+.coloredWord {
+  transition: all 300ms;
+  padding: 5px;
+  border-radius: 3px;
+}
+.voxelsTableTableData span:hover,
+.coloredWord:hover {
+  background-color: unset !important;
+}
+
+/*Joke Mode Only*/
+.jokeElement{
+  transition: all 300ms;
 }

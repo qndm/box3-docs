@@ -1,6 +1,7 @@
-# [](Box3Entity) / [](GameEntity)
-
 <a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
+
+!!! info "这是一个服务端API"
+    该API仅在服务端脚本使用
 
 : [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/aqkg27coplqk183f)  
   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/kgrabhf749axn65y)  
@@ -12,18 +13,21 @@
 
 ## 常用
 [<property>id</property>](#id)  
+[<property>player</property>?](#player)
+[<property>isPlayer</property>](#isPlayer)  
 [<property>mesh</property>](#mesh)  
 [<property>position</property>](#position)  
+[<property>motion</property>](#motion)  
 [<property>collides</property>](#collides)
 [<property>fixed</property>](#fixed)
 [<property>gravity</property>](#gravity)  
 [<property>friction</property>](#friction)
 
-[<property></property>](#)
-[<property></property>](#)
-[<property></property>](#)
-[<property></property>](#)
-[<property></property>](#)
+[<method>addTag</method>](#addTag)
+[<method>hasTag</method>](#hasTag)
+[<method>removeTag</method>](#removeTag)  
+[<method>destroy</method>](#destroy)  
+[<method>say</method>](#say)
 
 ## 属性
 ### 基础
@@ -41,23 +45,30 @@
 <span anchor="position">[position](property): [](Box3Vector3) / [](GameVector3)</span>
 :   实体的位置
 
+<span anchor="player">[player](property)?: [](Box3Player) / [](GamePlayer)</span>
+:   [](Box3Player) / [](GamePlayer)的入口，用于控制实体对应玩家属性  
+    若实体是玩家，才会有该属性
+
+<span anchor="isPlayer">[isPlayer](property): [](boolean)</span>
+:   实体是否是玩家
+
 ### 外观
 <span anchor="mesh">[mesh](property): [](string)</span>
 :   实体的外形。格式为`#!javascript 'mesh/*.vb'`
 
     !!! info "玩家的该属性的值为`#!javascript ''`"
-    !!! tip "提示"
+    !!! tip "提示与技巧"
         通过对玩家修改该属性，可以实现变形和骑乘效果  
         不过玩家本体仍会显示，可以修改玩家的[player](property).[invisible](property)为`#!javascript false`来解决玩家本体显示问题
 
     ??? example "示例"
 
         ```javascript
-            // 实现玩家变形效果
-            world.onPlayerJoin(({ entity }) => {
-                entity.mesh = 'mesh/车.vb';
-                entity.player.invisible = false; // 只显示车
-            });
+        // 实现玩家变形效果
+        world.onPlayerJoin(({ entity }) => {
+            entity.mesh = 'mesh/车.vb';
+            entity.player.invisible = false; // 只显示车
+        });
         ```
 
 [meshOrientation](property): [](Box3Quaternion) / [](GameQuaternion)
@@ -73,6 +84,8 @@
 :   实体的颜色，[r](property)、[g](property)、[b](property)、[a](property)的范围都是`#!javascript 0`~`#!javascript 1`
 
     !!! warning "注意是RGBA颜色"
+    !!! tip "提示与技巧"
+        修改[meshColor](property).[a](property)的值，可以让实体实现半透明的效果
 
 [meshMetalness](property): [](number)
 :   实体的金属感
@@ -82,6 +95,14 @@
 
 [meshShininess](property): [](number)
 :   实体的反光度
+
+<span anchor="motion">
+[motion](property): [](GameMotionController)
+</span>
+:   实体动作控制器，具体见[](GameMotionController)
+
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
 ### 物理
 <span anchor="collides">[collides](property): [](boolean) = `#!javascript true`</span>
@@ -243,7 +264,7 @@
 
     !!! bug
 
-        若将颜色设为白色（`#!javascript new Box3RGBColor(1, 1, 1)` / `#!javascript new GameRGBColor(1, 1, 1)`），实际颜色只有<span style="background: #d7d7d7;">#D7D7D7</span>
+        若将颜色设为白色（`#!javascript new Box3RGBColor(1, 1, 1)` / `#!javascript new GameRGBColor(1, 1, 1)`），实际颜色只有<span style="background: #d7d7d7;" class="coloredWord">#D7D7D7</span>
 
 [particleVelocity](property): [](Box3Vector3) / [](GameVector3)
 :   该实体产生的所有粒子的初始速度
@@ -276,7 +297,7 @@
             });
             ```
 
-        === "Arena 编辑器"
+        === "Arena编辑器"
 
             ```javascript
             // 从玩家的位置扇形发射粒子
@@ -321,7 +342,7 @@
             });
             ```
 
-        === "Arena 编辑器"
+        === "Arena编辑器"
             ```javascript
             // 蓄力发射
             world.onPlayerJoin(({ entity }) => {
@@ -388,31 +409,36 @@
     [interactSound](property).[sample](property)默认为`#!javascript ''`
 
 ## 方法
-!!! bug "内容缺失"
-    API文档内容繁多，有一些内容还未完工。  
-    如果你愿意为此贡献一份力量，请[加入我们](/about)
-    
 ### 基础
-[destroy](method)(): [](string)[]
+<span anchor="destroy">
+[destroy](method)() => [](string)[]
+</span>
 :   销毁该实体
 
-[tags](method)(): [](string)[]
+[tags](method)() => [](string)[]
 :   获取实体的所有标签
 
-[addTag](method)([tag](arg): [](string)): [](void)
+<span anchor="addTag">
+[addTag](method)([tag](arg): [](string)) => [](void)
+</span>
 :   给实体添加标签
 
-[hasTag](method)([tag](arg): [](string)): [](boolean)
+<span anchor="hasTag">
+[hasTag](method)([tag](arg): [](string)) => [](boolean)
+</span>
 :   检查实体是否有某个标签
 
-[removeTag](method)([tag](arg): [](string)): [](void)
+<span anchor="removeTag">
+[removeTag](method)([tag](arg): [](string)) => [](void)
+</span>
 :   给实体移除某个标签
 
 ### 外观
-[lookAt](method)([targetPosition](arg): [](GameVector3), [meshFacing](arg)?: `#!javascript "X"` | `#!javascript "Y"` | `#!javascript "Z"`, [up](arg)?: [](GameVector3))
+[lookAt](method)([targetPosition](arg): [](GameVector3), [meshFacing](arg)?: `#!javascript "X"` | `#!javascript "Y"` | `#!javascript "Z"`, [up](arg)?: [](GameVector3)) => [](void)
 :   将实体旋转至面向指定位置的方向
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
     !!! info "提示"
         通过此方法进行的旋转会瞬时发生，仅影响实体的朝向，不会影响实体的运动状态。
 
@@ -422,7 +448,128 @@
     | [meshFacing](arg) | `#!javascript "X"` \| `#!javascript "Y"` \| `#!javascript "Z"` | 定义模型在未旋转状态下的正方向<br>处理模型设计时未朝向Z轴时的情况：<br>当取X、Z时，定义模型的正方向分别为X、Z轴正方向，上方向为 Y 轴正方向<br>当取Y时，定义模型的正方向为Y轴正方向，上方向为Z轴正方向<br>默认值为Z，即模型设计时朝向Z轴正方向 |
     | [up](arg) | [](GameVector3) | 上向量，默认取 Y 轴正方向 |
 
+### 聊天
+<span anchor="say">
+[say](method)([message](arg): [](string)): [](void)
+</span>
+:   让实体说话  
+    会播放[chatSound](property)音效
+
+### 战斗相关
+[hurt](method)([amount](arg): number, [options](arg)?: [](Partial)<[](Box3HurtOptions) / [](GameHurtOptions)>): [](void)
+:   对实体造成伤害  
+    与直接修改属性不同，该方法会触发受伤/死亡事件，实体也会有发光效果
+
+    !!! info "提示"
+        若实体的血量小于等于`#!javascript 0`，这个方法并不会有任何效果，也不会触发任何事件  
+        若[amount](arg)大于实体的[hp](property)属性，实体的血量只会减小到`#!javascript 0`，即使实体伤害显示上的数值仍为[amount](arg)的值
+
+    !!! tip "提示与技巧"
+        若[amount](arg)的值为`#!javascript Infinity`，伤害显示上的数值为`#!javascript 0`，但可以做到立刻击杀实体且能触发事件的效果（设置[hp](property) = `#!javascript 0`不会触发事件）
+
+### 动画
+<method>animate</method> ([keyframes](arg): [](Partial)<[](Box3EntityKeyframe) / [](GameEntityKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>): [](Box3Animation) / [](GameAnimation)<[](Box3EntityKeyframe) / [](GameEntityKeyframe), [](Box3Entity) / [](GameEntity)>
+:   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
+
+!!! bug
+
+    2024/7/22在Arena编辑器中测试，使用动画修改[meshColor](property)属性时若使用[](GameRGBAColor)类而不是数组，实体会变成完全透明，且和属性中[a](property)的值无关  
+    直接修改属性（不使用动画）无问题  
+    旧版编辑器中未知  
+    这就是为什么，下面的例子中[meshColor](property)的属性使用数组
+
+??? example "示例"
+
+    === "旧版编辑器"
+
+        ```javascript
+            // 需要提前在编辑器中添加'单元方块-1'实体。 
+            const vox = world.querySelector('#单元方块-1');          // 获取实体
+            vox.meshScale = vox.meshScale.scale(4);                 // 让实体变大4倍
+            const ani = vox.animate([
+                { position: new Box3Vector3(0, 12, 0), meshColor: [1, 1, 0, 1] },
+                { position: new Box3Vector3(0, 12, 127), meshColor: [1, 0, 0, 1] },
+                { position: new Box3Vector3(127, 12, 127), meshColor: [0, 1, 0, 1] },
+                { position: new Box3Vector3(127, 12, 0), meshColor: [0, 0, 1, 1] }
+            ], {
+                iterations: 3,                              //兜3圈
+                direction: Box3AnimationDirection.WRAP,     // 从终点回到起点
+                duration: 16 * 5                            //兜一圈5秒(每秒16帧)
+            });
+            ani.onReady(() => {             //当动画开始播放时
+                world.say('开始兜圈');
+            });
+            ani.onFinish(() => {            //当动画结束播放时
+                world.say('兜圈结束');
+            });
+
+        ```
+    === "Arena编辑器"
+
+        ```javascript
+            // 需要提前在编辑器中添加'单元方块-1'实体。 
+            const vox = world.querySelector('#单元方块-1');          // 获取实体
+            vox.meshScale = vox.meshScale.scale(4);                 // 让实体变大4倍
+            const ani = vox.animate([
+                { position: new GameVector3(0, 12, 0), meshColor: [1, 1, 0, 1] },
+                { position: new GameVector3(0, 12, 127), meshColor: [1, 0, 0, 1] },
+                { position: new GameVector3(127, 12, 127), meshColor: [0, 1, 0, 1] },
+                { position: new GameVector3(127, 12, 0), meshColor: [0, 0, 1, 1] }
+            ], {
+                iterations: 3,                              //兜3圈
+                direction: GameAnimationDirection.WRAP,     // 从终点回到起点
+                duration: 16 * 5                            //兜一圈5秒(每秒16帧)
+            });
+            ani.onReady(() => {             //当动画开始播放时
+                world.say('开始兜圈');
+            });
+            ani.onFinish(() => {            //当动画结束播放时
+                world.say('兜圈结束');
+            });
+        ```
+
+
+
 ## 事件
-!!! bug "内容缺失"
-    API文档内容繁多，有一些内容还未完工。  
-    如果你愿意为此贡献一份力量，请[加入我们](/about)
+### 交互
+[onClick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
+[nextClick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
+:   当玩家点击该实体(或未来)触发
+
+[onInteract](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
+[nextInteract](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
+:   当玩家与该实体互动(或未来)触发
+
+### 物理
+[onEntityContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntityContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+:   当该实体碰撞其他实体(或未来)触发
+
+[onEntitySeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntitySeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+:   当该实体和其他实体分开(或未来)触发
+
+[onVoxelContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+:   当该实体碰到方块(或未来)触发
+
+[onVoxelSeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelSeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+:   当该实体离开方块(或未来)触发
+
+[onFluidEnter](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidEnter](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+:   当该实体进入液体(或未来)触发
+
+[onFluidLeave](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidLeave](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+:   当该实体离开液体(或未来)触发
+
+### 战斗相关
+[onTakeDamage](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
+[nextTakeDamage](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
+:   当该实体收到伤害(或未来)触发
+
+[onDie](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
+[nextDie](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
+:   当该实体死亡(或未来)触发

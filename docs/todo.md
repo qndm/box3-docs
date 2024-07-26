@@ -1,16 +1,22 @@
 # 文档计划
 - API
     - [x] <def>world</def> & <def>Box3World</def> & <def>GameWorld</def>
-    - [ ] <def>Box3Entity</def> & <def>GameEntity</def>
+    - [x] <def>Box3Entity</def> & <def>GameEntity</def>
     - [ ] <def>Box3Player</def> & <def>GamePlayer</def>
-    - [ ] <def>voxels</def> & <def>Box3Voxels</def> & <def>GameVoxels</def>
+    - [x] <def>voxels</def> & <def>Box3Voxels</def> & <def>GameVoxels</def>
+    - [ ] [](db) & [](Box3DataBase)
+    - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>
     - 类 & 类型
         - 基本数据类型
             - [ ] [](string) & [](String)
             - [x] [](number) & [](Number)
             - [x] [](boolean) & [](Boolean)
+            - [x] [](any)
             - [x] <def>Partial</def>
             - [x] <def>URL</def>
+            - 控制抽象对象
+                - [ ] [](Promise)
+                - [ ] [](AsyncIterator)
         - Box3 基本数据类型
             - [x] <def>Box3Vector3</def> & <def>GameVector3</def>
             - [x] <def>Box3Bounds3</def> & <def>GameBounds3</def>
@@ -50,6 +56,3 @@
         - [x] <def>Box3PlayerEntityEvent</def> & <def>GamePlayerEntityEvent</def>
         - [ ] <def>Box3InteractEvent</def> & <def>GameInteractEvent</def>
         - [ ] <def>Box3AnimationEvent</def> & <def>GameAnimationEvent</def>
-    - 数据库
-        - [ ] [](db) & [](Box3DataBase)
-        - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>

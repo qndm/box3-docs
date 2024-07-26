@@ -1,11 +1,14 @@
-# <def>world</def> & <def>Box3World</def> / <def>GameWorld</def>
 <a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E9%87%8D%E6%96%B0%E6%8E%92%E7%89%88&%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9-qndm-blue"></img></a>
+
+!!! info "这是一个服务端API"
+    该API仅在服务端脚本使用
 
 : [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/qrdwsy18xppep8bv)  
   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/gqdnaany8xlb0q0s)  
   [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/obl2sb5x68v08he8)
 
-<def>Box3World</def> / <def>GameWorld</def>无法（很难）被实例化，但在全局存在一个单例对象<def>world</def>
+<def>Box3World</def> / <def>GameWorld</def>无法（很难）被实例化，但在全局存在一个单例对象<def>world</def>  
+可以通过<def>world</def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
 
 ## 常用
 - [<listener>onTick</listener>](#c1)
@@ -41,7 +44,8 @@
     ??? quote "OBB 碰撞"
         OBB(Oriented Bounding Box)译为方向包围盒，与原本的AABB(Axis Aligned Bounding Box)轴对齐包围盒相比，物理模型新增了旋转属性，碰撞效果更加的精准。
 
-    !!! info "该属性仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该属性仅在Arena编辑器中使用
     !!! warning "该功能仍在实验中"
         实验版仅支持400个100面以下的实体在静态场景下以60+FPS展示
     !!! danger "性能警告"
@@ -85,7 +89,7 @@
 
     !!! bug
 
-        若将颜色设为白色（`#!javascript new Box3RGBColor(1, 1, 1)` / `#!javascript new GameRGBColor(1, 1, 1)` / <span style="background: #ffffff;">#FFFFFF</span>），实际颜色只有<span style="background: #a6b1b9;">#A6B1B9</span>（看地面）<span style="background: #a9b5be;">#A9B5BE</span>（看天空）  
+        若将颜色设为白色（`#!javascript new Box3RGBColor(1, 1, 1)` / `#!javascript new GameRGBColor(1, 1, 1)` / <span style="background: #ffffff;" class="coloredWord">#FFFFFF</span>），实际颜色只有<span style="background: #a6b1b9;" class="coloredWord">#A6B1B9</span>（看地面）<span style="background: #a9b5be;" class="coloredWord">#A9B5BE</span>（看天空）  
         此问题曾向官方反馈，但未得到解决
 
 
@@ -168,18 +172,18 @@
 
 ## 方法
 ### 实体创建 & 销毁
-<method>entityQuota</method> () : <def>number</def>
+<method>entityQuota</method> () => <def>number</def>
 :   返回世界当前允许创建的实体的剩余数量
 
-<method>createEntity</method> ([config](arg): <def> Partial</def><[](Box3EntityConfig) / [](GameEntityConfig)>) : [](Box3Entity) / [](GameEntity) | `#!javascript null`
+<method>createEntity</method> ([config](arg): <def> Partial</def><[](Box3EntityConfig) / [](GameEntityConfig)>) => [](Box3Entity) / [](GameEntity) | `#!javascript null`
 :   创建一个新的[](Box3Entity) / [](GameEntity)或复制一个现有实体
 如果超过了实体配额，则返回 `#!javascript null`
 
 ### 搜索
-<span anchor="c3"><method> querySelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) : <def> Box3Entity</def> / [](GameEntity) | `#!javascript null`</span>
+<span anchor="c3"><method> querySelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) => <def> Box3Entity</def> / [](GameEntity) | `#!javascript null`</span>
 :   通过选择器来查找一个实体，如果找不到，则会返回`#!javascript null`
 
-<method>querySelectorAll</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) : [](Box3Entity)[] / [](GameEntity)[]
+<method>querySelectorAll</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) => [](Box3Entity)[] / [](GameEntity)[]
 :   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个[](Box3Entity) / [](GameEntity)组成的数组。如果没有符合条件的实体，则返回空数组。
 
     ??? example "示例"
@@ -191,7 +195,7 @@
           }) // 遍历世界中的所有玩家并且广播其玩家昵称
         ```
 
-<method>testSelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString), [entity](arg): [](Box3Entity)) : <def>boolean</def>
+<method>testSelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString), [entity](arg): [](Box3Entity)) => <def>boolean</def>
 :   测试实体是否符合选择器，如果实体能被指定的选择器选择，则返回`#!javascript true`，否则返回`#!javascript false`
 
     ??? example "示例"
@@ -200,7 +204,7 @@
         world.testSelector('.groupA', a_Entity_Has_Tag_groupA)
         ```
 
-<method>raycast</method> ([origin](arg): [](Box3Vector3) / [](GameVector3), [direction](arg): [](Box3Vector3) / [](GameVector3), [options?](arg): <def>Partial</def><[](Box3RaycastOptions)> / [](GameRaycastOptions)>) : <def>string</def>[][]
+<method>raycast</method> ([origin](arg): [](Box3Vector3) / [](GameVector3), [direction](arg): [](Box3Vector3) / [](GameVector3), [options?](arg): <def>Partial</def><[](Box3RaycastOptions)> / [](GameRaycastOptions)>) => <def>string</def>[][]
 :   射线检测，从 <arg>origin</arg> 原点位置向 <arg>direction</arg> 方向投射一条隐形的射线，返回碰到的实体或方块
     [Box3RaycastOptions / GameRaycastOptions](type/RaycastOptions.md)  
     [Box3RaycastResult / GameRaycastResult](type/RaycastResult.md)
@@ -220,11 +224,11 @@
         举个例子，在玩家位置发射射线，射线原点和玩家重合，射线就会击中玩家。  
         所以要计算好发射的原点，避免碰到你不想它碰到的东西。
 
-<method>searchBox</method> ([bounds](arg): [](Box3Bounds3) / [](GameBounds3)) : [](Box3Entity)[] / [](GameEntity)[]
+<method>searchBox</method> ([bounds](arg): [](Box3Bounds3) / [](GameBounds3)) => [](Box3Entity)[] / [](GameEntity)[]
 :   搜索指定区域内的实体
 
 ### 聊天
-<span anchor="c5"><method>say</method> ([message](arg): <def>string</def>): [](void)</span>
+<span anchor="c5"><method>say</method> ([message](arg): <def>string</def>) => [](void)</span>
 :   向世界中所有玩家广播
 
     ??? example "示例"
@@ -235,10 +239,11 @@
         });
         ```
 
-[createTempChat](method) ([userIds](arg)?: [](string)[]): Promise<[](string)>
+[createTempChat](method) ([userIds](arg)?: [](string)[]) => [](Promise)<[](string)>
 :   创建临时聊天频道
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -268,10 +273,11 @@
         })();
         ```
 
-[destroyTempChat](method) ([chatIds](arg): [](string)[]): Promise<[](string)[]>
+[destroyTempChat](method) ([chatIds](arg): [](string)[]) => [](Promise)<[](string)[]>
 :   批量销毁临时聊天频道
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -304,10 +310,11 @@
         })();
         ```
 
-[addTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]): Promise<[](string)[]>
+[addTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]) => [](Promise)<[](string)[]>
 :   向临时聊天频道添加玩家
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -335,10 +342,11 @@
         })();
         ```
 
-[removeTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]): Promise<[](string)[]>
+[removeTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]) => [](Promise)<[](string)[]>
 :   向临时聊天频道移除玩家
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -366,10 +374,11 @@
         })();
         ```
 
-[getTempChats](method) (): Promise<[](string)[]>
+[getTempChats](method) () => [](Promise)<[](string)[]>
 :   获取当前地图存在的临时聊天频道
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
@@ -389,10 +398,11 @@
         })();
         ```
 
-[getTempChatUsers](method) ([chatId](arg): [](string)): Promise<[](string)[]>
+[getTempChatUsers](method) ([chatId](arg): [](string)) => [](Promise)<[](string)[]>
 :   获取临时聊天频道中的玩家
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -417,7 +427,7 @@
         ```
 
 ### 物理
-<method>addCollisionFilter</method> ([aSelector](arg): [](Box3SelectorString) / [](GameSelectorString), [bSelector](arg): [](Box3SelectorString) / [](GameSelectorString)) : [](void)
+<method>addCollisionFilter</method> ([aSelector](arg): [](Box3SelectorString) / [](GameSelectorString), [bSelector](arg): [](Box3SelectorString) / [](GameSelectorString)) => [](void)
 :   添加碰撞过滤器，关闭两个实体组之间的碰撞
 
     ??? example "示例"
@@ -429,10 +439,10 @@
 <method>removeCollisionFilter</method> ([aSelector](arg): <def>Box3SelectorString</def> / [](GameSelectorString), [bSelector](arg): <def>Box3SelectorString</def> / [](GameSelectorString)) : [](void)
 :   移除碰撞过滤器，不再关闭两个实体组 <arg>aSelector</arg> 、 <arg>bSelector</arg> 之间的碰撞
 
-<method>clearCollisionFilters</method> () : [](void)
+<method>clearCollisionFilters</method> () => [](void)
 :   清除所有的碰撞过滤器
 
-<method>collisionFilters</method> () : <def>string</def>[][]
+<method>collisionFilters</method> () => <def>string</def>[][]
 :   返回当前所有的碰撞过滤器
     ??? example "示例"
 
@@ -441,7 +451,7 @@
         ```
 
 ### 动画
-<method>animate</method> ([keyframes](arg): [](Partial)<[](Box3WorldKeyframe) / [](GameWorldKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>): [](Box3Animation) / [](GameAnimation)<[](Box3WorldKeyframe) / [](GameWorldKeyframe), [](Box3World) / [](GameWorld)>
+<method>animate</method> ([keyframes](arg): [](Partial)<[](Box3WorldKeyframe) / [](GameWorldKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>) => [](Box3Animation) / [](GameAnimation)<[](Box3WorldKeyframe) / [](GameWorldKeyframe), [](Box3World) / [](GameWorld)>
 :   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
     ??? example "示例"
         === "旧版编辑器"
@@ -463,7 +473,7 @@
                     }
                 });
             ```
-        === "Arena 编辑器"
+        === "Arena编辑器"
 
             ```javascript
                 const ani = world.animate([
@@ -483,17 +493,17 @@
                 });
             ```
 
-<hiddenMethod>getAnimations</hiddenMethod> () : <def>Box3Animation</def><<def>Box3WorldKeyframe</def>, <def>Box3World</def>>[]
+<hiddenMethod>getAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3WorldKeyframe</def>, <def>Box3World</def>>[]
 :   获取所有的动画对象
 
-<hiddenMethod>getEntityAnimations</hiddenMethod> () : <def>Box3Animation</def><<def>Box3EntityKeyframe</def>, <def>Box3Entity</def>>[]
+<hiddenMethod>getEntityAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3EntityKeyframe</def>, <def>Box3Entity</def>>[]
 :   获取所有实体的动画对象
 
-<hiddenMethod>getPlayerAnimations</hiddenMethod> () : <def>Box3Animation</def><<def>Box3PlayerKeyframe</def>, <def>Box3Player</def>>[]
+<hiddenMethod>getPlayerAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3PlayerKeyframe</def>, <def>Box3Player</def>>[]
 :   获取所有玩家的动画对象
 
 ### 声音
-<method>sound</method> ([spec](arg): <interface>spec</interface>[见下文] | <def>string</def>) : [](void)
+<method>sound</method> ([spec](arg): <interface>spec</interface>[见下文] | <def>string</def>) => [](void)
 :   在指定位置播放声音
     :   声音播放参数<interface>spec</interface>
         :   <property>sample</property>: string
@@ -525,10 +535,11 @@
     - [players](arg)的长度不能超过50
     - [players](arg)中不能存在游客（没有UserID）
 
-[teleport](method) ([mapId](arg): [](string), [players](arg): [](GameEntity)[]) : Promise<[](void)>
+[teleport](method) ([mapId](arg): [](string), [players](arg): [](GameEntity)[]) => Promise<[](void)>
 :   地图组内传送能力，能够令 Player 被传送到其他地图中。此能力受权限影响，无权限用户可见，但调用后直接报错。
 
-    !!! info "该方法仅在Arena 编辑器中使用"
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
     !!! info "该方法仅在扩展地图中使用"
     !!! warning "该方法需要图主有特定权限才能使用"
 
@@ -656,4 +667,6 @@
 [onPlayerPurchaseSuccess](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](GamePurchaseSuccessEvent)>  
 [nextPlayerPurchaseSuccess](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](GamePurchaseSuccessEvent)>
 :   当玩家成功购买物品(或未来)时触发
-    !!! info "该事件仅在Arena 编辑器中使用"
+
+    !!! info "Arena 独有"
+        该事件仅在Arena编辑器中使用

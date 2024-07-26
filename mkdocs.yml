@@ -15,8 +15,6 @@ theme:
     - search.highlight
   language: zh
   palette:
-    # primary: blue
-    # accent: indigo
     - scheme: default
       primary: blue
       accent: indigo
@@ -36,11 +34,14 @@ extra_css:
 extra_javascript:
   - _assets/iconsParser.js
   - _assets/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  #- https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js
   - https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollToPlugin.min.js
   - _assets/anchorParser.js
+  - _assets/voxelsID.js
+  - _assets/voxelsType.js
+  - _assets/voxelIdsTable.js
 markdown_extensions:
   - abbr
   - admonition
@@ -97,35 +98,35 @@ plugins:
       minify_html: true
 nav:
   - 主页:
-      - 介绍:
-          - 欢迎: index.md
-          - 关于文档: about.md
-          - 更新: changes.md
-          - 计划: todo.md
+    - 介绍:
+      - 欢迎: index.md
+      - 关于文档: about.md
+      - 更新: changes.md
+      - 计划: todo.md
   - 学习:
-      - learn/index.md
-      - 粒子特效:
-          - learn/particle/index.md
-      - JavaScript:
-          - learn/js/index.md
-          - 基础教程:
-              - learn/js/base/index.md
-              - 开始: learn/js/base/index.md
-              - Hello, World!: learn/js/base/01-hello-world.md
-              - 欢迎玩家: learn/js/base/02-greeting.md
-      - 大佬の宝典:
-          - SQL快速入门: learn/community-articles/Nomen-sql.md
-          - OOP（面向对象编程）快速入门: learn/community-articles/Nomen-oop.md
-          - 如何优雅地写注释: learn/community-articles/Nomen-comment.md
-          - 快速上手函数: learn/community-articles/Nomen-function.md
-      - 算法:
-          - BFS: learn/arithmetic/BFS.md
-          - DFS: learn/arithmetic/DFS.md
+    - learn/index.md
+    - 粒子特效:
+      - learn/particle/index.md
+    - JavaScript:
+      - learn/js/index.md
+      - 基础教程:
+        - learn/js/base/index.md
+        - 开始: 
+          - Hello, World!: learn/js/base/01-hello-world.md
+          - 欢迎玩家: learn/js/base/02-greeting.md
+    - 大佬の宝典:
+      - SQL快速入门: learn/community-articles/Nomen-sql.md
+      - OOP（面向对象编程）快速入门: learn/community-articles/Nomen-oop.md
+      - 如何优雅地写注释: learn/community-articles/Nomen-comment.md
+      - 快速上手函数: learn/community-articles/Nomen-function.md
+    - 算法:
+      - BFS: learn/arithmetic/BFS.md
+      - DFS: learn/arithmetic/DFS.md
   - 实例教程:
-      - example/index.md
-      - LightDotCutter 简单PVE游戏:
-          - 起步: example/light-dot-cutter/01-start.md
-          - 生成敌人: example/light-dot-cutter/02-setup-enemy.md
+    - example/index.md
+    - LightDotCutter 简单PVE游戏:
+      - 起步: example/light-dot-cutter/01-start.md
+      - 生成敌人: example/light-dot-cutter/02-setup-enemy.md
       #     - 实现玩家攻击: example/light-dot-cutter/03-attack.md
       #     - 添加敌人和玩家的血量: example/light-dot-cutter/04-health.md
       #     - 设置奖励: example/light-dot-cutter/05-reward.md
@@ -133,55 +134,62 @@ nav:
       #     - 重构和扩展: example/light-dot-cutter/07-extra.md
       #     - 优化: example/light-dot-cutter/08-optimization.md
   - API参考:
-      - api/index.md
-      - <icon name='namespace'>图标参考</icon>: api/icons.md
-      - <def>world</def> & <def>Box3World</def> / <def>GameWorld</def>: api/world.md
-      - <def>voxels</def> & <def>Box3Voxels</def> / <def>GameVoxels</def>: api/voxels.md
-      - <def>Box3Entity</def> / <def>GameEntity</def>: api/entity.md
-      - <def>Box3Player</def> / <def>GamePlayer</def>: api/player.md
-      - <def>db</def> & <def>Box3DataBase</def>: api/database.md
-      - <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>: api/storage.md
-      - <icon name='event'>事件</icon>:
-          - <def>Box3TickEvent</def>: api/event/TickEvent.md
-          - <def>Box3RespawnEvent</def>: api/event/RespawnEvent.md
-          - <def>Box3DamageEvent</def>: api/event/DamageEvent.md
-          - <def>Box3DieEvent</def>: api/event/DieEvent.md
-          - <def>Box3EntityEvent</def>: api/event/EntityEvent.md
-          - <def>Box3PlayerEntityEvent</def> / <def>GamePlayerEntityEvent</def>: api/event/PlayerEntityEvent.md
-          - <def>Box3ChatEvent</def>: api/event/ChatEvent.md
-          - <def>Box3ClickEvent</def>: api/event/ClickEvent.md
-          - <def>Box3InputEvent</def>: api/event/InputEvent.md
-          - <def>Box3EntityContactEvent</def>: api/event/EntityContactEvent.md
-          - <def>Box3VoxelContactEvent</def>: api/event/VoxelContactEvent.md
-          - <def>Box3FluidContactEvent</def>: api/event/FluidContactEvent.md
-          - <def>Box3InteractEvent</def>: api/event/InteractEvent.md
-
-      - <icon name='type'>结构类型</icon>:
-          - <icon name='namespace'>基本数据类型</icon>:
-            - <def>string</def> & <def>String</def>: api/type/base/String.md
-            - <def>number</def> & <def>Number</def>: api/type/base/Number.md
-            - <def>boolean</def> & <def>Boolean</def>: api/type/base/Boolean.md
-            - <def>Partial</def>: api/type/base/Partial.md
-            - <def>URL</def>: api/type/base/URL.md
-          - <icon name='namespace'>Box3 基本数据类型</icon>:
-            - <def>Box3Vector3</def> / <def>GameVector3</def>: api/type/Vector3.md
-            - <def>Box3Quaternion</def> / <def>GameQuaternion</def>: api/type/Quaternion.md
-            - <def>Box3Bounds3</def> / <def>GameBounds3</def>: api/type/Bounds3.md
-            - <def>Box3RGBColor</def> / <def>GameRGBColor</def>: api/type/RGBColor.md
-            - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def>: api/type/RGBAColor.md
-          - <def>Box3EventChannel</def> / <def>GameEventChannel</def>: api/type/EventChannel.md
-          - <def>Box3EventFuture</def> / <def>GameEventFuture</def>: api/type/EventFuture.md
-          - <def>Box3EntityConfig</def> / <def>GameEntityConfig</def>: api/type/EntityConfig.md
-          - <def>Box3SelectorString</def> / <def>GameSelectorString</def>: api/type/SelectorString.md
-          - <def>Box3RaycastOptions</def> / <def>GameRaycastOptions</def>: api/type/RaycastOptions.md
-          - <def>Box3RaycastResult</def> / <def>GameRaycastResult</def>: api/type/RaycastResult.md
-          - <def>Box3SoundEffect</def> / <def>GameSoundEffect</def>: api/type/SoundEffect.md
-          - <def>Box3ButtonType</def> / <def>GameButtonType</def>: api/type/ButtonType.md
-          - <def>Box3Animation</def> / <def>GameAnimation</def>: api/type/Animation.md
-          - <def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>: api/type/WorldKeyframe.md
-          - <def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>: api/type/EntityKeyframe.md
-          - <def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>: api/type/PlayerKeyframe.md
-          - <def>Box3AnimationPlaybackConfig</def> / <def>GameAnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
+    - api/index.md
+    - <icon name='namespace'>图标参考</icon>: api/icons.md
+    - <def>world</def> & <def>Box3World</def> / <def>GameWorld</def> <span block>世界模块</span>: api/world.md
+    - <def>voxels</def> & <def>Box3Voxels</def> / <def>GameVoxels</def> <span block>方块模块</span>: api/voxels.md
+    - <def>db</def> & <def>Box3DataBase</def> <span block>数据库模块</span>: api/database.md
+    - <def>storage</def> & <def>GameStorage</def> <span block>数据存储模块</span>: api/storage.md
+    - <icon name='class'>类</icon>:
+      - <def>Box3Entity</def> / <def>GameEntity</def> <span block> 实体</span>: api/class/Entity.md
+      - <def>Box3Player</def> / <def>GamePlayer</def> <span block>玩家</span>: api/class/Player.md
+      - <def>Box3Animation</def> / <def>GameAnimation</def> <span block>动画</span>: api/class/Animation.md
+      - <def>GameMotionController</def> <span block>动作控制器</span>: api/class/MotionController.md
+      - <def>Box3QueryResult</def> <span block>数据查找结果</span>: api/class/QueryResult.md
+      - <def>GameDataStorage</def> <span block>数据存储空间</span>: api/class/DataStorage.md
+    - <icon name='event'>事件</icon>:
+      - <def>Box3TickEvent</def> / <def>GameTickEvent</def> <span block>时钟事件</span>: api/event/TickEvent.md
+      - <def>Box3RespawnEvent</def> / <def>GameRespawnEvent</def> <span block>玩家重生事件</span>: api/event/RespawnEvent.md
+      - <def>Box3DamageEvent</def> / <def>GameDamageEvent</def> <span block>实体伤害事件</span>: api/event/DamageEvent.md
+      - <def>Box3DieEvent</def> / <def>GameDieEvent</def> <span block>实体死亡事件</span>: api/event/DieEvent.md
+      - <def>Box3EntityEvent</def> / <def>GameEntityEvent</def> <span block>实体创建销毁事件</span>: api/event/EntityEvent.md
+      - <def>Box3PlayerEntityEvent</def> / <def>GamePlayerEntityEvent</def> <span block>玩家实体创建销毁事件</span>: api/event/PlayerEntityEvent.md
+      - <def>Box3ChatEvent</def> / <def>GameChatEvent</def> <span block>聊天事件</span>: api/event/ChatEvent.md
+      - <def>Box3ClickEvent</def> / <def>GameClickEvent</def> <span block>点击事件</span>: api/event/ClickEvent.md
+      - <def>Box3InputEvent</def> / <def>GameInputEvent</def> <span block>输入事件</span>: api/event/InputEvent.md
+      - <def>Box3InteractEvent</def> / <def>GameInteractEvent</def> <span block>实体互动事件</span>: api/event/InteractEvent.md
+      - <def>Box3EntityContactEvent</def> / <def>GameEntityContactEvent</def> <span block>实体碰撞事件</span>: api/event/EntityContactEvent.md
+      - <def>Box3VoxelContactEvent</def> / <def>GameVoxelContactEvent</def> <span block>方块碰撞事件</span>: api/event/VoxelContactEvent.md
+      - <def>Box3FluidContactEvent</def> / <def>GameFluidContactEvent</def> <span block>液体碰撞事件</span>: api/event/FluidContactEvent.md
+    - <icon name='type'>结构类型</icon>:
+      - <icon name='namespace'>基本数据类型</icon>:
+        - <def>string</def> & <def>String</def>: api/type/base/String.md
+        - <def>number</def> & <def>Number</def>: api/type/base/Number.md
+        - <def>boolean</def> & <def>Boolean</def>: api/type/base/Boolean.md
+        - <def>any</def>: api/type/base/any.md
+        - <def>void</def>: api/type/base/void.md
+        - <def>Partial</def>: api/type/base/Partial.md
+        - <def>URL</def>: api/type/base/URL.md
+      - <icon name='namespace'>Box3 基本数据类型</icon>:
+        - <def>Box3Vector3</def> / <def>GameVector3</def>: api/type/Vector3.md
+        - <def>Box3Quaternion</def> / <def>GameQuaternion</def>: api/type/Quaternion.md
+        - <def>Box3Bounds3</def> / <def>GameBounds3</def>: api/type/Bounds3.md
+        - <def>Box3RGBColor</def> / <def>GameRGBColor</def>: api/type/RGBColor.md
+        - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def>: api/type/RGBAColor.md
+      - <def>Box3EventChannel</def> / <def>GameEventChannel</def>: api/type/EventChannel.md
+      - <def>Box3EventFuture</def> / <def>GameEventFuture</def>: api/type/EventFuture.md
+      - <def>Box3EntityConfig</def> / <def>GameEntityConfig</def>: api/type/EntityConfig.md
+      - <def>Box3SelectorString</def> / <def>GameSelectorString</def>: api/type/SelectorString.md
+      - <def>Box3RaycastOptions</def> / <def>GameRaycastOptions</def>: api/type/RaycastOptions.md
+      - <def>Box3RaycastResult</def> / <def>GameRaycastResult</def>: api/type/RaycastResult.md
+      - <def>Box3SoundEffect</def> / <def>GameSoundEffect</def>: api/type/SoundEffect.md
+      - <def>Box3ButtonType</def> / <def>GameButtonType</def>: api/type/ButtonType.md
+      - <def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>: api/type/WorldKeyframe.md
+      - <def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>: api/type/EntityKeyframe.md
+      - <def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>: api/type/PlayerKeyframe.md
+      - <def>Box3AnimationPlaybackConfig</def> / <def>GameAnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
+  - Client API参考:
+    - api_client/index.md
 # - Getting started:
 #   - Installation: getting-started.md
 #   - Creating your site: creating-your-site.md

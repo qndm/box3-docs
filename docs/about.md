@@ -23,8 +23,19 @@
 
         - Edgar_勿安 - [Github个人主页](https://github.com/Edgar-wuan)
         - 可乐OωO
-        - 全能岛民 - [编程猫个人主页](https://shequ.codemao.cn/user/6715468) [神奇代码岛个人主页](https://box3.codemao.cn/u/6715468box3) [GitHub个人主页](https://github.com/qndm)
+        - 全能岛民 - [编程猫个人主页](https://shequ.codemao.cn/user/6715468) [神奇代码岛个人主页（旧岛）](https://box3.codemao.cn/u/qndm) [神奇代码岛个人主页（新岛）](https://dao3.fun/profile/1349822) [GitHub个人主页](https://github.com/qndm)
         - 屑全能 [神奇代码岛个人主页](https://box3.codemao.cn/u/jmd123456)
         - 树树屑
         - Nomen - [神奇代码岛个人主页](https://box3.codemao.cn/u/zhongjimo)
         - 编码喵 - [神奇代码岛个人主页](https://box3.codemao.cn/u/codemiao2008)
+
+
+## 鸣谢
+- 神奇代码岛 - [旧岛](https://box3.codemao.cn) [新岛](https://dao3.fun)
+- [开发API（旧岛）](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/fmtni9cqqhhgcl5r)
+- [Box3 用户手册](https://box3.yuque.com/staff-khn556/wupvz3)
+- [Box3 社区文档](https://www.yuque.com/box3lab/api)
+- [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material)
+- [Material for MkDocs 中文文档](https://mkdoc-material.llango.com)
+- [Github](https://github.com)

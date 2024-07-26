@@ -1,4 +1,10 @@
-# <def>Box3RaycastResult</def> / <def>GameRaycastResult</def>
+!!! info "这是一个服务端API"
+    该API仅在服务端脚本使用
+
+: [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/of3v80ekxmml69fd)  
+  [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/eoawgqo7sl2cuz6a)  
+  [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/ur5fw9xs38ztuvck#U0fcD)
+
 射线检测(raycast)的结果，包含射线和所击中目标的信息。
 
 ## 成员
