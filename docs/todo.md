@@ -1,11 +1,18 @@
-# 文档计划
+!!! warning "该页面待重新整理"
+
+    该页面分类过于混乱，有待重新整理
+
 - API
     - [x] <def>world</def> & <def>Box3World</def> & <def>GameWorld</def>
     - [x] <def>Box3Entity</def> & <def>GameEntity</def>
-    - [ ] <def>Box3Player</def> & <def>GamePlayer</def>
+    - [x] <def>Box3Player</def> & <def>GamePlayer</def>
     - [x] <def>voxels</def> & <def>Box3Voxels</def> & <def>GameVoxels</def>
-    - [ ] [](db) & [](Box3DataBase)
+    - [x] [](db) & [](Box3DataBase)
     - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>
+    - [x] <def>resources</def>
+    - [ ] <def>gui</def> & <def>GameGUI</def>
+    - [ ] <def>rtc</def> & <def>GameRTC</def>
+    - [ ] <def>http</def> & <def>GameHttpAPI</def>
     - 类 & 类型
         - 基本数据类型
             - [ ] [](string) & [](String)
@@ -35,13 +42,23 @@
         - [ ] <def>Box3SkinInvisible</def> & <def>GameSkinInvisible</def>
         - [ ] <def>Box3DialogParams</def> & <def>GameDialogParams</def>
         - [ ] <def>Box3DialogResponse</def> & <def>GameDialogResponse</def>
+        - [ ] <def>Box3DialogSelectResponse</def> & <def>GameDialogSelectResponse</def>
+        - [ ] <def>Box3Zone</def> & <def>GameZone</def>
+        - [ ] <def>Box3DialogCall</def> & <def>GameDialogCall</def>
+        - [x] <def>Box3DialogCancelOption</def> & <def>GameDialogCancelOption</def>
         - 接口
             - [x] [](Box3EntityConfig) & [](GameEntityConfig)
             - [x] <def>Box3SoundEffect</def> & <def>GameSoundEffect</def>
             - [ ] <def>Box3ZoneConfig</def> & <def>GameZoneConfig</def>
         - 枚举
             - [x] [](Box3ButtonType) & [](GameButtonType)
-            - [ ] <def>Box3BodyPart</def> & <def>GameBodyPart</def>
+            - [x] <def>Box3BodyPart</def> & <def>GameBodyPart</def>
+            - [x] <def>Box3CameraMode</def> & <def>GameCameraMode</def>
+            - [x] <def>Box3InputDirection</def> & <def>GameInputDirection</def>
+            - [x] <def>Box3CameraFreezedAxis</def> & <def>GameCameraFreezedAxis</def>
+            - [x] <def>Box3PlayerMoveState</def> & <def>GamePlayerMoveState</def>
+            - [x] <def>Box3PlayerWalkState</def> & <def>GamePlayerWalkState</def>
+            - [x] <def>Box3DialogType</def> & <def>GameDialogType</def>
     - 事件
         - [x] <def>Box3TickEvent</def> & <def>GameTickEvent</def>
         - [x] <def>Box3DieEvent</def> & <def>GameDieEvent</def>

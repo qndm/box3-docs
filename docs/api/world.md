@@ -175,13 +175,13 @@
 <method>entityQuota</method> () => <def>number</def>
 :   返回世界当前允许创建的实体的剩余数量
 
-<method>createEntity</method> ([config](arg): <def> Partial</def><[](Box3EntityConfig) / [](GameEntityConfig)>) => [](Box3Entity) / [](GameEntity) | `#!javascript null`
+<method>createEntity</method> ([config](arg): <def> Partial</def><[](Box3EntityConfig) / [](GameEntityConfig)>) => [](Box3Entity) / [](GameEntity) | [](null)
 :   创建一个新的[](Box3Entity) / [](GameEntity)或复制一个现有实体
-如果超过了实体配额，则返回 `#!javascript null`
+如果超过了实体配额，则返回 [](null)
 
 ### 搜索
-<span anchor="c3"><method> querySelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) => <def> Box3Entity</def> / [](GameEntity) | `#!javascript null`</span>
-:   通过选择器来查找一个实体，如果找不到，则会返回`#!javascript null`
+<span anchor="c3"><method> querySelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) => <def> Box3Entity</def> / [](GameEntity) | [](null)</span>
+:   通过选择器来查找一个实体，如果找不到，则会返回[](null)
 
 <method>querySelectorAll</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)) => [](Box3Entity)[] / [](GameEntity)[]
 :   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个[](Box3Entity) / [](GameEntity)组成的数组。如果没有符合条件的实体，则返回空数组。
@@ -493,40 +493,60 @@
                 });
             ```
 
-<hiddenMethod>getAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3WorldKeyframe</def>, <def>Box3World</def>>[]
+<hiddenMethod>getAnimations</hiddenMethod> () => [](Box3Animation) / [](GameAnimation)<<def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>, [](Box3World) / [](GameWorld)>[]
 :   获取所有的动画对象
 
-<hiddenMethod>getEntityAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3EntityKeyframe</def>, <def>Box3Entity</def>>[]
+<hiddenMethod>getEntityAnimations</hiddenMethod> () => [](Box3Animation) / [](GameAnimation)<<def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>, [](Box3Entity) / [](GameEntity)>[]
 :   获取所有实体的动画对象
 
-<hiddenMethod>getPlayerAnimations</hiddenMethod> () => <def>Box3Animation</def><<def>Box3PlayerKeyframe</def>, <def>Box3Player</def>>[]
+<hiddenMethod>getPlayerAnimations</hiddenMethod> () => [](Box3Animation) / [](GameAnimation)<<def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>, [](Box3Player) / [](GameEntity)>[]
 :   获取所有玩家的动画对象
 
 ### 声音
-<method>sound</method> ([spec](arg): <interface>spec</interface>[见下文] | <def>string</def>) => [](void)
+<method>sound</method> ([spec](arg): {[sample](interface): [](string), [position](interface)?: [](Box3Vector3) / [](GameVector3), [radius](interface)?: [](number), [gain](interface)?: [](number), [pitch](interface)?: [](number)} | <def>string</def>) => [](void)
 :   在指定位置播放声音
-    :   声音播放参数<interface>spec</interface>
-        :   <property>sample</property>: string
-            :   声音文件路径
-        :   <property>position</property>?: [](Box3Vector3) / [](GameVector3)
-            :   声音播放的位置。可以指定在某个实体身上发出声音
-        :   <property>radius</property>?: number
-            :   声音范围。默认为 32，即 2 格方块距离
-        :   <property>gain</property>?: number
-            :   音量增益。正常为 1，数值越大，声音越大
-        :   <property>pitch</property>?: number
-            :   音高增益。正常为 1，大于 1，声音播放越快
+
+    | 参数 | | 类型 | 说明 |
+    | - | - | - | - |
+    | [spec](arg) | | [](string) | 声音路径 |
+    | [spec](arg) | |  | 声音播放参数 |
+    | | [sample](property) | [](string) | 声音路径 |
+    | | [position](property)? | [](Box3Vector3) / [](GameVector3) | 声音播放的位置。可以指定在某个实体身上发出声音 |
+    | | [radius](property)? | [](number) = `#!javascript 32` | 声音范围，单位是$\frac{1}{16}$个方块 |
+    | | [gain](property)? | [](number) = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
+    | | [pitch](property)? | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
+
+    !!! bug
+
+        [position](property)疑似无效，无论设置成什么，实际播放位置都为`#!javascript { x:0, y:0, z:0 }`
 
     ??? example "示例"
 
         ```javascript
-        // 在指定的位置播放 'airhorn' 声音
-        world.sound({
-            sample: 'audio/airhorn.mp3',
-            position: new Box3Vector3(64, 10, 64),
-            radius: 64  // 只有距离位置64半径的玩家能听见。(1个方块的距离是16)
-        })
+        // 播放一段声音，所有玩家都能听见
+        world.sound('audio/drama.mp3');
         ```
+        === "旧版编辑器"
+
+            ```javascript
+            // 在指定的位置播放 'airhorn' 声音
+            world.sound({
+                sample: 'audio/airhorn.mp3',
+                position: new Box3Vector3(64, 10, 64),
+                radius: 64  // 只有距离位置4格内的玩家能听见。(1个方块的距离是16)
+            });
+            ```
+
+        === "Arena编辑器"
+
+            ```javascript
+            // 在指定的位置播放 'airhorn' 声音
+            world.sound({
+                sample: 'audio/airhorn.mp3',
+                position: new GameVector3(64, 10, 64),
+                radius: 64  // 只有距离位置4格内的玩家能听见。(1个方块的距离是16)
+            });
+            ```
 
 ### 传送
 !!! warning inline end "警告"
@@ -535,13 +555,14 @@
     - [players](arg)的长度不能超过50
     - [players](arg)中不能存在游客（没有UserID）
 
-[teleport](method) ([mapId](arg): [](string), [players](arg): [](GameEntity)[]) => Promise<[](void)>
-:   地图组内传送能力，能够令 Player 被传送到其他地图中。此能力受权限影响，无权限用户可见，但调用后直接报错。
+[teleport](method) ([mapId](arg): [](string), [players](arg): [](GameEntity)[]) => [](Promise)<[](void)>
+:   地图组内传送能力，能够令 Player 被传送到其他地图中。
 
     !!! info "Arena 独有"
         该方法仅在Arena编辑器中使用
     !!! info "该方法仅在扩展地图中使用"
     !!! warning "该方法需要图主有特定权限才能使用"
+        此方法受权限影响，无权限用户可见，但调用后直接报错。
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -565,15 +586,15 @@
         world.say('传送成功 ');
         ```
 
-## 事件
-### 基本
+### 事件
+#### 基本
 <span anchor="c1">
 [onTick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3TickEvent) / [](GameTickEvent)>  
 [nextTick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3TickEvent) / [](GameTickEvent)>
 </span>
 :   Tick 事件，详情请看[](Box3TickEvent) / [](GameTickEvent)
 
-### 实体创建/销毁
+#### 实体创建/销毁
 <span anchor="c2">
 [onPlayerJoin](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
 [nextPlayerJoin](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
@@ -601,12 +622,12 @@
 [nextEntityDestroy](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
 :   当实体被销毁(或未来)触发
 
-### 聊天
+#### 聊天
 [onChat](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ChatEvent) / [](GameChatEvent)>  
 [nextChat](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ChatEvent) / [](GameChatEvent)>
 :   当玩家发言(或未来)触发
 
-### 世界交互
+#### 世界交互
 <span anchor="c4">
 [onClick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
 [nextClick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
@@ -625,7 +646,7 @@
 [nextInteract](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
 :   当玩家与实体互动(或未来)触发
 
-### 物理
+#### 物理
 [onEntityContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
 [nextEntityContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
 :   当实体碰撞(或未来)触发
@@ -650,7 +671,7 @@
 [nextFluidLeave](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
 :   当实体离开液体(或未来)触发
 
-### 战斗相关
+#### 战斗相关
 [onTakeDamage](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
 [nextTakeDamage](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
 :   当实体收到伤害(或未来)触发
@@ -663,7 +684,7 @@
 [nextRespawn](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3RespawnEvent) / [](GameRespawnEvent)>
 :   玩家复活(或未来)触发
 
-### 商业化
+#### 商业化
 [onPlayerPurchaseSuccess](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](GamePurchaseSuccessEvent)>  
 [nextPlayerPurchaseSuccess](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](GamePurchaseSuccessEvent)>
 :   当玩家成功购买物品(或未来)时触发

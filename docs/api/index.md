@@ -66,3 +66,30 @@
     [fogColor](property) : [](Box3RGBColor) / [](GameRGBColor)  
     两种编辑器的不同定义用“`/`”分开，“`/`”之前是旧版编辑器定义，之后是新版编辑器定义  
     “`/`”两边应看作一个整体
+
+??? question "如何看参数表格（1）"
+
+    下面以([](Box3World) / [](GameWorld)).[teleport](method)为例
+    
+    | 参数 | 类型 | 说明 |
+    | :- | :- | :- |
+    | [mapId](arg) | [](string) | 必填，目标频道id |
+    | [players](arg) | [](GameEntity)[] | 必填，需要传送的玩家 |
+
+    该方法有[mapId](arg)和[players](arg)两个参数，[mapId](arg)的类型为[](string)，[players](arg)的类型为[](GameEntity)[]
+
+??? question "如何看参数表格（1）"
+
+    下面以([](Box3Player) / [](GamePlayer)).[sound](method)为例
+    
+    | 参数 | | 类型 | 说明 |
+    | - | - | - | - |
+    | [spec](arg) | | [](string) | 声音路径 |
+    | [spec](arg) | | | 声音播放参数 |
+    | | [sample](property) | [](string) | 声音路径 |
+    | | [gain](property) | [](number) = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
+    | | [pitch](property) | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高 |
+
+    该方法有[spec](arg)**一**个参数，类型可以是[](string)，也可以是一个[](object)（此处类似于接口，但没有明确定义，一般表格里不写）  
+    若填入的类型为[](string)，则表示声音路径  
+    若填入的类型为[](object)，则其中的[sample](property)参数表示声音路径；[gain](property)参数表示音量增益，默认值为`#!javascript 1`；[pitch](property)参数表示音高增益，默认值为`#!javascript 1`；

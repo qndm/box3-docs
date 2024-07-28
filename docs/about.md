@@ -17,7 +17,7 @@
 !!! note "参与编写的人员"
 
     #### 感谢以下参与该文档编写的人员
-    - 发起者 | AlanBestHacker - [Github个人主页](https://github.com/alan-best)
+    - 发起者 | AlanBestHacker - [Github个人主页](https://github.com/genius-alray)
 
     - 贡献者
 

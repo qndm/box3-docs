@@ -3,6 +3,8 @@ const JOKE_MODE = new URL(location).searchParams.get('jokemode') === 'true';
 var $JokeModeonly_element = null;
 const defsMap = {
   any: ['type generic', 'type/any'],
+  object: ['type generic'],
+  resources: ["object", 'resources'],
   Box3TickEvent: ["event", "event/TickEvent"],
   GameTickEvent: ["event", "event/TickEvent"],
   Box3World: ["class", "world"],
@@ -47,8 +49,8 @@ const defsMap = {
   GameBounds3: ["class", "type/Bounds3"],
   Box3Quaternion: ["class", "type/Quaternion"],
   GameQuaternion: ["class", "type/Quaternion"],
-  Box3ButtonType: ["enum", "type/ButtonType"],
-  GameButtonType: ["enum", "type/ButtonType"],
+  Box3ButtonType: ["enum", "type/enum/ButtonType"],
+  GameButtonType: ["enum", "type/enum/ButtonType"],
   Box3AnimationPlaybackConfig: ["interface", "type/AnimationPlaybackConfig"],
   GameAnimationPlaybackConfig: ["interface", "type/AnimationPlaybackConfig"],
   Box3Animation: ["class", "type/Animation"],
@@ -66,8 +68,10 @@ const defsMap = {
   Box3SoundEffect: ["interface", "type/SoundEffect"],
   GameSoundEffect: ["interface", "type/SoundEffect"],
   GameMotionController: ["class", "class/MotionController"],
-
-
+  Box3CameraMode: ["enum", "type/enum/CameraMode"],
+  GameCameraMode: ["enum", "type/enum/CameraMode"],
+  Box3CameraFreezedAxis: ["enum private", "type/enum/CameraFreezedAxis"],
+  GameCameraFreezedAxis: ["enum private", "type/enum/CameraFreezedAxis"],
   Box3DamageEvent: ["event", "event/DamageEvent"],
   GameDamageEvent: ["event", "event/DamageEvent"],
   Box3DieEvent: ["event", "event/DieEvent"],
@@ -93,24 +97,55 @@ const defsMap = {
   GameSkinValue: ["type private", "type/SkinValue"],
   Box3SkinInvisible: ["type", "type/SkinInvisible"],
   GameSkinInvisible: ["type", "type/SkinInvisible"],
+  Box3InputDirection: ["enum", "type/enum/InputDirection"],
+  GameInputDirection: ["enum", "type/enum/InputDirection"],
+  Box3PlayerMoveState: ["enum", "type/enum/PlayerMoveState"],
+  GamePlayerMoveState: ["enum", "type/enum/PlayerMoveState"],
+  Box3PlayerWalkState: ["enum", "type/enum/PlayerWalkState"],
+  GamePlayerWalkState: ["enum", "type/enum/PlayerWalkState"],
+  Box3DialogType: ["enum", "type/enum/DialogType"],
+  GameDialogType: ["enum", "type/enum/DialogType"],
+  Box3DialogSelectResponse: ["type", "type/DialogSelectResponse"],
+  GameDialogSelectResponse: ["type", "type/DialogSelectResponse"],
+  Box3TextDialogParams: ["type", "type/TextDialogParams"],
+  GameTextDialogParams: ["type", "type/TextDialogParams"],
+  Box3SelectDialogParams: ["type", "type/SelectDialogParams"],
+  GameSelectDialogParams: ["type", "type/SelectDialogParams"],
+  Box3InputDialogParams: ["type", "type/InputDialogParams"],
+  GameInputDialogParams: ["type", "type/InputDialogParams"],
+  Box3DialogCancelOption: ["type", "type/DialogCancelOption"],
+  GameDialogCancelOption: ["type", "type/DialogCancelOption"],
+  Box3DialogCall: ["type", "type/DialogCall"],
+  GameDialogCall: ["type", "type/DialogCall"],
+  Box3AssetListEntry: ["type", "type/DialogCall"],
+  GameAssetListEntry: ["type", "type/DialogCall"],
 
-  Box3DataBase: ["class", "database"],
+  Box3DataBase: ["class", "db"],
   Box3QueryResult: ["class", 'class/QueryResult'],
   GameStorage: ["class", "storage"],
   GameDataStorage: ["class", "class/DataStorage"],
-  db: ["object", "database"],
+  db: ["object", "db"],
   storage: ["object", "storage"],
+  gui: ["object", "gui"],
+  GameGUI: ["class", "gui"],
+  rtc: ["object", "rtc"],
+  GameRTC: ["class", "rtc"],
+  http: ["object", "http"],
+  GameHttpAPI: ["class", "http"],
 
   Box3Voxels: ["class", "voxels"],
   GameVoxels: ["class", "voxels"],
   voxels: ["object", "voxels"],
 
-  Box3BodyPart: ["enum", "type/BodyPart"],
-  GameBodyPart: ["enum", "type/BodyPart"],
+  Box3BodyPart: ["enum", "type/enum/BodyPart"],
+  GameBodyPart: ["enum", "type/enum/BodyPart"],
 
   ServerRemoteChannel: ["class", "class/ServerRemoteChannel"],
+  PlayerNavigator: ["class private", "class/PlayerNavigator"],
+  SocialType: ["enum", "enum/SocialType"],
 
-  Promise: ["object"]
+  Promise: ["object", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise"],
+  NavigatorEventType: ["enum private"],
 };
 const keywordDefsMap = {
   this: [],
@@ -122,6 +157,7 @@ const iconTagMap = {
   event: "event",
   function: "function",
   arg: "variable parent-enum",
+  hiddenArg: "variable parent-enum private",
   property: "property parent-class",
   readonly: "property parent-class protected",
   hiddenProperty: "property parent-class private",
@@ -135,6 +171,7 @@ const iconTagMap = {
   hiddenStaticMethod: "static function parent-class private",
   inheritedEvent: "event parent-class inherited",
   enumMember: "enum-member",
+  hiddenEnumMember: "enum-member private",
   variable: "variable",
   type: "type",
   keyword: "",
@@ -153,10 +190,10 @@ function createIconElement(text, id) {
     navigator.clipboard.writeText(text.trim());
     alert$.next("复制成功：" + text);
   });
-  if(JOKE_MODE){
+  if (JOKE_MODE) {
     i.addEventListener('mouseenter', (event) => {
       $JokeModeonly_element = i;
-      if(i.classList.contains('jokeElement'))
+      if (i.classList.contains('jokeElement'))
         return;
       i.style.position = 'fixed';
       i.style.left = event.pageX + 'px';
@@ -165,12 +202,13 @@ function createIconElement(text, id) {
       i.dataset['x'] = event.screenX;
       i.dataset['y'] = event.screenY;
     });
-  
+
   }
   return i;
 }
 function parse() {
   document.querySelectorAll("a").forEach((el) => {
+    const a = document.createElement("a");
     const def = el.href.trim().slice(el.href.trim().lastIndexOf('/') + 1);
     let href = "";
     let iconId = "property";
@@ -181,7 +219,11 @@ function parse() {
         : "/api/";
       const search = JOKE_MODE ? '?jokemode=true' : '';
       if (defsMap[def][1]) {
-        href = prefix + defsMap[def][1] + search;
+        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')) {
+          href = defsMap[def][1] + search;
+          a.target = "_blank";
+        } else
+          href = prefix + defsMap[def][1] + search;
       } else {
         href = `javascript:alert$.next("❌ 找不到对应页面")`;
       }
@@ -194,17 +236,19 @@ function parse() {
           : "/api/";
         const search = JOKE_MODE ? '?jokemode=true' : '';
         if (keywordDefsMap[innerHTML][0]) {
-          el.href = prefix + keywordDefsMap[innerHTML][0] + search;
+          if (keywordDefsMap[innerHTML][0].startsWith('http://') || keywordDefsMap[innerHTML][0].startsWith('https://'))
+            el.href = keywordDefsMap[innerHTML][0] + search;
+          else
+            el.href = prefix + keywordDefsMap[innerHTML][0] + search;
         } else {
           el.href = `javascript:alert$.next("❌ 找不到对应页面")`;
         }
         return;
       }
       iconId = iconTagMap[def];
-      el.parentElement.replaceChild(createIconElement(JOKE_MODE ? def : innerHTML, iconId), el);
+      el.parentElement.replaceChild(createIconElement(innerHTML, iconId), el);
       return;
     } else return;
-    const a = document.createElement("a");
     a.href = href;
     const i = createIconElement(def, iconId);
     a.appendChild(i);
@@ -231,6 +275,7 @@ function parse() {
   });
   document.querySelectorAll("def").forEach((el) => {
     const def = el.innerHTML.trim();
+    const a = document.createElement("a");
     let href = "";
     let isError = false;
     let iconId = "property";
@@ -239,9 +284,14 @@ function parse() {
       const prefix = location.href.includes("github.io")
         ? "/box3-docs/api/"
         : "/api/";
-        const search = JOKE_MODE ? '?jokemode=true' : '';
+      const search = JOKE_MODE ? '?jokemode=true' : '';
       if (defsMap[def][1]) {
-        href = prefix + defsMap[def][1] + search;
+        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')){
+          href = defsMap[def][1] + search;
+          a.target = "_blank";
+        }
+        else
+          href = prefix + defsMap[def][1] + search;
       } else {
         href = `javascript:alert$.next("❌ 找不到对应页面")`;
       }
@@ -250,7 +300,6 @@ function parse() {
       console.error("def标签未定义", def);
       href = "javascript:alert$.next('⚠ 此标识未定义')";
     }
-    const a = document.createElement("a");
     a.href = href;
     const i = createIconElement(def, iconId);
     a.appendChild(i);
@@ -277,23 +326,23 @@ function parse() {
 }
 document$.subscribe(parse);
 
-if(JOKE_MODE){
+if (JOKE_MODE) {
   console.log('Joke Mode enabled');
   alert$.next('Joke Mode enabled');
   window.addEventListener('mousemove', (ev) => {
-    if($JokeModeonly_element instanceof HTMLElement){
+    if ($JokeModeonly_element instanceof HTMLElement) {
       let x = Number($JokeModeonly_element.dataset['x']), y = Number($JokeModeonly_element.dataset['y']);
-      if(Math.abs(x - ev.screenX) > 150 || Math.abs(y - ev.screenY) > 150)
+      if (Math.abs(x - ev.screenX) > 150 || Math.abs(y - ev.screenY) > 150)
         return;
       x += (x - ev.screenX) / 4;
       y += (y - ev.screenY) / 4;
-      if(x < 25)
-          x += screen.availWidth - 100;
-      if(y < 25)
+      if (x < 25)
+        x += screen.availWidth - 100;
+      if (y < 25)
         y += screen.availHeight - 100;
-      if(x > screen.availWidth - 25)
+      if (x > screen.availWidth - 25)
         x -= screen.availWidth - 100;
-      if(y > screen.availHeight - 25)
+      if (y > screen.availHeight - 25)
         y -= screen.availHeight - 100;
       $JokeModeonly_element.dataset['x'] = x;
       $JokeModeonly_element.dataset['y'] = y;
@@ -301,7 +350,7 @@ if(JOKE_MODE){
       $JokeModeonly_element.style.top = y + 'px';
     }
   });
-  for(const element of document.getElementsByClassName('admonition bug')){
+  for (const element of document.getElementsByClassName('admonition bug')) {
     element.title = '我是一只虫子';
   }
 }

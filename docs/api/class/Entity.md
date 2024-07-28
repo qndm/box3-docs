@@ -528,48 +528,63 @@
             });
         ```
 
+[getAnimations](hiddenMethod)() => [](Box3Animation) / [](GameAnimation)<[](Box3EntityKeyframe) / [](GameEntityKeyframe), [](Box3Entity) / [](GameEntity)>[]
+:   获取该实体的所有动画
+
+### 声音
+[sound](method)([spec](arg): {[sample](property): [](string), [radius](property)?: [](number), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](void)
+:   在指定位置播放声音
+
+    | 参数 | | 类型 | 说明 |
+    | - | - | - | - |
+    | [spec](arg) | | [](string) | 声音路径 |
+    | [spec](arg) | | | 声音播放参数 |
+    | | [sample](property) | [](string) | 声音路径 |
+    | | [radius](property) | [](number) = `#!javascript 32` | 声音范围。距离实体越近，声音听的越清晰。超出范围的玩家则听不到声音 |
+    | | [gain](property) | [](number) = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
+    | | [pitch](property) | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
 
 
-## 事件
-### 交互
-[onClick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
-[nextClick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
+### 事件
+#### 交互
+[onClick](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
+[nextClick](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
 :   当玩家点击该实体(或未来)触发
 
-[onInteract](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
-[nextInteract](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
+[onInteract](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
+[nextInteract](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
 :   当玩家与该实体互动(或未来)触发
 
-### 物理
-[onEntityContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntityContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+#### 物理
+[onEntityContact](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntityContact](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
 :   当该实体碰撞其他实体(或未来)触发
 
-[onEntitySeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntitySeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+[onEntitySeparate](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntitySeparate](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
 :   当该实体和其他实体分开(或未来)触发
 
-[onVoxelContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+[onVoxelContact](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelContact](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
 :   当该实体碰到方块(或未来)触发
 
-[onVoxelSeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelSeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+[onVoxelSeparate](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelSeparate](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
 :   当该实体离开方块(或未来)触发
 
-[onFluidEnter](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidEnter](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+[onFluidEnter](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidEnter](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
 :   当该实体进入液体(或未来)触发
 
-[onFluidLeave](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidLeave](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+[onFluidLeave](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidLeave](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
 :   当该实体离开液体(或未来)触发
 
-### 战斗相关
-[onTakeDamage](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
-[nextTakeDamage](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
+#### 战斗相关
+[onTakeDamage](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
+[nextTakeDamage](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
 :   当该实体收到伤害(或未来)触发
 
-[onDie](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
-[nextDie](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
+[onDie](listener): [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
+[nextDie](promiseEvent): [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
 :   当该实体死亡(或未来)触发

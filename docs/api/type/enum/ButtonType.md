@@ -11,11 +11,11 @@
 
 | 属性 | 值 | 说明 |
 | :- | :-: | :-: |
-| [WALK](enumMember) | `#!javascript 'walk'` | 步行按钮 |
-| [RUN](enumMember) | `#!javascript 'run'` | 奔跑按钮 |
-| [CROUCH](enumMember) | `#!javascript 'crouch'` | 下蹲按钮 |
-| [JUMP](enumMember) | `#!javascript 'jump'` | 跳跃按钮 |
-| [DOUBLE_JUMP](enumMember) | `#!javascript 'jump2'` | 二段跳按钮 |
-| [FLY](enumMember) | `#!javascript 'fly'` | 飞行按钮 |
-| [ACTION0](enumMember) | `#!javascript 'action0'` | 鼠标左键/虚拟按钮 A |
-| [ACTION1](enumMember) | `#!javascript 'action1'` | 鼠标右键/虚拟按钮 B |
+| [WALK](enumMember) | `#!javascript "walk"` | 步行按钮 |
+| [RUN](enumMember) | `#!javascript "run"` | 奔跑按钮 |
+| [CROUCH](enumMember) | `#!javascript "crouch"` | 下蹲按钮 |
+| [JUMP](enumMember) | `#!javascript "jump"` | 跳跃按钮 |
+| [DOUBLE_JUMP](enumMember) | `#!javascript "jump2"` | 二段跳按钮 |
+| [FLY](enumMember) | `#!javascript "fly"` | 飞行按钮 |
+| [ACTION0](enumMember) | `#!javascript "action0"` | 鼠标左键/虚拟按钮 A |
+| [ACTION1](enumMember) | `#!javascript "action1"` | 鼠标右键/虚拟按钮 B |

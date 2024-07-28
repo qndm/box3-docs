@@ -1,4 +1,4 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E9%87%8D%E6%96%B0%E6%8E%92%E7%89%88&%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9-qndm-blue"></img></a>
+<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
 !!! info "这是一个服务端API"
     该API仅在服务端脚本使用
