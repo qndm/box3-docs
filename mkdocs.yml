@@ -142,7 +142,7 @@ nav:
     - <def>storage</def> & <def>GameStorage</def> <span block>数据存储模块</span>: api/storage.md
     - <def>resources</def> <span block>资源文件模块</span>: api/resources.md
     - <def>gui</def> & <def>GameGUI</def> <span block>用户图形界面模块</span>: api/gui.md
-    - <def>rtc</def> & <def>GameRTC</def> <span block>语言聊天模块</span>: api/rtc.md
+    - <def>rtc</def> & <def>GameRTC</def> <span block>实时语言通信模块</span>: api/rtc.md
     - <def>http</def> & <def>GameHttpAPI</def> <span block>HTTP模块</span>: api/http.md
     - <icon name='class'>类</icon>:
       - <def>Box3Entity</def> / <def>GameEntity</def> <span block> 实体</span>: api/class/Entity.md
@@ -152,6 +152,7 @@ nav:
       - <def>Box3QueryResult</def> <span block>数据查找结果</span>: api/class/QueryResult.md
       - <def>GameDataStorage</def> <span block>数据存储空间</span>: api/class/DataStorage.md
       - <def>PlayerNavigator</def> <span block>用户设备相关</span>: api/class/PlayerNavigator.md
+      - <def>GameRTCChannel</def> <span block>RTC通道</span>: api/class/RTCChannel.md
     - <icon name='event'>事件</icon>:
       - <def>Box3TickEvent</def> / <def>GameTickEvent</def> <span block>时钟事件</span>: api/event/TickEvent.md
       - <def>Box3RespawnEvent</def> / <def>GameRespawnEvent</def> <span block>玩家重生事件</span>: api/event/RespawnEvent.md
@@ -197,6 +198,7 @@ nav:
       - <def>Box3EventChannel</def> / <def>GameEventChannel</def>: api/type/EventChannel.md
       - <def>Box3EventFuture</def> / <def>GameEventFuture</def>: api/type/EventFuture.md
       - <def>Box3EntityConfig</def> / <def>GameEntityConfig</def>: api/type/EntityConfig.md
+      - <def>Box3PlayerEntity</def> / <def>GamePlayerEntity</def>: api/type/PlayerEntity.md
       - <def>Box3SelectorString</def> / <def>GameSelectorString</def>: api/type/SelectorString.md
       - <def>Box3RaycastOptions</def> / <def>GameRaycastOptions</def>: api/type/RaycastOptions.md
       - <def>Box3RaycastResult</def> / <def>GameRaycastResult</def>: api/type/RaycastResult.md

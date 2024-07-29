@@ -11,7 +11,7 @@
     - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>
     - [x] <def>resources</def>
     - [ ] <def>gui</def> & <def>GameGUI</def>
-    - [ ] <def>rtc</def> & <def>GameRTC</def>
+    - [x] <def>rtc</def> & <def>GameRTC</def> & <def>GameRTCChannel</def>
     - [ ] <def>http</def> & <def>GameHttpAPI</def>
     - 类 & 类型
         - 基本数据类型
