@@ -2,7 +2,6 @@ icon,
 def {
   display: none;
 }
-
 .kind-icon {
   position: relative;
   border-bottom: 1px solid transparent;
@@ -11,9 +10,12 @@ def {
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
+  user-select: none;
   font-weight: bold;
+  transition: border-bottom-color 0.25s;
+  display: inline-block;
 }
-.kind-icon:hover {
+a .kind-icon:hover {
   border-bottom-color: rgba(32, 148, 243, 0.3);
 }
 .kind-icon:active {

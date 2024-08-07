@@ -3,16 +3,15 @@
     该页面分类过于混乱，有待重新整理
 
 - API
-    - [x] <def>world</def> & <def>Box3World</def> & <def>GameWorld</def>
-    - [x] <def>Box3Entity</def> & <def>GameEntity</def>
-    - [x] <def>Box3Player</def> & <def>GamePlayer</def>
-    - [x] <def>voxels</def> & <def>Box3Voxels</def> & <def>GameVoxels</def>
-    - [x] [](db) & [](Box3DataBase)
-    - [ ] <def>storage</def> & <def>GameStorage</def> & <def>GameDataStorage</def>
-    - [x] <def>resources</def>
-    - [ ] <def>gui</def> & <def>GameGUI</def>
-    - [x] <def>rtc</def> & <def>GameRTC</def> & <def>GameRTCChannel</def>
-    - [ ] <def>http</def> & <def>GameHttpAPI</def>
+    - [x] 世界模块
+    - [x] 实体模块
+    - [x] 玩家模块
+    - [x] 方块模块
+    - [x] 数据库模块
+    - [x] 数据储存空间模块
+    - [ ] GUI模块
+    - [x] RTC模块
+    - [x] HTTP模块
     - 类 & 类型
         - 基本数据类型
             - [ ] [](string) & [](String)
@@ -36,15 +35,14 @@
             - [ ] <def>Box3EntityKeyframe</def> & <def>GameEntityKeyframe</def>
             - [ ] <def>Box3PlayerKeyframe</def> & <def>GamePlayerKeyframe</def>
             - [ ] <def>Box3WorldKeyframe</def> & <def>GameWorldKeyframe</def>
-        - [ ] <def>Box3SelectorString</def> & <def>GameSelectorString</def>
+        - [x] <def>Box3SelectorString</def> & <def>GameSelectorString</def>
         - [ ] <def>Box3RaycastOptions</def> & <def>GameRaycastOptions</def>
         - [x] <def>Box3RaycastResult</def> & <def>GameRaycastResult</def>
         - [ ] <def>Box3SkinInvisible</def> & <def>GameSkinInvisible</def>
-        - [ ] <def>Box3DialogParams</def> & <def>GameDialogParams</def>
-        - [ ] <def>Box3DialogResponse</def> & <def>GameDialogResponse</def>
-        - [ ] <def>Box3DialogSelectResponse</def> & <def>GameDialogSelectResponse</def>
+        - [x] <def>Box3DialogParams</def> & <def>GameDialogParams</def>
+        - [x] <def>Box3DialogSelectResponse</def> & <def>GameDialogSelectResponse</def>
         - [ ] <def>Box3Zone</def> & <def>GameZone</def>
-        - [ ] <def>Box3DialogCall</def> & <def>GameDialogCall</def>
+        - [x] <def>Box3DialogCall</def> & <def>GameDialogCall</def>
         - [x] <def>Box3DialogCancelOption</def> & <def>GameDialogCancelOption</def>
         - 接口
             - [x] [](Box3EntityConfig) & [](GameEntityConfig)

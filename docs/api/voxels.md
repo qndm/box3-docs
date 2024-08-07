@@ -3,12 +3,12 @@
 !!! info "这是一个服务端API"
     该API仅在服务端脚本使用
 
-: [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/fhg88pn0tr2yo54n)  
-  [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/gkz7g1wazf5izpfy#yo8NS)  
-  [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/oy2d601gqs52bfuv)
+:   [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/fhg88pn0tr2yo54n)  
+    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/gkz7g1wazf5izpfy#yo8NS)  
+    [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/oy2d601gqs52bfuv)
 
-<def>Box3Voxels</def> / <def>GameVoxels</def>无法（很难）被实例化，但在全局存在一个单例对象<def>voxels</def>  
-可以通过<def>voxels</def>对象控制世界的地形变化，利用循环语法批量生成/销毁方块，获取某个方块的类型、名称、旋转角度等。
+:   <def>Box3Voxels</def> / <def>GameVoxels</def>无法（很难）被实例化，但在全局存在一个单例对象<def>voxels</def>  
+    可以通过<def>voxels</def>对象控制世界的地形变化，利用循环语法批量生成/销毁方块，获取某个方块的类型、名称、旋转角度等。
 
 ## 属性
 [shape](readonly): [](Box3Vector3) / [](GameVector3)
@@ -23,6 +23,10 @@
         1. 一是玩家的活动范围
         2. 二是[](number)类型精度问题
         3. 实体数量上限问题
+
+    !!! bug
+
+        若是创建一个中等大小（`64`*`128`*`64`）的地图，在控制台输入时该属性正常，在代码文件中[shape](readonly)会变成`{ x:32, y:32, z:32 }`
 
 [VoxelTypes](readonly): [](string)[]
 :   一个包含所有方块 **名称** 的数组。

@@ -4,16 +4,33 @@
     这些API仅在服务端脚本使用  
     不过下面的几个提示都是通用的
 
-此处是关于代码中各种内容的详细说明，需要一定的基础知识。查阅前建议先掌握 [JavaScript 基础教程](../learn/js/index.md)
+此处是关于代码中各种内容的详细说明，需要一定的基础知识。查阅前建议先掌握 [Javascript 基础教程](../learn/js/index.md)，并学习[MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)等更高级的Javascript教程
 
 !!! warning "API 参考文档并不完整"
 
     API文档内容极其复杂繁多，完成这些整理工作需要很长时间，因此你可能会遇到 404（找不到页面） 错误。  
-    目前建议以[官方文档](https://box3.codemao.cn)为主，或者[加入我们](../about.md)！
+    目前建议以[官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/fmtni9cqqhhgcl5r)或[官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3)为主，或者[加入我们](../about.md)！
 
 !!! warning "关于隐藏 API"
 
-    本文档中收集了未知或隐藏 API，尚未被官方公布，具体含义可能与本文档可能存在偏差，以<hiddenMethod> </hiddenMethod>标识
+    本文档中收集了未知或隐藏 API，尚未被官方公布，具体含义可能与本文档可能存在偏差，以<hiddenProperty></hiddenProperty><hiddenArg></hiddenArg><hiddenMethod></hiddenMethod><hiddenStaticMethod></hiddenStaticMethod><hiddenEnum></hiddenEnum><hiddenEnumMember></hiddenEnumMember>等灰色标识
+
+!!! info "关于只读"
+
+    本文档中只读属性会使用右下角带锁的图标表示，如<readonly></readonly>  
+    同时只读属性/常量的颜色是<span style="background-color: #448aff" class="coloredWord">#448AFF</span>，一般属性/变量的颜色是<span style="background-color: #00b0ff" class="coloredWord">#00B0FF</span>  
+    部分只读属性是隐藏API，会使用和隐藏属性一样的图标<hiddenReadonly></hiddenReadonly>，要根据字体颜色判断
+
+???+ tip "快捷复制"
+
+    文档内部分内容可以右键（或者触屏长按）快速复制其内容，例如<icon name='signature'>这个</icon>和<a href="javascript:alert$.next('左键点这个是没用哒，要右键')"><icon name='signature'>这个</icon></a>，其图标和字体颜色不用管  
+    你可以拿左边的目录试试，不过注意不要左键，左键会跳转页面
+
+???+ tip "图标链接"
+
+    文档内部分图标是链接，表现为鼠标移到上面会显示一条蓝色下划线，<a href="javascript:alert$.next('我是一个链接')"><icon name='signature'>就像这个</icon></a>  
+    你可以点击跳转到对应页面  
+    如果是文档内页面，则会直接在当前标签页打开；如果是外部链接，则会在新标签页打开
 
 ??? question "如何读定义声明（1）"
 
@@ -67,6 +84,10 @@
     两种编辑器的不同定义用“`/`”分开，“`/`”之前是旧版编辑器定义，之后是新版编辑器定义  
     “`/`”两边应看作一个整体
 
+??? question "选填参数"
+
+    要是参数/属性后面带了个问号`?`，代表该参数/属性选填
+
 ??? question "如何看参数表格（1）"
 
     下面以([](Box3World) / [](GameWorld)).[teleport](method)为例
@@ -78,7 +99,7 @@
 
     该方法有[mapId](arg)和[players](arg)两个参数，[mapId](arg)的类型为[](string)，[players](arg)的类型为[](GameEntity)[]
 
-??? question "如何看参数表格（1）"
+??? question "如何看参数表格（2）"
 
     下面以([](Box3Player) / [](GamePlayer)).[sound](method)为例
     
@@ -90,6 +111,6 @@
     | | [gain](property) | [](number) = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
     | | [pitch](property) | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高 |
 
-    该方法有[spec](arg)**一**个参数，类型可以是[](string)，也可以是一个[](object)（此处类似于接口，但没有明确定义，一般表格里不写）  
+    该方法有[spec](arg) **一** 个参数，类型可以是[](string)，也可以是一个[](object)（此处类似于接口，但没有明确定义，一般表格里不写）  
     若填入的类型为[](string)，则表示声音路径  
     若填入的类型为[](object)，则其中的[sample](property)参数表示声音路径；[gain](property)参数表示音量增益，默认值为`#!javascript 1`；[pitch](property)参数表示音高增益，默认值为`#!javascript 1`；

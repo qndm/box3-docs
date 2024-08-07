@@ -74,6 +74,7 @@ API 文档中会出现一些表示类型的图标，下面是常用图标的含�
     padding: 0 8px;
     border: 1px solid transparent;
     transition-duration: 0.25s;
+    display: block;
   }
   .icon-item:hover{
     background: rgba(32, 148, 243, 0.3);
@@ -85,7 +86,7 @@ API 文档中会出现一些表示类型的图标，下面是常用图标的含�
   }
 </style>
 <script>
-    rules = [...document.styleSheets].find((o) => o.href && o.href.includes("icons.css")).cssRules;
+  rules = [...document.styleSheets].find((o) => o.href && o.href.includes("icons.css")).cssRules;
   for (j = 5; j < rules.length; j++) {
     if (rules[j].type === CSSRule.STYLE_RULE) {
       let match = rules[j].selectorText.match(/\.[^\.: ]+?(?=\.| |$|:)/g);

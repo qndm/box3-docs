@@ -11,10 +11,10 @@
 可以通过<def>world</def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
 
 ## 常用
-- [<listener>onTick</listener>](#c1)
-- [<listener>onPlayerJoin</listener>](#c2)
+- [<method>onTick</method>](#c1)
+- [<method>onPlayerJoin</method>](#c2)
 - [<method>querySelector</method>/<method>querySelectorAll</method>](#c3)
-- [<listener>onClick</listener>](#c4)
+- [<method>onClick</method>](#c4)
 - [<method>say</method>](#c5)
 
 ---
@@ -73,7 +73,7 @@
         : 太阳的方向
 
         <property>sunLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        : 太阳的光照度
+        : 太阳的光照颜色
 
         <property>skyLeftLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
         <property>skyRightLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
@@ -81,7 +81,7 @@
         <property>skyTopLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
         <property>skyFrontLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
         <property>skyBackLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        : 天空光照依次在 `-x` `+x` `-y` `+y` `-z` `+z` 方向上的值
+        : 天空光照颜色依次在 `-x` `+x` `-y` `+y` `-z` `+z` 方向上的值
 
 #### 雾
 <property>fogColor</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
@@ -209,6 +209,7 @@
     [Box3RaycastOptions / GameRaycastOptions](type/RaycastOptions.md)  
     [Box3RaycastResult / GameRaycastResult](type/RaycastResult.md)
     ??? example "示例"
+
         ```javascript
         /* 按下左键，在玩家位置向脚下发射一条射线，在控制台输出检测结果 */
         world.onPress(({ button, entity }) => {
@@ -450,6 +451,66 @@
         world.collisionFilters().forEach(([ a, b ]) => console.log(a, b)) // 打印全部碰撞过滤器
         ```
 
+### 区域
+[addZone](method) ([config](arg): [](Partial)<[](Box3ZoneConfig) / [](GameZoneConfig)>) => [](Box3Zone) / [](GameZone)
+:   创建一个区域
+
+    !!! note "待测试"
+
+        据说一张地图的区域创建上限为129个
+
+    !!! note "待测试"
+
+        官方示例中使用[](number)[]来代替[](Box3Vector3) / [](GameVector3)  
+        需检查是否可以使用[](Box3Vector3) / [](GameVector3)和[](number)[]
+
+    ??? example "示例"
+
+        ```javascript
+        const area = world.addZone({
+            selector: 'player',
+            bounds: {
+                lo: [48,  8, 50],
+                hi: [64, 20, 72],
+            },
+        });
+        ```
+
+[removeZone](method) ([trigger](arg): [](Box3Zone) / [](GameZone)) => [](void)
+:   删除区域
+
+    ??? example "示例"
+
+        ```javascript
+        const area = world.addZone({
+            selector: 'player',
+            bounds: {
+                lo: [48,  8, 50],
+                hi: [64, 20, 72],
+            },
+        });
+        world.removeZone(area);
+        ```
+
+[zones](method)() => [](Box3Zone)[] / [](GameZone)[]
+:   获取该地图的所有区域
+
+    !!! warning "警告"
+
+        尽管其命名非常像一个属性，但这其实是一个方法
+
+[addTrigger](hiddenMethod)
+[removeTrigger](hiddenMethod)
+[triggers](hiddenMethod)
+
+!!! warning "已弃用"
+
+    这三个方法在所有编辑器已经弃用，请使用[addZone](method)、[removeZone](method)、[zones](method)代替
+
+!!! bug "内容缺失"
+
+    由于该方法过于久远，只能在非常远古的地图（旧岛ID只有五位的部分地图）中找到，并且执行也会提示警告
+
 ### 动画
 <method>animate</method> ([keyframes](arg): [](Partial)<[](Box3WorldKeyframe) / [](GameWorldKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>) => [](Box3Animation) / [](GameAnimation)<[](Box3WorldKeyframe) / [](GameWorldKeyframe), [](Box3World) / [](GameWorld)>
 :   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
@@ -589,15 +650,15 @@
 ### 事件
 #### 基本
 <span anchor="c1">
-[onTick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3TickEvent) / [](GameTickEvent)>  
-[nextTick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3TickEvent) / [](GameTickEvent)>
+[onTick](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3TickEvent) / [](GameTickEvent)>  
+[nextTick](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3TickEvent) / [](GameTickEvent)>
 </span>
 :   Tick 事件，详情请看[](Box3TickEvent) / [](GameTickEvent)
 
 #### 实体创建/销毁
 <span anchor="c2">
-[onPlayerJoin](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
-[nextPlayerJoin](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
+[onPlayerJoin](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
+[nextPlayerJoin](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
 </span>
 :   当玩家进入世界(或未来)触发
 
@@ -610,83 +671,83 @@
         });
         ```
 
-[onPlayerLeave](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
-[nextPlayerLeave](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
+[onPlayerLeave](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
+[nextPlayerLeave](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
 :   当玩家离开世界(或未来)触发
 
-[onEntityCreate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
-[nextEntityCreate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
+[onEntityCreate](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
+[nextEntityCreate](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
 :   当实体被创建(或未来)触发
 
-[onEntityDestroy](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
-[nextEntityDestroy](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
+[onEntityDestroy](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
+[nextEntityDestroy](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
 :   当实体被销毁(或未来)触发
 
 #### 聊天
-[onChat](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ChatEvent) / [](GameChatEvent)>  
-[nextChat](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ChatEvent) / [](GameChatEvent)>
+[onChat](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ChatEvent) / [](GameChatEvent)>  
+[nextChat](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ChatEvent) / [](GameChatEvent)>
 :   当玩家发言(或未来)触发
 
 #### 世界交互
 <span anchor="c4">
-[onClick](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
-[nextClick](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
+[onClick](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
+[nextClick](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
 </span>
 :   当玩家点击实体(或未来)触发
 
-[onPress](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
-[nextPress](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
+[onPress](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
+[nextPress](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
 :   当玩家按下按键(或未来)触发
 
-[onRelease](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
-[nextRelease](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
+[onRelease](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
+[nextRelease](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
 :   当玩家松开按键(或未来)触发
 
-[onInteract](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
-[nextInteract](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
+[onInteract](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
+[nextInteract](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
 :   当玩家与实体互动(或未来)触发
 
 #### 物理
-[onEntityContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntityContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+[onEntityContact](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntityContact](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
 :   当实体碰撞(或未来)触发
 
-[onEntitySeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntitySeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+[onEntitySeparate](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
+[nextEntitySeparate](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
 :   当实体分开(或未来)触发
 
-[onVoxelContact](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelContact](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+[onVoxelContact](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelContact](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
 :   当实体碰到方块(或未来)触发
 
-[onVoxelSeparate](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelSeparate](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+[onVoxelSeparate](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
+[nextVoxelSeparate](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
 :   当实体离开方块(或未来)触发
 
-[onFluidEnter](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidEnter](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+[onFluidEnter](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidEnter](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
 :   当实体进入液体(或未来)触发
 
-[onFluidLeave](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidLeave](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+[onFluidLeave](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
+[nextFluidLeave](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
 :   当实体离开液体(或未来)触发
 
 #### 战斗相关
-[onTakeDamage](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
-[nextTakeDamage](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
+[onTakeDamage](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
+[nextTakeDamage](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
 :   当实体收到伤害(或未来)触发
 
-[onDie](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
-[nextDie](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
+[onDie](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
+[nextDie](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
 :   当实体死亡(或未来)触发
 
-[onRespawn](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3RespawnEvent) / [](GameRespawnEvent)>  
-[nextRespawn](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3RespawnEvent) / [](GameRespawnEvent)>
+[onRespawn](method) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3RespawnEvent) / [](GameRespawnEvent)>  
+[nextRespawn](method) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3RespawnEvent) / [](GameRespawnEvent)>
 :   玩家复活(或未来)触发
 
 #### 商业化
-[onPlayerPurchaseSuccess](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](GamePurchaseSuccessEvent)>  
-[nextPlayerPurchaseSuccess](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](GamePurchaseSuccessEvent)>
+[onPlayerPurchaseSuccess](method) : [](Box3EventChannel) / [](GameEventChannel) <[](GamePurchaseSuccessEvent)>  
+[nextPlayerPurchaseSuccess](method) : [](Box3EventFuture) / [](GameEventFuture) <[](GamePurchaseSuccessEvent)>
 :   当玩家成功购买物品(或未来)时触发
 
     !!! info "Arena 独有"

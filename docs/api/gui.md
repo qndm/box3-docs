@@ -4,7 +4,6 @@
     该API仅在服务端脚本使用
 
 !!! info "Arena独有"
-
     该API仅在Arena编辑器使用
 
 :   [](GameGUI)是在 **服务端** 控制客户端GUI的[类](class)  

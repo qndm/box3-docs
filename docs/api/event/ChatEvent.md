@@ -1,7 +1,7 @@
 Box3 中聊天触发的事件
 
 Chat 本意为”聊天“，在此地表示实体聊天所触发的事件。
-实体聊天 box3 中表示为物体在地图聊天区域主动/被动发送文字
+实体聊天 Box3 中表示为物体在地图聊天区域主动/被动发送文字
 
 触发方法由[](Box3World).[onChat](event) / [](GameWorld).[onChat](event)和[](Box3Entity).[onChat](event) / [](GameEntity)[onChat](event)组成
 

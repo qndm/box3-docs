@@ -116,12 +116,12 @@
 
     !!! example "示例"
 
-    ```javascript
-    // 隐藏玩家的头部
-    world.onPlayerJoin(({ entity }) => {
-        entity.player.skinInvisible.head = true;
-    });
-    ```
+        ```javascript
+        // 隐藏玩家的头部
+        world.onPlayerJoin(({ entity }) => {
+            entity.player.skinInvisible.head = true;
+        });
+        ```
 
 [showName](property): [](boolean) = `#!javascript true`
 :   是否显示玩家名称
@@ -137,12 +137,12 @@
 
     ??? example "示例"
 
-    ```javascript
-    // 玩家进入游戏的时候缩小到0.25倍
-    world.onPlayerJoin(({ entity }) => {
-        entity.player.scale = 0.25;
-    });
-    ```
+        ```javascript
+        // 玩家进入游戏的时候缩小到0.25倍
+        world.onPlayerJoin(({ entity }) => {
+            entity.player.scale = 0.25;
+        });
+        ```
 
 [emissive](property): [](number)
 :   玩家的发光度，范围$[0, 1]$
@@ -152,7 +152,7 @@
 
     ??? example "示例"
 
-        ```
+        ```javascript
         // 使玩家发光
         world.onPlayerJoin(({ entity }) => {
             entity.player.emissive = 1;
@@ -613,7 +613,7 @@
         虽然这个方法的命名很像一个属性，但其实这是一个方法  
         具体见下面的示例
         
-    !!! failure "错误示例"
+    ???+ failure "错误示例"
 
         ```javascript
         // 玩家按下右键时，告诉玩家所有穿戴配件的数量
@@ -624,7 +624,7 @@
         });
         ```
 
-    !!! success "正确示例"
+    ???+ success "正确示例"
 
         ```javascript
         // 玩家按下右键时，告诉玩家所有穿戴配件的数量
@@ -667,7 +667,7 @@
         在打开对话框（特别是选择和输入对话框）时，需要注意其调用  
         该方法返回的是一个[](Promise) & ([](Box3DialogCancelOption) / [](GameDialogCancelOption))，而不是直接的结果
 
-    !!! failure "错误示例"
+    ???+ failure "错误示例"
 
         ```javascript
         world.onPlayerJoin(({ entity }) => {
@@ -694,7 +694,7 @@
         });
         ```
 
-    !!! success "正确示例"
+    ???+ success "正确示例"
 
         下面是上面的错误示例的几种正确写法  
         实际使用时，可以将`await`和[](Promise)搭配使用，而不是像下面只使用一种
@@ -979,6 +979,19 @@
 [cancelDialogs](method)() => [](void)
 :   关闭玩家所有打开的对话框
 
+
+<span anchor="Box3DialogCall">[](Box3DialogCall) = (  
+    ([params](arg): [](Box3TextDialogParams)) => [](Promise)<[](string) | [](null)> & [](Box3DialogCancelOption) |  
+    ([params](arg): [](Box3SelectDialogParams)) => [](Promise)<[](Box3DialogSelectResponse) | [](null)> & [](Box3DialogCancelOption) |  
+    ([params](arg): [](Box3InputDialogParams)) => [](Promise)<[](string) | [](null)> & [](Box3DialogCancelOption)  
+)</span>
+
+<span anchor="GameDialogCall">[](GameDialogCall) = (  
+    ([params](arg): [](GameTextDialogParams)) => [](Promise)<[](string) | [](null)> & [](GameDialogCancelOption) |  
+    ([params](arg): [](GameSelectDialogParams)) => [](Promise)<[](GameDialogSelectResponse) | [](null)> & [][](GameDialogCancelOption) |  
+    ([params](arg): [](GameInputDialogParams)) => [](Promise)<[](string) | [](null)> & [](GameDialogCancelOption)  
+)</span>
+
 ### 复活
 [forceRespawn](method)() => [](void)
 :   将玩家的血量回满，并将玩家传送回出生点  
@@ -986,13 +999,13 @@
 
 ### 摄像机相关
 [setCameraPitch](method)([v](arg): [](number)) => [](void)
-:   设置玩家视角准心绕x轴（视角的上下移动）的旋转**弧度**
+:   设置玩家视角准心绕x轴（视角的上下移动）的旋转 **弧度**
 
     !!! info "Arena 独有"
         该方法仅在Arena编辑器中使用
 
 [setCameraYaw](method)([v](arg): [](number)) => [](void)
-:   设置玩家视角准心绕y轴（视角的左右移动）的旋转**弧度**
+:   设置玩家视角准心绕y轴（视角的左右移动）的旋转 **弧度**
 
     !!! info "Arena 独有"
         该方法仅在Arena编辑器中使用
@@ -1101,3 +1114,16 @@
 [onRelease](listener) : [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
 [nextRelease](promiseEvent) : [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
 :   当玩家松开按键(或未来)触发
+
+[onKeyDown](listener) : [](GameEventChannel) <[](GameKeyBoardEvent)>  
+:   当玩家按下键盘按键触发
+
+    !!! info "Arena 独有"
+        该事件仅在Arena编辑器中使用
+
+
+[onKeyUp](listener) : [](GameEventChannel) <[](GameKeyBoardEvent)>  
+:   当玩家松开键盘按键触发
+
+    !!! info "Arena 独有"
+        该事件仅在Arena编辑器中使用

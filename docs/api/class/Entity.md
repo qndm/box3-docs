@@ -3,9 +3,9 @@
 !!! info "这是一个服务端API"
     该API仅在服务端脚本使用
 
-: [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/aqkg27coplqk183f)  
-  [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/kgrabhf749axn65y)  
-  [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/crnsxu2gtymwx013)
+:   [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/aqkg27coplqk183f)  
+    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/kgrabhf749axn65y)  
+    [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/crnsxu2gtymwx013)
 
 
 :   [](Box3Entity) / [](GameEntity)实体是Box3中的游戏对象，用于对物体、玩家等的控制。  
@@ -366,24 +366,24 @@
 
     ??? example "示例"
 
-    ```javascript
-    // 玩家牌喷泉
-    world.onPlayerJoin(({ entity }) => {
-        entity.particleRate = 300;
-        entity.particleLimit = 1000;
-        entity.particleLifetime = 1.8;
-        entity.particleDamping = -1;
-        entity.particleSize = [1, 2, 4, 4, 4];
-        entity.particleColor[0].set(1, 1, 1);
-        entity.particleColor[1].set(0.5, 0.5, 1);
-        entity.particleColor[2].set(0.1, 0.1, 1);
-        entity.particleColor[3].set(0, 0, 1);
-        entity.particleColor[4].set(0, 0, 1);
-        entity.particleVelocity.set(0, 9, 0);
-        entity.particleVelocitySpread.set(5, 1, 5);
-        entity.particleAcceleration.set(0, -10, 0);
-    });
-    ```
+        ```javascript
+        // 玩家牌喷泉
+        world.onPlayerJoin(({ entity }) => {
+            entity.particleRate = 300;
+            entity.particleLimit = 1000;
+            entity.particleLifetime = 1.8;
+            entity.particleDamping = -1;
+            entity.particleSize = [1, 2, 4, 4, 4];
+            entity.particleColor[0].set(1, 1, 1);
+            entity.particleColor[1].set(0.5, 0.5, 1);
+            entity.particleColor[2].set(0.1, 0.1, 1);
+            entity.particleColor[3].set(0, 0, 1);
+            entity.particleColor[4].set(0, 0, 1);
+            entity.particleVelocity.set(0, 9, 0);
+            entity.particleVelocitySpread.set(5, 1, 5);
+            entity.particleAcceleration.set(0, -10, 0);
+        });
+        ```
 
 [particleNoise](property): [](number)
 :   粒子扰动幅度，数值越大，各个粒子的运动相对原有方向的偏离越明显
@@ -417,6 +417,10 @@
 
 [tags](method)() => [](string)[]
 :   获取实体的所有标签
+
+    !!! warning "警告"
+
+        尽管其命名非常像一个属性，但这其实是一个方法
 
 <span anchor="addTag">
 [addTag](method)([tag](arg): [](string)) => [](void)
