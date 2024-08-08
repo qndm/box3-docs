@@ -358,7 +358,7 @@
             ```
 
 [particleAcceleration](property): [](Box3Vector3) / [](GameVector3)
-:   粒子的加速度
+:   粒子的加速度，单位为$格/tick^2$
 
     ??? quote "加速度"
         加速度是用于描述物体速度变化快慢的物理量  
@@ -390,6 +390,12 @@
 
 [particleNoiseFrequency](property): [](number)
 :   粒子扰动频率，数值越大，各个粒子的运动方向越没有规律
+
+[particleTarget](hiddenProperty): [](Box3Entity) / [](GameEntity) | [](null)
+:   粒子目标实体
+
+[particleTargetWeight](hiddenProperty): [](number)
+:   粒子目标权重
 
 ### 声音
 [chatSound](property): [](Box3SoundEffect) / [](GameSoundEffect)
@@ -536,7 +542,7 @@
 :   获取该实体的所有动画
 
 ### 声音
-[sound](method)([spec](arg): {[sample](property): [](string), [radius](property)?: [](number), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](void)
+[sound](method)([spec](arg): {[sample](property): [](string), [radius](property)?: [](number), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](Sound)
 :   在指定位置播放声音
 
     | 参数 | | 类型 | 说明 |

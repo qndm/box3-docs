@@ -103,7 +103,7 @@
 :   雾高度衰减率
 
 <property>fogUniformDensity</property> : <def>number</def>
-:   均匀雾的数量（如果>`#!javascript 0`，就不能看到天幕）
+:   均匀雾量（如果>`#!javascript 0`，就不能看到天幕）
 
 <property>maxFog</property> : <def>number</def>
 :   最大雾量
@@ -122,7 +122,7 @@
 :   雪下落速度
 
 <property>snowSpinSpeed</property> : <def>number</def>
-:   雪旋转速度
+:   雪自旋速度
 
 <property>snowColor</property> : <def>Box3RGBAColor</def> / [](GameRGBAColor)
 :   雪颜色。
@@ -141,10 +141,10 @@
 :   雨速度
 
 <property>rainSizeLo</property> : <def>number</def>
-:   雨最小尺寸
+:   雨点最小尺寸
 
 <property>rainSizeHi</property> : <def>number</def>
-:   雨最大尺寸
+:   雨点最大尺寸
 
 <property>rainInterference</property> : <def>number</def>
 :   雨扰流幅度
@@ -518,40 +518,40 @@
         === "旧版编辑器"
 
             ```javascript
-                const ani = world.animate([
-                    { rainDensity: 0, duration: 1 },
-                    { rainDensity: 1, duration: 1 },
-                ], {
-                    iterations: Infinity,// 无限循环
-                    direction: Box3AnimationDirection.REVERSE, // 雨量反复变大变小
-                    duration: 16 * 5, // 5秒1个周期(每秒16 ticks)
-                });
+            const ani = world.animate([
+                { rainDensity: 0, duration: 1 },
+                { rainDensity: 1, duration: 1 },
+            ], {
+                iterations: Infinity,// 无限循环
+                direction: Box3AnimationDirection.REVERSE, // 雨量反复变大变小
+                duration: 16 * 5, // 5秒1个周期(每秒16 ticks)
+            });
 
-                world.onPress(({ button }) => {
-                    if (button === Box3ButtonType.ACTION0) { // 左键停雨
-                        ani.cancel();
-                        world.rainDensity = 0;
-                    }
-                });
+            world.onPress(({ button }) => {
+                if (button === Box3ButtonType.ACTION0) { // 左键停雨
+                    ani.cancel();
+                    world.rainDensity = 0;
+                }
+            });
             ```
         === "Arena编辑器"
 
             ```javascript
-                const ani = world.animate([
-                    { rainDensity: 0, duration: 1 },
-                    { rainDensity: 1, duration: 1 },
-                ], {
-                    iterations: Infinity,// 无限循环
-                    direction: GameAnimationDirection.REVERSE, // 雨量反复变大变小
-                    duration: 16 * 5, // 5秒1个周期(每秒16 ticks)
-                });
+            const ani = world.animate([
+                { rainDensity: 0, duration: 1 },
+                { rainDensity: 1, duration: 1 },
+            ], {
+                iterations: Infinity,// 无限循环
+                direction: GameAnimationDirection.REVERSE, // 雨量反复变大变小
+                duration: 16 * 5, // 5秒1个周期(每秒16 ticks)
+            });
 
-                world.onPress(({ button }) => {
-                    if (button === GameButtonType.ACTION0) { // 左键停雨
-                        ani.cancel();
-                        world.rainDensity = 0;
-                    }
-                });
+            world.onPress(({ button }) => {
+                if (button === GameButtonType.ACTION0) { // 左键停雨
+                    ani.cancel();
+                    world.rainDensity = 0;
+                }
+            });
             ```
 
 <hiddenMethod>getAnimations</hiddenMethod> () => [](Box3Animation) / [](GameAnimation)<<def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>, [](Box3World) / [](GameWorld)>[]
@@ -564,7 +564,7 @@
 :   获取所有玩家的动画对象
 
 ### 声音
-<method>sound</method> ([spec](arg): {[sample](interface): [](string), [position](interface)?: [](Box3Vector3) / [](GameVector3), [radius](interface)?: [](number), [gain](interface)?: [](number), [pitch](interface)?: [](number)} | <def>string</def>) => [](void)
+<method>sound</method> ([spec](arg): {[sample](interface): [](string), [position](interface)?: [](Box3Vector3) / [](GameVector3), [radius](interface)?: [](number), [gain](interface)?: [](number), [pitch](interface)?: [](number)} | <def>string</def>) => [](Sound)
 :   在指定位置播放声音
 
     | 参数 | | 类型 | 说明 |

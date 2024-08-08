@@ -56,7 +56,7 @@ a>.kind-icon:active {
   transition: background-color 0.5s, border-color 0.5s;
 }
 
-.admonition,
+.admonition-title,
 summary {
   -webkit-user-select: none;
   user-select: none;

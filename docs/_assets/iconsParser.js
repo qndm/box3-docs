@@ -56,14 +56,20 @@ const defsMap = {
   GameButtonType: ["enum", "api/type/enum/ButtonType", 'enum'],
   Box3AnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", 'interface'],
   GameAnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", 'interface'],
-  Box3Animation: ["class", "api/type/Animation", 'class'],
-  GameAnimation: ["class", "api/type/Animation", 'class'],
-  Box3WorldKeyframe: ["class", "api/type/WorldKeyframe", 'class'],
-  GameWorldKeyframe: ["class", "api/type/WorldKeyframe", 'class'],
-  Box3EntityKeyframe: ["class", "api/type/EntityKeyframe", 'class'],
-  GameEntityKeyframe: ["class", "api/type/EntityKeyframe", 'class'],
-  Box3PlayerKeyframe: ["class", "api/type/PlayerKeyframe", 'class'],
-  GamePlayerKeyframe: ["class", "api/type/PlayerKeyframe", 'class'],
+  Box3Animation: ["class", "api/class/Animation", 'class'],
+  GameAnimation: ["class", "api/class/Animation", 'class'],
+  Box3WorldKeyframe: ["interface", "api/type/WorldKeyframe", 'interface'],
+  GameWorldKeyframe: ["interface", "api/type/WorldKeyframe", 'interface'],
+  Box3EntityKeyframe: ["interface", "api/type/EntityKeyframe", 'interface'],
+  GameEntityKeyframe: ["interface", "api/type/EntityKeyframe", 'interface'],
+  Box3PlayerKeyframe: ["interface", "api/type/PlayerKeyframe", 'interface'],
+  GamePlayerKeyframe: ["interface", "api/type/PlayerKeyframe", 'interface'],
+  Box3AnimationPlaybackState: ["enum", "api/type/enum/AnimationPlaybackState", 'enum'],
+  GameAnimationPlaybackState: ["enum", "api/type/enum/AnimationPlaybackState", 'enum'],
+  Box3AnimationDirection: ["enum", "api/type/enum/AnimationDirection", 'enum'],
+  GameAnimationDirection: ["enum", "api/type/enum/AnimationDirection", 'enum'],
+  Box3Easing: ["enum", "api/type/enum/Easing", 'enum'],
+  GameEasing: ["enum", "api/type/enum/Easing", 'enum'],
   Box3RGBColor: ["class", "api/type/RGBColor", 'class'],
   Box3RGBAColor: ["class", "api/type/RGBAColor", 'class'],
   GameRGBColor: ["class", "api/type/RGBColor", 'class'],
@@ -98,6 +104,8 @@ const defsMap = {
   GameFluidContactEvent: ["event", "api/event/FluidContactEvent", 'class'],
   Box3TriggerEvent: ["event", "api/event/TriggerEvent", 'class'],
   GameTriggerEvent: ["event", "api/event/TriggerEvent", 'class'],
+  Box3AnimationEvent: ["event", "api/event/AnimationEvent", 'class'],
+  GameAnimationEvent: ["event", "api/event/AnimationEvent", 'class'],
   GamePurchaseSuccessEvent: ["event", "api/event/PurchaseSuccessEvent", 'class'],
   GameSkin: ["type private", "api/type/Skin", 'type'],
   GameSkinValue: ["type private", "api/type/SkinValue", 'hiddenType'],
@@ -165,6 +173,10 @@ const defsMap = {
   GameHttpRequest: ["class private", "api/class/HttpRequest", 'class'],
   Box3HttpResponse: ["class private", "api/class/HttpResponse", 'class'],
   GameHttpResponse: ["class private", "api/class/HttpResponse", 'class'],
+  console: ["object", 'api/console', "const"],
+  GameConsole: ["class private", 'api/console', "hiddenClass"],
+  Box3LoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"], 
+  GameLoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"], 
 
   Box3Voxels: ["class", "api/voxels", "class"],
   GameVoxels: ["class", "api/voxels", "class"],
@@ -176,11 +188,11 @@ const defsMap = {
   ServerRemoteChannel: ["class", "api/class/ServerRemoteChannel", "class"],
   PlayerNavigator: ["class private", "api/class/PlayerNavigator", "hiddenClass"],
   SocialType: ["enum", "api/enum/SocialType", "enum"],
-
   Promise: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise", "interface"],
   Map: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Map", "interface"],
   ArrayBuffer: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer", "interface"],
   NavigatorEventType: ["enum private", , "hiddenEnum"],
+  Sound: ["class private", "api/class/Sound" , "hiddenClass"],
 };
 const keywordDefsMap = {
   this: [],
@@ -218,6 +230,7 @@ const iconTagMap = {
   variable: ["variable", "#00b0ff"],
   type: ["type", "#00bfa5"],
   hiddenType: ["type private", "#00bfa5"],
+  typeArg: ["type", "#00bfa5"],
   keyword: ["", "#508fe0"],
   callback: ["callback", "#c2c262"],
   callbackArg: ["callable parent-enum", "#c2c262"],
@@ -295,12 +308,12 @@ function parse() {
         el.style.color = iconTagMap.type[1];
         return;
       }
-      iconId = iconTagMap[def][0];
-      el.parentElement.replaceChild(createIconElement(innerHTML, iconId, iconTagMap[def][1]), el);
+      iconId = iconTagMap[def]?.[0];
+      el.parentElement.replaceChild(createIconElement(innerHTML, iconId, iconTagMap?.[def]?.[1]), el);
       return;
     } else return;
     a.href = href;
-    const i = createIconElement(def, iconId, iconTagMap[defsMap[def][2]]?.[1]);
+    const i = createIconElement(def, iconId, iconTagMap[defsMap[def]?.[2]]?.[1]);
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
   });
@@ -318,7 +331,7 @@ function parse() {
     document.querySelectorAll(key).forEach((el) => {
       const text = el.getAttribute("label") || el.innerHTML;
       el.parentElement.replaceChild(
-        createIconElement(text, iconTagMap[key][0], iconTagMap[key][1]),
+        createIconElement(text, iconTagMap[key][0], iconTagMap?.[key][1]),
         el
       );
     });
@@ -351,7 +364,7 @@ function parse() {
       href = "javascript:alert$.next('⚠ 此标识未定义')";
     }
     a.href = href;
-    const i = createIconElement(def, iconId, iconTagMap[defsMap[def][2]]?.[1]);
+    const i = createIconElement(def, iconId, iconTagMap?.[defsMap[def]?.[2]]?.[1]);
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
     if (isError) {

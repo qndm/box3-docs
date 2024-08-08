@@ -17,10 +17,10 @@
 - [fogEnabled](property): [](boolean) 是否在该区域内启用单独的雾
 - [fogColor](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内雾的颜色
 - [fogStartDistance](property): [](number) 该区域内雾的起始距离
-- [fogHeightOffset](property): [](number) 该区域内雾高度
-- [fogHeightFalloff](property): [](number) 该区域内的雾衰减速率
-- [fogDensity](property): [](number) 该区域内的均匀雾量
-- [fogMax](property): [](number) 该区域内的最大雾量
+- [fogHeightOffset](property): [](number) 该区域内雾起始高度
+- [fogHeightFalloff](property): [](number) 该区域内的雾高度衰减率
+- [fogDensity](property): [](number) 该区域内的均匀雾量，范围$[0, 1]$
+- [fogMax](property): [](number) 该区域内的最大雾量，范围$[0, 1]$
 - [snowEnabled](property): [](boolean) 是否在该区域内启用单独的雪
 - [snowDensity](property): [](number) 该区域的雪密度
 - [snowSizeLo](property): [](number) 该区域雪花最小尺寸
@@ -39,25 +39,19 @@
 - [rainColor](property): [](Box3RGBAColor) / [](GameRGBAColor) 该区域雨点颜色
 - [skyEnabled](property): [](boolean) 是否在该区域内启用单独的天空光照
 - [skyMode](property): `#!javascript 'natural'` | `#!javascript 'manual'` 该区域内光照模式
-- [skySunPhase](property): [](number) 该区域内太阳运行阶段，按照`#!javascript timeOfDay = (sunPhase + sunFrequency * tick) % 1`公式计算  
-仅在[skyMode](property)为`#!javascript 'natural'`时生效
-- [skySunFrequency](property): [](number) 该区域内太阳在天空中移动的频率。 数值越高=太阳运动越快  
-仅在[skyMode](property)为`#!javascript 'natural'`时生效
-- [skyLunarPhase](property): [](number) 该区域内月亮的相位，范围$[0, 1]$
-仅在[skyMode](property)为`#!javascript 'natural'`时生效
-- [skySunDirection](property): [](Box3Vector3) / [](GameVector3) 该区域内太阳的方向  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skySunLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyLeftLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-x`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyRightLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+x`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyBottomLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-y`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyTopLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+y`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyFrontLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-z`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
-- [skyBackLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+z`方向的光照颜色  
-仅在[skyMode](property)为`#!javascript 'manual'`时生效
+=== "`#!javascript 'natural'` 自然光照"
+
+    - [skySunPhase](property): [](number) 该区域内太阳运行阶段，按照`#!javascript timeOfDay = (sunPhase + sunFrequency * tick) % 1`公式计算  
+    - [skySunFrequency](property): [](number) 该区域内太阳在天空中移动的频率，数值越高，太阳运动越快  
+    - [skyLunarPhase](property): [](number) 该区域内月亮的相位，范围$[0, 1]$
+
+=== "`#!javascript 'manual'` 手动光照"
+
+    - [skySunDirection](property): [](Box3Vector3) / [](GameVector3) 该区域内太阳的方向  
+    - [skySunLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳的光照颜色  
+    - [skyLeftLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-x`方向的光照颜色  
+    - [skyRightLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+x`方向的光照颜色  
+    - [skyBottomLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-y`方向的光照颜色  
+    - [skyTopLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+y`方向的光照颜色  
+    - [skyFrontLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`-z`方向的光照颜色  
+    - [skyBackLight](property): [](Box3RGBColor) / [](GameRGBColor) 该区域内太阳在`+z`方向的光照颜色  

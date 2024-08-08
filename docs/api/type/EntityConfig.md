@@ -10,8 +10,11 @@
 创建实体时使用的参数，包含[](Box3Entity) / [](GameEntity)的一部分属性。
 
 ## 属性
+- [id](hiddenProperty): [](string) 实体id
+- [tags](hiddenProperty): [](string) | () => [](string) 实体标签
 - <property>position</property>: [](Box3Vector3) / [](GameVector3) 实体的位置
 - <property>velocity</property>: [](Box3Vector3) / [](GameVector3) 实体的速度
+- [bounds](hiddenProperty): [](Box3Vector3) / [](GameVector3) 实体碰撞箱大小
 - <property>collides</property>: [](boolean) 实体是否可碰撞
 - <property>mesh</property>: [](string) 实体的外形。格式为`#!javascript 'mesh/*.vb'`
 - <property>meshColor</property>: [](Box3RGBAColor) / [](GameRGBAColor) 实体的颜色，[r](property)、[g](property)、[b](property)、[a](property)的范围都是`#!javascript 0`~`#!javascript 1`
@@ -48,3 +51,5 @@
 - <property>interactSound</property>: [](Box3SoundEffect) / [](GameSoundEffect) 实体触发互动事件时播放的音效
 - <property>hurtSound</property>: [](Box3SoundEffect) / [](GameSoundEffect) 实体触发受伤事件时播放的音效
 - <property>dieSound</property>: [](Box3SoundEffect) / [](GameSoundEffect) 实体触发死亡事件时播放的音效
+- [particleTarget](hiddenProperty): [](Box3Entity) / [](GameEntity) | [](null) 粒子目标实体
+- [particleTargetWeight](hiddenProperty): [](number) 粒子目标权重

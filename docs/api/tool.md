@@ -7,12 +7,12 @@
 [__dirname](const): [](string) = `#!javascript ""`
 :   当前脚本的目录路径，`#!javascript ""`代表根目录
 
-    !!! info "这个API并非Box3独有"
+    !!! info "此API并非Box3独有"
 
 [__filename](const): [](string)
 :   当前脚本文件名
 
-    !!! info "这个API并非Box3独有"
+    !!! info "此API并非Box3独有"
 
 ### 模块
 [require](const): {([module](arg): [](string)) => [](any), [resolve](method)([path](arg): [](string)) => [](string)}

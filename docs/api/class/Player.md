@@ -63,7 +63,8 @@
     !!! warning "注意类型为[](Box3RGBColor) / [](GameRGBColor)而不是[](Box3RGBAColor) / [](GameRGBAColor)"
 
 [invisible](property): [](boolean)
-:   玩家是否隐身
+:   玩家是否隐身  
+    只会影响玩家模型和穿戴配件
 
     ??? example "示例"
 
@@ -188,31 +189,31 @@
 
 ### 摄像机相关
 [cameraEntity](property): [](Box3Entity) / [](GameEntity)
-:   [cameraMode](property)在第一人称视角（`#!javascript 'fps'`）、第三人称跟随视角（`#!javascript 'follow'`）或相对视角（`#!javascript 'relative'`）下，玩家视角所跟随的实体
+:   玩家第一人称视角（`#!javascript 'fps'`）、第三人称跟随视角（`#!javascript 'follow'`）或相对视角（`#!javascript 'relative'`）下，玩家视角所跟随的实体
 
 [cameraMode](property): [](Box3CameraMode) / [](GameCameraMode)
 :   玩家的相机视角模式
 
 [cameraPosition](property): [](Box3Vector3) / [](GameVector3)
-:   固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头的眼睛位置
+:   玩家固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头的位置
 
 [cameraTarget](property): [](Box3Vector3) / [](GameVector3)
-:   固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头所朝向的目标点
+:   玩家固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头所朝向的目标点
 
 [cameraUp](property): [](Box3Vector3) = `#!javascript new Box3Vector3(0, 1, 0)` / [](GameVector3) = `new GameVector3(0, 1, 0)`
-:   固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头向上的矢量
+:   玩家固定视角（`#!javascript 'fixed'`）或相对视角（`#!javascript 'relative'`）下，镜头向上的矢量
 
 [cameraFovY](property): [](number) = `#!javascript 0.25`
-:   垂直方向的视场角，在任何相机视角模式都适用
+:   玩家垂直方向的视场角，在任何相机视角模式都适用
 
 [cameraFreezedAxis](hiddenProperty): [](Box3CameraFreezedAxis) = `#!javascript ''` / [](GameCameraFreezedAxis) = `#!javascript ''`
-:   在相对视角（`#!javascript 'relative'`）下，冻结的摄像机轴
+:   玩家在相对视角（`#!javascript 'relative'`）下，冻结的摄像机轴
 
 [cameraDistance](hiddenProperty): [](number)
-:   摄像机距离
+:   第三人称跟随视角（`#!javascript 'follow'`）下，玩家摄像机到玩家实体的距离
 
 [colorLUT](property): [](string)
-:   玩家的画面滤镜
+:   玩家的画面滤镜，格式为`#!javascript lut/*.lut`
 
 [freezedForwardDirection](hiddenProperty): [](Box3Vector3) / [](GameVector3) | [](null)
 :   将玩家摄像机的方向沿y轴固定，默认为[](null)  
@@ -1042,7 +1043,7 @@
 :   为 iframe 父对象的消息事件添加监听器
 
 ### 声音
-[sound](method)([spec](arg): {[sample](property): [](string), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](void)
+[sound](method)([spec](arg): {[sample](property): [](string), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](Sound)
 :   对玩家播放声音
 
     | 参数 | | 类型 | 说明 |

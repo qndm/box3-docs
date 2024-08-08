@@ -19,6 +19,9 @@
 [statusText](readonly): [](string)
 :   请求状态文本信息
 
+[ok](getter)() => [](boolean)
+:   该请求是否成功
+
 [headers](readonly): [](GameHttpFetchHeaders)
 :   响应头内容
 
@@ -37,7 +40,3 @@
 
 [close](method): [](Promise)<[](void)>
 :   关闭该请求
-
-[ok](getter)() => [](boolean)
-:   该请求是否成功
-
