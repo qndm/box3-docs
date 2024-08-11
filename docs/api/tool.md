@@ -54,16 +54,6 @@
         ——引用自<https://nodejs.cn/api/modules.html#exports-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F>
 
 ### 资源文件
-[resources](const): {[ls](method): ([path](arg)?: [](string)) => [](Box3AssetListEntry)[] / [](GameAssetListEntry)[]}
-:   获取地图资源文件的模块
-
-:   [ls](method)([path](arg)?: [](string)) => [](Box3AssetListEntry)[] / [](GameAssetListEntry)[]
-    :   获取指定目录下的所有文件名
-
-        | 参数 | 类型 | 说明 |
-        | - | - | - |
-        | [path](arg)? | [](string) | 选填，要获取的目录的路径 |
-
 ## 函数
 ### 时间
 [sleep](function)([ms](arg): [](number)): [](Promise)<[](void)>

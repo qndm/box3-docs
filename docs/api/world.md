@@ -204,7 +204,7 @@
         world.testSelector('.groupA', a_Entity_Has_Tag_groupA)
         ```
 
-<method>raycast</method> ([origin](arg): [](Box3Vector3) / [](GameVector3), [direction](arg): [](Box3Vector3) / [](GameVector3), [options?](arg): <def>Partial</def><[](Box3RaycastOptions)> / [](GameRaycastOptions)>) => <def>string</def>[][]
+<method>raycast</method> ([origin](arg): [](Box3Vector3) / [](GameVector3), [direction](arg): [](Box3Vector3) / [](GameVector3), [options](arg)?: <def>Partial</def><[](Box3RaycastOptions)> / [](GameRaycastOptions)>) => <def>string</def>[][]
 :   射线检测，从 <arg>origin</arg> 原点位置向 <arg>direction</arg> 方向投射一条隐形的射线，返回碰到的实体或方块
     [Box3RaycastOptions / GameRaycastOptions](type/RaycastOptions.md)  
     [Box3RaycastResult / GameRaycastResult](type/RaycastResult.md)
@@ -223,7 +223,7 @@
     !!! tip "提示"
         有可能遇到射线击中的位置和原点相同，那是因为射线刚发射就碰到其他东西。  
         举个例子，在玩家位置发射射线，射线原点和玩家重合，射线就会击中玩家。  
-        所以要计算好发射的原点，避免碰到你不想它碰到的东西。
+        所以要计算好发射的原点，避免碰到你不想它碰到的东西，或设置[options?](arg)。
 
 <method>searchBox</method> ([bounds](arg): [](Box3Bounds3) / [](GameBounds3)) => [](Box3Entity)[] / [](GameEntity)[]
 :   搜索指定区域内的实体

@@ -255,7 +255,7 @@
     如果设定了该属性，但没设定 [particleSize](property) 的值，每产生一个粒子，会从区间$[0,$ [particleSizeSpread](property)$)$里选取的一个随机数作为它的大小  
     如果同时设定了 [particleSize](property) 和 [particleSizeSpread](property) 两个属性，每产生一个粒子，从区间$[0,$ [particleSizeSpread](property)$)$里选取一个随机数[x](variable)，这个粒子第[i](variable)个阶段的大小将为[particleSize](property)[[i](variable)]$+$[x](variable)
 
-[particleColor](property): [](Box3RGBColor)[] / [](GameRGBColor)[] = `#!javascript [ new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1) ]` / `#!javascript [ new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1) ]`
+[particleColor](property): [](Box3RGBColor)[] = `#!javascript [ new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1), new Box3RGBColor(1, 1, 1) ]` / [](GameRGBColor)[] = `#!javascript [ new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1), new GameRGBColor(1, 1, 1) ]`
 :   粒子颜色  
     该属性的值是一个长度为0 **至** 5的数组，分别对应粒子从产生到消失的五个阶段，第一个阶段为产生时的颜色，第五个阶段为消失时的颜色。粒子在阶段之间颜色会平滑地过渡  
     若数组的长度小于5，则数组剩余部分对应的阶段粒子会显示为白色  

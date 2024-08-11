@@ -10,6 +10,23 @@
 :   <def>Box3Voxels</def> / <def>GameVoxels</def>无法（很难）被实例化，但在全局存在一个单例对象<def>voxels</def>  
     可以通过<def>voxels</def>对象控制世界的地形变化，利用循环语法批量生成/销毁方块，获取某个方块的类型、名称、旋转角度等。
 
+!!! info "方块名称和方块id"
+
+    方块名称和方块id都是描述某位置方块的方法  
+    方块名称只包含方块的类型  
+    id包含方块的旋转码，在[setVoxel](method)方法不填[rotation](arg)参数的情况下修改方块旋转码  
+    方块正面面朝北方（`-z`方向）的旋转码数值上和将方块名称使用[id](method)方法转换后相同  
+    方块正面面朝北方（`-z`方向）的旋转码为基准，取此时的旋转码为[voxel](variable)，每顺时针转$90°$，方块[voxel](variable)加`#!javascript 16384`（`#!javascript 0x4000`）  
+    我们以泥土（方块名称为`#!javascript 'dirt'`，id为`#!javascript 125`）为例：
+
+    - 面向北方（`-z`方向）的旋转码为`#!javascript 125 + 0` = `#!javascript 125`
+    - 面向东方（`+x`方向）的旋转码为`#!javascript 125 + 16384 * 1` = `#!javascript 16509`
+    - 面向南方（`+z`方向）的旋转码为`#!javascript 125 + 16384 * 2` = `#!javascript 32893`
+    - 面向西方（`-x`方向）的旋转码为`#!javascript 125 + 16384 * 3` = `#!javascript 49277`
+
+    若只是想判断方块的类型，应使用[name](method)将方块id转换成方块名称或者将方块id取模`#!javascript 16384`（`#!javascript 0x4000`）后再判断  
+    这不只是为了规范和便于维护，因为方块的id会包含旋转码，旋转码会使直接判断方块id相等的方法无效（除非你把四个方向都考虑到）！
+
 ## 属性
 [shape](readonly): [](Box3Vector3) / [](GameVector3)
 :   地图尺寸，决定了能放置方块区域的最大尺寸  
@@ -41,15 +58,6 @@
 
     !!! tip "提示"
 
-        id可以包含方块的旋转码，在[setVoxel](method)方法不填[rotation](arg)参数的情况下修改方块旋转码  
-        方块正面面朝北方（`-z`方向）的旋转码数值上和无旋转码相同  
-        方块正面面朝北方（`-z`方向）的旋转码为基准，取此时的旋转码为[voxel](variable)，每顺时针转90°，方块[voxel](variable)加`#!javascript 16384`（`#!javascript 0x4000`）  
-        我们以泥土（方块名称为`#!javascript 'dirt'`，id为`#!javascript 125`）为例：
-
-        - 面向北方（`-z`方向）的旋转码为`#!javascript 125 + 0` = `#!javascript 125`
-        - 面向东方（`+x`方向）的旋转码为`#!javascript 125 + 16384 * 1` = `#!javascript 16509`
-        - 面向南方（`+z`方向）的旋转码为`#!javascript 125 + 16384 * 2` = `#!javascript 32893`
-        - 面向西方（`-x`方向）的旋转码为`#!javascript 125 + 16384 * 3` = `#!javascript 49277`
 
     ??? example "示例"
 

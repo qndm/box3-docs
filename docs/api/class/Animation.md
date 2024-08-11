@@ -7,10 +7,9 @@
     [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/ritpgy64d053qg64)  
     [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/crd9b8smvgh8s0ek)
 
+[](Box3Animation) / [](GameAnimation)<[KeyframeType](typeArg), [TargetType](typeArg)>
 :   [](Box3Animation) / [](GameAnimation)是对世界、实体和玩家添加动画的类  
     动画将在本地运行，获得更好的性能，播放更流畅、平滑
-
-[](Box3Animation) / [](GameAnimation)<[KeyframeType](typeArg), [TargetType](typeArg)>
 
 | 类型 | 说明 |
 | - | - |

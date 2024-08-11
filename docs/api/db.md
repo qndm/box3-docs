@@ -8,15 +8,15 @@
     若在Arena编辑器使用，只会得到一条错误信息：`Error: sql error: Error: storage disabled`
 
 !!! note "说明"
-    由于文档内容繁多，暂时没有添加SQL教程的打算  
-    SQL教程可以看：
+    该页面不介绍SQL，SQL教程可以看：
 
+    - [一文带你真正了解-SQL](../learn/community-articles/Nomen-sql.md)
     - [SQLite - 菜鸟教程](https://www.runoob.com/sqlite/sqlite-tutorial.html)
     - [PostgreSQL - 菜鸟教程](https://www.runoob.com/postgresql/postgresql-tutorial.html)
 
 : [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/hc069ctabo29naig)  
 
-[](Box3DataBase)无法（很难）被实例化，但在全局存在一个单例对象[](db)  
+[](Box3Database) / [](GameDatabase)无法（很难）被实例化，但在全局存在一个单例对象[](db)  
 [](db)对象是整个Box3 Database API的入口。在使用数据库之前，需要先掌握一些关于操作数据库的基础知识。
 
 ## 方法

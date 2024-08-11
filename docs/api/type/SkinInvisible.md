@@ -1,9 +1,11 @@
-!!! bug "页面缺失"
+<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
-    API文档内容繁多，有一些页面还未完工。
+!!! info "这是一个服务端API"
+    该API仅在服务端脚本使用
 
-    如果你愿意为此贡献一份力量，请[加入我们](/about)
+!!! info "Arena独有"
+    该API仅在Arena编辑器使用
 
-    [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/pqwtgxz3v4w3yo32){.md-button}
-    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/agf4z03gzqipg9mv){.md-button}
-    [返回](javascript:history.back()){.md-button}
+[](Box3SkinInvisible) = {[[key](indexArg) in [](Box3BodyPart)]: [](boolean)}  
+[](GameSkinInvisible) = {[[key](indexArg) in [](GameBodyPart)]: [](boolean)}
+:   玩家皮肤隐藏配置

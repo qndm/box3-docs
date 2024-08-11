@@ -1,4 +1,5 @@
-# [](GamePurchaseSuccessEvent)
+!!! info "Arena独有"
+    该API仅在Arena编辑器使用
 
 当玩家成功购买物品时触发的事件
 

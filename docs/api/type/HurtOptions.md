@@ -3,8 +3,11 @@
 !!! info "这是一个服务端API"
     该API仅在服务端脚本使用
 
-!!! info "Arena独有"
-    该API仅在Arena编辑器使用
+:   实体伤害配置
 
-[](GameSkin) = {[[key](indexArg) in [](GameBodyPart)]: [](GameSkinValue)}
-:   玩家的皮肤
+## 属性
+[attacker](property): [](Box3Entity) / [](GameEntity)
+:   攻击者
+
+[damageType](property): [](string)
+:   伤害类型

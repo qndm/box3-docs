@@ -3,6 +3,9 @@
 !!! info "这是一个服务端API"
     该API仅在服务端脚本使用
 
+!!! info "Arena独有"
+    该API仅在Arena编辑器使用
+
 :   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/su9rkpkv6yte84s8)  
     [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/rgssolkr068w0fy9#anWjP)
 

@@ -10,7 +10,7 @@
 
 :   用于HTTP请求的请求头配置
 
-[](GameHttpFetchHeaders) = {[[name](arg): [](string)]: [](string) | [](string)[]}
+[](GameHttpFetchHeaders) = {[[name](indexArg): [](string)]: [](string) | [](string)[]}
 
 ??? example "示例"
 

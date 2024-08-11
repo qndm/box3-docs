@@ -12,4 +12,4 @@
 :   类JSON格式  
     可以为字符串、数字、布尔值、键值对和数组
 
-[](JSONValue) = [](string) | [](number) | [](boolean) | { [[x](property): [](string)]: [](JSONValue) } | [](JSONValue)[]
+[](JSONValue) = [](string) | [](number) | [](boolean) | { [[x](indexArg): [](string)]: [](JSONValue) } | [](JSONValue)[]

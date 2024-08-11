@@ -115,7 +115,7 @@
 [skinInvisible](property): [](Box3SkinInvisible) / [](GameSkinInvisible)
 :   隐藏玩家模型部件接口
 
-    !!! example "示例"
+    ??? example "示例"
 
         ```javascript
         // 隐藏玩家的头部

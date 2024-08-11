@@ -61,3 +61,17 @@ summary {
   -webkit-user-select: none;
   user-select: none;
 }
+
+.hidden{
+  color: #202020;
+  background-color: #202020;
+  overflow: hidden;
+  width: 10px;
+  transition: color 0.2s, width 0.2s;
+  border-radius: 4px;
+}
+.hidden:hover{
+  color: #ffffff;
+  width: -moz-fit-content;
+  width: fit-content;
+}

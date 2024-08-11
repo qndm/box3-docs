@@ -1,9 +1,10 @@
-!!! bug "页面缺失"
+<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
-    API文档内容繁多，有一些页面还未完工。
+!!! info "这是一个服务端API"
+    该API仅在服务端脚本使用
 
-    如果你愿意为此贡献一份力量，请[加入我们](/about)
+!!! info "Arena独有"
+    该API仅在Arena编辑器使用
 
-    [查阅官方文档（Arena）](javascript:alert$.next('似乎官方也没有文档')){.md-button}
-    [查阅社区文档（Arena）](javascript:alert$.next('似乎社区也没有文档')){.md-button}
-    [返回](javascript:history.back()){.md-button}
+[](GameSkinValue) = (string) | (undefined) | (null)
+:   玩家皮肤的值

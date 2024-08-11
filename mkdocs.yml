@@ -103,7 +103,9 @@ nav:
       - 欢迎: index.md
       - 关于文档: about.md
       - 更新: changes.md
-      - 计划: todo.md
+      - 图标参考: icons.md
+      - 文档说明: info.md
+      - API 速查表: nav.md
   - 学习:
     - learn/index.md
     - 粒子特效:
@@ -134,34 +136,54 @@ nav:
       #     - 添加特效: example/light-dot-cutter/06-effect.md
       #     - 重构和扩展: example/light-dot-cutter/07-extra.md
       #     - 优化: example/light-dot-cutter/08-optimization.md
+  - JS/TS 参考:
+    - js/index.md
+    - <icon name='type'>类型</icon>:
+      - <def>string</def> & <def>String</def> <span block>字符串</span>: js/type/String.md
+      - <def>number</def> & <def>Number</def> <span block>数字</span>: js/type/Number.md
+      - <def>boolean</def> & <def>Boolean</def> <span block>布尔值</span>: js/type/Boolean.md
+      - <def>any</def> <span block>任意类型</span>: js/type/any.md
+      - <def>void</def> <span block>无类型</span>: js/type/void.md
+      - <def>null</def> <span block>空值</span>: js/type/null.md
+      - <def>undefined</def> <span block>未定义</span>: js/type/undefined.md
+      - <def>URL</def> <span block>链接</span>: js/type/URL.md
+      - <def>Partial</def>: js/type/Partial.md
+
   - API参考:
     - api/index.md
-    - <icon name='namespace'>图标参考</icon>: api/icons.md
     - <def>world</def> & <def>Box3World</def> / <def>GameWorld</def> <span block>世界模块</span>: api/world.md
     - <def>voxels</def> & <def>Box3Voxels</def> / <def>GameVoxels</def> <span block>方块模块</span>: api/voxels.md
-    - <def>db</def> & <def>Box3DataBase</def> <span block>数据库模块</span>: api/db.md
+    - <def>db</def> & <def>Box3Database</def> / <def>GameDatabase</def> <span block>数据库模块</span>: api/db.md
     - <def>storage</def> & <def>GameStorage</def> <span block>数据存储模块</span>: api/storage.md
     - <def>gui</def> & <def>GameGUI</def> <span block>用户图形界面模块</span>: api/gui.md
     - <def>rtc</def> & <def>GameRTC</def> <span block>实时语言通信模块</span>: api/rtc.md
     - <def>http</def> & <def>Box3HttpAPI</def> / <def>GameHttpAPI</def> <span block>HTTP模块</span>: api/http.md
     - <def>console</def> & <def>GameConsole</def> <span block>控制台</span>: api/console.md
+    - <def>resources</def> & <def>Box3ResourceSystem</def> / <def>GameResourceSystem</def> <span block>资源文件</span>: api/resources.md
+    - <constObject>remoteChannel</constObject> & <def>ServerRemoteChannel</def> <span block>数据通信（服务端）</span>: api/remoteChannel.md
     - <span block>杂项</span>: api/tool.md
     - <icon name='class'>类</icon>:
-      - <def>Box3Entity</def> / <def>GameEntity</def> <span block> 实体</span>: api/class/Entity.md
+      - <def>Box3Entity</def> / <def>GameEntity</def> <span block>实体</span>: api/class/Entity.md
       - <def>Box3Player</def> / <def>GamePlayer</def> <span block>玩家</span>: api/class/Player.md
       - <def>Box3Animation</def> / <def>GameAnimation</def> <span block>动画</span>: api/class/Animation.md
+      - <def>Box3Wearable</def> / <def>GameWearable</def> <span block>穿戴配件</span>: api/class/Wearable.md
       - <def>Box3Zone</def> / <def>GameZone</def> <span block>区域</span>: api/class/Zone.md
+      - <def>Sound</def> <span block>声音</span>: api/class/Sound.md
       - <def>GameMotionController</def> <span block>动作控制器</span>: api/class/MotionController.md
-      - <def>Box3QueryResult</def> <span block>数据查找结果</span>: api/class/QueryResult.md
+      - <def>GameMotionHandler</def> <span block>动作处理器</span>: api/class/MotionHandler.md
+      - <def>Box3QueryResult</def> / <def>GameQueryResult</def> <span block>数据查找结果</span>: api/class/QueryResult.md
       - <def>GameDataStorage</def> <span block>数据存储空间</span>: api/class/DataStorage.md
       - <def>QueryList</def> <span block>数据查询列表</span>: api/class/QueryList.md
+      - <def>Box3EntityContact</def> / <def>GameEntityContact</def> <span block>实体碰撞数据</span>: api/class/EntityContact.md
+      - <def>Box3VoxelContact</def> / <def>GameVoxelContact</def> <span block>方块碰撞数据</span>: api/class/VoxelContact.md
+      - <def>Box3FluidContact</def> / <def>GameFluidContact</def> <span block>液体碰撞数据</span>: api/class/FluidContact.md
+      - <def>Box3AssetListEntry</def> / <def>GameAssetListEntry</def> <span block>资源文件条目</span>: api/class/AssetListEntry.md
       - <def>PlayerNavigator</def> <span block>用户设备相关</span>: api/class/PlayerNavigator.md
       - <def>GameRTCChannel</def> <span block>RTC通道</span>: api/class/RTCChannel.md
       - <def>Box3EventHandlerToken</def> / <def>GameEventHandlerToken</def> <span block>事件令牌</span>: api/class/EventHandlerToken.md
       - <def>Box3HttpFetchResponse</def> / <def>GameHttpFetchResponse</def> <span block>请求响应</span>: api/class/HttpFetchResponse.md
       - <def>Box3HttpRequest</def> / <def>GameHttpRequest</def> <span block>[无效]HTTP请求</span>: api/class/HttpRequest.md
       - <def>Box3HttpResponse</def> / <def>GameHttpResponse</def> <span block>[无效]HTTP响应</span>: api/class/HttpResponse.md
-      - <def>Sound</def> <span block>声音</span>: api/class/Sound.md
     - <icon name='event'>事件</icon>:
       - <def>Box3TickEvent</def> / <def>GameTickEvent</def> <span block>时钟事件</span>: api/event/TickEvent.md
       - <def>Box3RespawnEvent</def> / <def>GameRespawnEvent</def> <span block>玩家重生事件</span>: api/event/RespawnEvent.md
@@ -179,17 +201,9 @@ nav:
       - <def>Box3FluidContactEvent</def> / <def>GameFluidContactEvent</def> <span block>液体碰撞事件</span>: api/event/FluidContactEvent.md
       - <def>Box3TriggerEvent</def> / <def>GameTriggerEvent</def> <span block>触发器事件</span>: api/event/TriggerEvent.md
       - <def>Box3AnimationEvent</def> / <def>GameAnimationEvent</def> <span block>动画事件</span>: api/event/AnimationEvent.md
+      - <def>GameMotionEvent</def> <span block>动作事件</span>: api/event/MotionEvent.md
+      - <def>ServerEvent</def>: api/event/ServerEvent.md
     - <icon name='type'>结构类型</icon>:
-      - <icon name='namespace'>基本数据类型</icon>:
-        - <def>string</def> & <def>String</def> <span block>字符串</span>: api/type/base/String.md
-        - <def>number</def> & <def>Number</def> <span block>数字</span>: api/type/base/Number.md
-        - <def>boolean</def> & <def>Boolean</def> <span block>布尔值</span>: api/type/base/Boolean.md
-        - <def>any</def> <span block>任意类型</span>: api/type/base/any.md
-        - <def>void</def> <span block>无类型</span>: api/type/base/void.md
-        - <def>null</def> <span block>空值</span>: api/type/base/null.md
-        - <def>undefined</def> <span block>未定义</span>: api/type/base/undefined.md
-        - <def>Partial</def>: api/type/base/Partial.md
-        - <def>URL</def> <span block>链接</span>: api/type/base/URL.md
       - <icon name='namespace'>Box3 基本数据类型</icon>:
         - <def>Box3Vector3</def> / <def>GameVector3</def> <span block>三维向量</span>: api/type/Vector3.md
         - <def>Box3Quaternion</def> / <def>GameQuaternion</def> <span block>四元数</span>: api/type/Quaternion.md
@@ -197,18 +211,19 @@ nav:
         - <def>Box3RGBColor</def> / <def>GameRGBColor</def> <span block>RGB颜色</span>: api/type/RGBColor.md
         - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def> <span block>RGBA颜色</span>: api/type/RGBAColor.md
       - <icon name='enum'>枚举</icon>:
-        - <def>Box3BodyPart</def> / <def>GameBodyPart</def> <span block>身体部件类型</span>: api/type/enum/BodyPart.md
-        - <def>Box3ButtonType</def> / <def>GameButtonType</def> <span block>按键类型</span>: api/type/enum/ButtonType.md
-        - <def>Box3CameraMode</def> / <def>GameCameraMode</def> <span block>摄像机模式</span>: api/type/enum/CameraMode.md
-        - <def>Box3InputDirection</def> / <def>GameInputDirection</def> <span block>输入方向</span>: api/type/enum/InputDirection.md
-        - <def>Box3CameraFreezedAxis</def> / <def>GameCameraFreezedAxis</def>: api/type/enum/CameraFreezedAxis.md
-        - <def>Box3PlayerMoveState</def> / <def>GamePlayerMoveState</def> <span block>玩家移动状态</span>: api/type/enum/PlayerMoveState.md
-        - <def>Box3PlayerWalkState</def> / <def>GamePlayerWalkState</def> <span block>玩家步行状态</span>: api/type/enum/PlayerWalkState.md
-        - <def>Box3DialogType</def> / <def>GameDialogType</def> <span block>对话框类型</span>: api/type/enum/DialogType.md
-        - <def>SocialType</def> <span block>社交类型</span>: api/type/enum/SocialType.md
-        - <def>Box3AnimationPlaybackState</def> / <def>GameAnimationPlaybackState</def> <span block>动画播放状态</span>: api/type/enum/AnimationPlaybackState.md
-        - <def>Box3AnimationDirection</def> / <def>GameAnimationDirection</def> <span block>动画播放方向</span>: api/type/enum/AnimationDirection.md
-        - <def>Box3Easing</def> / <def>GameEasing</def> <span block>动画缓动效果</span>: api/type/enum/Easing.md
+        - <def>Box3BodyPart</def> / <def>GameBodyPart</def> <span block>身体部件类型</span>: api/enum/BodyPart.md
+        - <def>Box3ButtonType</def> / <def>GameButtonType</def> <span block>按键类型</span>: api/enum/ButtonType.md
+        - <def>Box3CameraMode</def> / <def>GameCameraMode</def> <span block>摄像机模式</span>: api/enum/CameraMode.md
+        - <def>Box3InputDirection</def> / <def>GameInputDirection</def> <span block>输入方向</span>: api/enum/InputDirection.md
+        - <def>Box3CameraFreezedAxis</def> / <def>GameCameraFreezedAxis</def>: api/enum/CameraFreezedAxis.md
+        - <def>Box3PlayerMoveState</def> / <def>GamePlayerMoveState</def> <span block>玩家移动状态</span>: api/enum/PlayerMoveState.md
+        - <def>Box3PlayerWalkState</def> / <def>GamePlayerWalkState</def> <span block>玩家步行状态</span>: api/enum/PlayerWalkState.md
+        - <def>Box3DialogType</def> / <def>GameDialogType</def> <span block>对话框类型</span>: api/enum/DialogType.md
+        - <def>SocialType</def> <span block>社交类型</span>: api/enum/SocialType.md
+        - <def>Box3AnimationPlaybackState</def> / <def>GameAnimationPlaybackState</def> <span block>动画播放状态</span>: api/enum/AnimationPlaybackState.md
+        - <def>Box3AnimationDirection</def> / <def>GameAnimationDirection</def> <span block>动画播放方向</span>: api/enum/AnimationDirection.md
+        - <def>Box3Easing</def> / <def>GameEasing</def> <span block>动画缓动效果</span>: api/enum/Easing.md
+        - <def>Box3AssetType</def> / <def>GameAssetType</def> <span block>资源文件类型</span>: api/enum/AssetType.md
       - <def>Box3PlayerEntity</def> / <def>GamePlayerEntity</def> <span block>玩家实体</span>: api/type/PlayerEntity.md
       - <def>Box3DialogCall</def> / <def>GameDialogCall</def> <span block>对话框调用</span>: api/class/Player.md/#Box3DialogCall
       - <def>Box3DialogParams</def> / <def>GameDialogParams</def> <span block>对话框配置</span>: api/type/DialogParams.md
@@ -217,15 +232,15 @@ nav:
       - <def>Box3EventChannel</def> / <def>GameEventChannel</def> <span block>事件频道</span>: api/type/EventChannel.md
       - <def>Box3EventFuture</def> / <def>GameEventFuture</def>: api/type/EventFuture.md
       - <def>Box3EntityConfig</def> / <def>GameEntityConfig</def> <span block>实体配置</span>: api/type/EntityConfig.md
-      - <def>Box3ZoneConfig</def> / <def>GameZoneConfig</def>: api/type/ZoneConfig.md
+      - <def>Box3ZoneConfig</def> / <def>GameZoneConfig</def> <span block>区域配置</span>: api/type/ZoneConfig.md
       - <def>Box3SelectorString</def> / <def>GameSelectorString</def>: api/type/SelectorString.md
       - <def>Box3RaycastOptions</def> / <def>GameRaycastOptions</def> <span block>射线检测配置</span>: api/type/RaycastOptions.md
       - <def>Box3RaycastResult</def> / <def>GameRaycastResult</def> <span block>射线检测结果</span>: api/type/RaycastResult.md
-      - <def>Box3SoundEffect</def> / <def>GameSoundEffect</def>: api/type/SoundEffect.md
-      - <def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>: api/type/WorldKeyframe.md
-      - <def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>: api/type/EntityKeyframe.md
-      - <def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>: api/type/PlayerKeyframe.md
-      - <def>Box3AnimationPlaybackConfig</def> / <def>GameAnimationPlaybackConfig</def>: api/type/AnimationPlaybackConfig.md
+      - <def>Box3SoundEffect</def> / <def>GameSoundEffect</def> <span block>声音效果配置</span>: api/type/SoundEffect.md
+      - <def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def> <span block>世界关键帧</span>: api/type/WorldKeyframe.md
+      - <def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def> <span block>实体关键帧</span>: api/type/EntityKeyframe.md
+      - <def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def> <span block>玩家关键帧</span>: api/type/PlayerKeyframe.md
+      - <def>Box3AnimationPlaybackConfig</def> / <def>GameAnimationPlaybackConfig</def> <span block>动画播放配置参数</span>: api/type/AnimationPlaybackConfig.md
       - <def>ListPageOptions</def> <span block>列表翻页配置</span>: api/type/ListPageOptions.md
       - <def>ReturnValue</def> <span block>数据查询返回</span>: api/type/ReturnValue.md
       - <def>JSONValue</def> <span block>类JSON格式</span>: api/type/JSONValue.md
@@ -233,6 +248,14 @@ nav:
       - <def>GameHttpFetchRequestOptions</def> <span block>HTTP请求配置</span>: api/type/HttpFetchRequestOptions.md
       - <def>GameHttpFetchHeaders</def> <span block>HTTP请求头配置</span>: api/type/HttpFetchHeaders.md
       - <def>Box3HttpHandler</def> / <def>GameHttpHandler</def> <span block>HTTP事件监听器</span>: api/type/HttpHandler.md
+      - <def>GameMotionConfig</def> <span block>动作配置</span>: api/type/MotionConfig.md
+      - <def>GameMotionClipConfig</def> <span block>动作序列配置</span>: api/type/MotionClipConfig.md
+      - <def>GameSkin</def> <span block>皮肤</span>: api/type/Skin.md
+      - <def>GameSkinValue</def> <span block>皮肤值</span>: api/type/SkinValue.md
+      - <def>GameSkinInvisible</def> <span block>皮肤隐藏设置</span>: api/type/SkinInvisible.md
+      - <def>Box3HurtOptions</def> / <def>GameHurtOptions</def> <span block>实体伤害配置</span>: api/type/HurtOptions.md
+      - <def>Box3LoggerMethod</def> / <def>GameLoggerMethod</def> <span block>控制台方法</span>: api/type/LoggerMethod.md
+      - <def>GUIConfig</def><span block>GUI配置</span>: api/type/LoggerMethod.md
   - Client API参考:
     - api_client/index.md
   - 第三方模块参考:

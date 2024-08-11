@@ -6,5 +6,11 @@
 !!! info "Arena独有"
     该API仅在Arena编辑器使用
 
-[](GameSkin) = {[[key](indexArg) in [](GameBodyPart)]: [](GameSkinValue)}
-:   玩家的皮肤
+:   资源文件条目
+
+## 属性
+[path](property): [](string)
+:   资源文件路径
+
+[type](property): [](Box3AssetType) / [](GameAssetType)
+:   资源文件类型

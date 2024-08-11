@@ -10,14 +10,14 @@ Damage 本意为”伤害“，在此地表示物体受到伤害触发的事件�
 <property>tick</property> : <def>number</def>
 : 事件发生的时间
 
-<property>entity</property> : <def>Box3Entity</def>
+<property>entity</property> : <def>Box3Entity</def> / <def>GameEntity</def>
 : 受到伤害的实体
 
 <property>damage</property> : <def>number</def>
 : 受到伤害的血量值
 
-<property>attacker</property> : <def>Box3Entity</def>|<def>null</def>
-: 如果为 `null` 则说明没有攻击者实体，反之返回攻击者的 <def>Box3Entity</def> 对象
+<property>attacker</property> : <def>Box3Entity</def> / <def>GameEntity</def> | <def>null</def>
+: 如果为 `null` 则说明没有攻击者实体，反之返回攻击者的<def>Box3Entity</def> / <def>GameEntity</def>对象
 
 <property>damageType</property> : <def>string</def>
 : 伤害的类型

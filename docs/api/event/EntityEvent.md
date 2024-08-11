@@ -18,5 +18,5 @@ Box3 中当创建或销毁实体时触发的事件
 <property>tick</property> : <def>number</def>
 : 事件发生的时间
 
-<property>entity</property> : <def>Box3Entity</def>
+<property>entity</property> : <def>Box3Entity</def> / <def>GameEntity</def>
 : 创建/销毁的实体

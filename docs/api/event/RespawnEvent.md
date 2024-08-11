@@ -7,5 +7,5 @@ Box3 中当玩家复活时触发的事件
 <property>tick</property> : <def>number</def>
 : 事件发生的时间
 
-<property>entity</property> : <def>Box3Entity</def>
+<property>entity</property> : <def>Box3PlayerEntity</def> / <def>GamePlayerEntity</def>
 : 复活的玩家
