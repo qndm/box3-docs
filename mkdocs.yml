@@ -281,17 +281,17 @@ nav:
       - <icon name='class'>UI 组件</icon>:
         - <def>UiComponent</def> <span block>[无效]UI组件</span>: api_client/class/UiComponent.md
         - <def>UiScale</def> <span block>UI缩放</span>: api_client/class/UiScale.md
-      - <icon name='event'>事件</icon>:
-        - api_client/event/index.md
-        - <def>EventEmitter</def> <span block>事件处理器</span>: api_client/class/EventEmitter.md
-        - <icon name='type'>事件映射表</icon>:
-          - <def>UiNodeEvents</def> <span block>节点事件</span>: api_client/event/UiNodeEvents.md
-          - <def>UiInputEvents</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvents.md
-          - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/event/PointerLockEvents.md
-        - <icon name='type'>监听器参数</icon>:
-          - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvents.md
-          - <def>UiInputEvent</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvent.md
-          - <def>PointerLockChangeEvent</def> <span block>鼠标指针更改事件</span>: api_client/event/PointerLockChangeEvent.md
+    - <icon name='event'>事件</icon>:
+      - api_client/event/index.md
+      - <def>EventEmitter</def> <span block>事件处理器</span>: api_client/class/EventEmitter.md
+      - <icon name='type'>事件映射表</icon>:
+        - <def>UiNodeEvents</def> <span block>节点事件</span>: api_client/event/UiNodeEvents.md
+        - <def>UiInputEvents</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvents.md
+        - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/event/PointerLockEvents.md
+      - <icon name='type'>监听器参数</icon>:
+        - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvents.md
+        - <def>UiInputEvent</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvent.md
+        - <def>PointerLockChangeEvent</def> <span block>鼠标指针更改事件</span>: api_client/event/PointerLockChangeEvent.md
   - 第三方模块参考:
     - modules/index.md
 # - Getting started:
