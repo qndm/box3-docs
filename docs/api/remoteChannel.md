@@ -9,12 +9,15 @@
 !!! info "关于[remoteChannel](constObject)"
     [remoteChannel](constObject)在客户端和服务端都有，但其实是两个完全不同的类的实例化对象
 
+:   [](ServerRemoteChannel)是服务端中用于和客户端通信的类  
+    [](ServerRemoteChannel)无法（很难）实例化，但存在一个全局的实例化对象[remoteChannel](constObject)
+
 ## 方法
 [sendClientEvent](method): [](SendClientEventType)
-:   向指定客户端发送消息
+:   向指定客户端发送消息，客户端会触发[](ClientRemoteChannelEvents)事件
 
-[broadcastClientEvent](method)([clientEvent](arg): [](JSONValue)) => [](void)
-:   向所有客户端发送消息
+[broadcastClientEvent](method)([clientEvent](arg): [](JSONValue)): [](void)
+:   向所有客户端发送消息，客户端会触发[](ClientRemoteChannelEvents)事件
 
 ### 事件
 [onServerEvent](event): [](GameEventChannel)<[](ServerEvent)>

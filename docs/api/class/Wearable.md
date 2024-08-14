@@ -36,5 +36,5 @@
 :   该穿戴配件的缩放比例
 
 ## 方法
-[remove](method)() => [](void)
+[remove](method)(): [](void)
 :   移除该穿戴部件

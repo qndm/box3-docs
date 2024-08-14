@@ -85,22 +85,22 @@
 :   只读，当前数据储存空间名称
 
 ## 方法
-[set](method)([key](arg): [](string), [value](arg): [](JSONValue)) => [](Promise)<[](void)>
+[set](method)([key](arg): [](string), [value](arg): [](JSONValue)): [](Promise)<[](void)>
 :   设置该数据储存空间中指定键的值
 
-[update](method)([key](arg): [](string), [handler](callbackArg): ([prevValue](arg): [](ReturnValue)) => [](JSONValue)) => [](Promise)<[](void)>
+[update](method)([key](arg): [](string), [handler](callbackArg): ([prevValue](arg): [](ReturnValue)) => [](JSONValue)): [](Promise)<[](void)>
 :   使用回调函数，设置该数据储存空间中指定键的值
 
-[get](method)([key](arg): [](string)) => [](Promise)<[](ReturnValue)>
+[get](method)([key](arg): [](string)): [](Promise)<[](ReturnValue)>
 :   获取该数据储存空间中指定键的值
 
-[list](method)([options](arg): [](ListPageOptions)) => [](Promise)<[](QueryList)>
+[list](method)([options](arg): [](ListPageOptions)): [](Promise)<[](QueryList)>
 :   批量列出该数据储存空间的值
 
-[remove](method)([key](arg): [](string)) => [](Promise)<[](ReturnValue)>
+[remove](method)([key](arg): [](string)): [](Promise)<[](ReturnValue)>
 :   移除该数据储存空间中指定键的值
 
-[destroy](hiddenMethod)() => [](Promise)<[](void)>
+[destroy](hiddenMethod)(): [](Promise)<[](void)>
 :   销毁该数据储存空间
 
 

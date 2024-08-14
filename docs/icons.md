@@ -56,8 +56,6 @@ API 文档中会出现一些表示类型的图标，下面是常用图标的含�
 实际编写时，可能不完全会按照上文标注图标。下面是该文档中一些图标的用法
 
 <icon name="variable parent-enum">标识</icon>: 函数/方法的参数，或者泛型的类型，或者键值对的键名  
-<icon name="event">标识</icon>: 特指事件的类。由于事件图标没有泛型版本，所以是否有泛型不会在图标上表示出来  
-
 <icon name="variable private">标识</icon>: 未知或隐藏 API，尚未被官方公布，具体含义与本文档可能存在偏差。虽然图标左下角带锁，但不代表一定为只读  
 <icon name="variable protected">标识</icon>: 标识受保护或只读的字段
 

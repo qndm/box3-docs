@@ -7,7 +7,7 @@
     [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/azxgcc43ibscl5z1)
 
 [](Box3EventFuture) / [](GameEventFuture)是使用[](Promise)监听事件的方式  
-[](Box3EventFuture) / [](GameEventFuture)用于监听单次事件，当监听到事件时，会将[EventType](eventArg)返回
+[](Box3EventFuture) / [](GameEventFuture)用于监听单次事件，当监听到事件时，会将[EventType](type)返回
 
 !!! warning "警告"
 
@@ -19,16 +19,16 @@
 
     在使用此API前，建议先了解[](Promise)
 
-[](Box3EventFuture) / [](GameEventFuture)<[EventType](eventArg)> = ([filter](callbackArg)?: ([event](arg): [EventType](eventArg)) => [](boolean)) => [](Promise)<[EventType](eventArg)>
+[](Box3EventFuture) / [](GameEventFuture)<[EventType](type)> = ([filter](callbackArg)?: ([event](arg): [EventType](type)) => [](boolean)) => [](Promise)<[EventType](type)>
 :   使用[](Promise)，等待事件触发
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [filter](callbackArg)? | ([event](arg): [EventType](eventArg)) => [](boolean) | 选填，用于检查事件是否满足条件<br>若该回调函数返回`#!javascript true`，[](Promise)就会兑现；否则继续等待下一次事件触发<br>若不填，则只要事件触发就会兑现[](Promise) |
+    | [filter](callbackArg)? | ([event](arg): [EventType](type)) => [](boolean) | 选填，用于检查事件是否满足条件<br>若该回调函数返回`#!javascript true`，[](Promise)就会兑现；否则继续等待下一次事件触发<br>若不填，则只要事件触发就会兑现[](Promise) |
 
     | 返回值 | 类型 | 说明 |
     | :- | :- | :- |
-    | | [](Promise)<[EventType](eventArg)> | 一个[](Promise)。当符合[filter](callbackArg)的事件被触发，这个[](Promise)就会兑现 |
+    | | [](Promise)<[EventType](type)> | 一个[](Promise)。当符合[filter](callbackArg)的事件被触发，这个[](Promise)就会兑现 |
 
     ??? example "示例"
 

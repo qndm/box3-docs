@@ -11,12 +11,12 @@
 :   事件令牌，用于控制使用事件频道[](Box3EventChannel) / [](GameEventChannel)中的事件
 
 ## 方法
-[cancel](method)() => [](void)
+[cancel](method)(): [](void)
 :   取消事件监听
 
-[resume](method)() => [](void)
+[resume](method)(): [](void)
 :   恢复事件监听
 
-[active](hiddenMethod)() => [](boolean)
+[active](hiddenMethod)(): [](boolean)
 :   检查事件是否在运行中
 

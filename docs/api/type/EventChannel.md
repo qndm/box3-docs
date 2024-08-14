@@ -8,12 +8,12 @@
 
 [](Box3EventChannel) / [](GameEventChannel)是使用事件频道监听事件的方式
 
-[](Box3EventChannel) / [](GameEventChannel)<[EventType](eventArg)> = ([handler](callbackArg): ([event](arg): [EventType](eventArg)) => [](void)) => [](Box3EventHandlerToken) / [](GameEventHandlerToken)
+[](Box3EventChannel) / [](GameEventChannel)<[EventType](type)> = ([handler](callbackArg): ([event](arg): [EventType](type)) => [](void)) => [](Box3EventHandlerToken) / [](GameEventHandlerToken)
 :   使用事件频道，在事件触发时调用回调函数
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [handler](callbackArg) | ([event](arg): [EventType](eventArg)) => [](void) | 事件发生时调用的回调函数 |
+    | [handler](callbackArg) | ([event](arg): [EventType](type)) => [](void) | 事件发生时调用的回调函数 |
 
     | 返回值 | 类型 | 说明 |
     | :- | :- | :- |

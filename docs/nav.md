@@ -223,3 +223,40 @@ hide:
 </div>
 
 ## Client API 参考
+<div class="grid cards" markdown>
+
+-   <icon name="namespace">Client Box3 基本数据类型</icon>
+
+    ---
+    - [x] <def>Vec2</def> <span block>二维向量</span>
+    - [x] <def>Vec3</def> <span block>三维向量</span>
+    - [x] <def>Coord2</def> <span block>二维位置</span>
+
+-   <icon name="namespace">Ui 节点</icon>
+
+    ---
+    - [x] <def>UiNode</def> <span block>节点</span>
+    - [x] <def>UiRenderable</def> <span block>可渲染节点</span>
+    - [x] <def>UiBox</def> <span block>框架节点</span>
+    - [x] <def>UiImage</def> <span block>图像节点</span>
+    - [x] <def>UiText</def> <span block>文本节点</span>
+    - [x] <def>UiInput</def> <span block>输入框节点</span>
+    - [x] <def>PointerEventBehavior</def> <span block>指针事件行为</span>
+
+-   <icon name="namespace">数据通信</icon>
+
+    ---
+    - [x] <constObject>remoteChannel</constObject> & <def>ClientRemoteChannel</def> <span block>数据通信（客户端）</span>
+
+-   <icon name="namespace">事件</icon>
+
+    ---
+    - [ ] <def>EventEmitter</def> <span block>事件处理器</span>
+    - 监听器参数
+        - [ ] <def>UiEvent</def> <span block>UI事件</span>
+        - [ ] <def>UiInputEvent</def> <span block>输入节点事件</span>
+    - 事件映射表
+        - [ ] <def>UiNodeEvents</def> <span block>节点事件</span>
+        - [ ] <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>
+
+</div>

@@ -13,7 +13,7 @@
 
 
 ## 方法
-[then](method)([resolve](callbackArg): ([rows](arg): [](any)[]) => [](any), [reject](callbackArg): (err: [](any)) => [](any)) => [](void)
+[then](method)([resolve](callbackArg): ([rows](arg): [](any)[]) => [](any), [reject](callbackArg): (err: [](any)) => [](any)): [](void)
 
 :   获取查找结果  
     类似于[](Promise)的[then](method)方法，需要填入两个回调函数[resolve](callbackArg)和[reject](callbackArg)  
@@ -47,8 +47,8 @@
         })();
         ```
 
-[next](method)() => [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>
+[next](method)(): [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>
 
-[return](method)() => [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>
+[return](method)(): [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>
 
-[throw](method)([err](arg): [](any)) => [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>
+[throw](method)([err](arg): [](any)): [](Promise)<{[done](property): [](boolean), [value](property): [](any)}>

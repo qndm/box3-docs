@@ -6,7 +6,7 @@
 !!! info "Arena独有"
     该API仅在Arena编辑器使用
 
-:   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/game_storage)
+:   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/game_storage)  
     [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/gevnagz96l3gpuiu)
 
 :   [](GameStorage)是在Arena地图进行数据库操作的类
@@ -14,7 +14,7 @@
 
 
 ## 方法
-[getDataStorage](method)([key](arg): [](string)) => [](GameDataStorage)
+[getDataStorage](method)([key](arg): [](string)): [](GameDataStorage)
 :   获取指定数据储存空间。若空间不存在，创建该空间
 
     | 参数 | 类型 | 说明 |
@@ -33,7 +33,7 @@
 
         建议数据储存空间名称仅包含英文字母、数字、`_`、`$`，避免出现因乱码而无法获取数据储存空间的问题
 
-[getGroupStorage](method)([key](arg): [](string) | [](undefined)) => [](GameDataStorage)
+[getGroupStorage](method)([key](arg): [](string) | [](undefined)): [](GameDataStorage)
 :   获取地图组内指定数据储存空间。若空间不存在，创建该空间  
     此方法获取的数据储存空间在地图组内都可用，数据联通
 

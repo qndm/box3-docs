@@ -34,10 +34,10 @@
 :   动画播放速率
 
 ## 方法
-[keyframes](hiddenMethod)() => [](Partial)<[KeyframeType](typeArg)>[]
+[keyframes](hiddenMethod)(): [](Partial)<[KeyframeType](typeArg)>[]
 :   获取该动画对象的所有关键帧
 
-[play](method)([playback](arg)?: [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>) => [](void)
+[play](method)([playback](arg)?: [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>): [](void)
 :   重新播放该动画  
     若动画已经在播放中，则停止原来的动画并重新播放
 
@@ -45,10 +45,10 @@
 
         [playback](arg)参数并不会套用原动画的[playback](arg)
 
-[cancel](method)() => [](void)
+[cancel](method)(): [](void)
 :   取消播放该动画
 
-[then](method)<[T](typeArg)>([resolve](callbackArg): ([event](arg): [](Box3AnimationEvent) / [](GameAnimationEvent)<[KeyframeType](typeArg), [TargetType](typeArg)>) => [T](typeArg), [reject](callbackArg)?: ([error](arg): [](any)) => [T](typeArg)) => [](Promise)<[T](typeArg)>
+[then](method)<[T](typeArg)>([resolve](callbackArg): ([event](arg): [](Box3AnimationEvent) / [](GameAnimationEvent)<[KeyframeType](typeArg), [TargetType](typeArg)>) => [T](typeArg), [reject](callbackArg)?: ([error](arg): [](any)) => [T](typeArg)): [](Promise)<[T](typeArg)>
 :   类似于[](Promise).[then](method)方法，使用[](Promise)来处理动画播放完的操作
 
     !!! tip "提示和技巧"

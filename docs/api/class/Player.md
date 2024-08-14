@@ -406,7 +406,7 @@
         该方法十分危险，对编辑端和游玩端都有效，在地图运行前需要检查代码中的该方法，否则可能会造成无法进入地图的问题！
 
 ### 外观
-[setSkinByName](method)([skinName](arg): [](string)) => [](void)
+[setSkinByName](method)([skinName](arg): [](string)): [](void)
 :   将指定皮肤套装应用到此玩家上。  
     当皮肤名称不存在于项目皮肤库或不符合类型定义时，无事发生，并会在控制台打印警告。
 
@@ -416,17 +416,17 @@
     !!! info "提示"
         通过此处修改皮肤不会影响皮肤的隐藏状态，设置前是隐藏的，设置后也还是隐藏着。
 
-[resetToDefaultSkin](method)() => [](void)
+[resetToDefaultSkin](method)(): [](void)
 :   重置此玩家的皮肤配置为默认皮肤配置，效果同[setSkinByName](method)传入了默认皮肤套装名称。
 
-[clearSkin](method)() => [](void)
+[clearSkin](method)(): [](void)
 :   清除地图对此玩家应用的皮肤配置，将此玩家的皮肤配置为仅展示玩家自己的皮肤。
 
 !!! note "内容待补充"
 
     未来将补充[resetToDefaultSkin](method)和[clearSkin](method)的区别
 
-[addWearable](method)([spec](arg): [](Partial)<[](Box3Wearable) / [](GameWearable)>) => [](Box3Wearable) / [](GameWearable)
+[addWearable](method)([spec](arg): [](Partial)<[](Box3Wearable) / [](GameWearable)>): [](Box3Wearable) / [](GameWearable)
 :   在玩家某身体部位附上穿戴配件物体
 
     !!! warning "警告"
@@ -463,7 +463,7 @@
             });
             ```
 
-[removeWearable](method)([wearable](arg): [](Box3Wearable) / [](GameWearable)) => void
+[removeWearable](method)([wearable](arg): [](Box3Wearable) / [](GameWearable)): [](void)
 :   在玩家某身体部位移除穿戴配件物体
 
     !!! warning "警告"
@@ -597,7 +597,7 @@
             });
             ```
 
-[wearables](method)([bodyPart](arg)?: [](Box3BodyPart) / [](GameBodyPart)) => [](Box3Wearable)[] / [](GameWearable)[]
+[wearables](method)([bodyPart](arg)?: [](Box3BodyPart) / [](GameBodyPart)): [](Box3Wearable)[] / [](GameWearable)[]
 :   列举在玩家上所有的穿戴配件物体  
     该方法获取的穿戴部件可以用于[removeWearable](method)方法
 
@@ -977,7 +977,7 @@
         });
         ```
 
-[cancelDialogs](method)() => [](void)
+[cancelDialogs](method)(): [](void)
 :   关闭玩家所有打开的对话框
 
 
@@ -994,18 +994,18 @@
 )</span>
 
 ### 复活
-[forceRespawn](method)() => [](void)
+[forceRespawn](method)(): [](void)
 :   将玩家的血量回满，并将玩家传送回出生点  
     会触发[](Box3RespawnEvent) / [](GameRespawnEvent)事件
 
 ### 摄像机相关
-[setCameraPitch](method)([v](arg): [](number)) => [](void)
+[setCameraPitch](method)([v](arg): [](number)): [](void)
 :   设置玩家视角准心绕x轴（视角的上下移动）的旋转 **弧度**
 
     !!! info "Arena 独有"
         该方法仅在Arena编辑器中使用
 
-[setCameraYaw](method)([v](arg): [](number)) => [](void)
+[setCameraYaw](method)([v](arg): [](number)): [](void)
 :   设置玩家视角准心绕y轴（视角的左右移动）的旋转 **弧度**
 
     !!! info "Arena 独有"
@@ -1016,11 +1016,11 @@
 <method>animate</method> ([keyframes](arg): [](Partial)<[](Box3PlayerKeyframe) / [](GamePlayerKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>): [](Box3Animation) / [](GameAnimation)<[](Box3PlayerKeyframe) / [](GamePlayerKeyframe), [](Box3Player) / [](GamePlayer)>
 :   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
 
-[getAnimations](hiddenMethod)() => [](Box3Animation) / [](GameAnimation)<[](Box3PlayerKeyframe) / [](GamePlayerKeyframe), [](Box3Player) / [](GamePlayer)>[]
+[getAnimations](hiddenMethod)(): [](Box3Animation) / [](GameAnimation)<[](Box3PlayerKeyframe) / [](GamePlayerKeyframe), [](Box3Player) / [](GamePlayer)>[]
 :   获取该玩家的所有动画
 
 ### 网页 & Web
-[link](method)([href](arg): [](string), [options](hiddenArg)?: {[isConfirm](hiddenProperty)?: [](boolean), [isNewTab](hiddenProperty)?: [](boolean)}) => [](void)
+[link](method)([href](arg): [](string), [options](hiddenArg)?: {[isConfirm](hiddenProperty)?: [](boolean), [isNewTab](hiddenProperty)?: [](boolean)}): [](void)
 :   在玩家弹出一个“传送门”窗口，可以跳转到其他地图或任意链接
 
     !!! warning "目前仅支持神奇代码岛、编程猫、微信文章、Bilibili视频等链接"
@@ -1036,14 +1036,14 @@
 
         该方法若使用不当，可能会直接跳转到其他链接，使用时应注意
 
-[postMessage](hiddenMethod)([event](arg): {[type](property): [](string), [value](property): [](object), [isOld](property): [](boolean)})
+[postMessage](hiddenMethod)([event](arg): {[type](property): [](string), [value](property): [](object), [isOld](property): [](boolean)}): [](void)
 :   向 iframe 父对象发布消息
 
-[addEventListener](hiddenMethod)([type](arg): [](NavigatorEventType), [listener](arg): ([event](arg): {[data](property): [](object)}) => [](void)) => [](void)
+[addEventListener](hiddenMethod)([type](arg): [](NavigatorEventType), [listener](arg): ([event](arg): {[data](property): [](object)}) => [](void)): [](void)
 :   为 iframe 父对象的消息事件添加监听器
 
 ### 声音
-[sound](method)([spec](arg): {[sample](property): [](string), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](Sound)
+[sound](method)([spec](arg): {[sample](property): [](string), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)): [](Sound)
 :   对玩家播放声音
 
     | 参数 | | 类型 | 说明 |
@@ -1055,7 +1055,7 @@
     | | [pitch](property) | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
 
 ### 社交
-[share](method)([content](arg): [](string)) => [](void)
+[share](method)([content](arg): [](string)): [](void)
 :   为该玩家显示分享弹窗  
     可以通过[content](arg)自定义分享内容，上限40字符。
 
@@ -1068,7 +1068,7 @@
 
     !!! warning "编辑模式下分享的地址是编辑器的地址"
 
-[querySocial](method)([socialType](arg): [](SocialType)) => [](Promise)<[](number)[]>
+[querySocial](method)([socialType](arg): [](SocialType)): [](Promise)<[](number)[]>
 :   查询当前玩家的社交关系，返回玩家 ID 列表
 
     !!! info "Arena 独有"
@@ -1084,7 +1084,7 @@
         虽然[userId](arg)所标类型为[](number)，但实际上[](string)也可使用
 
 ### 商业化
-[openMarketplace](method)([productIds](arg): [](number)()) => [](void)
+[openMarketplace](method)([productIds](arg): [](number)()): [](void)
 :   打开游戏商店对话框，根据玩家传入的“商品ID”显示相应的产品
 
     !!! info "Arena 独有"

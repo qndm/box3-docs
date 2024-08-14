@@ -21,7 +21,7 @@
 :   [](GameRTCChannel)是Box3中的RTC（实时语言通信）通道。  
     [](GameRTCChannel)无法（很难）被实例化，但可以通过[](rtc).[createChannel](hiddenMethod)获取其实例化对象
 
-[add](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](void)>
+[add](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](void)>
 :   向该RTC通道中添加玩家
 
     !!! failure "此处与社区API不符"
@@ -50,7 +50,7 @@
         });
         ```
 
-[remove](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](void)>
+[remove](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](void)>
 :   向该RTC通道移除玩家
 
     ??? example "示例"
@@ -65,10 +65,10 @@
         });
         ```
 
-[destroy](hiddenMethod)() => [](Promise)<[](void)>
+[destroy](hiddenMethod)(): [](Promise)<[](void)>
 :   销毁该RTC通道
 
-[getMicrophonePermission](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](boolean)>
+[getMicrophonePermission](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](boolean)>
 :   申请玩家的麦克风权限
 
     !!! info "提示"
@@ -95,23 +95,23 @@
         });
         ```
 
-[publishMicrophone](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](void)>
+[publishMicrophone](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](void)>
 :   开启该RTC通道玩家的麦克风
 
     !!! bug
 
         若开启麦克风之后，没有通过[unpublish](hiddenMethod)关闭麦克风，地图停止运行后麦克风是不会关闭的（并且除非取消权限，否则永远也关不掉了）
 
-[unpublish](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](void)>
+[unpublish](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](void)>
 :   关闭该RTC通道玩家的麦克风
 
-[getPlayers](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](GamePlayerEntity)[]>
+[getPlayers](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](GamePlayerEntity)[]>
 :   获取该RTC通道的所有玩家
 
-[getVolume](hiddenMethod)([entity](arg): [](GamePlayerEntity)) => [](Promise)<[](number)>
+[getVolume](hiddenMethod)([entity](arg): [](GamePlayerEntity)): [](Promise)<[](number)>
 :   获取该RTC通道的音量，范围$[0, 100]$
 
-[setVolume](hiddenMethod)([entity](arg): [](GamePlayerEntity), [volume](arg): [](number)) => [](Promise)<[](void)>
+[setVolume](hiddenMethod)([entity](arg): [](GamePlayerEntity), [volume](arg): [](number)): [](Promise)<[](void)>
 :   设置该RTC通道的音量，范围$[0, 100]$
 
     ??? example "示例"

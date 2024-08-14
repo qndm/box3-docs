@@ -131,10 +131,10 @@
         :   该区域内太阳分别在`-x`、`+x`、`-y`、`+y`、`-z`、`+z`方向的光照颜色  
 
 ### 方法
-[entities](method)() => [](Box3Entity)[] / [](GameEntity)[]
+[entities](method)(): [](Box3Entity)[] / [](GameEntity)[]
 :   获取该区域内所有的实体
 
-[remove](method)() => [](void)
+[remove](method)(): [](void)
 :   移除该区域
 
 #### 事件

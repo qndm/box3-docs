@@ -417,11 +417,11 @@
 ## 方法
 ### 基础
 <span anchor="destroy">
-[destroy](method)() => [](string)[]
+[destroy](method)(): [](string)[]
 </span>
 :   销毁该实体
 
-[tags](method)() => [](string)[]
+[tags](method)(): [](string)[]
 :   获取实体的所有标签
 
     !!! warning "警告"
@@ -429,22 +429,22 @@
         尽管其命名非常像一个属性，但这其实是一个方法
 
 <span anchor="addTag">
-[addTag](method)([tag](arg): [](string)) => [](void)
+[addTag](method)([tag](arg): [](string)): [](void)
 </span>
 :   给实体添加标签
 
 <span anchor="hasTag">
-[hasTag](method)([tag](arg): [](string)) => [](boolean)
+[hasTag](method)([tag](arg): [](string)): [](boolean)
 </span>
 :   检查实体是否有某个标签
 
 <span anchor="removeTag">
-[removeTag](method)([tag](arg): [](string)) => [](void)
+[removeTag](method)([tag](arg): [](string)): [](void)
 </span>
 :   给实体移除某个标签
 
 ### 外观
-[lookAt](method)([targetPosition](arg): [](GameVector3), [meshFacing](arg)?: `#!javascript "X"` | `#!javascript "Y"` | `#!javascript "Z"`, [up](arg)?: [](GameVector3)) => [](void)
+[lookAt](method)([targetPosition](arg): [](GameVector3), [meshFacing](arg)?: `#!javascript "X"` | `#!javascript "Y"` | `#!javascript "Z"`, [up](arg)?: [](GameVector3)): [](void)
 :   将实体旋转至面向指定位置的方向
 
     !!! info "Arena 独有"
@@ -538,11 +538,11 @@
             });
         ```
 
-[getAnimations](hiddenMethod)() => [](Box3Animation) / [](GameAnimation)<[](Box3EntityKeyframe) / [](GameEntityKeyframe), [](Box3Entity) / [](GameEntity)>[]
+[getAnimations](hiddenMethod)(): [](Box3Animation) / [](GameAnimation)<[](Box3EntityKeyframe) / [](GameEntityKeyframe), [](Box3Entity) / [](GameEntity)>[]
 :   获取该实体的所有动画
 
 ### 声音
-[sound](method)([spec](arg): {[sample](property): [](string), [radius](property)?: [](number), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)) => [](Sound)
+[sound](method)([spec](arg): {[sample](property): [](string), [radius](property)?: [](number), [gain](property)?: [](number), [pitch](property)?: [](number)} | [](string)): [](Sound)
 :   在指定位置播放声音
 
     | 参数 | | 类型 | 说明 |

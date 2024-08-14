@@ -1,6 +1,8 @@
 # Client API 参考
 !!! info "Arena 独有"
-    该部分API仅在Arena 编辑器中有效
+    该部分API仅在Arena 编辑器中有效  
+    该部分API页面内将不再标明此内容
+
 !!! info "这是客户端API"
     这些API仅在客户端脚本使用
 
@@ -14,3 +16,8 @@
 !!! warning "关于隐藏 API"
 
     本文档中收集了未知或隐藏 API，尚未被官方公布，具体含义可能与本文档可能存在偏差，以<hiddenProperty></hiddenProperty><hiddenArg></hiddenArg><hiddenMethod></hiddenMethod><hiddenStaticMethod></hiddenStaticMethod><hiddenEnum></hiddenEnum><hiddenEnumMember></hiddenEnumMember>等灰色标识
+
+!!! warning "语法警告"
+
+    客户端使用[ES6](https://262.ecma-international.org/14.0/?_gl=1*1p5sqwv*_ga*ODcwMjUxMDc5LjE3MTk4MDU3NDY.*_ga_TDCK4DWEPP*MTcxOTgxMjYzMy4yLjEuMTcxOTgxMzAyNC4wLjAuMA..#sec-modules)语法  
+    服务端脚本 Node.js/CommonJS 风格的[require](function)无法在客户端脚本中使用

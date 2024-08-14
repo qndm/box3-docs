@@ -22,7 +22,7 @@
     [](GameRTC)无法（很难）被实例化，但在全局存在一个单例对象[](rtc)
 
 ### 方法
-[createChannel](hiddenMethod)([channelId](arg)?: [](string)) => [](Promise)<[](GameRTCChannel)>
+[createChannel](hiddenMethod)([channelId](arg)?: [](string)): [](Promise)<[](GameRTCChannel)>
 
 :   创建一个RTC通道
 

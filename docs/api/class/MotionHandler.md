@@ -21,10 +21,10 @@
 :   动作的目标，即播放动作的对象
 
 ## 方法
-[play](method)() => [](void)
+[play](method)(): [](void)
 :   播放该动作，会覆盖目标正在播放的动作
 
-[cancel](method)() => [](void)
+[cancel](method)(): [](void)
 :   停止播放该动作
 
 ### 事件

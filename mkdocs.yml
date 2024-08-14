@@ -163,6 +163,12 @@ nav:
     - <constObject>remoteChannel</constObject> & <def>ServerRemoteChannel</def> <span block>数据通信（服务端）</span>: api/remoteChannel.md
     - <span block>杂项</span>: api/tool.md
     - <icon name='class'>类</icon>:
+      - <icon name='namespace'>Box3 基本数据类型</icon>:
+        - <def>Box3Vector3</def> / <def>GameVector3</def> <span block>三维向量</span>: api/class/Vector3.md
+        - <def>Box3Quaternion</def> / <def>GameQuaternion</def> <span block>四元数</span>: api/class/Quaternion.md
+        - <def>Box3Bounds3</def> / <def>GameBounds3</def> <span block>三维区域空间</span>: api/class/Bounds3.md
+        - <def>Box3RGBColor</def> / <def>GameRGBColor</def> <span block>RGB颜色</span>: api/class/RGBColor.md
+        - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def> <span block>RGBA颜色</span>: api/class/RGBAColor.md
       - <def>Box3Entity</def> / <def>GameEntity</def> <span block>实体</span>: api/class/Entity.md
       - <def>Box3Player</def> / <def>GamePlayer</def> <span block>玩家</span>: api/class/Player.md
       - <def>Box3Animation</def> / <def>GameAnimation</def> <span block>动画</span>: api/class/Animation.md
@@ -185,31 +191,27 @@ nav:
       - <def>Box3HttpRequest</def> / <def>GameHttpRequest</def> <span block>[无效]HTTP请求</span>: api/class/HttpRequest.md
       - <def>Box3HttpResponse</def> / <def>GameHttpResponse</def> <span block>[无效]HTTP响应</span>: api/class/HttpResponse.md
     - <icon name='event'>事件</icon>:
-      - <def>Box3TickEvent</def> / <def>GameTickEvent</def> <span block>时钟事件</span>: api/event/TickEvent.md
-      - <def>Box3RespawnEvent</def> / <def>GameRespawnEvent</def> <span block>玩家重生事件</span>: api/event/RespawnEvent.md
-      - <def>Box3DamageEvent</def> / <def>GameDamageEvent</def> <span block>实体伤害事件</span>: api/event/DamageEvent.md
-      - <def>Box3DieEvent</def> / <def>GameDieEvent</def> <span block>实体死亡事件</span>: api/event/DieEvent.md
-      - <def>Box3EntityEvent</def> / <def>GameEntityEvent</def> <span block>实体创建销毁事件</span>: api/event/EntityEvent.md
-      - <def>Box3PlayerEntityEvent</def> / <def>GamePlayerEntityEvent</def> <span block>玩家实体创建销毁事件</span>: api/event/PlayerEntityEvent.md
-      - <def>Box3ChatEvent</def> / <def>GameChatEvent</def> <span block>聊天事件</span>: api/event/ChatEvent.md
-      - <def>Box3ClickEvent</def> / <def>GameClickEvent</def> <span block>点击事件</span>: api/event/ClickEvent.md
-      - <def>Box3InputEvent</def> / <def>GameInputEvent</def> <span block>输入事件</span>: api/event/InputEvent.md
-      - <def>GameKeyBoardEvent</def> <span block>键盘事件</span>: api/event/KeyBoardEvent.md
-      - <def>Box3InteractEvent</def> / <def>GameInteractEvent</def> <span block>实体互动事件</span>: api/event/InteractEvent.md
-      - <def>Box3EntityContactEvent</def> / <def>GameEntityContactEvent</def> <span block>实体碰撞事件</span>: api/event/EntityContactEvent.md
-      - <def>Box3VoxelContactEvent</def> / <def>GameVoxelContactEvent</def> <span block>方块碰撞事件</span>: api/event/VoxelContactEvent.md
-      - <def>Box3FluidContactEvent</def> / <def>GameFluidContactEvent</def> <span block>液体碰撞事件</span>: api/event/FluidContactEvent.md
-      - <def>Box3TriggerEvent</def> / <def>GameTriggerEvent</def> <span block>触发器事件</span>: api/event/TriggerEvent.md
-      - <def>Box3AnimationEvent</def> / <def>GameAnimationEvent</def> <span block>动画事件</span>: api/event/AnimationEvent.md
-      - <def>GameMotionEvent</def> <span block>动作事件</span>: api/event/MotionEvent.md
-      - <def>ServerEvent</def>: api/event/ServerEvent.md
+      - api/event/index.md
+      - <icon name='class'>监听器参数</icon>:
+        - <def>Box3TickEvent</def> / <def>GameTickEvent</def> <span block>时钟事件</span>: api/event/TickEvent.md
+        - <def>Box3RespawnEvent</def> / <def>GameRespawnEvent</def> <span block>玩家重生事件</span>: api/event/RespawnEvent.md
+        - <def>Box3DamageEvent</def> / <def>GameDamageEvent</def> <span block>实体伤害事件</span>: api/event/DamageEvent.md
+        - <def>Box3DieEvent</def> / <def>GameDieEvent</def> <span block>实体死亡事件</span>: api/event/DieEvent.md
+        - <def>Box3EntityEvent</def> / <def>GameEntityEvent</def> <span block>实体创建销毁事件</span>: api/event/EntityEvent.md
+        - <def>Box3PlayerEntityEvent</def> / <def>GamePlayerEntityEvent</def> <span block>玩家实体创建销毁事件</span>: api/event/PlayerEntityEvent.md
+        - <def>Box3ChatEvent</def> / <def>GameChatEvent</def> <span block>聊天事件</span>: api/event/ChatEvent.md
+        - <def>Box3ClickEvent</def> / <def>GameClickEvent</def> <span block>点击事件</span>: api/event/ClickEvent.md
+        - <def>Box3InputEvent</def> / <def>GameInputEvent</def> <span block>输入事件</span>: api/event/InputEvent.md
+        - <def>GameKeyBoardEvent</def> <span block>键盘事件</span>: api/event/KeyBoardEvent.md
+        - <def>Box3InteractEvent</def> / <def>GameInteractEvent</def> <span block>实体互动事件</span>: api/event/InteractEvent.md
+        - <def>Box3EntityContactEvent</def> / <def>GameEntityContactEvent</def> <span block>实体碰撞事件</span>: api/event/EntityContactEvent.md
+        - <def>Box3VoxelContactEvent</def> / <def>GameVoxelContactEvent</def> <span block>方块碰撞事件</span>: api/event/VoxelContactEvent.md
+        - <def>Box3FluidContactEvent</def> / <def>GameFluidContactEvent</def> <span block>液体碰撞事件</span>: api/event/FluidContactEvent.md
+        - <def>Box3TriggerEvent</def> / <def>GameTriggerEvent</def> <span block>触发器事件</span>: api/event/TriggerEvent.md
+        - <def>Box3AnimationEvent</def> / <def>GameAnimationEvent</def> <span block>动画事件</span>: api/event/AnimationEvent.md
+        - <def>GameMotionEvent</def> <span block>动作事件</span>: api/event/MotionEvent.md
+        - <def>ServerEvent</def>: api/event/ServerEvent.md
     - <icon name='type'>结构类型</icon>:
-      - <icon name='namespace'>Box3 基本数据类型</icon>:
-        - <def>Box3Vector3</def> / <def>GameVector3</def> <span block>三维向量</span>: api/type/Vector3.md
-        - <def>Box3Quaternion</def> / <def>GameQuaternion</def> <span block>四元数</span>: api/type/Quaternion.md
-        - <def>Box3Bounds3</def> / <def>GameBounds3</def> <span block>三维区域空间</span>: api/type/Bounds3.md
-        - <def>Box3RGBColor</def> / <def>GameRGBColor</def> <span block>RGB颜色</span>: api/type/RGBColor.md
-        - <def>Box3RGBAColor</def> / <def>GameRGBAColor</def> <span block>RGBA颜色</span>: api/type/RGBAColor.md
       - <icon name='enum'>枚举</icon>:
         - <def>Box3BodyPart</def> / <def>GameBodyPart</def> <span block>身体部件类型</span>: api/enum/BodyPart.md
         - <def>Box3ButtonType</def> / <def>GameButtonType</def> <span block>按键类型</span>: api/enum/ButtonType.md
@@ -258,6 +260,38 @@ nav:
       - <def>GUIConfig</def><span block>GUI配置</span>: api/type/LoggerMethod.md
   - Client API参考:
     - api_client/index.md
+    - <def>ui</def> <span block>页面根节点</span>: api_client/ui.md
+    - <def>input</def> & <def>InputSystem</def> <span block>输入系统</span>: api_client/input.md
+    - <def>screenWidth</def> & <def>screenHeight</def> <span block>页面大小</span>: api_client/screen.md
+    - <constObject>remoteChannel</constObject> & <def>ClientRemoteChannel</def> <span block>数据通信（客户端）</span>: api_client/remoteChannel.md
+    - <icon name='enum'>枚举</icon>:
+      - <def>PointerEventBehavior</def> <span block>指针事件行为</span>: api_client/enum/PointerEventBehavior.md
+    - <icon name='class'>类</icon>:
+      - <icon name='class'>Box3 基本数据类型</span>:
+        - <def>Vec2</def> <span block>二维向量</span>: api_client/class/Vec2.md
+        - <def>Vec3</def> <span block>三维向量</span>: api_client/class/Vec3.md
+        - <def>Coord2</def> <span block>二维位置</span>: api_client/class/Coord2.md
+      - <icon name='class'>UI 节点</icon>:
+        - <def>UiNode</def> <span block>节点</span>: api_client/class/UiNode.md
+        - <def>UiRenderable</def> <span block>可渲染节点</span>: api_client/class/UiRenderable.md
+        - <def>UiBox</def> <span block>框架节点</span>: api_client/class/UiBox.md
+        - <def>UiImage</def> <span block>图像节点</span>: api_client/class/UiImage.md
+        - <def>UiText</def> <span block>文本节点</span>: api_client/class/UiText.md
+        - <def>UiInput</def> <span block>输入框节点</span>: api_client/class/UiInput.md
+      - <icon name='class'>UI 组件</icon>:
+        - <def>UiComponent</def> <span block>[无效]UI组件</span>: api_client/class/UiComponent.md
+        - <def>UiScale</def> <span block>UI缩放</span>: api_client/class/UiScale.md
+      - <icon name='event'>事件</icon>:
+        - api_client/event/index.md
+        - <def>EventEmitter</def> <span block>事件处理器</span>: api_client/class/EventEmitter.md
+        - <icon name='type'>事件映射表</icon>:
+          - <def>UiNodeEvents</def> <span block>节点事件</span>: api_client/event/UiNodeEvents.md
+          - <def>UiInputEvents</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvents.md
+          - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/event/PointerLockEvents.md
+        - <icon name='type'>监听器参数</icon>:
+          - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvents.md
+          - <def>UiInputEvent</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvent.md
+          - <def>PointerLockChangeEvent</def> <span block>鼠标指针更改事件</span>: api_client/event/PointerLockChangeEvent.md
   - 第三方模块参考:
     - modules/index.md
 # - Getting started:

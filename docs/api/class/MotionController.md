@@ -24,20 +24,20 @@
 | [TargetType](typeArg) | 目标类型，即播放动作的对象的类型 |
 
 ## 方法
-[loadByName](method)([config](arg): [](string) | [](GameMotionConfig)[] | [](GameMotionClipConfig)) => [](GameMotionHandler)<[TargetType](typeArg)>
+[loadByName](method)([config](arg): [](string) | [](GameMotionConfig)[] | [](GameMotionClipConfig)): [](GameMotionHandler)<[TargetType](typeArg)>
 :   加载实体当前[mesh](property)的动作
 
     !!! info "提示"
 
         若在加载动作后更改了实体的[mesh](property)，那么这个动作会无效，需要重新加载
 
-[pause](method)() => [](void)
+[pause](method)(): [](void)
 :   暂停该实体的动作
 
-[resume](method)() => [](void)
+[resume](method)(): [](void)
 :   恢复该实体的动作
 
-[setDefaultMotionByName](method)([motionName](arg)?: [](string)) => [](void)
+[setDefaultMotionByName](method)([motionName](arg)?: [](string)): [](void)
 :   设置该实体的默认动作
 
     !!! note "默认动作"

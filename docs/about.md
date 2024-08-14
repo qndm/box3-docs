@@ -38,4 +38,5 @@
 - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material)
 - [Material for MkDocs 中文文档](https://mkdoc-material.llango.com)
+- [Mermaid.js](https://mermaid.js.org/)
 - [Github](https://github.com)

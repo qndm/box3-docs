@@ -16,14 +16,14 @@
     !!! info "如果反过头了，也为`#!javascript true`"
 
 ## 方法
-[getCurrentPage](method)() => [](ReturnValue)[]
+[getCurrentPage](method)(): [](ReturnValue)[]
 :   获取当前页数据
 
     !!! warning "警告"
 
         其返回值 **不是**[](Promise)
 
-[nextPage](method)() => [](Promise)<[](void)>
+[nextPage](method)(): [](Promise)<[](void)>
 :   翻到下一页
 
     !!! warning "警告"

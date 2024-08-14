@@ -7,7 +7,7 @@
     [](Box3ResourceSystem) / [](GameResourceSystem)无法（很难）实例化，并且也没有其实例化对象，但有一个包含其相同方法的对象[](resources)
 
 ## 方法
-[ls](method)([path](arg)?: [](string)) => [](Box3AssetListEntry)[] / [](GameAssetListEntry)[]
+[ls](method)([path](arg)?: [](string)): [](Box3AssetListEntry)[] / [](GameAssetListEntry)[]
 :   获取指定目录下的所有文件名
 
     | 参数 | 类型 | 说明 |

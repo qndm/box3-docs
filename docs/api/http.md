@@ -23,8 +23,8 @@
         该属性在Arena编辑器中不存在
 
 ## 方法
-[仅旧版编辑器][fetch](hiddenMethod)([url](arg): [](string), [params](arg)?: [](Box3HttpFetchParams)) => [](Promise)<[](Box3HttpFetchResponse)>  
-[仅Arena编辑器][fetch](hiddenMethod)([url](arg): [](string), [options](arg)?: [](GameHttpFetchRequestOptions)) => [](Promise)<[](GameHttpFetchResponse)>
+[仅旧版编辑器][fetch](hiddenMethod)([url](arg): [](string), [params](arg)?: [](Box3HttpFetchParams)): [](Promise)<[](Box3HttpFetchResponse)>  
+[仅Arena编辑器][fetch](hiddenMethod)([url](arg): [](string), [options](arg)?: [](GameHttpFetchRequestOptions)): [](Promise)<[](GameHttpFetchResponse)>
 :   发送HTTP请求
 
     !!! warning "警告"
@@ -44,7 +44,7 @@
             ```
 
 ### 事件
-[onRequest](method)([handler](callbackArg): [](Box3HttpHandler)) => [](void)
+[onRequest](method)([handler](callbackArg): [](Box3HttpHandler)): [](void)
 :   当收到HTTP请求时，触发的事件
 
     !!! info "不适用于Arena"

@@ -22,16 +22,16 @@
 [ui](hiddenProperty)
 
 ## 方法
-[init](hiddenMethod)([entity](arg): [](GamePlayerEntity), [config](arg): [](GUIConfig)<[](string), [](string)>) => [](Promise)<[](void)>
+[init](hiddenMethod)([entity](arg): [](GamePlayerEntity), [config](arg): [](GUIConfig)<[](string), [](string)>): [](Promise)<[](void)>
 
 
-[show](hiddenMethod)([entity](arg): [](GamePlayerEntity), [name](arg): [](string), [allowMultiple](arg): [](boolean)) => [](Promise)<[](void)>
+[show](hiddenMethod)([entity](arg): [](GamePlayerEntity), [name](arg): [](string), [allowMultiple](arg): [](boolean)): [](Promise)<[](void)>
 
-[remove](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)) => [](Promise)<[](void)>
+[remove](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)): [](Promise)<[](void)>
 
-[getAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)) => [](Promise)<[](any)>
+[getAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)): [](Promise)<[](any)>
 
-[setAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string), [value](arg): [](any)) => [](Promise)<[](void)>
+[setAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string), [value](arg): [](any)): [](Promise)<[](void)>
 
-[onMessage](hiddenMethod)([listener](arg): [](GameGUIEventListener)) => [](void)
+[onMessage](hiddenMethod)([listener](arg): [](GameGUIEventListener)): [](void)
 
