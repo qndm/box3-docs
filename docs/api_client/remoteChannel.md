@@ -15,6 +15,10 @@
 :   [](ClientRemoteChannel)是客户端中用于和服务端通信的类  
     [](ClientRemoteChannel)无法（很难）实例化，但存在一个全局的实例化对象[remoteChannel](constObject)
 
+!!! note "说明"
+
+    在[官方文档](https://box3.yuque.com/staff-khn556/wupvz3/te1en17qs6c5cont)和[社区文档](https://www.yuque.com/box3lab/api/pgkio37hua9sas0n)中，表述为“发送事件”，而本文档中表述为“发送消息”，这只是同一种东西的不同表述
+
 ## 属性
 [events](readonly): [](EventEmitter)<[](ClientRemoteChannelEvents)>
 :   监听服务端发来的消息

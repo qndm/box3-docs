@@ -12,6 +12,8 @@ const defsMap = {
   ReadonlyArray: ["interface generic", , "interface"],
   URL: ["class", "js/type/URL", 'class'],
   Array: ["interface generic", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array", "interface"],
+  setTimeout: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout", "function"],
+  setInterval: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval", "function"],
 
   resources: ["object private", 'api/resources', 'const'],
   Box3ResourceSystem: ["class private", 'api/resources', 'class'],
@@ -235,7 +237,7 @@ const defsMap = {
   screenWidth: ["variable protected", "api_client/screen", "const"],
   screenHeight: ["variable protected", "api_client/screen", "const"],
   EventEmitter: ["class generic", "api_client/class/EventEmitter", "class"],
-  ClientRemoteChannel: ["class", "api_client/class/ClientRemoteChannel", "class"],
+  ClientRemoteChannel: ["class", "api_client/class/remoteChannel", "class"],
   UiComponent: ["class private", "api_client/class/UiComponent", "class"],
   UiNodeEvents: ["type private", "api_client/type/UiNodeEvents", "type"],
   PointerLockEvents: ["type private", "api_client/type/event/PointerLockEvents", "type"],
@@ -244,11 +246,14 @@ const defsMap = {
   UiEvent: ["interface private", "api_client/interface/UiEvent", "hiddenInterface"],
   UiInputEvent: ["interface private", "api_client/interface/UiInputEvent", "hiddenInterface"],
   UiInputEvents: ["type private", "api_client/type/UiInputEvents", "hiddenType"],
+  ClientRemoteChannelEvents: ["type private", "api_client/type/ClientRemoteChannelEvents", "hiddenType"],
 };
 const keywordDefsMap = {
   this: [],
   extends: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Classes/extends"],
   keyof: [],
+  async: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function"],
+  await: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await"],
 }
 const iconTagMap = {
   method: ["method parent-class", "#c2c262"],

@@ -122,6 +122,7 @@ nav:
       - OOP（面向对象编程）快速入门: learn/community-articles/Nomen-oop.md
       - 如何优雅地写注释: learn/community-articles/Nomen-comment.md
       - 快速上手函数: learn/community-articles/Nomen-function.md
+      - 异步编程快速入门: learn/community-articles/qndm-async.md
     - 算法:
       - BFS: learn/arithmetic/BFS.md
       - DFS: learn/arithmetic/DFS.md
@@ -282,16 +283,17 @@ nav:
         - <def>UiComponent</def> <span block>[无效]UI组件</span>: api_client/class/UiComponent.md
         - <def>UiScale</def> <span block>UI缩放</span>: api_client/class/UiScale.md
     - <icon name='event'>事件</icon>:
-      - api_client/event/index.md
+      - api_client/event.md
       - <def>EventEmitter</def> <span block>事件处理器</span>: api_client/class/EventEmitter.md
       - <icon name='type'>事件映射表</icon>:
-        - <def>UiNodeEvents</def> <span block>节点事件</span>: api_client/event/UiNodeEvents.md
-        - <def>UiInputEvents</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvents.md
-        - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/event/PointerLockEvents.md
+        - <def>UiNodeEvents</def> <span block>节点事件</span>: api_client/type/UiNodeEvents.md
+        - <def>UiInputEvents</def> <span block>输入节点事件</span>: api_client/type/UiInputEvents.md
+        - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/type/PointerLockEvents.md
+        - <def>ClientRemoteChannelEvents</def> <span block>服务端消息事件</span>: api_client/type/ClientRemoteChannelEvents.md
       - <icon name='type'>监听器参数</icon>:
         - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvents.md
         - <def>UiInputEvent</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvent.md
-        - <def>PointerLockChangeEvent</def> <span block>鼠标指针更改事件</span>: api_client/event/PointerLockChangeEvent.md
+        - <def>PointerLockChangeEvent</def> <span block>鼠标指针锁定状态更改事件</span>: api_client/type/PointerLockChangeEvent.md
   - 第三方模块参考:
     - modules/index.md
 # - Getting started:

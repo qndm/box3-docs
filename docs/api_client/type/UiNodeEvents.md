@@ -4,8 +4,11 @@
 
     该API仅在客户端脚本使用
 
-:   输入框节点事件的监听器参数
+:   [](UiNode)及其继承类的事件映射表
 
 ## 属性
-[target](property): [](UiInputNode)
-:   触发事件的节点
+[pointerdown](property): [](UiEvent)
+:   当节点被按下时，触发的事件
+
+[pointerup](property): [](UiEvent)
+:   当节点被松开时，触发的事件
