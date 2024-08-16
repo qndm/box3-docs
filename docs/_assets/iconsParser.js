@@ -241,7 +241,7 @@ const defsMap = {
   UiComponent: ["class private", "api_client/class/UiComponent", "class"],
   UiNodeEvents: ["type private", "api_client/type/UiNodeEvents", "type"],
   PointerLockEvents: ["type private", "api_client/type/event/PointerLockEvents", "type"],
-  PointerLockChangeEvent: ["type", "api_client/type/event/PointerLockChangeEvent", "type"],
+  PointerLockChangeEvent: ["type", "api_client/type/PointerLockChangeEvent", "type"],
   ClientRemoteChannel: ["class", "api_client/remoteChannel", "class"],
   UiEvent: ["interface private", "api_client/interface/UiEvent", "hiddenInterface"],
   UiInputEvent: ["interface private", "api_client/interface/UiInputEvent", "hiddenInterface"],

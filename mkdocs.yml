@@ -291,7 +291,7 @@ nav:
         - <def>PointerLockEvents</def> <span block>鼠标指针锁定事件</span>: api_client/type/PointerLockEvents.md
         - <def>ClientRemoteChannelEvents</def> <span block>服务端消息事件</span>: api_client/type/ClientRemoteChannelEvents.md
       - <icon name='type'>监听器参数</icon>:
-        - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvents.md
+        - <def>UiEvent</def> <span block>UI事件</span>: api_client/interface/UiEvent.md
         - <def>UiInputEvent</def> <span block>输入节点事件</span>: api_client/interface/UiInputEvent.md
         - <def>PointerLockChangeEvent</def> <span block>鼠标指针锁定状态更改事件</span>: api_client/type/PointerLockChangeEvent.md
   - 第三方模块参考:
