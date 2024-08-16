@@ -263,7 +263,7 @@ nav:
     - api_client/index.md
     - <def>ui</def> <span block>页面根节点</span>: api_client/ui.md
     - <def>input</def> & <def>InputSystem</def> <span block>输入系统</span>: api_client/input.md
-    - <def>screenWidth</def> & <def>screenHeight</def> <span block>页面大小</span>: api_client/screen.md
+    - <def>screenWidth</def> & <def>screenHeight</def> <span block>页面大小</span>: api_client/global.md
     - <constObject>remoteChannel</constObject> & <def>ClientRemoteChannel</def> <span block>数据通信（客户端）</span>: api_client/remoteChannel.md
     - <icon name='enum'>枚举</icon>:
       - <def>PointerEventBehavior</def> <span block>指针事件行为</span>: api_client/enum/PointerEventBehavior.md
