@@ -14,6 +14,8 @@ const defsMap = {
   Array: ["interface generic", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array", "interface"],
   setTimeout: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/setTimeout", "function"],
   setInterval: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval", "function"],
+  clearTimeout: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/clearTimeout", "function"],
+  clearInterval: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/clearInterval", "function"],
 
   resources: ["object private", 'api/resources', 'const'],
   Box3ResourceSystem: ["class private", 'api/resources', 'class'],
@@ -194,8 +196,8 @@ const defsMap = {
   GameHttpResponse: ["class private", "api/class/HttpResponse", 'class'],
   console: ["object protected", 'api/console', "const"],
   GameConsole: ["class private", 'api/console', "hiddenClass"],
-  Box3LoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"], 
-  GameLoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"], 
+  Box3LoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"],
+  GameLoggerMethod: ["type private", 'api/type/LoggerMethod', "hiddenType"],
   Box3EntityContact: ["class", "api/class/EntityContact", "class"],
   GameEntityContact: ["class", "api/class/EntityContact", "class"],
   Box3VoxelContact: ["class", "api/class/VoxelContact", "class"],
@@ -218,7 +220,7 @@ const defsMap = {
   PlayerNavigator: ["class private", "api/class/PlayerNavigator", "hiddenClass"],
   SocialType: ["enum", "api/enum/SocialType", "enum"],
   NavigatorEventType: ["enum private", , "hiddenEnum"],
-  Sound: ["class private", "api/class/Sound" , "hiddenClass"],
+  Sound: ["class private", "api/class/Sound", "hiddenClass"],
 
   UiNode: ["class", "api_client/class/UiNode", "class"],
   UiRenderable: ["class", "api_client/class/UiRenderable", "class"],
@@ -309,7 +311,7 @@ function createIconElement(text, id, color) {
   i.classList.add("kind-icon", ...list.filter((s) => !!s));
   i.innerText = text.trim();
   i.style.display = "inline-block";
-  if(color)
+  if (color)
     i.style.color = color;
   i.setAttribute("title", "右键单击可复制此处内容");
   i.addEventListener("contextmenu", (e) => {
@@ -365,15 +367,17 @@ function parse() {
           : "/";
         const search = JOKE_MODE ? '?jokemode=true' : '';
         if (keywordDefsMap[innerHTML][0]) {
-          if (keywordDefsMap[innerHTML][0].startsWith('http://') || keywordDefsMap[innerHTML][0].startsWith('https://'))
+          if (keywordDefsMap[innerHTML][0].startsWith('http://') || keywordDefsMap[innerHTML][0].startsWith('https://')) {
             el.href = keywordDefsMap[innerHTML][0] + search;
-          else
+            el.target = "_blank";
+          } else
             el.href = prefix + keywordDefsMap[innerHTML][0] + search;
         } else {
           el.href = `javascript:alert$.next("❌ 找不到对应页面")`;
           notLink = true;
         }
         el.style.color = iconTagMap.keyword[1];
+
         return;
       }
       iconId = iconTagMap[def]?.[0];
@@ -382,8 +386,8 @@ function parse() {
     } else return;
     a.href = href;
     const i = createIconElement(def, iconId, iconTagMap[defsMap[def]?.[2]]?.[1]);
-    if(notLink)
-        i.classList.add('notLink');
+    if (notLink)
+      i.classList.add('notLink');
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
   });
@@ -420,7 +424,7 @@ function parse() {
         : "/";
       const search = JOKE_MODE ? '?jokemode=true' : '';
       if (defsMap[def][1]) {
-        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')){
+        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')) {
           href = defsMap[def][1] + search;
           a.target = "_blank";
         }
@@ -437,7 +441,7 @@ function parse() {
     }
     a.href = href;
     const i = createIconElement(def, iconId, iconTagMap?.[defsMap[def]?.[2]]?.[1]);
-    if(notLink)
+    if (notLink)
       i.classList.add('notLink')
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
