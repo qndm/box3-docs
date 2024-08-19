@@ -460,6 +460,7 @@ world.onPlayerJoin(({ entity }) => {
 
 这时可能有人说了：我就打开个对话框？这么复杂？  
 因为这是个<span class="hidden">屎山代码</span>，还有更简单的方法，即在Box3中广泛使用的[await](keyword)  
+只需在[](Promise)对象前面加上“[await](keyword)”即可（注意空格）  
 [await](keyword)会等待[](Promise)解析完成，并直接返回[](Promise)<...>中“...”的值。这个过程中，会暂停后面代码的运行  
 那如果[](Promise)拒绝了呢？那么[await](keyword)就会抛出错误  
 如果不是[](Promise)，那么[await](keyword)不会解析，直接返回输入的东西

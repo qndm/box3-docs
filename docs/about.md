@@ -23,7 +23,7 @@
 
         - Edgar_勿安 - [Github个人主页](https://github.com/Edgar-wuan)
         - 可乐OωO
-        - 全能岛民 - [编程猫个人主页](https://shequ.codemao.cn/user/6715468) [神奇代码岛个人主页（旧岛）](https://box3.codemao.cn/u/qndm) [神奇代码岛个人主页（新岛）](https://dao3.fun/profile/1349822) [GitHub个人主页](https://github.com/qndm)
+        - 全能岛民 - [编程猫个人主页](https://shequ.codemao.cn/user/7202807) [神奇代码岛个人主页（旧岛）](https://box3.codemao.cn/u/qndm) [神奇代码岛个人主页（新岛）](https://dao3.fun/profile/1349822) [GitHub个人主页](https://github.com/qndm)
         - 屑全能 [神奇代码岛个人主页](https://box3.codemao.cn/u/jmd123456)
         - 树树屑
         - Nomen - [神奇代码岛个人主页](https://box3.codemao.cn/u/zhongjimo)
@@ -40,3 +40,4 @@
 - [Material for MkDocs 中文文档](https://mkdoc-material.llango.com)
 - [Mermaid.js](https://mermaid.js.org/)
 - [Github](https://github.com)
+- [OI Wiki](https://oi-wiki.org/)

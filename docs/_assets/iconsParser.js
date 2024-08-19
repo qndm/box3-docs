@@ -16,6 +16,10 @@ const defsMap = {
   setInterval: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/setInterval", "function"],
   clearTimeout: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/clearTimeout", "function"],
   clearInterval: ["function", "https://developer.mozilla.org/zh-CN/docs/Web/API/clearInterval", "function"],
+  Symbol: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol", "interface"],
+  Function: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function", "interface"],
+  RegExp: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp", "interface"],
+  Date: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date", "interface"],
 
   resources: ["object private", 'api/resources', 'const'],
   Box3ResourceSystem: ["class private", 'api/resources', 'class'],
@@ -256,6 +260,7 @@ const keywordDefsMap = {
   keyof: [],
   async: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function"],
   await: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await"],
+  for: ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for"],
 }
 const iconTagMap = {
   method: ["method parent-class", "#c2c262"],

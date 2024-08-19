@@ -1,2 +1,6 @@
 .vercel
 site
+docs/learn/arithmetic/*.js
+docs/learn/arithmetic/*.ts
+docs/learn/arithmetic/*.py
+docs/learn/arithmetic/*.cpp
