@@ -239,18 +239,17 @@
     }
 
     const SIDES = [new Vector2(-1, 0), new Vector2(1, 0), new Vector2(0, -1), new Vector2(0, 1)];
+    let n = 10, m = 10;
+    let vis = [];
+    for(let i = 0; i < n; i++)
+        vis.push(new Array(m).fill(-1));
 
     /**
      * BFS算法示例
      * @param {Vector2} s 起始点坐标
-     * @param {number} n x尺寸
-     * @param {number} m y尺寸
-     * @returns {number[][]}
      */
-    function BFS(s, n, m) {
-        let vis = [], que = [];
-        for(let i = 0; i < n; i++)
-            vis.push(new Array(m).fill(-1));
+    function BFS(s) {
+        let que = [];
         que.push(s.clone());
         vis[s.x][s.y] = 0;
         while (que.length > 0) {
@@ -267,12 +266,11 @@
                 que.push(v);
             }
         }
-        return vis;
     }
 
-    let result = BFS(new Vector2(5, 5), 10, 10);
-    for(let line in result)
-        console.log(result[line].join(' '));
+    BFS(new Vector2(5, 5));
+    for(let line in vis)
+        console.log(vis[line].join(' '));
     ```
 
     你也许注意到了，这里初始化[vis](variable)是使用了[for](keyword)+[fill](method)组合的方式，为什么不直接`#!javascript let vis = Array(n).fill(Array(m).fill(-1))`呢？  
@@ -311,9 +309,59 @@
 
     [vis](variable)的值属于引用类型，若使用[fill](method)方法，那么[vis](variable)的所有成员都是填入的那个数组的引用，修改其中任意一个成员的成员的值，其他成员的成员的值也会发生变化
 
+### 图上BFS
+在图上使用BFS
+
+!!! warning "警告"
+
+    此处的“图”指的不是“地图”
+
+=== "Typescript"
+
+    ```typescript
+    class BFSNode {
+        /**
+         * 节点对应的值
+         */
+        value: any;
+        /**
+         * 和该节点相连的其他节点
+         */
+        edges: BFSNode[] = [];
+        /**
+         * 该节点是否被访问过  
+         * 若为`-1`，代表节点没被访问；否则为节点被访问时的路程
+         */
+        visited: number = -1;
+        constructor(value: any, edges: BFSNode[] = []){
+            this.value = value;
+            this.edges = edges;
+        }
+    }
+    function BFS(s: BFSNode) {
+        let queue: BFSNode[] = [];
+        queue.push(s);
+        s.visited = 0;
+        while(queue.length > 0){
+            let u: BFSNode = queue[0];
+            queue.splice(1, 0);
+            for(let v of u.edges){
+                if(v.visited)
+                    continue;
+                v.visited = u.visited + 1;
+                queue.push(v);
+            }
+        }
+    }
+    ```
+
 ## 具体使用
 下面为在Box3环境中，实体使用BFS算法实现自动寻路的代码  
 不考虑其他实体体积和碰撞，位置皆按照整格来计算  
+
+测试视频  
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=112988677735586&bvid=BV1xwpme4Epu&cid=500001654907117&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 === "旧版编辑器"
 
     ```javascript
