@@ -127,6 +127,9 @@ nav:
       - 搜索:
         - BFS 宽度优先搜索: learn/arithmetic/BFS.md
         - DFS 深度优先搜索: learn/arithmetic/DFS.md
+        - 启发式搜索: 
+          - learn/arithmetic/heuristic/index.md
+          - A*: learn/arithmetic/heuristic/aStar.md
   - 实例教程:
     - example/index.md
     - LightDotCutter 简单PVE游戏:
