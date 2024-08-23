@@ -190,7 +190,236 @@ world.onPlayerJoin(async ({ entity }) => {
 
 ### v2
 由于暴力枚举造成了大量的性能浪费，导致一些情况下在搜索更少方块的情况下用时反而更长  
-下面是优化过的代码
+下面是优化过的代码，使用配对堆代替[que](variable)数组，避免了寻找最小值时的暴力枚举<span>10%写代码，90%修bug</span>  
+由于
 ```javascript
-// 有点bug 正在修
+console.clear();
+
+const Vector3 = GameVector3;
+
+const SIDES = [
+    new Vector3(-1, 0, 0),
+    new Vector3(1, 0, 0),
+    new Vector3(0, 0, -1),
+    new Vector3(0, 0, 1),
+    new Vector3(-1, -1, 0),
+    new Vector3(1, -1, 0),
+    new Vector3(0, -1, -1),
+    new Vector3(0, -1, 1),
+    new Vector3(-1, 1, 0),
+    new Vector3(1, 1, 0),
+    new Vector3(0, 1, -1),
+    new Vector3(0, 1, 1),
+];
+const entityPositionFix = new Vector3(0.5, 0.5, 0.5); // 修复实体位置
+const startPosition = new Vector3(128, 9, 128);
+const endPosition = new Vector3(243, 19, 11);
+
+const e = world.createEntity({
+    mesh: 'mesh/test.vb',   // 假设文件里有一个叫test.vb的实体
+    position: startPosition.add(entityPositionFix),
+    meshScale: new Vector3(0.0625, 0.0625, 0.0625),
+    collides: false,
+    fixed: true,
+    gravity: false
+});
+class HeapNode {
+    /**@type {Vector3} */
+    value = new Vector3();
+    /**@type {HeapNode | undefined} */
+    child = undefined;
+    /**@type {HeapNode | undefined} */
+    next = undefined;
+    f = 0;
+    /**被插入的时间*/
+    i = 0;
+    /**
+     * @param {Vector3} value
+     * @param {number} f
+     * @param {number} i
+     */
+    constructor(value, f, i) {
+        //console.log(JSON.stringify(value), f)
+        this.value = value;
+        this.f = f;
+        this.i = i;
+        this.child = undefined;
+        this.next = undefined;
+    }
+    /**
+     * 插入子节点  
+     * 若`node.f`小于`this.f`，则`this`成为`node`的子节点
+     * @param {HeapNode} node
+     * @returns {HeapNode}
+     */
+    appendChild(node) {
+        if (this.value === undefined) { // 如果这是个空节点
+            this.value = node.value;
+            this.f = node.f;
+            this.child = node.child;
+            this.next = undefined;
+            return this;
+        }
+        if (HeapNode.compare(this, node)) { // 交换节点数据
+            let value = this.value, f = this.f;
+            this.value = node.value;
+            this.f = node.f;
+            node.value = value;
+            node.f = f;
+        }
+        node.next = this.child;
+        this.child = node;
+        return this;
+    }
+    /**
+     * 移除最小的节点，并返回节点的值
+     */
+    removeMin() {
+        //console.log('移除最小节点')
+        let value = this.value;
+        let newHeap = HeapNode.merges(this.child);
+        if (newHeap === undefined) { // 变成空节点
+            this.value = undefined;
+            this.f = NaN;
+            this.child = undefined;
+            //console.log('节点为空');
+        } else {
+            this.child = newHeap.child;
+            this.value = newHeap.value;
+            this.f = newHeap.f;
+        }
+        return value;
+    }
+    /**
+     * @param {HeapNode} x
+     * @returns {HeapNode}
+     */
+    static merges(x) {
+        if (x === undefined || x.next === undefined)
+            return x;
+        let y = x.next;
+        let c = y.next;
+        x.next = undefined;
+        y.next = undefined;
+        return HeapNode.meld(HeapNode.merges(c), HeapNode.meld(x, y));
+    }
+    /**
+     * @param {HeapNode | undefined} a
+     * @param {HeapNode | undefined} b
+     */
+    static meld(a, b) {
+        if (a === undefined || a.value === undefined)
+            return b;
+        if (b === undefined || b.value === undefined)
+            return a;
+        let _0x01, _0x02;
+        if(HeapNode.compare(a, b)){
+            _0x01 = b, _0x02 = a;
+        } else {
+            _0x01 = a, _0x02 = b;
+        }
+        _0x02.next = _0x01.child;
+        _0x01.child = _0x02;
+        return _0x01;
+    }
+    /**
+     * 比较两个节点的`f`；若`f`相同，比较插入顺序  
+     * 若a较大，返回`true`
+     */
+    static compare(a, b){
+        if(a.f === b.f)
+            return a.i > b.i;
+        else
+            return a.f > b.f;
+    }
+}
+/**
+ * 获取`a`到`b`的曼哈顿距离
+ * @param {Vector3} a
+ * @param {Vector3} b
+ */
+function getDistance(a, b) {
+    return Math.abs(a.x - b.x) + Math.abs(a.y - b.y) + Math.abs(a.z - b.z)
+}
+function AStar(s, e) {
+    const getF = (v) => Math.floor(getDistance(v, e) + vis[v.x][v.y][v.z]);
+    /**@type {number[][][]}*/
+    let vis = [],
+        /**@type {Vector3[]}*/
+        cnt = 1,
+        initHeapNode;
+    // 手动修正Box3的bug
+    // 测试地图为256地图 不同地图需要手动修改数值
+    voxels.shape.set(255, 63, 255);
+    console.log('地图尺寸', voxels.shape.x, voxels.shape.y, voxels.shape.z);
+    for (let i = 0; i < voxels.shape.x; i++) {
+        vis.push([]);
+        for (let j = 0; j < voxels.shape.y; j++)
+            vis[vis.length - 1].push(new Array(voxels.shape.z));
+    }
+    initHeapNode = new HeapNode(s.clone(), getF(s));
+    vis[s.x][s.y][s.z] = 0;
+    while (initHeapNode.value !== undefined) {
+        let u = initHeapNode.removeMin();
+        for (const d of SIDES) {
+            let v = u.add(d);
+            if (v.x < 0 || v.x >= voxels.shape.x || v.y < 0 || v.y >= voxels.shape.y || v.z < 0 || v.z >= voxels.shape.z)
+                continue;
+            if (vis[v.x][v.y][v.z] !== undefined && vis[v.x][v.y][v.z] <= vis[u.x][u.y][u.z] + 1)
+                continue;
+            if (voxels.getVoxel(v.x, v.y, v.z) !== 0 || (voxels.getVoxel(v.x, v.y - 1, v.z) === 0)) // 禁止穿墙和空中寻路
+                continue;
+            vis[v.x][v.y][v.z] = vis[u.x][u.y][u.z] + 1;
+            initHeapNode.appendChild(new HeapNode(v, getF(v)));
+            if (v.equals(e)) {
+                console.log('找到终点', v.x, v.y, v.z, vis[v.x][v.y][v.z], '共搜索', cnt, '个位置');
+                return vis;
+            }
+            cnt++;
+        }
+    }
+    console.warn('搜索完成，未找到终点', '共搜索', cnt, '个位置');
+    return vis;
+}
+function findPath(map, s, e) {
+    if (map[endPosition.x][endPosition.y][endPosition.z] === undefined)
+        throw "无效数据";
+    let result = [], now = new Vector3(Math.round(e.x), Math.round(e.y), Math.round(e.z));
+    result.push(now.clone());
+    do {
+        let v;
+        for (const d of SIDES) {
+            v = now.add(d);
+            if (v.x < 0 || v.x >= map.length || v.y < 0 || v.y >= map[now.x].length || v.z < 0 || v.z >= map[now.x][now.y].length)
+                continue;
+            if (map[now.x][now.y][now.z] - 1 === map[v.x][v.y][v.z]) {
+                result.push(v);
+                now.copy(v);
+                break;
+            }
+        }
+        if (v === undefined)
+            throw "找不到路径";
+    } while (!result[result.length - 1].equals(s));
+    return result.reverse();
+}
+
+world.onPlayerJoin(async ({ entity }) => {
+    entity.player.spectator = true;
+    entity.player.invisible = true;
+    entity.player.cameraEntity = e;
+    console.log('开始搜索');
+    let startTime = Date.now()
+    const MAP = AStar(startPosition, endPosition);
+    console.log('寻路完成 长度', MAP[endPosition.x][endPosition.y][endPosition.z], '用时', Date.now() - startTime, 'ms');
+    console.log('开始寻路');
+    const PATH = findPath(MAP, startPosition, endPosition);
+    console.log('路径长度', PATH.length);
+    for (let p of PATH) {
+        await sleep(100);//entity.player.nextPress();
+        e.position.copy(p.add(entityPositionFix));
+        console.log(p.toString());
+    }
+    console.log('完成');
+});
 ```
