@@ -491,10 +491,6 @@ DFS的实现有很多，可以基于递归和栈
 不考虑其他实体体积和碰撞，位置皆按照整格来计算  
 
 ```javascript
-console.clear();
-
-const Vector3 = GameVector3;
-
 const SIDES = [
     new Vector3(-1, 0, 0),
     new Vector3(1, 0, 0),

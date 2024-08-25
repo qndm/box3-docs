@@ -130,6 +130,8 @@ nav:
         - 启发式搜索: 
           - learn/arithmetic/heuristic/index.md
           - A*: learn/arithmetic/heuristic/aStar.md
+          # - JPS 跳点搜索算法: learn/arithmetic/heuristic/JPS.md
+        - 双向同时搜索: learn/arithmetic/bidirectional.md
   - 实例教程:
     - example/index.md
     - LightDotCutter 简单PVE游戏:

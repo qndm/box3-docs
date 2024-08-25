@@ -20,6 +20,7 @@ const defsMap = {
   Function: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function", "interface"],
   RegExp: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/RegExp", "interface"],
   Date: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date", "interface"],
+  ArrayBuffer: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer", "interface"],
 
   resources: ["object private", 'api/resources', 'const'],
   Box3ResourceSystem: ["class private", 'api/resources', 'class'],
