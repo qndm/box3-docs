@@ -63,22 +63,22 @@
 
     ??? example "示例"
 
-    ```javascript
-    voxels.id('air')   //<~ 0
-    voxels.id('dirt')  //<~ 125
-    voxels.id('stone') //<~ 129
-    ```
+        ```javascript
+        voxels.id('air')   //<~ 0
+        voxels.id('dirt')  //<~ 125
+        voxels.id('stone') //<~ 129
+        ```
 
 [name](method)([id](arg): [](number)): [](string)
 :   将方块id转换为方块名称
 
     ??? example "示例"
 
-    ```javascript
-    voxels.name(0)   //<~ 'air'
-    voxels.name(125) //<~ 'dirt'
-    voxels.name(129) //<~ 'stone'
-    ```
+        ```javascript
+        voxels.name(0)   //<~ 'air'
+        voxels.name(125) //<~ 'dirt'
+        voxels.name(129) //<~ 'stone'
+        ```
 
 [setVoxel](method)([x](arg): [](number), [y](arg): [](number), [z](arg): [](number), [voxel](arg): [](number) | [](string), [rotation](arg): [](number) | [](string)): [](number)
 :   使用方块名称或无旋转码的id，在指定的坐标位置放置一个方块。  

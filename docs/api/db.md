@@ -22,9 +22,15 @@
 ## 方法
 [sql](method)([sql](arg): [](string)[], ...[params](arg): ([](number) | [](string) | [](Uint8Array) | [](boolean) | `#!javascript null`)[]): [](Box3QueryResult)
 :   对数据库执行SQL语句  
-    有两种调用方法，一种是将语句包含在反引号 `\`\`` 里面，另一种是常规的方法调用  
-    [sql][method]使用[字符串模板](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)，因此使用引号包裹使用上最方便  
+    有两种调用方法，一种是将语句包含在反引号 ``` `` ``` 里面，另一种是常规的方法调用  
+    [sql](method)方法使用[字符串模板](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)，因此使用反引号包裹使用上最方便，例如：
+
+    ```javascript
+    db.sql`[这里填入SQL代码]`;
+    ```
+  
     若有需要使用常规的方法调用，则需要注意，填写的第一个参数为字符串数组，这里提供一个最简单的例子
+
     ```javascript
     db.sql(["[这里填入SQL代码]"]);
     ```
@@ -37,7 +43,7 @@
 
     ??? example "示例"
 
-        === "`#!javascript await` 写法"
+        === "[await](keyword) 写法"
 
             注意：以下的`#!javascript await` 写法都没有错误处理，只是最简单的示例，需要自行写`try...catch`
 
@@ -57,9 +63,9 @@
             })();
             ```
 
-        === "`#!javascript Box3QueryResult` 写法"
+        === "[](Box3QueryResult) 写法"
 
-            注意：`#!javascript Box3QueryResult` 写法无需再写`try...catch`，因为错误一般会被捕捉（除了你自己写的代码中的错误），其数据库的错误（包括SQL语法错误）已经被捕捉，`try...catch`无法捕获  
+            注意：`#!javascript Box3QueryResult` 写法无需再写`try...catch`，因为错误一般会被[](Box3QueryResult)捕捉（除了语法等错误），`try...catch`无法捕获  
             详见[](Box3QueryResult)
 
             ```javascript

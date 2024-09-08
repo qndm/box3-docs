@@ -26,7 +26,7 @@
     | `hi` | <def>GameVector3</def> | 区域的高处顶点 |
 
 !!! warning "关于`lo`与`hi`参数的说明"
-    在编写代码的时候，要保证`lo`的每个值是比`hi`小的（``lo.x < hi.x && lo.y < hi.y && lo.z < hi.z``），否则会发生 ~~匪夷所思的~~ 问题  
+    在编写代码的时候，要保证`lo`的每个值是比`hi`小的（``lo.x < hi.x && lo.y < hi.y && lo.z < hi.z``），否则会发生<span class="hidden">匪夷所思的</span>问题  
     如果不能保证，可以使用<def>Box3Vector3</def>的[<method>min</method>](./Vector3.md#min)和[<method>max</method>](./Vector3.md#max)方法
 
 !!! warning "警告"
@@ -53,10 +53,6 @@
     | `hi` | <def>GameVector3</def> | 区域的高处顶点 |
 
 ## 方法
-
-!!! note "提示"
-    下列全部\[示例\]的代码后面的注释为预期的运行结果，可以不用看“<~”，这只是一个提示符
-
 <span anchor="intersect"><method>intersect</method> ([b](arg): <def>Box3Bounds3</def>): <def>Box3Bounds3</def>  
 <method>intersect</method> ([b](arg): <def>GameBounds3</def>): <def>GameBounds3</def></span>
 :   计算与此包围盒相交的部分
@@ -144,12 +140,3 @@
 <staticMethod>fromPoints</staticMethod> ([points](arg): ...<def>Box3Vector3</def>): <def>Box3Bounds3</def>
 <staticMethod>fromPoints</staticMethod> ([points](arg): ...<def>GameVector3</def>): <def>GameBounds3</def>
 :   根据坐标点生成一个空间区域，使每个点都在这个空间区域内  
-    ??? example "示例"
-        === "旧版编辑器"
-            ```javascript
-            new Box3Bounds3(new Box3Vector3(0, 0, 0), new Box3Vector3(5, 5, 5)).intersect(new Box3Bounds3(new Box3Vector3(2, 2, 2), new Box3Vector3(7, 7, 7))) //<~ { lo:{ x:2, y:2, z:2 }, hi:{ x:5, y:5, z:5 } }
-            ```
-        === "Arena 编辑器"
-            ```javascript
-            new GameBounds3(new GameVector3(0, 0, 0), new GameVector3(5, 5, 5)).intersect(new GameBounds3(new GameVector3(2, 2, 2), new GameVector3(7, 7, 7))) //<~ { lo:{ x:2, y:2, z:2 }, hi:{ x:5, y:5, z:5 } }
-            ```
