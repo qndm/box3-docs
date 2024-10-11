@@ -1,0 +1,93 @@
+/* .kind-icon:hover,
+button:hover,
+a:hover {
+  border-color: rgba(32, 148, 243, 0.5);
+} */
+anchor {
+  height: 0;
+}
+
+summary,
+img {
+  border: 1px solid transparent;
+  transition-duration: 0.25s;
+  cursor: pointer;
+  box-shadow: 0 0 3px transparent;
+}
+
+summary:active,
+img:active {
+  border-color: #2094f3 !important;
+  background: rgba(32, 148, 243, 0.5) !important;
+  box-shadow: 0 0 3px #2094f3 !important;
+}
+
+img {
+  transition-duration: 0s !important;
+}
+
+a>.kind-icon{
+  border-bottom-color: rgba(32, 148, 243, 0.15);
+}
+a>.kind-icon:hover {
+  border-bottom-color: rgba(32, 148, 243, 0.3);
+}
+a>.kind-icon:active {
+  border-bottom-color: rgba(32, 148, 243, 0.6);
+  /* border-color: #2094f3; */
+  /* box-shadow: 0 1px 3px #2094f3; */
+}
+
+/*解决双层active效果*/
+a>a:active {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/*解决方块速查表颜色太深看不见字问题*/
+.voxelsTableTableData span,
+.coloredWord {
+  transition: background-color 300ms;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.voxelsTableTableData span:hover,
+.coloredWord:hover {
+  background-color: unset !important;
+}
+
+/*Joke Mode Only*/
+.jokeElement {
+  transition: all 300ms;
+}
+
+* {
+  transition: background-color 0.5s, border-color 0.5s !important;
+}
+
+.admonition-title,
+summary {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.hidden{
+  color: #202020;
+  background-color: #202020;
+  overflow: hidden;
+  width: 10px;
+  transition: color 0.2s, width 0.2s;
+  border-radius: 4px;
+}
+.hidden:hover{
+  color: #ffffff;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+/*解决标题看不见问题*/
+.md-header__ellipsis .kind-icon{
+  color: unset !important;
+}
