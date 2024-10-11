@@ -1,3 +1,13 @@
+---
+tags:
+  - 事件
+  - 玩家
+  - 实体
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 与<def>Box3EntityEvent</def> / <def>GameEntityEvent</def>类似，但是确保其中的<property>entity</property>一定是玩家实体。
 
 [](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent) = [](Box3EntityEvent) / [](GameEntityEvent) & {[entity](property): [](Box3PlayerEntity) / [](GamePlayerEntity)}

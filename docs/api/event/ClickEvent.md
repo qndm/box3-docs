@@ -1,3 +1,14 @@
+---
+tags:
+  - 事件
+  - 输入
+  - 玩家
+  - 实体
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 当玩家用鼠标点击实体时触发的事件
 
 触发方法：[Box3World.onClick]()和[Box3Entity.onClick]()

@@ -1,3 +1,11 @@
+---
+tags:
+  - 方块
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 <a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
 !!! info "这是一个服务端API"
@@ -15,7 +23,7 @@
     方块名称和方块id都是描述某位置方块的方法  
     方块名称只包含方块的类型  
     id包含方块的旋转码，在[setVoxel](method)方法不填[rotation](arg)参数的情况下修改方块旋转码  
-    方块正面面朝北方（`-z`方向）的旋转码数值上和将方块名称使用[id](method)方法转换后相同  
+    方块正面面朝北方（`-z`方向）的旋转码数值上和将方块名称使用[id](method)方法转换后（即方块为初始旋转状态的id，也可说为不带旋转码）相同  
     方块正面面朝北方（`-z`方向）的旋转码为基准，取此时的旋转码为[voxel](variable)，每顺时针转$90°$，方块[voxel](variable)加`#!javascript 16384`（`#!javascript 0x4000`）  
     我们以泥土（方块名称为`#!javascript 'dirt'`，id为`#!javascript 125`）为例：
 
@@ -58,9 +66,6 @@
 [id](method)([name](arg): [](string)): [](number)
 :   将方块名称转换为方块id
 
-    !!! tip "提示"
-
-
     ??? example "示例"
 
         ```javascript
@@ -99,8 +104,8 @@
     !!! tip "提示"
         [rotation](arg)参数也可以填写字符串，但是似乎没人这么写，因为这么写除了多了个引号就没有别的用途了
 
-    !!! warning "[voxel](arg)参数填写的id若包含方块的旋转码，id中的旋转码无效，实际旋转码只和[rotation](arg)有关"
-        此方法不适用于复制/保存地形
+    !!! warning "此方法不适用于复制/保存地形
+        [voxel](arg)参数中包含的方块旋转码无效，实际旋转码只和[rotation](arg)有关"
 
 [setVoxelId](method)([x](arg): [](number), [y](arg): [](number), [z](arg): [](number), [voxel](arg): [](number)): [](number)
 :   使用方块id，直接在指定的坐标位置放置方块。  
@@ -119,8 +124,8 @@
     | - | - | - |
     | | [](number) | 新的方块id |
 
-    !!! tip "提示与技巧"
-        [voxel](arg)参数填写的id，也可以包含方块的旋转码  
+    !!! note "提示"
+        [voxel](arg)参数包含的方块旋转码有效  
         通过此可以在没有[rotation](arg)参数的情况下修改方块旋转码
 
 [getVoxel](method)([x](arg): [](number), [y](arg): [](number), [z](arg): [](number)): [](number)
@@ -136,8 +141,10 @@
     | - | - | - |
     | | [](number) | 获取的方块id |
 
-    !!! warning "用此方法获取的id不带旋转码"
-        此方法不适用于复制/保存地形
+    !!! tip "提示与技巧"
+        由于其不带旋转码的特性，可以直接用此方法判断方块的id来判断的种类，而不是用[name](method)方法转换成方块名称后再比较
+    !!! warning "此方法不适用于复制/保存地形"
+        用此方法获取的id不带旋转码
 
 [getVoxelId](method)([x](arg): [](number), [y](arg): [](number), [z](arg): [](number)): [](number)
 :   直接获取指定地方的方块id  

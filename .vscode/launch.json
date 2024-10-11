@@ -8,22 +8,8 @@
             "name": "Launch Mkdoc",
             "type": "PowerShell",
             "request": "launch",
-            "script": "mkdocs serve --dirtyreload",
+            "script": "python -m mkdocs serve --dirtyreload",
             "cwd": "${cwd}"
-        },
-        {
-            "name": "Attach",
-            "request": "attach",
-            "type": "chrome",
-            "address": "localhost",
-            "port": 8000
-        }
-    ],
-    "compounds":[
-        {
-            "name": "Launch",
-            "configurations": ["Launch Mkdoc", "Attach"],
-            "stopAll": true
         }
     ]
 }

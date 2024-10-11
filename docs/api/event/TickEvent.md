@@ -1,4 +1,12 @@
-# [](Box3TickEvent) / [](GameTickEvent)
+---
+tags:
+  - 事件
+  - 时钟
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 
 Box3 中的 Tick 事件
 
@@ -18,7 +26,7 @@ Tick 本意为钟表的滴答声，在这里被当作一种时间周期或时间
 : 上一个正常处理的`tick`
 
 <property>skip</property> : <def>boolean</def>
-: 如果为<bool>true</bool>则说明因为卡顿而跳过了`tick`
+: 如果为`#!javascript true`，则说明因为卡顿而跳过了`tick`
 
 <property>tick</property> : <def>number</def>
 : 当前`tick`的编号

@@ -74,7 +74,7 @@ hide:
     - <icon name="namespace">动作相关</icon>
         - [x] <def>GameMotionController</def> <span block>动作控制器</span>
         - [x] <def>GameMotionHandler</def> <span block>动作处理器</span>
-        - [x] <def>GameMotionEvent</def> <span block>动作事件（Arena编辑器）</span>
+        - [x] <def>GameMotionEvent</def> <span block>动作事件（仅Arena编辑器）</span>
         - [x] <def>GameMotionConfig</def> <span block>动作配置</span>
         - [x] <def>GameMotionClipConfig</def> <span block>动作序列配置</span>
     - <icon name="namespace">物理相关</icon>
@@ -102,7 +102,11 @@ hide:
     - <icon name="namespace">穿戴配件</icon>
         - [x] <def>Box3Wearable</def> / <def>GameWearable</def> <span block>穿戴配件</span>
         - [x] <def>Box3BodyPart</def> / <def>GameBodyPart</def> <span block>身体部件类型</span>
-    - <icon name="namespace">输入</icon>
+    - <icon name="namespace">皮肤相关</icon>
+        - [x] <def>GameSkin</def> <span block>皮肤</span>
+        - [x] <def>GameSkinValue</def> <span block>皮肤值</span>
+        - [x] <def>GameSkinInvisible</def> <span block>皮肤隐藏设置</span>
+    - <icon name="namespace">聊天&输入</icon>
         - [x] <def>Box3ChatEvent</def> / <def>GameChatEvent</def> <span block>聊天事件</span>
         - [x] <def>Box3ClickEvent</def> / <def>GameClickEvent</def> <span block>点击事件</span>
         - [x] <def>Box3InputEvent</def> / <def>GameInputEvent</def> <span block>输入事件</span>
@@ -121,18 +125,16 @@ hide:
         - [x] <def>Box3DialogParams</def> / <def>GameDialogParams</def> <span block>对话框配置</span>
         - [x] <def>Box3DialogSelectResponse</def> / <def>GameDialogSelectResponse</def> <span block>选择对话框结果</span>
         - [x] <def>Box3DialogCancelOption</def> / <def>GameDialogCancelOption</def> <span block>对话框取消选项</span>
-    - <icon name="namespace">皮肤相关</icon>
-        - [x] <def>GameSkin</def> <span block>皮肤</span>
-        - [x] <def>GameSkinValue</def> <span block>皮肤值</span>
-        - [x] <def>GameSkinInvisible</def> <span block>皮肤隐藏设置</span>
+    - <icon name="namespace">商业化</icon>
+        - [x] <def>GamePurchaseSuccessEvent</def> <span block>购买事件</span>
 
--   <icon name="module">数据库（旧版编辑器）</icon>
+-   <icon name="module">数据库（仅旧版编辑器）</icon>
 
     ---
     - [x] <def>db</def> & <def>Box3Database</def> / <def>GameDatabase</def> <span block>数据库</span>
     - [x] <def>Box3QueryResult</def> / <def>GameQueryResult</def> <span block>数据查找结果</span>
 
--   <icon name="module">数据储存（Arena编辑器）</icon>
+-   <icon name="module">数据储存（仅Arena编辑器）</icon>
 
     ---
     - [x] <def>storage</def> & <def>GameStorage</def> <span block>数据储存</span>
@@ -141,14 +143,14 @@ hide:
     - [x] <def>ListPageOptions</def> <span block>列表翻页配置</span>
     - [x] <def>ReturnValue</def> <span block>数据查询返回</span>
 
--   <icon name="module">事件</icon>
+-   
 
     ---
     - [x] <def>Box3EventChannel</def> / <def>GameEventChannel</def> <span block>事件频道</span>
     - [x] <def>Box3EventFuture</def> / <def>GameEventFuture</def>
     - [x] <def>Box3EventHandlerToken</def> / <def>GameEventHandlerToken</def> <span block>事件令牌</span>
 
--   <icon name="module">Box3 基本数据类型</icon>
+-   <icon name="module">Box3 通用属性</icon>
 
     ---
     - [x] <def>Box3Vector3</def> / <def>GameVector3</def> <span block>三维向量</span>
@@ -162,7 +164,7 @@ hide:
 
     ---
     - [x] <constObject>remoteChannel</constObject> & <def>ServerRemoteChannel</def>
-    - [x] <def>ServerEvent</def><span block>（Arena编辑器）</span>
+    - [x] <def>ServerEvent</def><span block>（仅Arena编辑器）</span>
 
 -   <icon name="module">动画</icon>
 
@@ -180,7 +182,7 @@ hide:
 -   <icon name="module">声音</icon>
 
     ---
-    - [x] <def>Sound</def><span block>（Arena编辑器）</span>
+    - [x] <def>Sound</def><span block>（仅Arena编辑器）</span>
     - [x] <def>Box3SoundEffect</def> / <def>GameSoundEffect</def> <span block>声音效果配置</span>
 
 -   <icon name="module private">用户图形界面</icon>

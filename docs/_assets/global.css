@@ -64,7 +64,7 @@ a>a:active {
 }
 
 * {
-  transition: background-color 0.5s, border-color 0.5s;
+  transition: background-color 0.5s, border-color 0.5s !important;
 }
 
 .admonition-title,
@@ -85,4 +85,9 @@ summary {
   color: #ffffff;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+/*解决标题看不见问题*/
+.md-header__ellipsis .kind-icon{
+  color: unset !important;
 }

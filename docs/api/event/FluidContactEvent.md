@@ -1,3 +1,16 @@
+---
+tags:
+  - 事件
+  - 碰撞事件
+  - 物理
+  - 世界
+  - 玩家
+  - 液体
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 <a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
 !!! info "这是一个服务端API"

@@ -4,7 +4,7 @@
 
     该API仅在客户端脚本使用
 
-[](UiInputEvents) = [](UiNodeEvents) & {[focus](property): (UiInputEvent), [blur](property): (UiInputEvent)}
+[](UiInputEvents) = [](UiNodeEvents) & {[focus](property): [](UiInputEvent), [blur](property): [](UiInputEvent)}
 :   [](UiInput)的事件映射表
 
 ## 属性
