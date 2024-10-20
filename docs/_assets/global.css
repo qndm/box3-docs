@@ -26,12 +26,14 @@ img {
   transition-duration: 0s !important;
 }
 
-a>.kind-icon{
+a>.kind-icon {
   border-bottom-color: rgba(32, 148, 243, 0.15);
 }
+
 a>.kind-icon:hover {
   border-bottom-color: rgba(32, 148, 243, 0.3);
 }
+
 a>.kind-icon:active {
   border-bottom-color: rgba(32, 148, 243, 0.6);
   /* border-color: #2094f3; */
@@ -73,7 +75,7 @@ summary {
   user-select: none;
 }
 
-.hidden{
+.hidden {
   color: #202020;
   background-color: #202020;
   overflow: hidden;
@@ -81,13 +83,52 @@ summary {
   transition: color 0.2s, width 0.2s;
   border-radius: 4px;
 }
-.hidden:hover{
+
+.hidden:hover {
   color: #ffffff;
   width: -moz-fit-content;
   width: fit-content;
 }
 
 /*解决标题看不见问题*/
-.md-header__ellipsis .kind-icon{
+.md-header__ellipsis .kind-icon {
   color: unset !important;
+}
+
+/*文字发光效果 用于方块速查表*/
+.light {
+  text-shadow: 0px 0px 4px yellow;
+}
+
+/*文字加粗效果 用于方块速查表*/
+.bold {
+  font-weight: bold;
+}
+
+/*方块速查表中液体方块的显示*/
+.fluid *,
+.fluidText {
+  border-bottom: 2px solid #008cff;
+}
+
+/*方块速查表中动态方块的显示*/
+.animation *,
+.animationText {
+  border-left: 2px solid #00ff00;
+  border-right: 2px solid #ff0000;
+}
+
+#voxelsTable .new-voxel{
+  border-left: 3px solid #00ff00;
+}
+
+#voxelsTable caption,
+#voxelsTable tfoot {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+tfoot {
+  text-align: center;
+  font-weight: bold;
 }

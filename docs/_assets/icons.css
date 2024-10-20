@@ -14,6 +14,7 @@ def {
   font-weight: bold;
   transition: border-bottom-color 0.25s;
   display: inline-block;
+  /*font-family: Consolas, 'Courier New', monospace;*/
 }
 .kind-icon:before {
   content: "";

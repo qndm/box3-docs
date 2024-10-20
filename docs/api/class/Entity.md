@@ -1,3 +1,13 @@
+---
+tags:
+  - 实体
+  - 物理
+  - 动画
+  - 服务端
+  - 旧版编辑器
+  - Arena编辑器
+---
+
 <a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
 
 !!! info "这是一个服务端API"
@@ -95,6 +105,30 @@
 
 [meshShininess](property): [](number)
 :   实体的反光度
+
+[showEntityName](property): [](boolean) = `#!javascript false`
+:   是否显示实体的自定义名称
+
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
+
+[customName](property): [](string) = `#!javascript ""`
+:   实体的自定义名称
+
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
+
+[nameRadius](property): [](number) = `#!javascript 16`
+:   实体自定义名称显示距离；超过此距离，则不显示
+
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
+
+[nameColor](property): [](GameRGBColor) = `#!javascript new GameRGBColor(1, 1, 1)`
+:   实体自定义名称颜色
+
+    !!! info "Arena 独有"
+        该方法仅在Arena编辑器中使用
 
 <span anchor="motion">
 [motion](property): [](GameMotionController)
