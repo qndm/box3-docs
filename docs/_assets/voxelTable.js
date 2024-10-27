@@ -32,7 +32,7 @@ function createTableRow(option, ...datas) {
             td.appendChild(textNode);
         if (option.colSpan && typeof option.colSpan[index] === "number" && !isNaN(option.colSpan[index]))
             td.colSpan = option.colSpan[index];
-        td.classList.add('voxelsTableTableData');
+        td.classList.add('voxelTableData');
         td.style.textAlign = 'center';
         if (option.color && typeof option.color[index] === "string") {
             td.classList.add('coloredWord');
@@ -61,7 +61,7 @@ if (new URL(document.URL).pathname === '/api/voxels/') {
     if (localVoxelTypes !== null) {
         oldVoxelNames.push(...JSON.parse(localVoxelTypes));
     }
-    const el = document.getElementById('voxelIdsTable');
+    const el = document.getElementById('voxelTable');
     if (el instanceof HTMLElement) {
         console.log('方块速查表开始渲染');
         const table = document.createElement('table'),

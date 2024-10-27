@@ -190,6 +190,6 @@ tags:
 
     要是棋盘方块的描述看不懂，可以把描述里的制表符叠加起来看
 
-<span id="voxelIdsTable"></span>
+<span id="voxelTable"></span>
 
 [^1]: 其判定方法为，用户上次查看文档时文档未收录的方块

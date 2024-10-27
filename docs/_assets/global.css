@@ -48,14 +48,14 @@ a>a:active {
 }
 
 /*解决方块速查表颜色太深看不见字问题*/
-.voxelsTableTableData span,
+.voxelTableData span,
 .coloredWord {
   transition: background-color 300ms;
   padding: 5px;
   border-radius: 3px;
 }
 
-.voxelsTableTableData span:hover,
+.voxelTableData span:hover,
 .coloredWord:hover {
   background-color: unset !important;
 }
@@ -118,12 +118,12 @@ summary {
   border-right: 2px solid #ff0000;
 }
 
-#voxelsTable .new-voxel{
+#voxelTable .new-voxel{
   border-left: 3px solid #00ff00;
 }
 
-#voxelsTable caption,
-#voxelsTable tfoot {
+#voxelTable caption,
+#voxelTable tfoot {
   margin-top: 5px;
   margin-bottom: 5px;
 }
