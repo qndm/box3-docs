@@ -1,5 +1,5 @@
 site_name: Box3 社区文档
-site_url: https://box3-docs.pages.dev
+#site_url: https://box3-docs.pages.dev
 site_description: 一个由 AlanBestHacker 创建的，内容来自社区的第三方 Box3 文档
 repo_url: https://github.com/qndm/box3-docs
 edit_uri: edit/main/docs/
