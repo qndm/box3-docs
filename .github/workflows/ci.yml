@@ -29,5 +29,5 @@ jobs:
                          mkdocs-glightbox \
                          mkdocs-material-extensions \
                          mkdocs-minify-plugin \
-                         git-revision-date-localized
+                         mkdocs-git-revision-date-localized-plugin
       - run: mkdocs gh-deploy --force
