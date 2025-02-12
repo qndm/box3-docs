@@ -1,12 +1,12 @@
 gsap.registerPlugin(ScrollToPlugin);
 function jump() {
-  const hash = /.+#(.+)/.exec(location.href)[1];
+  const hash = location.hash.substring(1);
   const el =
     [...document.querySelectorAll("[anchor]")].find(
-      (e) => e.getAttribute("anchor").trim() == hash
+      (e) => e.getAttribute("anchor").trim() === hash
     ) ||
     [...document.querySelectorAll("*")].find(
-      (e) => e.id && e.id.trim() == hash
+      (e) => e.id && e.id.trim() === hash
     );
   if (el) {
     const timeline = gsap.timeline();
