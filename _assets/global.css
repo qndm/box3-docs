@@ -1,0 +1,261 @@
+/* .kind-icon:hover,
+button:hover,
+a:hover {
+  border-color: rgba(32, 148, 243, 0.5);
+} */
+anchor {
+  height: 0;
+}
+
+summary,
+img {
+  border: 1px solid transparent;
+  transition-duration: 0.25s;
+  cursor: pointer;
+  box-shadow: 0 0 3px transparent;
+}
+
+summary:active,
+img:active {
+  border-color: #2094f3 !important;
+  background: rgba(32, 148, 243, 0.5) !important;
+  box-shadow: 0 0 3px #2094f3 !important;
+}
+
+img {
+  transition-duration: 0s !important;
+}
+
+
+/*解决标题看不见问题*/
+.md-header__ellipsis .kind-icon,
+.md-header__ellipsis docs-icon,
+.no-color {
+  color: unset !important;
+}
+
+a>docs-icon {
+  border-bottom-color: rgba(32, 148, 243, 0.15);
+}
+
+a>docs-icon:hover {
+  border-bottom-color: rgba(32, 148, 243, 0.3);
+}
+
+a>docs-icon:active {
+  border-bottom-color: rgba(32, 148, 243, 0.6);
+  /* border-color: #2094f3; */
+  /* box-shadow: 0 1px 3px #2094f3; */
+}
+
+/*解决双层active效果*/
+a>a:active {
+  border-color: transparent !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/*解决方块速查表颜色太深看不见字问题*/
+.coloredWord {
+  transition: background-color 300ms;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.coloredWord:hover {
+  background-color: unset !important;
+}
+
+.voxelTableData {
+  text-align: center !important;
+}
+
+/*Joke Mode Only*/
+.jokeElement {
+  transition: all 300ms;
+}
+
+.admonition-title,
+summary {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.hidden {
+  color: #202020;
+  background-color: #202020;
+  overflow: hidden;
+  width: 10px;
+  transition: color 0.2s, width 0.2s;
+  border-radius: 4px;
+}
+
+.hidden:hover {
+  color: #ffffff;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+/*文字发光效果 用于方块速查表*/
+.light {
+  text-shadow: 0px 0px 4px yellow;
+}
+
+/*文字加粗效果 用于方块速查表*/
+.bold {
+  font-weight: bold;
+}
+
+/*方块速查表中液体方块的显示*/
+.fluid *,
+.fluidText {
+  border-bottom: 2px solid #008cff;
+}
+
+/*方块速查表中动态方块的显示*/
+.animation *,
+.animationText {
+  border-left: 2px solid #00ff00;
+  border-right: 2px solid #ff0000;
+  background: linear-gradient(30deg, #00ff0010 0%, #ff000010 100%);
+}
+
+
+.new:not(blockquote) {
+  transition: border-width 0.25s;
+  border-left: 3px solid #00ff00 !important;
+}
+
+.revised:not(blockquote) {
+  transition: border-width 0.25s;
+  border-left: 3px solid #00ff00 !important;
+}
+
+.new:is(blockquote) {
+  transition: border-color 0.25s;
+}
+
+.revised:is(blockquote) {
+  transition: border-color 0.25s;
+}
+
+.new:is(blockquote):not(:hover) {
+  border-color: #00ff44 !important;
+}
+
+.revised:is(blockquote):not(:hover) {
+  border-color: #0044ff !important;
+}
+
+.new:not(blockquote):hover {
+  border-width: 0px !important;
+}
+
+.revised:not(blockquote):hover {
+  border-width: 0px !important;
+}
+
+#voxelsTable,
+#refresh,
+#voxelsTable>*,
+#voxelsTable tr {
+  width: 100%;
+}
+
+#voxelTable caption,
+#voxelTable tfoot {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+tfoot {
+  text-align: center;
+  font-weight: bold;
+}
+
+.very-old-only {
+  background: linear-gradient(90deg, #fc830830 0%, #fc830810 100%);
+  padding: 2px 4px 2px 4px;
+}
+
+.old-only {
+  background: linear-gradient(90deg, #fe7a0e30 0%, #fa333330 100%);
+  padding: 2px 4px 2px 4px;
+}
+
+.pro-only {
+  background: linear-gradient(90deg, #3b3bf230 0%, #3b3bf210 100%);
+  padding: 2px 4px 2px 4px;
+}
+
+.client-only {
+  background: linear-gradient(90deg, #3b3bf230 0%, #3b3bf210 100%);
+  padding: 2px 4px 2px 4px;
+}
+
+.very-old-only::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 3px 2px 0px;
+  background-image: url(./old-box3.svg);
+  background-size: 17px 17px;
+  width: 17px;
+  height: 17px;
+}
+
+.old-only::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 3px 2px 0px;
+  background-image: url(./box3.png);
+  background-size: 34px 17px;
+  width: 17px;
+  height: 17px;
+}
+
+.pro-only::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 3px 2px 0px;
+  background-image: url(./box3.png);
+  background-size: 34px 17px;
+  width: 17px;
+  height: 17px;
+  background-position: -17px 0px;
+}
+
+blockquote.very-old-only:not(.new:not(:hover), .revised:not(:hover)) {
+  border-color: #fc8308 !important;
+}
+
+blockquote.old-only:not(.new:not(:hover), .revised:not(:hover)) {
+  border-color: #fe7a0e !important;
+}
+
+blockquote.pro-only:not(.new:not(:hover), .revised:not(:hover)) {
+  border-color: #3b3bf2 !important;
+}
+
+blockquote.error:not(.new:not(:hover), .revised:not(:hover)) {
+  border-color: #ff5252 !important;
+}
+
+.very-old-only .very-old-only,
+.old-only .old-only,
+.pro-only .pro-only {
+  background: none;
+}
+
+.very-old-only .very-old-only::before,
+.old-only .old-only::before,
+.pro-only .pro-only::before {
+  content: none;
+}
+
+.code blockquote {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
