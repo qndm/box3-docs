@@ -1,26 +1,5 @@
----
-tags:
-  - 世界
-  - 天气
-  - 时间
-  - 物理
-  - 动画
-  - 服务端
-  - 旧版编辑器
-  - Arena编辑器
----
-
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E9%87%8D%E6%96%B0%E6%8E%92%E7%89%88&%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
-: [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/qrdwsy18xppep8bv)  
-  [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/gqdnaany8xlb0q0s)  
-  [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/obl2sb5x68v08he8)
-
-<def>Box3World</def> / <def>GameWorld</def>无法（很难）被实例化，但在全局存在一个单例对象<def>world</def>  
-可以通过<def>world</def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
+<docs-def>Box3World</docs-def> / <docs-def>GameWorld</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>world</docs-def>  
+可以通过<docs-def>world</docs-def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
 
 ## 常用
 - [<method>onTick</method>](#c1)
@@ -33,31 +12,40 @@ tags:
 
 ## 属性
 ### 基础
-<readonly>projectName</readonly> : <def>string</def>
-: 项目的名称，对应 项目-编辑资料-地图名称。无法在代码中修改。
+> !p projectName: string
 
-<property>url</property> : <def> URL</def>
-: 当前运行的世界的公共 URL
+:   项目的名称，对应 项目-编辑资料-地图名称。无法在代码中修改。
 
-<property>currentTick</property> : <def>number</def>
-: 当前世界的时刻
+> !p url: URL
+
+:   当前运行的世界的公共 URL
+
+> !p currentTick: number
+
+:   当前世界的时刻
+
+> !p @proOnly serverId: string
+
+:   当前服务器id
+
 
 ### 物理
-<property>gravity</property> : <def>number</def>
+> !p gravity: number
+
 : 重力
 
-<property>airFriction</property> : <def>number</def>
+> !p airFriction: number
+
 : 空气阻力
 
-<property>useOBB</property> : <def>boolean</def>
+> !p @proOnly useOBB: boolean
+
 :   是否启用OBB碰撞  
     关于OBB碰撞，可以[查看此链接](https://box3.yuque.com/staff-khn556/wupvz3/obb)获取更多信息
 
     ??? quote "OBB 碰撞"
         OBB(Oriented Bounding Box)译为方向包围盒，与原本的AABB(Axis Aligned Bounding Box)轴对齐包围盒相比，物理模型新增了旋转属性，碰撞效果更加的精准。
 
-    !!! info "Arena 独有"
-        该属性仅在Arena编辑器中使用
     !!! warning "该功能仍在实验中"
         实验版仅支持400个100面以下的实体在静态场景下以60+FPS展示
     !!! danger "性能警告"
@@ -66,37 +54,46 @@ tags:
 
 ### 天气 & 光照
 #### 光照
-<property>lightMode</property> : `#!javascript 'natural'` | `#!javascript 'manual'`
+> !p lightMode: `#!javascript 'natural'` | `#!javascript 'manual'`
 
 :   世界光照模式，`#!javascript 'natural'`为自然模式，昼夜循环按照一定的规律进行。`#!javascript 'manual'`为手动模式，需要手动设置各个方向上的光。
 光照模式不同，决定光照的属性也不同，你可以通过切换下面的选项卡来查看不同光照模式下的光照属性。
 
     === "`#!javascript 'natural'` 自然光照"
-        <property>sunPhase</property> : <def>number</def>
+
+        > !p sunPhase: number
+
         : 太阳运行阶段，按照`#!javascript timeOfDay = (sunPhase + sunFrequency * tick) % 1`公式计算
 
-        <property>sunFrequency</property> : <def>number</def>
+        > !p sunFrequency: number
+
         : 太阳在天空中移动的频率。 数值越高=太阳运动越快
 
-        <property>lunarPhase</property> : <def>number</def>
+        > !p lunarPhase: number
+
         : 月亮的相位。 必须在 0 和 1 之间
     === "`#!javascript 'manual'` 手动光照"
-        <property>sunDirection</property> : <def>Box3Vector3</def> / [](GameVector3)
+
+        > !p sunDirection: Vector3
+
         : 太阳的方向
 
-        <property>sunLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
+        > !p sunLight: RGBColor
+
         : 太阳的光照颜色
 
-        <property>skyLeftLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        <property>skyRightLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        <property>skyBottomLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        <property>skyTopLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        <property>skyFrontLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
-        <property>skyBackLight</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
+        > !p skyLeftLight: RGBColor  
+          !p skyRightLight: RGBColor  
+          !p skyBottomLight: RGBColor  
+          !p skyTopLight: RGBColor  
+          !p skyFrontLight: RGBColor  
+          !p skyBackLight: RGBColor
+
         : 天空光照颜色依次在 `-x` `+x` `-y` `+y` `-z` `+z` 方向上的值
 
 #### 雾
-<property>fogColor</property> : <def>Box3RGBColor</def> / [](GameRGBColor)
+> !p fogColor: RGBColor
+
 :   雾颜色
 
     !!! bug
@@ -104,110 +101,137 @@ tags:
         若将颜色设为白色（`#!javascript new Box3RGBColor(1, 1, 1)` / `#!javascript new GameRGBColor(1, 1, 1)` / <span style="background: #ffffff;" class="coloredWord">#FFFFFF</span>），实际颜色只有<span style="background: #a6b1b9;" class="coloredWord">#A6B1B9</span>（看地面）<span style="background: #a9b5be;" class="coloredWord">#A9B5BE</span>（看天空）  
         此问题曾向官方反馈，但未得到解决
 
+> !p fogStartDistance: number
 
-<property>fogStartDistance</property> : <def>number</def>
 :   雾起始距离
 
-<property>fogHeightOffset</property> : <def>number</def>
+> !p fogHeightOffset: number
+
 :   雾起始高度
 
-<property>fogHeightFalloff</property> : <def>number</def>
+> !p fogHeightFalloff: number
+
 :   雾高度衰减率
 
-<property>fogUniformDensity</property> : <def>number</def>
+> !p fogUniformDensity: number
+
 :   均匀雾量（如果>`#!javascript 0`，就不能看到天幕）
 
-<property>maxFog</property> : <def>number</def>
+> !p maxFog: number
+
 :   最大雾量
 
 #### 雪
-<property>snowDensity</property> : <def>number</def>
+> !p snowDensity: number
+
 :   雪密度。密度越大，雪花越多
 
-<property>snowSizeLo</property> : <def>number</def>
+> !p snowSizeLo: number
+
 :   雪最小尺寸
 
-<property>snowSizeHi</property> : <def>number</def>
+> !p snowSizeHi: number
+
 :   雪最大尺寸
 
-<property>snowFallSpeed</property> : <def>number</def>
+> !p snowFallSpeed: number
+
 :   雪下落速度
 
-<property>snowSpinSpeed</property> : <def>number</def>
+> !p snowSpinSpeed: number
+
 :   雪自旋速度
 
-<property>snowColor</property> : <def>Box3RGBAColor</def> / [](GameRGBAColor)
+> !p snowColor: RGBAColor
+
 :   雪颜色。
 
-<property>snowTexture</property> : <def>string</def>
+> !p snowTexture: string
+
 :   雪纹理，格式为`#!javascript 'snow/*.part'`
 
 #### 雨
-<property>rainDensity</property> : <def>number</def>
+> !p rainDensity: number
+
 :   雨密度。密度越大，雨滴越多
 
-<property>rainDirection</property> : <def>Box3Vector3</def> / [](GameVector3)
+> !p rainDirection: Vector3
+
 :   雨方向
 
-<property>rainSpeed</property> : <def>number</def>
+> !p rainSpeed: number
+
 :   雨速度
 
-<property>rainSizeLo</property> : <def>number</def>
+> !p rainSizeLo: number
+
 :   雨点最小尺寸
 
-<property>rainSizeHi</property> : <def>number</def>
+> !p rainSizeHi: number
+
 :   雨点最大尺寸
 
-<property>rainInterference</property> : <def>number</def>
+> !p rainInterference: number
+
 :   雨扰流幅度
 
-<property>rainColor</property> : <def>Box3RGBAColor</def> / [](GameRGBAColor)
+> !p rainColor: RGBAColor
+
 :   雨颜色
 
 ### 声音
-<property>breakVoxelSound</property> : <def>Box3SoundEffect</def> / [](GameSoundEffect)
+> !p breakVoxelSound: SoundEffect
+
 :   方块破坏声音
 
-<property>placeVoxelSound</property> : <def>Box3SoundEffect</def> / [](GameSoundEffect)
+> !p placeVoxelSound: SoundEffect
+
 :   方块填充声音
 
-<property>playerJoinSound</property> : <def>Box3SoundEffect</def> / [](GameSoundEffect)
+> !p playerJoinSound: SoundEffect
+
 :   玩家进入世界声音
 
-<property>playerLeaveSound</property> : <def>Box3SoundEffect</def> / [](GameSoundEffect)
+> !p playerLeaveSound: SoundEffect
+
 :   玩家离开世界声音
 
-<property>ambientSound</property> : <def>Box3SoundEffect</def> / [](GameSoundEffect)
+> !p ambientSound: SoundEffect
+
 :   环境声音
 
 ---
 
 ## 方法
 ### 实体创建 & 销毁
-<method>entityQuota</method> (): <def>number</def>
+> !p entityQuota(): number
+
 :   返回世界当前允许创建的实体的剩余数量
 
-<method>createEntity</method> ([config](arg): <def> Partial</def><[](Box3EntityConfig) / [](GameEntityConfig)>): [](Box3Entity) / [](GameEntity) | [](null)
+> !p createEntity(config: Partial< EntityConfig>): Entity | null
+
 :   创建一个新的[](Box3Entity) / [](GameEntity)或复制一个现有实体
 如果超过了实体配额，则返回 [](null)
 
 ### 搜索
-<span anchor="c3"><method> querySelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)): <def> Box3Entity</def> / [](GameEntity) | [](null)</span>
+> !p querySelector(selector: SelectorString): Entity | null
+
 :   通过选择器来查找一个实体，如果找不到，则会返回[](null)
 
-<method>querySelectorAll</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString)): [](Box3Entity)[] / [](GameEntity)[]
+> !p querySelectorAll(selector: SelectorString): Entity[]
+
 :   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个[](Box3Entity) / [](GameEntity)组成的数组。如果没有符合条件的实体，则返回空数组。
 
     ??? example "示例"
 
         ```javascript
-        world.querySelectorAll('player').
-          forEach(entity => {
+        world.querySelectorAll('player').forEach(entity => {
             world.say(entity.player.name)
-          }) // 遍历世界中的所有玩家并且广播其玩家昵称
+        }) // 遍历世界中的所有玩家并且广播其玩家昵称
         ```
 
-<method>testSelector</method> ([selector](arg): [](Box3SelectorString) / [](GameSelectorString), [entity](arg): [](Box3Entity)): <def>boolean</def>
+> !p testSelector(selector: SelectorString, entity: Entity): boolean
+
 :   测试实体是否符合选择器，如果实体能被指定的选择器选择，则返回`#!javascript true`，否则返回`#!javascript false`
 
     ??? example "示例"
@@ -216,7 +240,8 @@ tags:
         world.testSelector('.groupA', a_Entity_Has_Tag_groupA)
         ```
 
-<method>raycast</method> ([origin](arg): [](Box3Vector3) / [](GameVector3), [direction](arg): [](Box3Vector3) / [](GameVector3), [options](arg)?: <def>Partial</def><[](Box3RaycastOptions)> / [](GameRaycastOptions)>): <def>string</def>[][]
+> !p raycast(origin: Vector3, direction: Vector3, options?: Partial< RaycastOptions>): RaycastResult
+
 :   射线检测，从 <arg>origin</arg> 原点位置向 <arg>direction</arg> 方向投射一条隐形的射线，返回碰到的实体或方块
     [Box3RaycastOptions / GameRaycastOptions](type/RaycastOptions.md)  
     [Box3RaycastResult / GameRaycastResult](type/RaycastResult.md)
@@ -237,11 +262,13 @@ tags:
         举个例子，在玩家位置发射射线，射线原点和玩家重合，射线就会击中玩家。  
         所以要计算好发射的原点，避免碰到你不想它碰到的东西，或设置[options?](arg)。
 
-<method>searchBox</method> ([bounds](arg): [](Box3Bounds3) / [](GameBounds3)): [](Box3Entity)[] / [](GameEntity)[]
+> !p searchBox(bounds: Bounds3): Entity[]
+
 :   搜索指定区域内的实体
 
 ### 聊天
-<span anchor="c5"><method>say</method> ([message](arg): <def>string</def>): [](void)</span>
+> !p say(message: string): void
+
 :   向世界中所有玩家广播
 
     ??? example "示例"
@@ -252,19 +279,17 @@ tags:
         });
         ```
 
-[createTempChat](method) ([userIds](arg)?: [](string)[]): [](Promise)<[](string)>
-:   创建临时聊天频道
+> !p @proOnly createTempChat(userIds?: string[]): Promise< string>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   创建临时聊天频道
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [userIds](arg) | [](string)[] | 可选，创建临时频道时同时加入频道的玩家id数组 |
+    | <span class="parse-inline">userIds#arg ?</span> | <span class="parse-line">string[]</span> | 可选，创建临时频道时同时加入频道的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string)> | 创建临时频道后的频道id |
+    | | <span class="parse-inline">Promise< string></span> | 创建临时频道后的频道id |
 
     ??? example "示例"
 
@@ -286,11 +311,9 @@ tags:
         })();
         ```
 
-[destroyTempChat](method) ([chatIds](arg): [](string)[]): [](Promise)<[](string)[]>
-:   批量销毁临时聊天频道
+> !p @proOnly destroyTempChat(chatIds: string[]): Promise< string[]>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   批量销毁临时聊天频道
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -323,11 +346,9 @@ tags:
         })();
         ```
 
-[addTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]): [](Promise)<[](string)[]>
-:   向临时聊天频道添加玩家
+> !p @proOnly addTempChatPlayer(chatId: string, userIds: string[]): Promise< string[]>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   向临时聊天频道添加玩家
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -355,11 +376,9 @@ tags:
         })();
         ```
 
-[removeTempChatPlayer](method) ([chatId](arg): [](string), [userIds](arg): [](string)[]): [](Promise)<[](string)[]>
-:   向临时聊天频道移除玩家
+> !p @proOnly removeTempChatPlayer(chatId: string, userIds: string[]): Promise< string[]>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   向临时聊天频道移除玩家
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -387,11 +406,9 @@ tags:
         })();
         ```
 
-[getTempChats](method) (): [](Promise)<[](string)[]>
-:   获取当前地图存在的临时聊天频道
+> !p @proOnly getTempChats(): Promise< string[]>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   获取当前地图存在的临时聊天频道
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
@@ -411,11 +428,9 @@ tags:
         })();
         ```
 
-[getTempChatUsers](method) ([chatId](arg): [](string)): [](Promise)<[](string)[]>
-:   获取临时聊天频道中的玩家
+> !p @proOnly getTempChatUsers(chatId: string): Promise< string[]>
 
-    !!! info "Arena 独有"
-        该方法仅在Arena编辑器中使用
+:   获取临时聊天频道中的玩家
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
@@ -440,7 +455,8 @@ tags:
         ```
 
 ### 物理
-<method>addCollisionFilter</method> ([aSelector](arg): [](Box3SelectorString) / [](GameSelectorString), [bSelector](arg): [](Box3SelectorString) / [](GameSelectorString)): [](void)
+> !p addCollisionFilter(aSelector: SelectorString, bSelector: SelectorString): void
+
 :   添加碰撞过滤器，关闭两个实体组之间的碰撞
 
     ??? example "示例"
@@ -449,13 +465,16 @@ tags:
         world.addCollisionFilter('player','player') // 关闭玩家和玩家之间的碰撞
         ```
 
-<method>removeCollisionFilter</method> ([aSelector](arg): <def>Box3SelectorString</def> / [](GameSelectorString), [bSelector](arg): <def>Box3SelectorString</def> / [](GameSelectorString)): [](void)
+> !p removeCollisionFilter(aSelector: SelectorString, bSelector: SelectorString): void
+
 :   移除碰撞过滤器，不再关闭两个实体组 <arg>aSelector</arg> 、 <arg>bSelector</arg> 之间的碰撞
 
-<method>clearCollisionFilters</method> () => [](void)
+> !p clearCollisionFilters(): void
+
 :   清除所有的碰撞过滤器
 
-<method>collisionFilters</method> () => <def>string</def>[][]
+> !p collisionFilters(): string[][]
+
 :   返回当前所有的碰撞过滤器
     ??? example "示例"
 
@@ -464,7 +483,8 @@ tags:
         ```
 
 ### 区域
-[addZone](method) ([config](arg): [](Partial)<[](Box3ZoneConfig) / [](GameZoneConfig)>): [](Box3Zone) / [](GameZone)
+> !p addZone(config: Partial< ZoneConfig>): Zone
+
 :   创建一个区域
 
     !!! note "待测试"
@@ -488,7 +508,8 @@ tags:
         });
         ```
 
-[removeZone](method) ([trigger](arg): [](Box3Zone) / [](GameZone)): [](void)
+> !p removeZone(trigger: Zone): void
+
 :   删除区域
 
     ??? example "示例"
@@ -504,16 +525,17 @@ tags:
         world.removeZone(area);
         ```
 
-[zones](method)(): [](Box3Zone)[] / [](GameZone)[]
+> !p zones(): Zone[]
+
 :   获取该地图的所有区域
 
     !!! warning "警告"
 
         尽管其命名非常像一个属性，但这其实是一个方法
 
-[addTrigger](hiddenMethod)
-[removeTrigger](hiddenMethod)
-[triggers](hiddenMethod)
+> !p @veryOldOnly addTrigger#method.hidden
+  removeTrigger#method.hidden
+  triggers#method.hidden
 
 !!! warning "已弃用"
 
@@ -524,7 +546,8 @@ tags:
     由于该方法过于久远，只能在非常远古的地图（旧岛ID只有五位的部分地图）中找到，并且执行也会提示警告
 
 ### 动画
-<method>animate</method> ([keyframes](arg): [](Partial)<[](Box3WorldKeyframe) / [](GameWorldKeyframe)>[], [playbackInfo?](arg): [](Partial)<[](Box3AnimationPlaybackConfig) / [](GameAnimationPlaybackConfig)>): [](Box3Animation) / [](GameAnimation)<[](Box3WorldKeyframe) / [](GameWorldKeyframe), [](Box3World) / [](GameWorld)>
+> !p animate(keyframes: Partial< WorldKeyframe>[], playbackInfo?: Partial< AnimationPlaybackConfig>): Animation< WorldKeyframe, World>
+
 :   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
     ??? example "示例"
         === "旧版编辑器"
@@ -566,17 +589,23 @@ tags:
             });
             ```
 
-<hiddenMethod>getAnimations</hiddenMethod>(): [](Box3Animation) / [](GameAnimation)<<def>Box3WorldKeyframe</def> / <def>GameWorldKeyframe</def>, [](Box3World) / [](GameWorld)>[]
+> !p getAnimations(): Animation< WorldKeyframe, World>[]
+
 :   获取所有的动画对象
 
-<hiddenMethod>getEntityAnimations</hiddenMethod>(): [](Box3Animation) / [](GameAnimation)<<def>Box3EntityKeyframe</def> / <def>GameEntityKeyframe</def>, [](Box3Entity) / [](GameEntity)>[]
+> !p getEntityAnimations(): Animation< EntityKeyframe, Entity>[]
+
 :   获取所有实体的动画对象
 
-<hiddenMethod>getPlayerAnimations</hiddenMethod>(): [](Box3Animation) / [](GameAnimation)<<def>Box3PlayerKeyframe</def> / <def>GamePlayerKeyframe</def>, [](Box3Player) / [](GameEntity)>[]
+> !p getPlayerAnimations(): Animation< PlayerKeyframe, Entity>[]
+
 :   获取所有玩家的动画对象
 
 ### 声音
-<method>sound</method> ([spec](arg): {[sample](interface): [](string), [position](interface)?: [](Box3Vector3) / [](GameVector3), [radius](interface)?: [](number), [gain](interface)?: [](number), [pitch](interface)?: [](number)} | <def>string</def>): [](Sound)
+> !p @oldOnly sound(spec: { sample: string, position?: Vector3, radius?: number, gain?: number, pitch?: number } | string): void
+
+> !p @proOnly sound(spec: { sample: string, position?: Vector3, radius?: number, gain?: number, pitch?: number } | string): Sound
+
 :   在指定位置播放声音
 
     | 参数 | | 类型 | 说明 |
@@ -623,12 +652,13 @@ tags:
 
 ### 传送
 !!! warning inline end "警告"
-    - 传送进入的地图为独立服务器，因此同一张目标地图，分批次传送不同的人，所进入的是 **不同** 服务器。
+    - 传送进入的地图为独立服务器，因此同一张目标地图，若不填写<arg>serverId</arg>参数，分批次传送不同的人，所进入的是 **不同** 服务器。
     - 只能在已发布地图中生效
     - [players](arg)的长度不能超过50
     - [players](arg)中不能存在游客（没有UserID）
 
-[teleport](method) ([mapId](arg): [](string), [players](arg): [](GameEntity)[]): [](Promise)<[](void)>
+> !p teleport#method: TeleportType
+
 :   地图组内传送能力，能够令 Player 被传送到其他地图中。
 
     !!! info "Arena 独有"
@@ -637,10 +667,7 @@ tags:
     !!! warning "该方法需要图主有特定权限才能使用"
         此方法受权限影响，无权限用户可见，但调用后直接报错。
 
-    | 参数 | 类型 | 说明 |
-    | :- | :- | :- |
-    | [mapId](arg) | [](string) | 必填，目标频道id |
-    | [players](arg) | [](GameEntity)[] | 必填，需要传送的玩家 |
+    <span class="hidden">编者注：我自己都没用过扩展地图</span>
 
     ??? example "示例"
 
@@ -659,19 +686,52 @@ tags:
         world.say('传送成功 ');
         ```
 
+#### TeleportType
+> !p TeleportType = (mapId: string, players: GameEntity[], serverId?: string) => Promise< TeleportResult>
+
+传送调用函数
+
+| 参数 | 类型 | 说明 |
+| :- | :- | :- |
+| [mapId](arg) | [](string) | 必填，目标地图id |
+| [players](arg) | [](GameEntity)[] | 必填，需要传送的玩家 |
+| [serverId](arg)? | [](string)[] | 选填，服务器id。若不填，则会新建一个新的服务器 |
+
+!!! tip "地图id vs 服务器id"
+
+    最近官方新增了 **服务器id** 的功能，这和原来的 **地图id** 有什么区别呢？让我们来看一个图
+
+    ```mermaid
+    flowchart TD
+    mainMap[地图项目]
+    map1[地图1]
+    map2[地图2]
+    server1[服务器1]
+    server2[服务器2]
+    server3[服务器3]
+    mainMap --> map1
+    mainMap --> map2
+    map1 --> server1
+    map1 --> server2
+    map2 --> server3
+    ```
+
+    你所填的<arg>mapId</arg>，就是图上的 **地图1** / **地图2** 的id；而<arg>serverId</arg>就是 **服务器1** / **服务器2** / **服务器3** 的 **服务器id**  
+    通过<arg>serverId</arg>，可以将玩家传送到已创建的指定服务器
+
+!!! note "上文所说的“服务器”和“地图容器”指的是一种东西，只是不同的叫法"
+
 ### 事件
 #### 基本
-<span anchor="c1">
-[onTick](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3TickEvent) / [](GameTickEvent)>  
-[nextTick](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3TickEvent) / [](GameTickEvent)>
-</span>
+> !p onTick: EventChannel< TickEvent>  
+  nextTick: EventFuture< TickEvent>
+
 :   Tick 事件，详情请看[](Box3TickEvent) / [](GameTickEvent)
 
 #### 实体创建/销毁
-<span anchor="c2">
-[onPlayerJoin](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
-[nextPlayerJoin](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
-</span>
+> !p onPlayerJoin: EventChannel< PlayerEntityEvent>  
+  nextPlayerJoin: EventFuture< PlayerEntityEvent>
+
 :   当玩家进入世界(或未来)触发
 
     ??? example "示例"
@@ -683,83 +743,99 @@ tags:
         });
         ```
 
-[onPlayerLeave](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>  
-[nextPlayerLeave](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3PlayerEntityEvent) / [](GamePlayerEntityEvent)>
+> !p onPlayerLeave: EventChannel< PlayerEntityEvent>  
+  onPlayerLeave: EventFuture< PlayerEntityEvent>
+
 :   当玩家离开世界(或未来)触发
 
-[onEntityCreate](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
-[nextEntityCreate](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
+> !p onEntityCreate: EventChannel< EntityEvent>  
+  nextEntityCreate: EventFuture< EntityEvent>
+
 :   当实体被创建(或未来)触发
 
-[onEntityDestroy](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityEvent) / [](GameEntityEvent)>  
-[nextEntityDestroy](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityEvent) / [](GameEntityEvent)>
+> !p onEntityDestroy: EventChannel< EntityEvent>  
+  nextEntityDestroy: EventFuture< EntityEvent>
+
 :   当实体被销毁(或未来)触发
 
 #### 聊天
-[onChat](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3ChatEvent) / [](GameChatEvent)>  
-[nextChat](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3ChatEvent) / [](GameChatEvent)>
+> !p onChat: EventChannel< ChatEvent>  
+  nextChat: EventFuture< ChatEvent>
+
 :   当玩家发言(或未来)触发
 
 #### 世界交互
-<span anchor="c4">
-[onClick](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3ClickEvent) / [](GameClickEvent)>  
-[nextClick](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3ClickEvent) / [](GameClickEvent)>
-</span>
+> !p onClick: EventChannel< ClickEvent>  
+  nextClick: EventFuture< ClickEvent>
+
 :   当玩家点击实体(或未来)触发
 
-[onPress](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
-[nextPress](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
+> !p onPress: EventChannel< InputEvent>  
+  nextPress: EventFuture< InputEvent>
+
 :   当玩家按下按键(或未来)触发
 
-[onRelease](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3InputEvent) / [](GameInputEvent)>  
-[nextRelease](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3InputEvent) / [](GameInputEvent)>
+> !p onRelease: EventChannel< InputEvent>  
+  nextRelease: EventFuture< InputEvent>
+
 :   当玩家松开按键(或未来)触发
 
-[onInteract](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3InteractEvent) / [](GameInteractEvent)>  
-[nextInteract](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3InteractEvent) / [](GameInteractEvent)>
+> !p onInteract: EventChannel< InteractEvent>  
+  nextInteract: EventFuture< InteractEvent>
+
 :   当玩家与实体互动(或未来)触发
 
 #### 物理
-[onEntityContact](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntityContact](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+> !p onEntityContact: EventChannel< EntityContactEvent>  
+  nextEntityContact: EventFuture< EntityContactEvent>
+
 :   当实体碰撞(或未来)触发
 
-[onEntitySeparate](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>  
-[nextEntitySeparate](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3EntityContactEvent) / [](GameEntityContactEvent)>
+> !p onEntitySeparate: EventChannel< EntityContactEvent>  
+  nextEntitySeparate: EventFuture< EntityContactEvent>
+
 :   当实体分开(或未来)触发
 
-[onVoxelContact](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelContact](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+> !p onVoxelContact: EventChannel< VoxelContactEvent>  
+  nextVoxelContact: EventFuture< VoxelContactEvent>
+
 :   当实体碰到方块(或未来)触发
 
-[onVoxelSeparate](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>  
-[nextVoxelSeparate](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3VoxelContactEvent) / [](GameVoxelContactEvent)>
+> !p onVoxelSeparate: EventChannel< VoxelContactEvent>  
+  nextVoxelSeparate: EventFuture< VoxelContactEvent>
+
 :   当实体离开方块(或未来)触发
 
-[onFluidEnter](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidEnter](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+> !p onFluidEnter: EventChannel< FluidContactEvent>  
+  nextFluidEnter: EventFuture< FluidContactEvent>
+
 :   当实体进入液体(或未来)触发
 
-[onFluidLeave](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>  
-[nextFluidLeave](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3FluidContactEvent) / [](GameFluidContactEvent)>
+> !p onFluidLeave: EventChannel< FluidContactEvent>  
+  nextFluidLeave: EventFuture< FluidContactEvent>
+
 :   当实体离开液体(或未来)触发
 
 #### 战斗相关
-[onTakeDamage](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3DamageEvent) / [](GameDamageEvent)>  
-[nextTakeDamage](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3DamageEvent) / [](GameDamageEvent)>
+> !p onTakeDamage: EventChannel< DamageEvent>  
+  nextTakeDamage: EventFuture< DamageEvent>
+
 :   当实体收到伤害(或未来)触发
 
-[onDie](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3DieEvent) / [](GameDieEvent)>  
-[nextDie](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3DieEvent) / [](GameDieEvent)>
+> !p onDie: EventChannel< DieEvent>  
+  nextDie: EventFuture< DieEvent>
+
 :   当实体死亡(或未来)触发
 
-[onRespawn](method): [](Box3EventChannel) / [](GameEventChannel) <[](Box3RespawnEvent) / [](GameRespawnEvent)>  
-[nextRespawn](method): [](Box3EventFuture) / [](GameEventFuture) <[](Box3RespawnEvent) / [](GameRespawnEvent)>
+> !p onRespawn: EventChannel< RespawnEvent>  
+  nextRespawn: EventFuture< RespawnEvent>
+
 :   玩家复活(或未来)触发
 
 #### 商业化
-[onPlayerPurchaseSuccess](method): [](Box3EventChannel) / [](GameEventChannel) <[](GamePurchaseSuccessEvent)>  
-[nextPlayerPurchaseSuccess](method): [](Box3EventFuture) / [](GameEventFuture) <[](GamePurchaseSuccessEvent)>
+> !p onPlayerPurchaseSuccess: EventChannel< GamePurchaseSuccessEvent>  
+  nextPlayerPurchaseSuccess: EventFuture< GamePurchaseSuccessEvent>
+
 :   当玩家成功购买物品(或未来)时触发
 
     !!! info "Arena 独有"

@@ -1,4 +1,4 @@
-const JOKE_MODE = new URL(location).searchParams.get('jokemode') === 'true';
+const JOKE_MODE = new URL(location).searchParams.get("jokemode") === "true";
 /**@type {HTMLElement | null} */
 var $JokeModeonly_element = null;
 const defsMap = {
@@ -22,170 +22,158 @@ const defsMap = {
   Date: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Date", "interface"],
   ArrayBuffer: ["interface", "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer", "interface"],
 
-  resources: ["object protected", 'api/resources', 'hiddenConst'],
-  Box3ResourceSystem: ["class", 'api/resources', 'hiddenClass'],
-  GameResourceSystem: ["class", 'api/resources', 'hiddenClass'],
-  Box3TickEvent: ["class", "api/event/TickEvent", 'class'],
-  GameTickEvent: ["class", "api/event/TickEvent", 'class'],
-  world: ["object protected", "api/world", 'constObject'],
-  Box3World: ["class", "api/world", 'class'],
-  GameWorld: ["class", "/api/world", 'class'],
-  Box3Entity: ["class", "api/class/Entity", 'class'],
-  GameEntity: ["class", "api/class/Entity", 'class'],
-  Box3PlayerEntity: ["type", "api/type/PlayerEntity", 'type'],
-  GamePlayerEntity: ["type", "api/type/PlayerEntity", 'type'],
-  Box3Player: ["class", "api/class/Player", 'class'],
-  GamePlayer: ["class", "api/class/Player", 'class'],
-  Box3Zone: ["class", "api/class/Zone", 'class'],
-  GameZone: ["class", "api/class/Zone", 'class'],
-  Box3ClickEvent: ["class", "api/event/ClickEvent", 'class'],
-  GameClickEvent: ["class", "api/event/ClickEvent", 'class'],
-  Box3EventChannel: ["type generic", "api/type/EventChannel", 'type'],
-  GameEventChannel: ["type generic", "api/type/EventChannel", 'type'],
-  Box3EventFuture: ["type generic", "api/type/EventFuture", 'type'],
-  GameEventFuture: ["type generic", "api/type/EventFuture", 'type'],
-  Box3RespawnEvent: ["class", "api/event/RespawnEvent", 'class'],
-  GameRespawnEvent: ["class", "api/event/RespawnEvent", 'class'],
-  Partial: ["type generic", "api/type/Partial", 'type'],
+  GameResourceSystem: ["class", "api/resources", "hiddenClass"],
+  Box3TickEvent: ["class", "api/event/TickEvent", "class"],
+  GameTickEvent: ["class", "api/event/TickEvent", "class"],
+  world: ["object protected", "api/world", "constObject"],
+  Box3World: ["class", "api/world", "class"],
+  GameWorld: ["class", "/api/world", "class"],
+  Box3Entity: ["class", "api/class/Entity", "class"],
+  GameEntity: ["class", "api/class/Entity", "class"],
+  Box3PlayerEntity: ["type", "api/type/PlayerEntity", "type"],
+  GamePlayerEntity: ["type", "api/type/PlayerEntity", "type"],
+  Box3Player: ["class", "api/class/Player", "class"],
+  GamePlayer: ["class", "api/class/Player", "class"],
+  Box3Zone: ["class", "api/class/Zone", "class"],
+  GameZone: ["class", "api/class/Zone", "class"],
+  Box3ClickEvent: ["class", "api/event/ClickEvent", "class"],
+  GameClickEvent: ["class", "api/event/ClickEvent", "class"],
+  Box3EventChannel: ["type generic", "api/type/EventChannel", "type"],
+  GameEventChannel: ["type generic", "api/type/EventChannel", "type"],
+  Box3EventFuture: ["type generic", "api/type/EventFuture", "type"],
+  GameEventFuture: ["type generic", "api/type/EventFuture", "type"],
+  Box3RespawnEvent: ["class", "api/event/RespawnEvent", "class"],
+  GameRespawnEvent: ["class", "api/event/RespawnEvent", "class"],
+  Partial: ["type generic", "api/type/Partial", "type"],
   Box3EntityConfig: ["interface", "api/type/EntityConfig", "interface"],
   GameEntityConfig: ["interface", "api/type/EntityConfig", "interface"],
-  Box3Vector3: ["class", "api/class/Vector3", 'class'],
-  GameVector3: ["class", "api/class/Vector3", 'class'],
-  Box3SelectorString: ["type", "api/type/SelectorString", 'type'],
-  GameSelectorString: ["type", "api/type/SelectorString", 'type'],
-  Number: ["interface", "js/type/Number", 'interface'],
-  number: ["type", "js/type/Number", 'type'],
-  Boolean: ["interface", "js/type/Boolean", 'interface'],
-  boolean: ["type", "js/type/Boolean", 'type'],
-  Box3RaycastOptions: ["interface", "api/type/RaycastOptions", 'interface'],
-  GameRaycastOptions: ["interface", "api/type/RaycastOptions", 'interface'],
-  Box3RaycastResult: ["class", "api/type/RaycastResult", 'class'],
-  GameRaycastResult: ["class", "api/type/RaycastResult", 'class'],
-  String: ["interface", "js/type/String", 'interface'],
-  string: ["type", "js/type/String", 'type'],
-  void: ["type", "js/type/void", 'type'],
-  never: ["type", "js/type/never", 'type'],
-  null: ["static", "js/type/null", 'keyword'],
-  undefined: ["static", "js/type/undefined", 'keyword'],
-  Box3Bounds3: ["class", "api/class/Bounds3", 'class'],
-  GameBounds3: ["class", "api/class/Bounds3", 'class'],
-  Box3Quaternion: ["class", "api/class/Quaternion", 'class'],
-  GameQuaternion: ["class", "api/class/Quaternion", 'class'],
-  Box3ButtonType: ["enum", "api/enum/ButtonType", 'enum'],
-  GameButtonType: ["enum", "api/enum/ButtonType", 'enum'],
-  Box3AnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", 'interface'],
-  GameAnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", 'interface'],
-  Box3Animation: ["class generic", "api/class/Animation", 'class'],
-  GameAnimation: ["class generic", "api/class/Animation", 'class'],
-  Box3WorldKeyframe: ["interface", "api/type/WorldKeyframe", 'interface'],
-  GameWorldKeyframe: ["interface", "api/type/WorldKeyframe", 'interface'],
-  Box3EntityKeyframe: ["interface", "api/type/EntityKeyframe", 'interface'],
-  GameEntityKeyframe: ["interface", "api/type/EntityKeyframe", 'interface'],
-  Box3PlayerKeyframe: ["interface", "api/type/PlayerKeyframe", 'interface'],
-  GamePlayerKeyframe: ["interface", "api/type/PlayerKeyframe", 'interface'],
-  Box3AnimationPlaybackState: ["enum", "api/enum/AnimationPlaybackState", 'enum'],
-  GameAnimationPlaybackState: ["enum", "api/enum/AnimationPlaybackState", 'enum'],
-  Box3AnimationDirection: ["enum", "api/enum/AnimationDirection", 'enum'],
-  GameAnimationDirection: ["enum", "api/enum/AnimationDirection", 'enum'],
-  Box3Easing: ["enum", "api/enum/Easing", 'enum'],
-  GameEasing: ["enum", "api/enum/Easing", 'enum'],
-  Box3RGBColor: ["class", "api/class/RGBColor", 'class'],
-  Box3RGBAColor: ["class", "api/class/RGBAColor", 'class'],
-  GameRGBColor: ["class", "api/class/RGBColor", 'class'],
-  GameRGBAColor: ["class", "api/class/RGBAColor", 'class'],
-  Box3SoundEffect: ["interface", "api/type/SoundEffect", 'interface'],
-  GameSoundEffect: ["interface", "api/type/SoundEffect", 'interface'],
-  GameMotionController: ["class generic", "api/class/MotionController", 'class'],
-  GameMotionConfig: ["interface", "api/type/MotionConfig", 'interface'],
-  GameMotionClipConfig: ["interface", "api/type/MotionClipConfig", 'interface'],
-  GameMotionHandler: ["class generic", "api/class/MotionHandler", 'class'],
-  GameMotionEvent: ["class", "api/event/MotionEvent", 'class'],
-  Box3CameraMode: ["enum", "api/enum/CameraMode", 'enum'],
-  GameCameraMode: ["enum", "api/enum/CameraMode", 'enum'],
-  Box3CameraFreezedAxis: ["enum", "api/enum/CameraFreezedAxis", 'hiddenEnum'],
-  GameCameraFreezedAxis: ["enum", "api/enum/CameraFreezedAxis", 'hiddenEnum'],
-  Box3DamageEvent: ["class", "api/event/DamageEvent", 'class'],
-  GameDamageEvent: ["class", "api/event/DamageEvent", 'class'],
-  Box3DieEvent: ["class", "api/event/DieEvent", 'class'],
-  GameDieEvent: ["class", "api/event/DieEvent", 'class'],
-  Box3PlayerEntityEvent: ["class", "api/event/PlayerEntityEvent", 'class'],
-  GamePlayerEntityEvent: ["class", "api/event/PlayerEntityEvent", 'class'],
-  Box3EntityEvent: ["class", "api/event/EntityEvent", 'class'],
-  GameEntityEvent: ["class", "api/event/EntityEvent", 'class'],
-  Box3ChatEvent: ["class", "api/event/ChatEvent", 'class'],
-  GameChatEvent: ["class", "api/event/ChatEvent", 'class'],
-  Box3InputEvent: ["class", "api/event/InputEvent", 'class'],
-  GameInputEvent: ["class", "api/event/InputEvent", 'class'],
-  GameKeyBoardEvent: ["class", "api/event/KeyBoardEvent", 'class'],
-  Box3EntityContactEvent: ["class", "api/event/EntityContactEvent", 'class'],
-  GameEntityContactEvent: ["class", "api/event/EntityContactEvent", 'class'],
-  Box3VoxelContactEvent: ["class", "api/event/VoxelContactEvent", 'class'],
-  GameVoxelContactEvent: ["class", "api/event/VoxelContactEvent", 'class'],
-  Box3InteractEvent: ["class", "api/event/InteractEvent", 'class'],
-  GameInteractEvent: ["class", "api/event/InteractEvent", 'class'],
-  Box3FluidContactEvent: ["class", "api/event/FluidContactEvent", 'class'],
-  GameFluidContactEvent: ["class", "api/event/FluidContactEvent", 'class'],
-  Box3TriggerEvent: ["class", "api/event/TriggerEvent", 'class'],
-  GameTriggerEvent: ["class", "api/event/TriggerEvent", 'class'],
-  Box3AnimationEvent: ["class", "api/event/AnimationEvent", 'class'],
-  GameAnimationEvent: ["class", "api/event/AnimationEvent", 'class'],
-  GamePurchaseSuccessEvent: ["class", "api/event/PurchaseSuccessEvent", 'class'],
-  GameSkin: ["type", "api/type/Skin", 'type'],
-  GameSkinValue: ["type", "api/type/SkinValue", 'hiddenType'],
-  Box3SkinInvisible: ["type", "api/type/SkinInvisible", 'type'],
-  GameSkinInvisible: ["type", "api/type/SkinInvisible", 'type'],
-  Box3InputDirection: ["enum", "api/enum/InputDirection", 'enum'],
-  GameInputDirection: ["enum", "api/enum/InputDirection", 'enum'],
-  Box3PlayerMoveState: ["enum", "api/enum/PlayerMoveState", 'enum'],
-  GamePlayerMoveState: ["enum", "api/enum/PlayerMoveState", 'enum'],
-  Box3PlayerWalkState: ["enum", "api/enum/PlayerWalkState", 'enum'],
-  GamePlayerWalkState: ["enum", "api/enum/PlayerWalkState", 'enum'],
-  Box3DialogType: ["enum", "api/enum/DialogType", 'enum'],
-  GameDialogType: ["enum", "api/enum/DialogType", 'enum'],
-  Box3DialogSelectResponse: ["type", "api/type/DialogSelectResponse", 'type'],
-  GameDialogSelectResponse: ["type", "api/type/DialogSelectResponse", 'type'],
-  Box3DialogParams: ["type", "api/type/DialogParams", 'type'],
-  GameDialogParams: ["type", "api/type/DialogParams", 'type'],
-  Box3TextDialogParams: ["type", "api/type/DialogParams", 'type'],
-  GameTextDialogParams: ["type", "api/type/DialogParams", 'type'],
-  Box3SelectDialogParams: ["type", "api/type/DialogParams", 'type'],
-  GameSelectDialogParams: ["type", "api/type/DialogParams", 'type'],
-  Box3InputDialogParams: ["type", "api/type/DialogParams", 'type'],
-  GameInputDialogParams: ["type", "api/type/DialogParams", 'type'],
-  Box3DialogCancelOption: ["type", "api/type/DialogCancelOption", 'type'],
-  GameDialogCancelOption: ["type", "api/type/DialogCancelOption", 'type'],
-  Box3DialogCall: ["type", "api/class/Player/#Box3DialogCall", 'type'],
-  GameDialogCall: ["type", "api/class/Player/#GameDialogCall", 'type'],
-  Box3AssetListEntry: ["type", "api/class/AssetListEntry", 'hiddenType'],
-  GameAssetListEntry: ["type", "api/class/AssetListEntry", 'hiddenType'],
-  Box3AssetType: ["enum", "api/enum/AssetType", 'hiddenEnum'],
-  GameAssetType: ["enum", "api/enum/AssetType", 'hiddenEnum'],
-  Box3ZoneConfig: ["type", "api/type/ZoneConfig", 'type'],
-  GameZoneConfig: ["type", "api/type/ZoneConfig", 'type'],
-  Box3EventHandlerToken: ["class", "api/class/EventHandlerToken", 'class'],
-  GameEventHandlerToken: ["class", "api/class/EventHandlerToken", 'class'],
-  Box3Database: ["class", "api/db", 'class'],
-  GameDatabase: ["class", "api/db", 'class'],
-  Box3QueryResult: ["class", 'api/class/QueryResult', 'class'],
-  GameQueryResult: ["class", 'api/class/QueryResult', 'class'],
-  GameStorage: ["class", "api/storage", 'class'],
-  GameDataStorage: ["class", "api/class/DataStorage", 'class'],
-  QueryList: ["class", "api/class/QueryList", 'class'],
-  ListPageOptions: ["type", "api/type/ListPageOptions", 'type'],
-  ReturnValue: ["type", "api/type/ReturnValue", 'type'],
-  JSONValue: ["type", "api/type/JSONValue", 'type'],
-  db: ["object protected", "api/db", 'const'],
-  storage: ["object protected", "api/storage", 'const'],
-  gui: ["object protected", "api/gui", 'hiddenConst'],
-  GameGUI: ["class", "api/gui", 'hiddenClass'],
-  GameGUIEventListener: ["interface", "api/type/GUIEventListener", 'hiddenInterface'],
+  Box3Vector3: ["class", "api/class/Vector3", "class"],
+  GameVector3: ["class", "api/class/Vector3", "class"],
+  Box3SelectorString: ["type", "api/type/SelectorString", "type"],
+  GameSelectorString: ["type", "api/type/SelectorString", "type"],
+  Box3RaycastOptions: ["interface", "api/type/RaycastOptions", "interface"],
+  GameRaycastOptions: ["interface", "api/type/RaycastOptions", "interface"],
+  Box3RaycastResult: ["class", "api/type/RaycastResult", "class"],
+  GameRaycastResult: ["class", "api/type/RaycastResult", "class"],
+  Box3Bounds3: ["class", "api/class/Bounds3", "class"],
+  GameBounds3: ["class", "api/class/Bounds3", "class"],
+  Box3Quaternion: ["class", "api/class/Quaternion", "class"],
+  GameQuaternion: ["class", "api/class/Quaternion", "class"],
+  Box3ButtonType: ["enum", "api/enum/ButtonType", "enum"],
+  GameButtonType: ["enum", "api/enum/ButtonType", "enum"],
+  Box3AnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", "interface"],
+  GameAnimationPlaybackConfig: ["interface", "api/type/AnimationPlaybackConfig", "interface"],
+  Box3Animation: ["class generic", "api/class/Animation", "class"],
+  GameAnimation: ["class generic", "api/class/Animation", "class"],
+  Box3WorldKeyframe: ["interface", "api/type/WorldKeyframe", "interface"],
+  GameWorldKeyframe: ["interface", "api/type/WorldKeyframe", "interface"],
+  Box3EntityKeyframe: ["interface", "api/type/EntityKeyframe", "interface"],
+  GameEntityKeyframe: ["interface", "api/type/EntityKeyframe", "interface"],
+  Box3PlayerKeyframe: ["interface", "api/type/PlayerKeyframe", "interface"],
+  GamePlayerKeyframe: ["interface", "api/type/PlayerKeyframe", "interface"],
+  Box3AnimationPlaybackState: ["enum", "api/enum/AnimationPlaybackState", "enum"],
+  GameAnimationPlaybackState: ["enum", "api/enum/AnimationPlaybackState", "enum"],
+  Box3AnimationDirection: ["enum", "api/enum/AnimationDirection", "enum"],
+  GameAnimationDirection: ["enum", "api/enum/AnimationDirection", "enum"],
+  Box3Easing: ["enum", "api/enum/Easing", "enum"],
+  GameEasing: ["enum", "api/enum/Easing", "enum"],
+  Box3RGBColor: ["class", "api/class/RGBColor", "class"],
+  Box3RGBAColor: ["class", "api/class/RGBAColor", "class"],
+  GameRGBColor: ["class", "api/class/RGBColor", "class"],
+  GameRGBAColor: ["class", "api/class/RGBAColor", "class"],
+  Box3SoundEffect: ["interface", "api/type/SoundEffect", "interface"],
+  GameSoundEffect: ["interface", "api/type/SoundEffect", "interface"],
+  GameMotionController: ["class generic", "api/class/MotionController", "class"],
+  GameMotionConfig: ["interface", "api/type/MotionConfig", "interface"],
+  GameMotionClipConfig: ["interface", "api/type/MotionClipConfig", "interface"],
+  GameMotionHandler: ["class generic", "api/class/MotionHandler", "class"],
+  GameMotionEvent: ["class", "api/event/MotionEvent", "class"],
+  Box3CameraMode: ["enum", "api/enum/CameraMode", "enum"],
+  GameCameraMode: ["enum", "api/enum/CameraMode", "enum"],
+  Box3CameraFreezedAxis: ["enum", "api/enum/CameraFreezedAxis", "hiddenEnum"],
+  GameCameraFreezedAxis: ["enum", "api/enum/CameraFreezedAxis", "hiddenEnum"],
+  Box3DamageEvent: ["class", "api/event/DamageEvent", "class"],
+  GameDamageEvent: ["class", "api/event/DamageEvent", "class"],
+  Box3DieEvent: ["class", "api/event/DieEvent", "class"],
+  GameDieEvent: ["class", "api/event/DieEvent", "class"],
+  Box3PlayerEntityEvent: ["class", "api/event/PlayerEntityEvent", "class"],
+  GamePlayerEntityEvent: ["class", "api/event/PlayerEntityEvent", "class"],
+  Box3EntityEvent: ["class", "api/event/EntityEvent", "class"],
+  GameEntityEvent: ["class", "api/event/EntityEvent", "class"],
+  Box3ChatEvent: ["class", "api/event/ChatEvent", "class"],
+  GameChatEvent: ["class", "api/event/ChatEvent", "class"],
+  Box3InputEvent: ["class", "api/event/InputEvent", "class"],
+  GameInputEvent: ["class", "api/event/InputEvent", "class"],
+  GameKeyBoardEvent: ["class", "api/event/KeyBoardEvent", "class"],
+  Box3EntityContactEvent: ["class", "api/event/EntityContactEvent", "class"],
+  GameEntityContactEvent: ["class", "api/event/EntityContactEvent", "class"],
+  Box3VoxelContactEvent: ["class", "api/event/VoxelContactEvent", "class"],
+  GameVoxelContactEvent: ["class", "api/event/VoxelContactEvent", "class"],
+  Box3InteractEvent: ["class", "api/event/InteractEvent", "class"],
+  GameInteractEvent: ["class", "api/event/InteractEvent", "class"],
+  Box3FluidContactEvent: ["class", "api/event/FluidContactEvent", "class"],
+  GameFluidContactEvent: ["class", "api/event/FluidContactEvent", "class"],
+  Box3TriggerEvent: ["class", "api/event/TriggerEvent", "class"],
+  GameTriggerEvent: ["class", "api/event/TriggerEvent", "class"],
+  Box3AnimationEvent: ["class", "api/event/AnimationEvent", "class"],
+  GameAnimationEvent: ["class", "api/event/AnimationEvent", "class"],
+  GamePurchaseSuccessEvent: ["class", "api/event/PurchaseSuccessEvent", "class"],
+  GameSkin: ["type", "api/type/Skin", "type"],
+  GameSkinValue: ["type", "api/type/SkinValue", "hiddenType"],
+  Box3SkinInvisible: ["type", "api/type/SkinInvisible", "type"],
+  GameSkinInvisible: ["type", "api/type/SkinInvisible", "type"],
+  Box3InputDirection: ["enum", "api/enum/InputDirection", "enum"],
+  GameInputDirection: ["enum", "api/enum/InputDirection", "enum"],
+  Box3PlayerMoveState: ["enum", "api/enum/PlayerMoveState", "enum"],
+  GamePlayerMoveState: ["enum", "api/enum/PlayerMoveState", "enum"],
+  Box3PlayerWalkState: ["enum", "api/enum/PlayerWalkState", "enum"],
+  GamePlayerWalkState: ["enum", "api/enum/PlayerWalkState", "enum"],
+  Box3DialogType: ["enum", "api/enum/DialogType", "enum"],
+  GameDialogType: ["enum", "api/enum/DialogType", "enum"],
+  Box3DialogSelectResponse: ["type", "api/type/DialogSelectResponse", "type"],
+  GameDialogSelectResponse: ["type", "api/type/DialogSelectResponse", "type"],
+  Box3DialogParams: ["type", "api/type/DialogParams", "type"],
+  GameDialogParams: ["type", "api/type/DialogParams", "type"],
+  Box3TextDialogParams: ["type", "api/type/DialogParams", "type"],
+  GameTextDialogParams: ["type", "api/type/DialogParams", "type"],
+  Box3SelectDialogParams: ["type", "api/type/DialogParams", "type"],
+  GameSelectDialogParams: ["type", "api/type/DialogParams", "type"],
+  Box3InputDialogParams: ["type", "api/type/DialogParams", "type"],
+  GameInputDialogParams: ["type", "api/type/DialogParams", "type"],
+  Box3DialogCancelOption: ["type", "api/type/DialogCancelOption", "type"],
+  GameDialogCancelOption: ["type", "api/type/DialogCancelOption", "type"],
+  Box3DialogCall: ["type", "api/class/Player/#Box3DialogCall", "type"],
+  GameDialogCall: ["type", "api/class/Player/#GameDialogCall", "type"],
+  Box3AssetListEntry: ["type", "api/class/AssetListEntry", "hiddenType"],
+  GameAssetListEntry: ["type", "api/class/AssetListEntry", "hiddenType"],
+  Box3AssetType: ["enum", "api/enum/AssetType", "hiddenEnum"],
+  GameAssetType: ["enum", "api/enum/AssetType", "hiddenEnum"],
+  Box3ZoneConfig: ["type", "api/type/ZoneConfig", "type"],
+  GameZoneConfig: ["type", "api/type/ZoneConfig", "type"],
+  Box3EventHandlerToken: ["class", "api/class/EventHandlerToken", "class"],
+  GameEventHandlerToken: ["class", "api/class/EventHandlerToken", "class"],
+  Box3Database: ["class", "api/db", "class"],
+  GameDatabase: ["class", "api/db", "class"],
+  Box3QueryResult: ["class", "api/class/QueryResult", "class"],
+  GameQueryResult: ["class", "api/class/QueryResult", "class"],
+  GameStorage: ["class", "api/storage", "class"],
+  GameDataStorage: ["class", "api/class/DataStorage", "class"],
+  QueryList: ["class", "api/class/QueryList", "class"],
+  ListPageOptions: ["type", "api/type/ListPageOptions", "type"],
+  ReturnValue: ["type", "api/type/ReturnValue", "type"],
+  JSONValue: ["type", "api/type/JSONValue", "type"],
+  db: ["object protected", "api/db", "const"],
+  storage: ["object protected", "api/storage", "const"],
+  gui: ["object protected", "api/gui", "hiddenConst"],
+  GameGUI: ["class", "api/gui", "hiddenClass"],
+  GameGUIEventListener: ["interface", "api/type/GUIEventListener", "hiddenInterface"],
   GUIConfig: ["type", , "hiddenType"],
   GUIConfigItem: ["interface", , "hiddenInterface"],
   GameGUIEvent: ["event", , "hiddenClass"],
-  rtc: ["object protected", "api/rtc", 'hiddenConst'],
+  rtc: ["object protected", "api/rtc", "hiddenConst"],
   GameRTC: ["class", "api/rtc", "hiddenClass"],
   GameRTCChannel: ["class", "api/class/RTCChannel", "hiddenClass"],
-  http: ["object protected", "api/http", 'hiddenConst'],
+  http: ["object protected", "api/http", "hiddenConst"],
   Box3HttpAPI: ["class", "api/http", "hiddenClass"],
   GameHttpAPI: ["class", "api/http", "hiddenClass"],
   Box3HttpFetchParams: ["type", "api/type/HttpFetchParams", "hiddenType"],
@@ -193,16 +181,16 @@ const defsMap = {
   Box3HttpFetchResponse: ["class", "api/class/HttpFetchResponse", "hiddenClass"],
   GameHttpFetchResponse: ["class", "api/class/HttpFetchResponse", "hiddenClass"],
   GameHttpFetchHeaders: ["type", "api/type/HttpFetchHeaders", "hiddenType"],
-  Box3HttpHandler: ["type", "api/type/HttpHandler", 'hiddenType'],
-  GameHttpHandler: ["type", "api/type/HttpHandler", 'hiddenType'],
-  Box3HttpRequest: ["class", "api/class/HttpRequest", 'hiddenClass'],
-  GameHttpRequest: ["class", "api/class/HttpRequest", 'hiddenClass'],
-  Box3HttpResponse: ["class", "api/class/HttpResponse", 'hiddenClass'],
-  GameHttpResponse: ["class", "api/class/HttpResponse", 'hiddenClass'],
-  console: ["object protected", 'api/console', "const"],
-  GameConsole: ["class", 'api/console', "hiddenClass"],
-  Box3LoggerMethod: ["type", 'api/type/LoggerMethod', "hiddenType"],
-  GameLoggerMethod: ["type", 'api/type/LoggerMethod', "hiddenType"],
+  Box3HttpHandler: ["type", "api/type/HttpHandler", "hiddenType"],
+  GameHttpHandler: ["type", "api/type/HttpHandler", "hiddenType"],
+  Box3HttpRequest: ["class", "api/class/HttpRequest", "hiddenClass"],
+  GameHttpRequest: ["class", "api/class/HttpRequest", "hiddenClass"],
+  Box3HttpResponse: ["class", "api/class/HttpResponse", "hiddenClass"],
+  GameHttpResponse: ["class", "api/class/HttpResponse", "hiddenClass"],
+  console: ["object protected", "api/console", "const"],
+  GameConsole: ["class", "api/console", "hiddenClass"],
+  Box3LoggerMethod: ["type", "api/type/LoggerMethod", "hiddenType"],
+  GameLoggerMethod: ["type", "api/type/LoggerMethod", "hiddenType"],
   Box3EntityContact: ["class", "api/class/EntityContact", "class"],
   GameEntityContact: ["class", "api/class/EntityContact", "class"],
   Box3VoxelContact: ["class", "api/class/VoxelContact", "class"],
@@ -226,6 +214,9 @@ const defsMap = {
   SocialType: ["enum", "api/enum/SocialType", "enum"],
   NavigatorEventType: ["enum", , "hiddenEnum"],
   Sound: ["class", "api/class/Sound", "hiddenClass"],
+  TELEPORT_ERROR_STATUS: ["type", "api/type/TELEPORT_ERROR_STATUS", "hiddenType"],
+  TeleportType: ["type", "api/world/#TeleportType", "hiddenType"],
+  TeleportResult: ["type", "api/type/TeleportResult", "hiddenType"],
 
   UiNode: ["class", "api_client/class/UiNode", "class"],
   UiRenderable: ["class", "api_client/class/UiRenderable", "class"],
@@ -339,36 +330,61 @@ function createIconElement(text, id, color) {
     alert$.next("复制成功：" + text);
   });
   if (JOKE_MODE) {
-    i.addEventListener('mouseenter', (event) => {
+    i.addEventListener("mouseenter", (event) => {
       $JokeModeonly_element = i;
-      if (i.classList.contains('jokeElement'))
+      if (i.classList.contains("jokeElement"))
         return;
-      i.style.position = 'fixed';
-      i.style.left = event.pageX + 'px';
-      i.style.top = event.pageY + 'px';
-      i.classList.add('jokeElement');
-      i.dataset['x'] = event.screenX;
-      i.dataset['y'] = event.screenY;
+      i.style.position = "fixed";
+      i.style.left = event.pageX + "px";
+      i.style.top = event.pageY + "px";
+      i.classList.add("jokeElement");
+      i.dataset["x"] = event.screenX;
+      i.dataset["y"] = event.screenY;
     });
 
   }
   return i;
 }
 function parse() {
+  document.querySelectorAll("def").forEach((def) => {
+    let content = def.textContent?.trim();
+    if (content) {
+      let _0x00 = document.createElement("docs-def");
+      _0x00.content = content;
+      def.parentElement.replaceChild(_0x00, def);
+    }
+  });
+  document.querySelectorAll("icon").forEach((el) => {
+    try {
+      let icon = createIconElement(el.innerHTML, el.getAttribute("name") || "no-icon");
+      for (let _0x00 of el.classList)
+        icon.classList.add(_0x00);
+      el.parentElement.replaceChild(
+        icon,
+        el
+      );
+    } catch (e) {
+      console.error("Cannot parse icon label", e, el);
+      debugger;
+    }
+  });
+  console.log('元素替换完成');
+
+  return;
   document.querySelectorAll("a").forEach((el) => {
     const a = document.createElement("a");
-    const def = el.href.trim().slice(el.href.trim().lastIndexOf('/') + 1);
+    const def = el.href.trim().slice(el.href.trim().lastIndexOf("/") + 1);
     let href = "";
     let iconId = "property";
     let notLink = false;
-    if (el.innerHTML.trim() === '' && (Object.keys(defsMap).includes(def))) {
+    if (el.innerHTML.trim() === "" && (Object.keys(defsMap).includes(def))) {
       iconId = defsMap[def][0];
       const prefix = location.href.includes("github.io")
         ? "/box3-docs/"
         : "/";
-      const search = JOKE_MODE ? '?jokemode=true' : '';
+      const search = JOKE_MODE ? "?jokemode=true" : "";
       if (defsMap[def][1]) {
-        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')) {
+        if (defsMap[def][1].startsWith("http://") || defsMap[def][1].startsWith("https://")) {
           href = defsMap[def][1] + search;
           a.target = "_blank";
         } else
@@ -379,14 +395,14 @@ function parse() {
       }
     } else if (Object.keys(iconTagMap).includes(def) && el.innerHTML.trim()) {
       const innerHTML = el.innerHTML.trim();
-      if (def === 'keyword' && Object.keys(keywordDefsMap).includes(innerHTML)) {
-        el.style.fontWeight = 'bold';
+      if (def === "keyword" && Object.keys(keywordDefsMap).includes(innerHTML)) {
+        el.style.fontWeight = "bold";
         const prefix = location.href.includes("github.io")
           ? "/box3-docs/"
           : "/";
-        const search = JOKE_MODE ? '?jokemode=true' : '';
+        const search = JOKE_MODE ? "?jokemode=true" : "";
         if (keywordDefsMap[innerHTML][0]) {
-          if (keywordDefsMap[innerHTML][0].startsWith('http://') || keywordDefsMap[innerHTML][0].startsWith('https://')) {
+          if (keywordDefsMap[innerHTML][0].startsWith("http://") || keywordDefsMap[innerHTML][0].startsWith("https://")) {
             el.href = keywordDefsMap[innerHTML][0] + search;
             el.target = "_blank";
           } else
@@ -406,18 +422,18 @@ function parse() {
     a.href = href;
     const i = createIconElement(def, iconId, iconTagMap[defsMap[def]?.[2]]?.[1]);
     if (notLink)
-      i.classList.add('notLink');
+      i.classList.add("notLink");
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
   });
   document.querySelectorAll("span").forEach((el) => {
-    if (el.hasAttribute('anchor')) {
-      let a = document.createElement('a');
-      a.id = el.getAttribute('anchor');
+    if (el.hasAttribute("anchor")) {
+      let a = document.createElement("a");
+      a.id = el.getAttribute("anchor");
       el.appendChild(a);
     }
-    if (el.hasAttribute('block')) {
-      el.style.display = 'inline-block';
+    if (el.hasAttribute("block")) {
+      el.style.display = "inline-block";
     }
   });
   Object.keys(iconTagMap).forEach((key) => {
@@ -441,9 +457,9 @@ function parse() {
       const prefix = location.href.includes("github.io")
         ? "/box3-docs/"
         : "/";
-      const search = JOKE_MODE ? '?jokemode=true' : '';
+      const search = JOKE_MODE ? "?jokemode=true" : "";
       if (defsMap[def][1]) {
-        if (defsMap[def][1].startsWith('http://') || defsMap[def][1].startsWith('https://')) {
+        if (defsMap[def][1].startsWith("http://") || defsMap[def][1].startsWith("https://")) {
           href = defsMap[def][1] + search;
           a.target = "_blank";
         }
@@ -456,12 +472,12 @@ function parse() {
     } else {
       isError = true;
       console.error("def标签未定义", def);
-      href = "javascript:alert$.next('⚠ 此标识未定义')";
+      href = "javascript:alert$.next(\"⚠ 此标识未定义\")";
     }
     a.href = href;
     const i = createIconElement(def, iconId, iconTagMap?.[defsMap[def]?.[2]]?.[1]);
     if (notLink)
-      i.classList.add('notLink')
+      i.classList.add("notLink")
     a.appendChild(i);
     el.parentElement.replaceChild(a, el);
     if (isError) {
@@ -487,11 +503,11 @@ function parse() {
 document$.subscribe(parse);
 
 if (JOKE_MODE) {
-  console.log('Joke Mode enabled');
-  alert$.next('Joke Mode enabled');
-  window.addEventListener('mousemove', (ev) => {
+  console.log("Joke Mode enabled");
+  alert$.next("Joke Mode enabled");
+  window.addEventListener("mousemove", (ev) => {
     if ($JokeModeonly_element instanceof HTMLElement) {
-      let x = Number($JokeModeonly_element.dataset['x']), y = Number($JokeModeonly_element.dataset['y']);
+      let x = Number($JokeModeonly_element.dataset["x"]), y = Number($JokeModeonly_element.dataset["y"]);
       if (Math.abs(x - ev.screenX) > 150 || Math.abs(y - ev.screenY) > 150)
         return;
       x += (x - ev.screenX) / 4;
@@ -504,13 +520,13 @@ if (JOKE_MODE) {
         x -= screen.availWidth - 100;
       if (y > screen.availHeight - 25)
         y -= screen.availHeight - 100;
-      $JokeModeonly_element.dataset['x'] = x;
-      $JokeModeonly_element.dataset['y'] = y;
-      $JokeModeonly_element.style.left = x + 'px';
-      $JokeModeonly_element.style.top = y + 'px';
+      $JokeModeonly_element.dataset["x"] = x;
+      $JokeModeonly_element.dataset["y"] = y;
+      $JokeModeonly_element.style.left = x + "px";
+      $JokeModeonly_element.style.top = y + "px";
     }
   });
-  for (const element of document.getElementsByClassName('admonition bug')) {
-    element.title = '我是一只虫子';
+  for (const element of document.getElementsByClassName("admonition bug")) {
+    element.title = "我是一只虫子";
   }
 }

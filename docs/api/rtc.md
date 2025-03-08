@@ -1,15 +1,3 @@
----
-tags:
-  - 语音通信
-  - 服务端
-  - Arena编辑器
----
-
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
 !!! info "Arena独有"
 
     该API仅在Arena编辑器使用
@@ -25,8 +13,8 @@ tags:
 
 : [查阅社区文档](https://www.yuque.com/box3lab/api/hwzgw2br9ri4r023)
 
-:   [](GameRTC)是实现游戏内创建实时语音通信的[类](class)  
-    [](GameRTC)无法（很难）被实例化，但在全局存在一个单例对象[](rtc)
+:   <docs-def>GameRTC</defs-def>是实现游戏内创建实时语音通信的[类](class)  
+    <docs-def>GameRTC</defs-def>无法（很难）被实例化，但在全局存在一个单例对象[](rtc)
 
 ### 方法
 [createChannel](hiddenMethod)([channelId](arg)?: [](string)): [](Promise)<[](GameRTCChannel)>

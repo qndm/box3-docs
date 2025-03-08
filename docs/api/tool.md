@@ -1,24 +1,25 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-:   部分常用但细碎的API的说明
+:   部分常用但细碎的API的说明，其中不一定是Box3独有
 
 ## 常量
 ### 目录
-[__dirname](const): [](string) = `#!javascript ""`
+> !p __dirname#variable.protected: string
+
 :   当前脚本的目录路径，`#!javascript ""`代表根目录
 
-    !!! info "此API并非Box3独有"
+> !p __filename#variable.protected: string
 
-[__filename](const): [](string)
 :   当前脚本文件名
 
-    !!! info "此API并非Box3独有"
-
 ### 模块
-[require](const): {([module](arg): [](string)) => [](any), [resolve](method)([path](arg): [](string)) => [](string)}
+> !p require#variable.protected: {
+    (module: string): any,
+    resolve(path: string): string
+}
+
 :   调用其他脚本模块
 
-:   [resolve](method)([path](arg): [](string)) => [](string)
+:   > !p solve(path: string): string
+
     :   解析脚本文件，返回路径
 
         ??? example "示例"
@@ -28,7 +29,8 @@
             JSON.stringify(require.resolve('我不是模块')) //<~ "node_modules/我不是模块"
             ```
 
-[module](const): {[exports](property): [](any)}
+> !p module#variable.protected: {exports: any}
+
 :   模块要导出的内容
 
     ??? example "示例"
@@ -45,7 +47,7 @@
             module.exports = {message: "这里什么也没有"};
             ```
 
-[exports](const): [](any)
+> !p exports#variable.protected: any
 
 :   !!! quote ""
 
@@ -56,12 +58,13 @@
 ### 资源文件
 ## 函数
 ### 时间
-[sleep](function)([ms](arg): [](number)): [](Promise)<[](void)>
+> !p sleep#function(ms: number): Promise< void>
+
 :   使脚本暂停运行一段时间
 
     | 参数 | 类型 | 说明 |
     | - | - | - |
-    | [ms](arg) | [](number) | 要等待的时间，单位为毫秒 |
+    | <docs-icon icon="arg">ms</docs-icon> | [](number) | 要等待的时间，单位为毫秒 |
 
     ??? example "示例"
 

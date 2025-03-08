@@ -6,6 +6,8 @@
 !!! info "Arena独有"
     该API仅在Arena编辑器使用
 
-> !parse @proOnly GameSkin = {[key#index in GameBodyPart]: GameSkinValue;};
+使用<def>GameWorld</def>.<method>teleport</method>方法传送玩家，返回的结果
 
-:   玩家的皮肤
+## 成员
+<property>serverId</property>: <def>string</def>
+:   传送到的服务器id

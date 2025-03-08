@@ -10,7 +10,9 @@ window.MathJax = {
     processHtmlClass: "arithmatex",
   },
 };
-
+// 吐槽：令人迷惑的行为 覆写了MathJax还要调用MathJax的方法
+/*
 document$.subscribe(() => {
   MathJax.typesetPromise();
 });
+*/

@@ -409,11 +409,11 @@
                 "api/class/Player/#Box3DialogCall"
             ],
             "Box3AssetListEntry": [
-                "type",
+                "type.hidden",
                 "api/class/AssetListEntry"
             ],
             "Box3AssetType": [
-                "enum",
+                "enum.hidden",
                 "api/enum/AssetType"
             ],
             "Box3ZoneConfig": [
@@ -755,11 +755,11 @@
                 "api/class/Player/#GameDialogCall"
             ],
             "GameAssetListEntry": [
-                "type",
+                "type.hidden",
                 "api/class/AssetListEntry"
             ],
             "GameAssetType": [
-                "enum",
+                "enum.hidden",
                 "api/enum/AssetType"
             ],
             "GameZoneConfig": [
@@ -1194,6 +1194,10 @@
         "RespawnEvent": [
             "Box3RespawnEvent",
             "GameRespawnEvent"
+        ],
+        "AssetListEntry": [
+            "Box3AssetListEntry",
+            "GameAssetListEntry"
         ]
     },
     "config": {

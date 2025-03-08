@@ -980,18 +980,21 @@
 [cancelDialogs](method)(): [](void)
 :   关闭玩家所有打开的对话框
 
-
-<span anchor="Box3DialogCall">[](Box3DialogCall) = (  
+#### Box3DialogCall
+[](Box3DialogCall) = (  
     ([params](arg): [](Box3TextDialogParams)) => [](Promise)<[](string) | [](null)> & [](Box3DialogCancelOption) |  
     ([params](arg): [](Box3SelectDialogParams)) => [](Promise)<[](Box3DialogSelectResponse) | [](null)> & [](Box3DialogCancelOption) |  
     ([params](arg): [](Box3InputDialogParams)) => [](Promise)<[](string) | [](null)> & [](Box3DialogCancelOption)  
-)</span>
+)
+:   对话框调用函数
 
-<span anchor="GameDialogCall">[](GameDialogCall) = (  
+#### GameDialogCall
+[](GameDialogCall) = (  
     ([params](arg): [](GameTextDialogParams)) => [](Promise)<[](string) | [](null)> & [](GameDialogCancelOption) |  
     ([params](arg): [](GameSelectDialogParams)) => [](Promise)<[](GameDialogSelectResponse) | [](null)> & [][](GameDialogCancelOption) |  
     ([params](arg): [](GameInputDialogParams)) => [](Promise)<[](string) | [](null)> & [](GameDialogCancelOption)  
-)</span>
+)
+:   对话框调用函数
 
 ### 复活
 [forceRespawn](method)(): [](void)

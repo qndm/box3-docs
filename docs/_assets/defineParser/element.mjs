@@ -13,6 +13,12 @@ const ALL_APIS = Object.keys(_defines.defines);
  * @exports icons
  */
 /**
+ * @typedef Define
+ * @property {string} api API组
+ * @property {string} defineName 定义名称
+ * @property {string[]} content 定义内容
+ */
+/**
  * 生成用于`private`变种的颜色
  * @param {string} color 颜色
  * @returns {string} 用于`private`变种的颜色
@@ -124,19 +130,19 @@ const ICONS = buildIconTable();
  * 寻找定义名称
  * @param {string} defineName 定义名称
  * @param {string[]} allowAPIs 允许的定义命名空间
- * @returns {{api: string, define: string[]}?}
+ * @returns {Define?}
  */
 function findDefine(defineName, allowAPIs = ALL_APIS) {
     if (!defineName)
         return null;
     if (defineName in _defines.keywords) {
-        return { api: "keyword", define: _defines.keywords[defineName] }
+        return { api: "keyword", defineName, content: _defines.keywords[defineName] }
     }
     /**@type {string} */
     for (let api of allowAPIs) {
         if (!(defineName in _defines.defines[api]))
             continue;
-        return { api, define: _defines.defines[api][defineName] };
+        return { api, defineName, content: _defines.defines[api][defineName] };
     }
     return null;
 }
@@ -309,6 +315,8 @@ class DefineElement extends HTMLElement {
     #icon;
     /**@type {HTMLAnchorElement} */
     #anchor;
+    /**@type {Define} */
+    _cache;
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: "closed" }),
@@ -374,7 +382,7 @@ class DefineElement extends HTMLElement {
             this.#icon.content = this.content;
             this.#anchor.href = PREFIX + _defines.keywords[this.content][0];
         } else {
-            let define = findDefine(this.content);
+            let define = this._cache?.defineName === this.content ? this._cache : findDefine(this.content);
             if (define === null) {
                 this.#icon.icon = "error";
                 this.#icon.content = this.content;
@@ -384,20 +392,20 @@ class DefineElement extends HTMLElement {
             if (define.api === "keyword") {
                 this.#icon.icon = "keyword";
                 this.#icon.content = this.content;
-                this.#icon.title = define.define[1] ?? "";
+                this.#icon.title = define.content[1] ?? "";
                 this.#icon.noColor = true;
-                if (define.define[0])
-                    this.#anchor.href = PREFIX + define.define[0];
+                if (define.content[0])
+                    this.#anchor.href = PREFIX + define.content[0];
                 else
                     this.#anchor.href = 'javascript:void(0);'
                 return;
             }
-            this.#icon.icon = define.define[0];
+            this.#icon.icon = define.content[0];
             this.#icon.content = this.content;
-            this.#icon.title = define.define[2] ?? "";
+            this.#icon.title = define.content[2] ?? "";
             this.#icon.noColor = this.noColor || this.inTitle;
-            if (define.define[1])
-                this.#anchor.href = PREFIX + define.define[1];
+            if (define.content[1])
+                this.#anchor.href = PREFIX + define.content[1];
             else
                 this.#anchor.href = 'javascript:void(0);'
         }

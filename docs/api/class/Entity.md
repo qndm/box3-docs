@@ -1,23 +1,3 @@
----
-tags:
-  - 实体
-  - 物理
-  - 动画
-  - 服务端
-  - 旧版编辑器
-  - Arena编辑器
----
-
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
-:   [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/aqkg27coplqk183f)  
-    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/kgrabhf749axn65y)  
-    [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/crnsxu2gtymwx013)
-
-
 :   [](Box3Entity) / [](GameEntity)实体是Box3中的游戏对象，用于对物体、玩家等的控制。  
     [](Box3Entity) / [](GameEntity)无法（很难）被实例化，但可以通过其他方法获取其实例化对象
 
@@ -61,6 +41,8 @@ tags:
 
 <span anchor="isPlayer">[isPlayer](property): [](boolean)</span>
 :   实体是否是玩家
+
+> !p @proOnly anchorOffset: GameVector3;
 
 ### 外观
 <span anchor="mesh">[mesh](property): [](string)</span>
@@ -493,9 +475,10 @@ tags:
     | [up](arg) | [](GameVector3) | 上向量，默认取 Y 轴正方向 |
 
 ### 聊天
-<span anchor="say">
-[say](method)([message](arg): [](string)): [](void)
-</span>
+> !p @oldOnly say: (message: string) => void;
+
+> !p @proOnly say#method : (message: string, options?: { duration?: number; hideFloat?: boolean;}) => void;
+
 :   让实体说话  
     会播放[chatSound](property)音效
 

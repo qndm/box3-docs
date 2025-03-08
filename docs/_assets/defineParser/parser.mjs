@@ -198,7 +198,7 @@ function parse(element) {
         ++platformCount;
         resultNodes.push(node);
     }
-    console.debug(`开始渲染 平台数: ${platformCount}  内容数: ${contents.length}`);
+    let chars = [];
     for (let platform_index in defines.config.platformList) { // 枚举映射
         let platform = defines.config.platformList[platform_index], node = resultNodes[platform_index];
         if (node === null)
@@ -229,20 +229,33 @@ function parse(element) {
                 back = findContent(contents, index + 1, 1, FIND_NEXT) ?? "";
             if (getCharType(content) !== 1) {
                 node.appendChild(document.createTextNode(content));
+                if (content.includes('('))
+                    chars.push('(');
+                if (content.includes('['))
+                    chars.push('[');
+                if (content === '<')
+                    chars.push('<');
+                if (content.includes(')') && chars[chars.length - 1] === '(')
+                    chars.pop();
+                if (content.includes(']') && chars[chars.length - 1] === '[')
+                    chars.pop();
+                if (content === '>')
+                    chars.pop();
                 continue;
             }
-            if (!(back.startsWith(":") || back.startsWith("(") || back.startsWith("?:"))) {
+            if (!(back.startsWith(":") || back.startsWith("(") || back.startsWith("?:")) && checkDefine) {
                 if (define !== null) {
                     /**@type {import("./element.mjs").DefineElement} */
                     // @ts-ignore
                     let def = document.createElement('docs-def');
                     def.allowAPIs = allowAPIs;
+                    def._cache = define;
                     def.content = showContent;
                     node.appendChild(def);
                     continue;
                 } else if (!USE_CUSTOM_PLATFORM) {
                     resultNodes[platform_index] = null;
-                    console.debug(showContent, '不存在于', platform, '平台');
+                    --platformCount;
                     break;
                 }
             }
@@ -251,17 +264,21 @@ function parse(element) {
             let icon = document.createElement('docs-icon');
             if (back === "in" || back === "of")
                 icon.icon = "index";
-            else if (back.endsWith("("))
+            else if (back.startsWith("("))
                 icon.icon = "method";
-            else if (back.endsWith(":"))
-                icon.icon = "property";
+            else if (back.endsWith(":")) { 
+                if (chars[chars.length - 1] === '(')
+                    icon.icon = "arg";
+                else
+                    icon.icon = "property"; 
+            }
             icon.content = showContent;
             node.appendChild(icon);
         }
     }
     let div = document.createElement('div');
     if (anchorContent !== null && !div.hasAttribute("anchor")) {
-        let anchor = assignHash(anchorContent);
+        let anchor = assignHash(anchorContent + (platforms.length ? ("-" + platforms.join("-")) : ""));
         div.setAttribute("anchor", anchor);
         div.addEventListener("click", SET_HASH);
     }
@@ -279,10 +296,7 @@ function parse(element) {
             }
             div.appendChild(node);
         }
-
-    console.debug('渲染完成');
-    if (resultNodes.every(node => node === null)) {
-        console.debug('无平台');
+    if (platformCount <= 0) {
         let node = document.createElement('blockquote');
         if (classList.length > 0)
             node.setAttribute('class', classList.join(' '));
@@ -297,7 +311,10 @@ function parse(element) {
                 continue;
             }
             if (getCharType(content) !== 1) {
-                node.appendChild(document.createTextNode(content));
+                if (node.lastElementChild instanceof Text)
+                    node.lastElementChild.textContent += content;
+                else
+                    node.appendChild(document.createTextNode(content));
                 continue;
             }
             /**@type {import("./element.mjs").IconElement} */
@@ -312,7 +329,6 @@ function parse(element) {
             node.setAttribute("anchor", anchor);
             node.addEventListener("click", SET_HASH);
         }*/
-        console.debug('无平台渲染完成');
     }
 
     return div;
