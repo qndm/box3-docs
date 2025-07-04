@@ -1,8 +1,14 @@
 {
     "keywords": {
-        "in": ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in"],
-        "of": ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of"],
-        "class": ["https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class"]
+        "in": [
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/in"
+        ],
+        "of": [
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of"
+        ],
+        "class": [
+            "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/class"
+        ]
     },
     "defines": {
         "language": {
@@ -155,6 +161,15 @@
             ],
             "in": [
                 "keyword"
+            ],
+            "InstanceType": [
+                "type.generic"
+            ],
+            "extends": [
+                "keyword"
+            ],
+            "Uint8Array": [
+                "interface.generic"
             ]
         },
         "common": {
@@ -803,11 +818,11 @@
                 "api/type/JSONValue"
             ],
             "gui": [
-                "object.protected",
+                "object.protected hidden",
                 "api/gui"
             ],
             "GameGUI": [
-                "class",
+                "class.hidden",
                 "api/gui"
             ],
             "GameGUIEventListener": [
@@ -1198,6 +1213,14 @@
         "AssetListEntry": [
             "Box3AssetListEntry",
             "GameAssetListEntry"
+        ],
+        "QueryResult": [
+            "Box3QueryResult",
+            "GameQueryResult"
+        ],
+        "LoggerMethod": [
+            "Box3LoggerMethod",
+            "GameLoggerMethod"
         ]
     },
     "config": {

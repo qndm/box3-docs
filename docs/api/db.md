@@ -5,7 +5,7 @@
 
 !!! info "不适用于Arena编辑器"
     该API仅限旧版编辑器  
-    若在Arena编辑器使用，只会得到一条错误信息：`Error: sql error: Error: storage disabled`
+    若在Arena编辑器使用，会得到一条错误信息：`Error: sql error: Error: storage disabled`
 
 !!! note "说明"
     该页面不介绍SQL，SQL教程可以看：
@@ -20,7 +20,8 @@
 [](db)对象是整个Box3 Database API的入口。在使用数据库之前，需要先掌握一些关于操作数据库的基础知识。
 
 ## 方法
-[sql](method)([sql](arg): [](string)[], ...[params](arg): ([](number) | [](string) | [](Uint8Array) | [](boolean) | `#!javascript null`)[]): [](Box3QueryResult)
+> !p sql(sql: string[], ...params: (number | string | Uint8Array | boolean | null)[]): QueryResult
+
 :   对数据库执行SQL语句  
     有两种调用方法，一种是将语句包含在反引号 ``` `` ``` 里面，另一种是常规的方法调用  
     [sql](method)方法使用[字符串模板](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)，因此使用反引号包裹使用上最方便，例如：

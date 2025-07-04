@@ -20,7 +20,7 @@
 
 > !p SendClientEventType = (entities: GamePlayerEntity | GamePlayerEntity[], clientEvent: JSONValue) => void
 
-:   <span class="hidden">又是只用一遍的类型</span>
+:   <span class="hidden">又是一次性类型</span>
 
 > !p broadcastClientEvent(clientEvent: JSONValue): void
 

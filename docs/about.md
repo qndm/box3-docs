@@ -24,7 +24,7 @@
 
         - Edgar_勿安 - [Github个人主页](https://github.com/Edgar-wuan)
         - 可乐OωO
-        - 全能岛民 - [编程猫](https://shequ.codemao.cn/user/7202807) [神奇代码岛（旧岛）](https://box3.codemao.cn/u/qndm) [神奇代码岛（新岛）](https://dao3.fun/profile/1349822) [GitHub](https://github.com/qndm) [Gitee](https://gitee.com/qndm)
+        - 全能岛民 - [神奇代码岛（新岛）](https://dao3.fun/profile/1349822) [GitHub](https://github.com/qndm) [Gitee](https://gitee.com/qndm)
         - 屑全能 [神奇代码岛个人主页](https://box3.codemao.cn/u/jmd123456)
         - 树树屑
         - Nomen - [神奇代码岛个人主页](https://box3.codemao.cn/u/zhongjimo)
@@ -37,13 +37,13 @@
 - 神奇代码岛 - [旧岛](https://box3.codemao.cn) [新岛](https://dao3.fun)
 - [开发API](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/fmtni9cqqhhgcl5r)
 - [新用户手册](https://box3.yuque.com/staff-khn556/wupvz3)
-- [BOX3引擎API文档](https://www.yuque.com/box3lab/api)
+- [ArenaEdit API手册](https://docs.box3lab.com/api)
 - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference)
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material)
 - [Github](https://github.com)
 - [Cloudflare](https://www.cloudflare.com)
 - [OI Wiki](https://oi-wiki.org/)
-- [神奇代码岛 API 文档](https://docs.box3lab.com/api)
+- [Maple Mono](https://font.subf.dev/zh-cn)
 
 [^1]: 原名为 **Box3 社区文档** ，为了和神岛实验室的[神奇代码岛 API 文档](https://docs.box3lab.com/api)做区分，将其改名为 **Box3 Docs**
 [^2]: 由于文档使用的一些工具（如Cloudflare Page等）使用Github，建议在Github上进行提交，非必要不要在Gitee上提交（不然就要我手动从Gitee上拉取再推送）

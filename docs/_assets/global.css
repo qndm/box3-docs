@@ -144,7 +144,7 @@ summary {
 }
 
 .revised:is(blockquote):not(:hover) {
-  border-color: #0044ff !important;
+  border-color: #ffff44 !important;
 }
 
 .new:not(blockquote):hover {
@@ -258,4 +258,21 @@ blockquote.error:not(.new:not(:hover), .revised:not(:hover)) {
 .code blockquote {
   margin-top: 0.4em;
   margin-bottom: 0.4em;
+    font-family: Maple Mono NF CN Light;
+  font-feature-settings: 'calt', 'ss03', 'ss05', 'ss07', 'ss08', 'zero';
+  font-size: 14px;
+
+}
+
+code {
+  font-family: Maple Mono NF CN;
+  font-feature-settings: 'calt', 'ss03', 'ss05', 'ss07', 'ss08', 'zero';
+}
+
+.code blockquote *{
+  transition: font-size 0.2s;
+}
+
+.code blockquote *:hover{
+  font-size: 16px;
 }

@@ -14,7 +14,8 @@
     [](Box3HttpAPI) / [](GameHttpAPI)无法（很难）被实例化，但在全局存在一个单例对象[](http)
 
 ## 属性
-[url](hiddenReadonly): [](string)
+> !p @oldOnly url#property.protected: string
+
 :   服务器链接  
     2024/8/7测试 结果为`#!javascript "http://localhost"`
 
@@ -23,8 +24,10 @@
         该属性在Arena编辑器中不存在
 
 ## 方法
-[仅旧版编辑器][fetch](hiddenMethod)([url](arg): [](string), [params](arg)?: [](Box3HttpFetchParams)): [](Promise)<[](Box3HttpFetchResponse)>  
-[仅Arena编辑器][fetch](hiddenMethod)([url](arg): [](string), [options](arg)?: [](GameHttpFetchRequestOptions)): [](Promise)<[](GameHttpFetchResponse)>
+> !p fetch(url: string, params?: Box3HttpFetchParams): Promise< Box3HttpFetchResponse>
+
+> !p fetch(url: string, options?: GameHttpFetchRequestOptions): Promise< GameHttpFetchResponse>
+
 :   发送HTTP请求
 
     !!! warning "警告"
@@ -44,9 +47,4 @@
             ```
 
 ### 事件
-[onRequest](method)([handler](callbackArg): [](Box3HttpHandler)): [](void)
-:   当收到HTTP请求时，触发的事件
-
-    !!! info "不适用于Arena"
-
-        该方法在Arena编辑器中不存在
+> !p onRequest(handler: Box3HttpHandler): void

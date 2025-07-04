@@ -19,19 +19,17 @@
 
 
 ## 属性
-[ui](hiddenProperty)
+> !p @proOnly ui: InstanceType< any>[`#!javascript 'ui'`]
 
 ## 方法
-[init](hiddenMethod)([entity](arg): [](GamePlayerEntity), [config](arg): [](GUIConfig)<[](string), [](string)>): [](Promise)<[](void)>
+> !p init#method< T#type extends string, U#type extends T#type>(entity: GamePlayerEntity, config: GUIConfig< T#type, U#type>): Promise< void>
 
+> !p show(entity: GamePlayerEntity, name: string, allowMultiple?: boolean): Promise< void>
 
-[show](hiddenMethod)([entity](arg): [](GamePlayerEntity), [name](arg): [](string), [allowMultiple](arg): [](boolean)): [](Promise)<[](void)>
+> !p remove(entity: GamePlayerEntity, selector: string): Promise< void>
 
-[remove](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)): [](Promise)<[](void)>
+> !p getAttribute(entity: GamePlayerEntity, selector: string, name: string): Promise< any>
 
-[getAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string)): [](Promise)<[](any)>
+> !p setAttribute(entity: GamePlayerEntity, selector: string, name: string, value: any): Promise< void>
 
-[setAttribute](hiddenMethod)([entity](arg): [](GamePlayerEntity), [selector](arg): [](string), [name](arg): [](string), [value](arg): [](any)): [](Promise)<[](void)>
-
-[onMessage](hiddenMethod)([listener](arg): [](GameGUIEventListener)): [](void)
-
+> !p onMessage(listener: GameGUIEventListener): void

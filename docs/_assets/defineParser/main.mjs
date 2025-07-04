@@ -1,3 +1,9 @@
+/**
+ * Define Parser - 定义解释器
+ * 此文件不进行两项目之间同步
+ * @version 1.1
+ */
+
 /// @ts-check
 
 import { IconElement, DefineElement } from "./element.mjs"
@@ -5,11 +11,12 @@ import { parse } from "./parser.mjs"
 import { clearHashMap } from "../viewed.mjs"
 
 
-console.log('定义解释器 v1');
+console.log('定义解释器 v1.1');
 
 window.customElements.define('docs-icon', IconElement);
 window.customElements.define('docs-def', DefineElement);
 console.log('自定义元素注册成功');
+
 
 //@ts-ignore
 document$.subscribe(() => {

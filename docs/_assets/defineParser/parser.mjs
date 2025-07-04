@@ -95,17 +95,21 @@ function load(element) {
                         } else if (_0x00[_0x01] === '.') {
                             /**当前位置 @type {number} */
                             let _0x02 = _0x01 + 1;
-                            for (; _0x02 <= _0x00.length; ++_0x02) {
-                                let _0x12 = getCharType(_0x00[_0x02]);
-                                if (_0x12 < 1) {
-                                    if (notFoundContent)
-                                        classList.push(_0x00.substring(_0x01 + 1, _0x02));
-                                    else
-                                        contents.push(_0x00.substring(_0x01, _0x02));
-                                    _0x01 = _0x02;
-                                    break;
+                            if (_0x00[_0x02] === '.' && _0x00[_0x01 + 2] === '.') {
+                                contents.push('...');
+                                _0x01 += 3;
+                            } else
+                                for (; _0x02 <= _0x00.length; ++_0x02) {
+                                    let _0x12 = getCharType(_0x00[_0x02]);
+                                    if (_0x12 < 1) {
+                                        if (notFoundContent)
+                                            classList.push(_0x00.substring(_0x01 + 1, _0x02));
+                                        else
+                                            contents.push(_0x00.substring(_0x01, _0x02));
+                                        _0x01 = _0x02;
+                                        break;
+                                    }
                                 }
-                            }
                         } else if (notFoundContent && _0x00[_0x01] === '@') {
                             /**当前位置 @type {number} */
                             let _0x02 = _0x01 + 1;
@@ -128,6 +132,19 @@ function load(element) {
                                     break;
                                 }
                             }
+                        } else if (_0x00[_0x01] === '\'' || _0x00[_0x01] === '"' || _0x00[_0x01] === '`') {
+                            /**当前位置 @type {number} */
+                            let _0x02 = _0x01 + 1,
+                                /**起始符号 */
+                                _0x03 = _0x00[_0x01];
+                            for (; _0x02 <= _0x00.length; ++_0x02) {
+                                if (_0x00[_0x02] === _0x03) {
+                                    ++_0x02;
+                                    contents.push(_0x00.substring(_0x01, _0x02));
+                                    _0x01 = _0x02;
+                                    break;
+                                }
+                            }
                         } else {
                             /**当前位置 @type {number} */
                             let _0x02 = _0x01 + 1;
@@ -135,7 +152,7 @@ function load(element) {
                             for (; _0x02 <= _0x00.length; _0x02++) {
                                 let _0x12 = getCharType(_0x00[_0x02]);
                                 // 按照字符类型分割 若前面是字母 则不分割
-                                if (_0x12 !== _0x11) {
+                                if (_0x12 !== _0x11 || ['\'', '"', '`'].includes(_0x00[_0x02])) {
                                     if (_0x01 < _0x02) {
                                         if (getCharType(_0x01) >= 1)
                                             notFoundContent = false;
@@ -186,7 +203,7 @@ function parse(element) {
             resultNodes.push(null);
             continue;
         }
-        let node = document.createElement('blockquote');
+        let node = document.createElement('blockquote'), _0x01 = document.createElement('div');
         if (classList.length > 0)
             node.classList.add(...classList);
         else {
@@ -266,11 +283,11 @@ function parse(element) {
                 icon.icon = "index";
             else if (back.startsWith("("))
                 icon.icon = "method";
-            else if (back.endsWith(":")) { 
+            else if (back.endsWith(":")) {
                 if (chars[chars.length - 1] === '(')
                     icon.icon = "arg";
                 else
-                    icon.icon = "property"; 
+                    icon.icon = "property";
             }
             icon.content = showContent;
             node.appendChild(icon);

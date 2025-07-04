@@ -13,10 +13,11 @@ docs-icon {
   -moz-user-select: none;
   cursor: pointer;
   user-select: none;
-  font-weight: bold;
   transition: border-bottom-color 0.25s;
   display: inline-block;
-  /*font-family: Consolas, 'Courier New', monospace;*/
+  font-family: Maple Mono NF CN ExtraBold;
+  font-feature-settings: 'calt', 'ss03', 'ss05', 'ss07', 'ss08', 'zero';
+  font-weight: '400';
 }
 
 .kind-icon:not(.no-icon):before {

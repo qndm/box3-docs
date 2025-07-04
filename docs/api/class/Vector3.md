@@ -1,11 +1,6 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
 : [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/epzg5lmsv92kbg1m)  
   [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/ci4biyw0qruafkf2)  
-  [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/sug8utrs043aep5v)
+  [查阅社区文档（Arena）](https://docs.box3lab.com/api/GameVector3)
 
 : <def>Box3Vector3</def>（三维向量）是Box3中一个非常常见的类，通常指定一个位置，或者尺寸、方向等
 ## 构造函数
@@ -419,8 +414,8 @@
             new GameVector3(1, 2, 1).min(new GameVector3(2, 1, 2)) //<~ { x:1, y:1, z:1 }
             ```
 
-<method>exactEquals</method> ([v](arg): <def>Box3Vector3</def>): <def>boolean</def>  
-<method>exactEquals</method> ([v](arg): <def>GameVector3</def>): <def>boolean</def>
+> !p exactEquals(v: Vector3): boolean
+
 :   判断两个向量是否完全相等
 
     ??? example "示例"
@@ -439,20 +434,17 @@
             new GameVector3(1, 2, 3).exactEquals(new GameVector3(1.000000000000001, 2, 3)) //<~ false
             ```
 
-<span anchor="equals"><method>equals</method> ([v](arg): <def>Box3Vector3</def>): <def>boolean</def></span>  
-<span anchor="equals"><method>equals</method> ([v](arg): <def>GameVector3</def>): <def>boolean</def></span>
+    !!! warning "不建议使用此方法"
 
-:   !!! failure "此处与官方API不符"
-        该文档没有[tolerance](arg): <def>number</def>参数
-:   !!! failure "此处与社区API不符"
-        该文档没有[tolerance](arg): <def>number</def>参数
-:   !!! success "经 2024/7/18 测试：该文档内容无问题"
-        === "Arena 编辑器"
-            ```javascript
-            new GameVector3(1, 2, 3).equals(new GameVector3(1.1, 2, 3), 1) // <~ false
-            ```
+        因为计算机储存和计算浮点数的误差，如：
+        ```javascript
+        (0.1 + 0.2 == 0.3) // <~ false
+        ```
+        在非整数情况下，使用此方法可能会存在问题，尽管此方法理论上更快
 
-:   判断两个向量是否大致相等  
+> !p equals(v: Vector3): boolean
+
+:   判断两个向量是否在容差允许范围内相等  
     容差为`0.000001`
     ??? example "示例"
         === "旧版编辑器"

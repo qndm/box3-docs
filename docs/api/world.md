@@ -222,6 +222,41 @@
 
 :   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个[](Box3Entity) / [](GameEntity)组成的数组。如果没有符合条件的实体，则返回空数组。
 
+    !!! warning "使用误区"
+
+        有人可能会写出这样的代码：
+        ```javascript
+        // index.js
+        console.log(world.querySelectorAll('player').length)
+        ```
+        这样做控制台的输出结果是`#!javascript 0`，其原因是脚本运行时的tick并没有触发玩家进入事件  
+        你可以理解为，引擎告诉脚本进入玩家之前，脚本已经执行完了  
+        解决方法是添加一个事件，例如：
+        ```javascript
+        world.onPlayerJoin(({ entity }) => {
+            console.log(world.querySelectorAll('player').length);
+        });
+        ```
+        或者使用等待：
+
+        === "<docs-def>Box3PlayerEntityEvent</docs-def> / <docs-def>GamePlayerEntityEvent</docs-def> 事件"
+
+            ```javascript
+            (async () => {
+                await world.nextPlayerJoin();
+                console.log(world.querySelectorAll('player').length);
+            })();
+            ```
+
+        === "<docs-icon icon="function">sleep</docs-icon> 方法"
+
+            ```javascript
+            (async () => {
+                await sleep(1000);
+                console.log(world.querySelectorAll('player').length);
+            })();
+            ```
+
     ??? example "示例"
 
         ```javascript
@@ -285,11 +320,11 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | <span class="parse-inline">userIds#arg ?</span> | <span class="parse-line">string[]</span> | 可选，创建临时频道时同时加入频道的玩家id数组 |
+    | <docs-icon icon="arg">userIds</docs-icon>: <docs-def>string</docs-def>[] | 可选，创建临时频道时同时加入频道的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | <span class="parse-inline">Promise< string></span> | 创建临时频道后的频道id |
+    | | <docs-def>Promise</docs-def><<docs-def>string</docs-def>> | 创建临时频道后的频道id |
 
     ??? example "示例"
 
@@ -317,11 +352,11 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatIds](arg) | [](string)[] | 必填，需要销毁的临时频道id数组 |
+    | <docs-icon icon="arg">chatIds</docs-icon> | <docs-def>string</docs-def>[] | 必填，需要销毁的临时频道id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string[])> | 删除失败的临时频道id数组 |
+    | | <docs-def>Promise</docs-def><<docs-def>string</docs-def>[]> | 删除失败的临时频道id数组 |
 
 
     ??? example "示例"
@@ -352,12 +387,12 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | [](string) | 必填，临时聊天频道id |
-    | [userIds](arg) | [](string)[] | 必填，加入聊天频道的玩家id数组 |
+    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
+    | [userIds](arg) | <docs-def>string</docs-def>[] | 必填，加入聊天频道的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string)[]> | 添加成功的玩家id数组 |
+    | | Promise<<docs-def>string</docs-def>[]> | 添加成功的玩家id数组 |
 
     ??? example "示例"
 
@@ -382,12 +417,12 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | [](string) | 必填，临时聊天频道id |
-    | [userIds](arg) | [](string)[] | 必填，需要在聊天频道中移除的玩家id数组 |
+    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
+    | [userIds](arg) | <docs-def>string</docs-def>[] | 必填，需要在聊天频道中移除的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string)[]> | 移除成功的玩家id数组 |
+    | | Promise<<docs-def>string</docs-def>[]> | 移除成功的玩家id数组 |
 
     ??? example "示例"
 
@@ -412,7 +447,7 @@
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string)[]> | 当前地图存在的临时聊天频道id数组 |
+    | | Promise<<docs-def>string</docs-def>[]> | 当前地图存在的临时聊天频道id数组 |
 
     ??? example "示例"
 
@@ -434,11 +469,11 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | [](string) | 必填，临时聊天频道id |
+    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<[](string)[]> | 在临时聊天频道中的玩家id数组 |
+    | | Promise<<docs-def>string</docs-def>[]> | 在临时聊天频道中的玩家id数组 |
 
     ??? example "示例"
 
@@ -493,8 +528,8 @@
 
     !!! note "待测试"
 
-        官方示例中使用[](number)[]来代替[](Box3Vector3) / [](GameVector3)  
-        需检查是否可以使用[](Box3Vector3) / [](GameVector3)和[](number)[]
+        官方示例中使用<docs-def>number</docs-def>[]来代替<docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def>  
+        需检查是否可以使用<docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def>和<docs-def>number</docs-def>[]
 
     ??? example "示例"
 
@@ -548,7 +583,7 @@
 ### 动画
 > !p animate(keyframes: Partial< WorldKeyframe>[], playbackInfo?: Partial< AnimationPlaybackConfig>): Animation< WorldKeyframe, World>
 
-:   创建一个关键帧动画 [](Box3Animation) / [](GameAnimation)
+:   创建一个关键帧动画 <docs-def>Box3Animation</docs-def> / <docs-def>GameAnimation</docs-def>
     ??? example "示例"
         === "旧版编辑器"
 
@@ -610,13 +645,13 @@
 
     | 参数 | | 类型 | 说明 |
     | - | - | - | - |
-    | [spec](arg) | | [](string) | 声音路径 |
-    | [spec](arg) | |  | 声音播放参数 |
-    | | [sample](property) | [](string) | 声音路径 |
-    | | [position](property)? | [](Box3Vector3) / [](GameVector3) | 声音播放的位置。可以指定在某个实体身上发出声音 |
-    | | [radius](property)? | [](number) = `#!javascript 32` | 声音范围，单位是$\frac{1}{16}$个方块 |
-    | | [gain](property)? | [](number) = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
-    | | [pitch](property)? | [](number) = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
+    | <docs-icon icon="arg">spec</docs-icon> | | <docs-def>string</docs-def> | 声音路径 |
+    | <docs-icon icon="arg">spec</docs-icon> | |  | 声音播放参数 |
+    | | [sample](property) | <docs-def>string</docs-def> | 声音路径 |
+    | | [position](property)? | <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> | 声音播放的位置。可以指定在某个实体身上发出声音 |
+    | | [radius](property)? | <docs-def>number</docs-def> = `#!javascript 32` | 声音范围，单位是$\frac{1}{16}$个方块 |
+    | | [gain](property)? | <docs-def>number</docs-def> = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
+    | | [pitch](property)? | <docs-def>number</docs-def> = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
 
     !!! bug
 
@@ -654,8 +689,8 @@
 !!! warning inline end "警告"
     - 传送进入的地图为独立服务器，因此同一张目标地图，若不填写<arg>serverId</arg>参数，分批次传送不同的人，所进入的是 **不同** 服务器。
     - 只能在已发布地图中生效
-    - [players](arg)的长度不能超过50
-    - [players](arg)中不能存在游客（没有UserID）
+    - <docs-icon icon="arg">players</docs-icon>的长度不能超过50
+    - <docs-icon icon="arg">players</docs-icon>中不能存在游客（没有UserID）
 
 > !p teleport#method: TeleportType
 
@@ -693,9 +728,9 @@
 
 | 参数 | 类型 | 说明 |
 | :- | :- | :- |
-| [mapId](arg) | [](string) | 必填，目标地图id |
-| [players](arg) | [](GameEntity)[] | 必填，需要传送的玩家 |
-| [serverId](arg)? | [](string)[] | 选填，服务器id。若不填，则会新建一个新的服务器 |
+| [mapId](arg) | <docs-def>string</docs-def> | 必填，目标地图id |
+| <docs-icon icon="arg">players</docs-icon> | [](GameEntity)[] | 必填，需要传送的玩家 |
+| [serverId](arg)? | <docs-def>string</docs-def>[] | 选填，服务器id。若不填，则会新建一个新的服务器 |
 
 !!! tip "地图id vs 服务器id"
 

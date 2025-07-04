@@ -40,6 +40,9 @@ extra:
 extra_css:
   - _assets/icons.css
   - _assets/global.css
+  - https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Regular/result.css
+  - https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-Light/result.css
+  - https://chinese-fonts-cdn.deno.dev/packages/maple-mono-cn/dist/MapleMono-CN-ExtraBold/result.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
@@ -284,7 +287,7 @@ nav:
       - <docs-def>Box3SoundEffect</docs-def> / <docs-def>GameSoundEffect</docs-def> <span block>声音效果配置</span>: api/type/SoundEffect.md
     - <icon name="module private">用户图形界面</icon>:
       - <docs-def>gui</docs-def> & <docs-def>GameGUI</docs-def> <span block>用户图形界面模块</span>: api/gui.md
-      - <docs-def>GUIConfig</docs-def><span block>GUI配置</span>: api/type/LoggerMethod.md
+      - <docs-def>GUIConfig</docs-def><span block>GUI配置</span>: api/type/GUIConfig.md
     - <icon name="module private">实时语言通信</icon>:
       - <docs-def>rtc</docs-def> & <docs-def>GameRTC</docs-def> <span block>实时语言通信模块</span>: api/rtc.md
       - <docs-def>GameRTCChannel</docs-def> <span block>RTC通道</span>: api/class/RTCChannel.md
