@@ -96,9 +96,14 @@ summary {
   width: fit-content;
 }
 
+.voxel-name code {
+  border-radius: 8px;
+  padding: 2px 5px 2px 5px;
+}
+
 /*文字发光效果 用于方块速查表*/
 .light {
-  text-shadow: 0px 0px 4px yellow;
+  text-shadow: 0px 0px 10px yellow;
 }
 
 /*文字加粗效果 用于方块速查表*/
@@ -109,7 +114,7 @@ summary {
 /*方块速查表中液体方块的显示*/
 .fluid *,
 .fluidText {
-  border-bottom: 2px solid #008cff;
+  border-bottom: 3px solid #008cff;
 }
 
 /*方块速查表中动态方块的显示*/
@@ -119,7 +124,6 @@ summary {
   border-right: 2px solid #ff0000;
   background: linear-gradient(30deg, #00ff0010 0%, #ff000010 100%);
 }
-
 
 .new:not(blockquote) {
   transition: border-width 0.25s;
@@ -258,7 +262,7 @@ blockquote.error:not(.new:not(:hover), .revised:not(:hover)) {
 .code blockquote {
   margin-top: 0.4em;
   margin-bottom: 0.4em;
-    font-family: Maple Mono NF CN Light;
+  font-family: Maple Mono NF CN Light;
   font-feature-settings: 'calt', 'ss03', 'ss05', 'ss07', 'ss08', 'zero';
   font-size: 14px;
 
@@ -269,10 +273,10 @@ code {
   font-feature-settings: 'calt', 'ss03', 'ss05', 'ss07', 'ss08', 'zero';
 }
 
-.code blockquote *{
+.code blockquote * {
   transition: font-size 0.2s;
 }
 
-.code blockquote *:hover{
+.code blockquote *:hover {
   font-size: 16px;
 }

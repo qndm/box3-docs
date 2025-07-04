@@ -2,132 +2,132 @@
     "A": [
         37,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "B": [
         39,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "C": [
         41,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "D": [
         43,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "E": [
         45,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "F": [
         47,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "G": [
         49,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "H": [
         51,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "I": [
         53,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "J": [
         55,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "K": [
         57,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "L": [
         59,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "M": [
         61,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "N": [
         63,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "O": [
         65,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "P": [
         67,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "Q": [
         69,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "R": [
         71,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "S": [
         73,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "T": [
         75,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "U": [
         77,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "V": [
         79,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "W": [
         81,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "X": [
         83,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "Y": [
         85,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "Z": [
         87,
         "字母",
-        ".light"
+        ":light=#30C0D0"
     ],
     "acacia": [
         133,
@@ -136,7 +136,7 @@
     "add": [
         3,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "air": [
         0,
@@ -150,22 +150,22 @@
     "ampersand": [
         485,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "asterisk": [
         487,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "at": [
         489,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "backslash": [
         491,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "bamboo": [
         574,
@@ -199,12 +199,12 @@
     "blue": [
         363,
         "颜色",
-        "-color=#0000ff"
+        ":color=#0000ff"
     ],
     "blue_decorative_light": [
         566,
         "建筑",
-        ".light",
+        ":light=#0090E0",
         ".animation"
     ],
     "blue_gift": [
@@ -226,7 +226,7 @@
     "blue_light": [
         291,
         "光源",
-        ".light"
+        ":light=#305090"
     ],
     "blue_surface_01": [
         349,
@@ -343,12 +343,12 @@
     "bracket_close": [
         493,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "bracket_open": [
         495,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "brick_01": [
         637,
@@ -379,7 +379,7 @@
     "caret": [
         497,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "carpet_01": [
         195,
@@ -436,7 +436,7 @@
     "coffee": [
         428,
         "食物",
-        ".fluid"
+        ":fluid=rgba(0, 0, 0, 0.99)"
     ],
     "coffee_gray": [
         379,
@@ -446,7 +446,7 @@
     "colon": [
         499,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "color_glass": [
         172,
@@ -455,7 +455,7 @@
     "comma": [
         501,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "conveyor": [
         471,
@@ -465,17 +465,15 @@
     "crane_lantern": [
         405,
         "建筑",
-        ".light"
+        ":light=#606060"
     ],
     "crane_roof_01": [
         401,
-        "建筑",
-        "1"
+        "建筑"
     ],
     "crane_roof_02": [
         403,
-        "建筑",
-        "2"
+        "建筑"
     ],
     "cross_window": [
         162,
@@ -589,27 +587,27 @@
     "divide": [
         9,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "dollar": [
         503,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "eight": [
         33,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "equal": [
         11,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "exclamation_mark": [
         13,
         "符号",
-        ".light"
+        ":light=#7AC030"
     ],
     "express_box": [
         479,
@@ -626,12 +624,12 @@
     "five": [
         27,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "four": [
         25,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "fu": [
         577,
@@ -656,7 +654,7 @@
     "grape_juice": [
         420,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 25, 255, 0.6)"
     ],
     "grass": [
         127,
@@ -677,14 +675,13 @@
     "greater_than": [
         505,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "green_decorative_light": [
         568,
         "建筑",
-        ".light",
         ".animation",
-        ".light"
+        ":light=#30B030"
     ],
     "green_glass": [
         278,
@@ -697,7 +694,7 @@
     "green_light": [
         287,
         "光源",
-        ".light"
+        ":light=#30C000"
     ],
     "greenbelt_L": [
         319,
@@ -734,22 +731,22 @@
     "indigo_light": [
         289,
         "光源",
-        ".light"
+        ":light=#40F0F0"
     ],
     "lab_lamp_01": [
         591,
         "建筑",
-        ".light"
+        ":light=#B0B0B0"
     ],
     "lab_lamp_02": [
         593,
         "建筑",
-        ".light"
+        ":light=#B0B0B0"
     ],
     "lab_lamp_03": [
         595,
         "建筑",
-        ".light"
+        ":light=#705000"
     ],
     "lab_material_01": [
         597,
@@ -770,7 +767,7 @@
     "lab_material_05": [
         605,
         "建筑",
-        ".light"
+        ":light=#507070"
     ],
     "lab_material_06": [
         607,
@@ -863,13 +860,13 @@
     "ledfloor01": [
         473,
         "建筑",
-        ".light",
+        ":light=#2090D0",
         ".animation"
     ],
     "ledfloor02": [
         475,
         "建筑",
-        ".light",
+        ":light=#3000A0",
         ".animation"
     ],
     "lemon": [
@@ -880,12 +877,12 @@
     "lemon_juice": [
         418,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 255, 25, 0.6)"
     ],
     "less_than": [
         507,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "light_blue_grass": [
         677,
@@ -927,7 +924,7 @@
     "lime_juice": [
         414,
         "食物",
-        ".fluid"
+        ":fluid=rgba(25, 255, 25, 0.6)"
     ],
     "macaroon": [
         339,
@@ -976,22 +973,22 @@
     "milk": [
         424,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 255, 255, 0.95)"
     ],
     "mint_green": [
         395,
         "颜色",
-        ":color=#ffd541"
+        ":color=#b7ffa4"
     ],
     "mint_green_light": [
         297,
         "光源",
-        ".light"
+        ":light=#90E0C0"
     ],
     "multiply": [
         7,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "navajo_white": [
         385,
@@ -1001,7 +998,7 @@
     "nine": [
         35,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "olive_green": [
         99,
@@ -1011,7 +1008,7 @@
     "one": [
         19,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "orange": [
         119,
@@ -1029,12 +1026,12 @@
     "orange_juice": [
         422,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 229, 25, 0.6)"
     ],
     "orange_light": [
         283,
         "光源",
-        ".light"
+        ":light=#E07A00"
     ],
     "orange_red": [
         387,
@@ -1088,7 +1085,7 @@
     "palace_lamp": [
         307,
         "建筑",
-        ".light"
+        ":light=#F0C090"
     ],
     "palace_roof": [
         255,
@@ -1110,27 +1107,27 @@
     "paren_close": [
         511,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "paren_open": [
         509,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "peach_juice": [
         430,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 127, 140, 0.498)"
     ],
     "percent": [
         513,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "period": [
         515,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "peru": [
         381,
@@ -1157,7 +1154,7 @@
     "pink_light": [
         295,
         "光源",
-        ".light"
+        ":light=#E0A0D0"
     ],
     "plank_01": [
         137,
@@ -1202,7 +1199,7 @@
     "pound": [
         517,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "powder_blue": [
         93,
@@ -1219,7 +1216,8 @@
     ],
     "purple": [
         293,
-        "光源"
+        "光源",
+        ":light=#8010F0"
     ],
     "purple_grass": [
         665,
@@ -1246,12 +1244,12 @@
     "question_mark": [
         15,
         "符号",
-        ".light"
+        ":light=#7AC030"
     ],
     "quotation_mark": [
         519,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "rainbow_cube": [
         581,
@@ -1278,7 +1276,7 @@
     "red_decorative_light": [
         570,
         "建筑",
-        ".light",
+        ":light=#D03010",
         ".animation"
     ],
     "red_gift": [
@@ -1292,7 +1290,7 @@
     "red_light": [
         281,
         "光源",
-        ".light"
+        ":light=#E00000"
     ],
     "rock": [
         359,
@@ -1338,12 +1336,12 @@
     "semicolon": [
         521,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "seven": [
         31,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "sienna": [
         393,
@@ -1353,7 +1351,7 @@
     "six": [
         29,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "sky_blue": [
         91,
@@ -1363,7 +1361,7 @@
     "slash": [
         523,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "snow": [
         169,
@@ -1380,7 +1378,7 @@
     "snowflake_lamp": [
         565,
         "建筑",
-        ".light",
+        ":light=#3070D0",
         ".animation"
     ],
     "snowland": [
@@ -1398,7 +1396,7 @@
     "soy_sauce": [
         426,
         "食物",
-        ".fluid"
+        ":fluid=rgba(25, 12, 2, 0.95)"
     ],
     "special_grass_01": [
         701,
@@ -1503,7 +1501,7 @@
     "star_lamp": [
         562,
         "建筑",
-        ".light",
+        ":light=#F0C060",
         ".animation"
     ],
     "stone": [
@@ -1545,7 +1543,7 @@
     "strawberry_juice": [
         412,
         "食物",
-        ".fluid"
+        ":fluid=rgba(255, 25, 25, 0.6)"
     ],
     "stripe_01": [
         185,
@@ -1570,7 +1568,7 @@
     "subtract": [
         5,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "television": [
         481,
@@ -1579,12 +1577,12 @@
     "three": [
         23,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "tilde": [
         525,
         "符号",
-        ".light"
+        ":light=#F07030"
     ],
     "toolbox": [
         647,
@@ -1606,17 +1604,17 @@
     "two": [
         21,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ],
     "warm_yellow_light": [
         301,
         "光源",
-        ".light"
+        ":light=#E0C090"
     ],
     "water": [
         364,
         "自然",
-        ".fluid"
+        ":fluid=rgba(25, 204, 255, 0.2)"
     ],
     "white": [
         177,
@@ -1630,7 +1628,7 @@
     "white_light": [
         299,
         "光源",
-        ".light"
+        ":light=#C0C0C0"
     ],
     "window": [
         160,
@@ -1667,8 +1665,9 @@
     ],
     "yellow_decorative_light": [
         572,
-        "光源",
-        ".light"
+        "建筑",
+        ":light=#F0D040",
+        ".animation"
     ],
     "yellow_grass": [
         477,
@@ -1682,11 +1681,11 @@
     "yellow_light": [
         285,
         "光源",
-        ".light"
+        ":light=#F0F400"
     ],
     "zero": [
         17,
         "数字",
-        ".light"
+        ":light=#E0B010"
     ]
 }
