@@ -1,8 +1,8 @@
 !!! info "关于<docs-def allow-apis="proOnly">remoteChannel</docs-def>"
     <docs-def allow-apis="proOnly">remoteChannel</docs-def>在客户端和服务端都有，但其实是两个完全不同的类的实例化对象
 
-:   <docs-def allow-apis="proOnly">ServerRemoteChannel</docs-def>是服务端中用于和客户端通信的类  
-    <docs-def allow-apis="proOnly">ServerRemoteChannel</docs-def>无法（很难）实例化，但存在一个全局的实例化对象<docs-def allow-apis="proOnly">remoteChannel</docs-def>
+<docs-def allow-apis="proOnly">ServerRemoteChannel</docs-def>是服务端中用于和客户端通信的类  
+<docs-def allow-apis="proOnly">ServerRemoteChannel</docs-def>无法（很难）实例化，但存在一个全局的实例化对象<docs-def allow-apis="proOnly">remoteChannel</docs-def>
 
 !!! note "说明"
 

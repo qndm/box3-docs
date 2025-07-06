@@ -1,13 +1,5 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
-:   [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/vvcmhushslg1k9ig#Yx6zE)~~藏得真深~~  
-    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/azxgcc43ibscl5z1)
-
-[](Box3EventFuture) / [](GameEventFuture)是使用[](Promise)监听事件的方式  
-[](Box3EventFuture) / [](GameEventFuture)用于监听单次事件，当监听到事件时，会将[EventType](type)返回
+<docs-def>Box3EventFuture</docs-def> / <docs-def>GameEventFuture</docs-def>是使用<docs-def>Promise</docs-def>监听事件的方式  
+<docs-def>Box3EventFuture</docs-def> / <docs-def>GameEventFuture</docs-def>用于监听单次事件，当监听到事件时，会将<docs-icon icon="type">EventType</docs-icon>返回
 
 !!! warning "警告"
 
@@ -17,18 +9,19 @@
 
 !!! tip "提示"
 
-    在使用此API前，建议先了解[](Promise)
+    在使用此API前，建议先了解<docs-def>Promise</docs-def>
 
-[](Box3EventFuture) / [](GameEventFuture)<[EventType](type)> = ([filter](callbackArg)?: ([event](arg): [EventType](type)) => [](boolean)) => [](Promise)<[EventType](type)>
-:   使用[](Promise)，等待事件触发
+> !p EventFuture< EventType#type> = (filter#callbackArg?: (event: EventType#type) => boolean) => Promise< EventType#type>
+
+:   使用<docs-def>Promise</docs-def>，等待事件触发
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [filter](callbackArg)? | ([event](arg): [EventType](type)) => [](boolean) | 选填，用于检查事件是否满足条件<br>若该回调函数返回`#!javascript true`，[](Promise)就会兑现；否则继续等待下一次事件触发<br>若不填，则只要事件触发就会兑现[](Promise) |
+    | <docs-icon icon="callbackArg">filter</docs-icon>? | (<docs-icon icon="arg">event</docs-icon>: <docs-icon icon="type">EventType</docs-icon>) => <docs-def>boolean</docs-def> | 选填，用于检查事件是否满足条件<br>若该回调函数返回`#!javascript true`，<docs-def>Promise</docs-def>就会兑现；否则继续等待下一次事件触发<br>若不填，则只要事件触发就会兑现<docs-def>Promise</docs-def> |
 
     | 返回值 | 类型 | 说明 |
     | :- | :- | :- |
-    | | [](Promise)<[EventType](type)> | 一个[](Promise)。当符合[filter](callbackArg)的事件被触发，这个[](Promise)就会兑现 |
+    | | <docs-def>Promise</docs-def><<docs-icon icon="type">EventType</docs-icon>> | 一个<docs-def>Promise</docs-def>。当符合<docs-icon icon="callbackArg">filter</docs-icon>的事件被触发，这个<docs-def>Promise</docs-def>就会兑现 |
 
     ??? example "示例"
 
@@ -51,7 +44,7 @@
                 console.log(entity.player.name, '按下Action1键');
             });
             ```
-        === "[](Promise)写法"
+        === "<docs-def>Promise</docs-def>写法"
 
             ```javascript
             // 等待进入的玩家按下Action1键

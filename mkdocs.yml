@@ -239,7 +239,7 @@ nav:
         - <docs-def>GameSkin</docs-def> <span block>皮肤</span>: api/type/Skin.md
         - <docs-def>GameSkinValue</docs-def> <span block>皮肤值</span>: api/type/SkinValue.md
         - <docs-def>GameSkinInvisible</docs-def> <span block>皮肤隐藏设置</span>: api/type/SkinInvisible.md
-      - <icon name="namespace">聊天 输入</icon>:
+      - <icon name="namespace">聊天/输入</icon>:
         - <docs-def>Box3ChatEvent</docs-def> / <docs-def>GameChatEvent</docs-def> <span block>聊天事件</span>: api/event/ChatEvent.md
         - <docs-def>Box3ClickEvent</docs-def> / <docs-def>GameClickEvent</docs-def> <span block>点击事件</span>: api/event/ClickEvent.md
         - <docs-def>Box3InputEvent</docs-def> / <docs-def>GameInputEvent</docs-def> <span block>输入事件</span>: api/event/InputEvent.md
@@ -256,7 +256,7 @@ nav:
         - <docs-def>Box3DialogType</docs-def> / <docs-def>GameDialogType</docs-def> <span block>对话框类型</span>: api/enum/DialogType.md
         - <docs-def>Box3DialogCall</docs-def> / <docs-def>GameDialogCall</docs-def> <span block>对话框调用</span>: api/class/Player/#Box3DialogCall
         - <docs-def>Box3DialogParams</docs-def> / <docs-def>GameDialogParams</docs-def> <span block>对话框配置</span>: api/type/DialogParams.md
-        - <docs-def>Box3DialogSelectResponse</docs-def> / <docs-def>GameDialogSelectResponse</docs-def> <span block>选择对话框结果</span>: api/type/DialogSelectResponse.md
+        - <docs-def>Box3DialogSelectResponse</docs-def> / <docs-def>GameDialogSelectResponse</docs-def> <span block>选择对话框回应</span>: api/type/DialogSelectResponse.md
         - <docs-def>Box3DialogCancelOption</docs-def> / <docs-def>GameDialogCancelOption</docs-def> <span block>对话框取消选项</span>: api/type/DialogCancelOption.md
       - <span class="pro-only"><icon name="namespace">商业化</icon></span>:
         - <docs-def>GamePurchaseSuccessEvent</docs-def> <span block>购买事件</span>: api/event/PurchaseSuccessEvent.md

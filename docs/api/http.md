@@ -3,8 +3,8 @@
     该API建议在Arena编辑器使用  
     旧版编辑器上也有此API，但可用性未知
 
-:   <docs-def>Box3HttpAPI</docs-def> / <docs-def>GameHttpAPI</docs-def>是实现外部网络请求的类  
-    <docs-def>Box3HttpAPI</docs-def> / <docs-def>GameHttpAPI</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>http</docs-def>
+<docs-def>Box3HttpAPI</docs-def> / <docs-def>GameHttpAPI</docs-def>是实现外部网络请求的类  
+<docs-def>Box3HttpAPI</docs-def> / <docs-def>GameHttpAPI</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>http</docs-def>
 
 ## 属性
 > !p @oldOnly url#property.protected: string

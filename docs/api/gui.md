@@ -1,5 +1,5 @@
-:   <docs-def>GameGUI</docs-def>是在 **服务端** 控制客户端GUI的[类](class)  
-    <docs-def>GameGUI</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>gui</docs-def>
+<docs-def>GameGUI</docs-def>是在 **服务端** 控制客户端GUI的[类](class)  
+<docs-def>GameGUI</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>gui</docs-def>
 
 !!! bug "内容缺失"
 

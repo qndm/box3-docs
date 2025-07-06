@@ -1221,6 +1221,14 @@
         "LoggerMethod": [
             "Box3LoggerMethod",
             "GameLoggerMethod"
+        ],
+        "EventHandlerToken": [
+            "Box3EventHandlerToken",
+            "GameEventHandlerToken"
+        ],
+        "EventFuture": [
+            "Box3EventFuture",
+            "GameEventFuture"
         ]
     },
     "config": {

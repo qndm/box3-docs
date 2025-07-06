@@ -1,9 +1,9 @@
 !!! info "<docs-def>console</docs-def>并非Box3独有"
 
-:   [查阅MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/console)
+[查阅MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/console)
 
-:   <docs-def>GameConsole</docs-def>是Arena编辑器中向控制台输出信息的[类](class)，且无法（很难）实例化
-    <docs-def>console</docs-def>只是一个单纯的对象，没有对应的类
+<docs-def>GameConsole</docs-def>是Arena编辑器中向控制台输出信息的类，且无法（很难）实例化
+<docs-def>console</docs-def>只是一个单纯的对象，没有对应的类
 
 :   以下内容针对<docs-def>console</docs-def>编写
 

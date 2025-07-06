@@ -1,47 +1,41 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-:   [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/pg6y9byqbg6oo9ag)  
-    [查阅官方文档（Arena）](https://box3.yuque.com/staff-khn556/wupvz3/re5g6gz99r48fzi9)  
-    [查阅社区文档（Arena）](https://www.yuque.com/box3lab/api/fsvdra8u7z6iovx8#jneYE)
-
-:   实体动画关键帧
+实体动画关键帧
 
 ## 属性
-- [duration](property): [](number) 该帧的持续时长，这不是一个绝对的值，实际值还要计算其他帧的持续时间  
+- <docs-icon icon="property">duration</docs-icon>: <docs-def>number</docs-def> 该帧的持续时长，这不是一个绝对的值，实际值还要计算其他帧的持续时间  
 该值越大，能在整个动画中占据的时间就越大
-- [easeIn](property): [](Box3Easing) / [](GameEasing) 该帧缓入效果
-- [easeOut](property): [](Box3Easing) / [](GameEasing) 该帧缓出效果
-- <property>position</property>: [](Box3Vector3) / [](GameVector3) 实体的位置
-- <property>velocity</property>: [](Box3Vector3) / [](GameVector3) 实体的速度
-- <property>collides</property>: [](boolean) 实体是否可碰撞
-- <property>fixed</property>: [](boolean) 实体的位置是否固定不动
-- <property>gravity</property>: [](boolean) 实体是否会因重力下落
-- <property>mesh</property>: [](string) 实体的外形。格式为`#!javascript 'mesh/*.vb'`
-- <property>meshColor</property>: [](Box3RGBAColor) / [](GameRGBAColor) 实体的颜色，[r](property)、[g](property)、[b](property)、[a](property)的范围都是`#!javascript 0`~`#!javascript 1`
-- <property>meshScale</property>: [](Box3Vector3) / [](GameVector3) 实体的缩放比例。其[x](property)、[y](property)、[z](property)为`#!javascript 1`时，一个像素点为一个方块大
-- <property>meshOrientation</property>: [](Box3Quaternion) / [](GameQuaternion) 实体的旋转角度
-- <property>meshOffset</property>: [](Box3Vector3) / [](GameVector3) 实体的位移
-- <property>meshMetalness</property>: [](number) 实体的金属感
-- <property>meshEmissive</property>: [](number) 实体的发光度
-- <property>meshShininess</property>: [](number) 实体的反光度
-- <property>mass</property>: [](number) 实体质量
-- <property>friction</property>: [](number) 实体的摩擦系数，数值越大，摩擦力越大
-- <property>restitution</property>: [](number) 实体的弹性，数值越大，弹性越大
-- <property>interactRadius</property>: [](number) 进入实体互动的范围。范围越小，需更靠近。
-- <property>interactHint</property>: [](string) 进入实体互动范围时，实体身上出现的提示文本
-- <property>particleRate</property>: [](number) 实体每秒产生粒子的数量
-- <property>particleRateSpread</property>: [](number) 增加实体每秒产生粒子数量的随机性
-- <property>particleLimit</property>: [](number) 实体可产生粒子总数的上限
-- <property>particleLifetime</property>: [](number) number 实体所产生粒子能存活的秒数
-- <property>particleLifetimeSpread</property>: [](number) 增加实体所产生粒子存活时间的随机性
-- <property>particleSize</property>: [](number)[] 实体所产生粒子的大小变化，数组中有1~5个元素
-- <property>particleSizeSpread</property>: [](number) 增加实体所产生粒子大小的随机性
-- <property>particleColor</property>[](Box3RGBColor)[] / [](GameRGBColor)[] 实体所产生粒子的颜色变化，数组中有1~5个元素，[r](property)、[g](property)、[b](property)的范围都是`#!javascript 0`~`#!javascript 1`
-- <property>particleVelocity</property>[](Box3Vector3) / [](GameVector3) 实体所产生粒子的初始速度
-- <property>particleVelocitySpread</property>[](Box3Vector3) / [](GameVector3) 增加实体所产生粒子初始速度的随机性
-- <property>particleDamping</property>: [](number) 实体所产生粒子的阻尼系数
-- <property>particleAcceleration</property>[](Box3Vector3) / [](GameVector3) 实体所产生粒子的加速度
-- <property>particleNoise</property>: [](number) 实体所产生粒子摆动的最大幅度
-- <property>particleNoiseFrequency</property>: [](number) 实体所产生粒子摆动的频率
-- [particleTarget](hiddenProperty): [](Box3Entity) / [](GameEntity) | [](null) 粒子目标实体
-- [particleTargetWeight](hiddenProperty): [](number) 粒子目标权重
+- <docs-icon icon="property">easeIn</docs-icon>: <docs-def>Box3Easing</docs-def> / <docs-def>GameEasing</docs-def> 该帧缓入效果
+- <docs-icon icon="property">easeOut</docs-icon>: <docs-def>Box3Easing</docs-def> / <docs-def>GameEasing</docs-def> 该帧缓出效果
+- <docs-icon icon="property">position</docs-icon>: <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体的位置
+- <docs-icon icon="property">velocity</docs-icon>: <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体的速度
+- <docs-icon icon="property">collides</docs-icon>: <docs-def>boolean</docs-def> 实体是否可碰撞
+- <docs-icon icon="property">fixed</docs-icon>: <docs-def>boolean</docs-def> 实体的位置是否固定不动
+- <docs-icon icon="property">gravity</docs-icon>: <docs-def>boolean</docs-def> 实体是否会因重力下落
+- <docs-icon icon="property">mesh</docs-icon>: <docs-def>string</docs-def> 实体的外形。格式为`#!javascript 'mesh/*.vb'`
+- <docs-icon icon="property">meshColor</docs-icon>: <docs-def>Box3RGBAColor</docs-def> / <docs-def>GameRGBAColor</docs-def> 实体的颜色，<docs-icon icon="property">r</docs-icon>、<docs-icon icon="property">g</docs-icon>、<docs-icon icon="property">b</docs-icon>、<docs-icon icon="property">a</docs-icon>的范围都是`#!javascript 0`~`#!javascript 1`
+- <docs-icon icon="property">meshScale</docs-icon>: <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体的缩放比例。其<docs-icon icon="property">x</docs-icon>、<docs-icon icon="property">y</docs-icon>、<docs-icon icon="property">z</docs-icon>为`#!javascript 1`时，一个像素点为一个方块大
+- <docs-icon icon="property">meshOrientation</docs-icon>: <docs-def>Box3Quaternion</docs-def> / <docs-def>GameQuaternion</docs-def> 实体的旋转角度
+- <docs-icon icon="property">meshOffset</docs-icon>: <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体的位移
+- <docs-icon icon="property">meshMetalness</docs-icon>: <docs-def>number</docs-def> 实体的金属感
+- <docs-icon icon="property">meshEmissive</docs-icon>: <docs-def>number</docs-def> 实体的发光度
+- <docs-icon icon="property">meshShininess</docs-icon>: <docs-def>number</docs-def> 实体的反光度
+- <docs-icon icon="property">mass</docs-icon>: <docs-def>number</docs-def> 实体质量
+- <docs-icon icon="property">friction</docs-icon>: <docs-def>number</docs-def> 实体的摩擦系数，数值越大，摩擦力越大
+- <docs-icon icon="property">restitution</docs-icon>: <docs-def>number</docs-def> 实体的弹性，数值越大，弹性越大
+- <docs-icon icon="property">interactRadius</docs-icon>: <docs-def>number</docs-def> 进入实体互动的范围。范围越小，需更靠近。
+- <docs-icon icon="property">interactHint</docs-icon>: <docs-def>string</docs-def> 进入实体互动范围时，实体身上出现的提示文本
+- <docs-icon icon="property">particleRate</docs-icon>: <docs-def>number</docs-def> 实体每秒产生粒子的数量
+- <docs-icon icon="property">particleRateSpread</docs-icon>: <docs-def>number</docs-def> 增加实体每秒产生粒子数量的随机性
+- <docs-icon icon="property">particleLimit</docs-icon>: <docs-def>number</docs-def> 实体可产生粒子总数的上限
+- <docs-icon icon="property">particleLifetime</docs-icon>: <docs-def>number</docs-def> number 实体所产生粒子能存活的秒数
+- <docs-icon icon="property">particleLifetimeSpread</docs-icon>: <docs-def>number</docs-def> 增加实体所产生粒子存活时间的随机性
+- <docs-icon icon="property">particleSize</docs-icon>: <docs-def>number</docs-def>[] 实体所产生粒子的大小变化，数组中有$1$ ~ $5$个元素
+- <docs-icon icon="property">particleSizeSpread</docs-icon>: <docs-def>number</docs-def> 增加实体所产生粒子大小的随机性
+- <docs-icon icon="property">particleColor</docs-icon><docs-def>Box3RGBColor</docs-def>[] / <docs-def>GameRGBColor</docs-def>[] 实体所产生粒子的颜色变化，数组中有$1$ ~ $5$个元素，<docs-icon icon="property">r</docs-icon>、<docs-icon icon="property">g</docs-icon>、<docs-icon icon="property">b</docs-icon>的范围都是`#!javascript 0` ~ `#!javascript 1`
+- <docs-icon icon="property">particleVelocity</docs-icon><docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体所产生粒子的初始速度
+- <docs-icon icon="property">particleVelocitySpread</docs-icon><docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 增加实体所产生粒子初始速度的随机性
+- <docs-icon icon="property">particleDamping</docs-icon>: <docs-def>number</docs-def> 实体所产生粒子的阻尼系数
+- <docs-icon icon="property">particleAcceleration</docs-icon><docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> 实体所产生粒子的加速度
+- <docs-icon icon="property">particleNoise</docs-icon>: <docs-def>number</docs-def> 实体所产生粒子摆动的最大幅度
+- <docs-icon icon="property">particleNoiseFrequency</docs-icon>: <docs-def>number</docs-def> 实体所产生粒子摆动的频率
+- <docs-icon icon="property.hidden">particleTarget</docs-icon>: <docs-def>Box3Entity</docs-def> / <docs-def>GameEntity</docs-def> | <docs-def>null</docs-def> 粒子目标实体
+- <docs-icon icon="property.hidden">particleTargetWeight</docs-icon>: <docs-def>number</docs-def> 粒子目标权重

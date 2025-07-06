@@ -7,10 +7,8 @@
 
     编者注：为了测试RTC损失一张空白地图，等了一天都没用
 
-: [查阅社区文档](https://www.yuque.com/box3lab/api/hwzgw2br9ri4r023)
-
-:   <docs-def>GameRTC</docs-def>是实现游戏内创建实时语音通信的类  
-    <docs-def>GameRTC</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>rtc</docs-def>
+<docs-def>GameRTC</docs-def>是实现游戏内创建实时语音通信的类  
+<docs-def>GameRTC</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>rtc</docs-def>
 
 ### 方法
 > !p createChannel(channelId?: string): Promise< GameRTCChannel>
