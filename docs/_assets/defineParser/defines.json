@@ -174,7 +174,7 @@
         },
         "common": {
             "resources": [
-                "object.protected",
+                "object.protected hidden",
                 "api/resources"
             ],
             "world": [
@@ -194,7 +194,7 @@
                 "api/storage"
             ],
             "http": [
-                "object.protected",
+                "object.protected hidden",
                 "api/http"
             ]
         },
@@ -464,15 +464,15 @@
                 "api/class/HttpRequest"
             ],
             "Box3HttpResponse": [
-                "class",
+                "class.hidden",
                 "api/class/HttpResponse"
             ],
             "Box3HttpFetchResponse": [
-                "class",
+                "class.hidden",
                 "api/class/HttpFetchResponse"
             ],
             "Box3LoggerMethod": [
-                "type",
+                "type.hidden",
                 "api/type/LoggerMethod"
             ],
             "Box3EntityContact": [
@@ -826,67 +826,67 @@
                 "api/gui"
             ],
             "GameGUIEventListener": [
-                "interface",
+                "interface.hidden",
                 "api/type/GUIEventListener"
             ],
             "GUIConfig": [
-                "type",
+                "type.hidden",
                 null
             ],
             "GUIConfigItem": [
-                "interface",
+                "interface.hidden",
                 null
             ],
             "GameGUIEvent": [
-                "event",
+                "event.hidden",
                 null
             ],
             "rtc": [
-                "object.protected",
+                "object.protected hidden",
                 "api/rtc"
             ],
             "GameRTC": [
-                "class",
+                "class.hidden",
                 "api/rtc"
             ],
             "GameRTCChannel": [
-                "class",
+                "class.hidden",
                 "api/class/RTCChannel"
             ],
             "GameHttpAPI": [
-                "class",
+                "class.hidden",
                 "api/http"
             ],
             "GameHttpFetchResponse": [
-                "class",
+                "class.hidden",
                 "api/class/HttpFetchResponse"
             ],
             "GameHttpFetchRequestOptions": [
-                "type",
+                "type.hidden",
                 "api/type/HttpFetchRequestOptions"
             ],
             "GameHttpFetchHeaders": [
-                "type",
+                "type.hidden",
                 "api/type/HttpFetchHeaders"
             ],
             "GameHttpHandler": [
-                "type",
+                "type.hidden",
                 "api/type/HttpHandler"
             ],
             "GameHttpRequest": [
-                "class",
+                "class.hidden",
                 "api/class/HttpRequest"
             ],
             "GameHttpResponse": [
-                "class",
+                "class.hidden",
                 "api/class/HttpResponse"
             ],
             "GameConsole": [
-                "class",
+                "class.hidden",
                 "api/console"
             ],
             "GameLoggerMethod": [
-                "type",
+                "type.hidden",
                 "api/type/LoggerMethod"
             ],
             "GameEntityContact": [

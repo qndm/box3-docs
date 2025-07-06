@@ -1,8 +1,5 @@
-!!! info "Arena独有"
-    该API仅在Arena编辑器使用
-
-:   [](GameStorage)是在Arena地图进行数据库操作的类
-    [](GameStorage)无法（很难）被实例化，但在全局存在一个单例对象[](storage)
+:   <docs-def>GameStorage</docs-def>是在Arena地图进行数据库操作的类
+    <docs-def>GameStorage</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>storage</docs-def>
 
 
 ## 方法

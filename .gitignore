@@ -6,3 +6,4 @@ docs/learn/arithmetic/*.py
 docs/learn/arithmetic/*.cpp
 docs/learn/arithmetic/*.exe
 *.test.*
+*.bak.*

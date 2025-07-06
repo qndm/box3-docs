@@ -9,7 +9,7 @@
 
 : [查阅社区文档](https://www.yuque.com/box3lab/api/hwzgw2br9ri4r023)
 
-:   <docs-def>GameRTC</docs-def>是实现游戏内创建实时语音通信的[类](class)  
+:   <docs-def>GameRTC</docs-def>是实现游戏内创建实时语音通信的类  
     <docs-def>GameRTC</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>rtc</docs-def>
 
 ### 方法
@@ -19,4 +19,4 @@
 
     | 参数 | 类型 | 说明 |
     | - | - | - |
-    | [channelId](arg)? | [](string) | 选填，RTC通道id |
+    | <docs-icon icon="arg">channelId</docs-icon>? | [](string) | 选填，RTC通道id |

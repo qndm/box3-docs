@@ -51,7 +51,7 @@
 
 :   !!! quote ""
 
-        [exports](const) 变量在模块的文件级作用域内可用，并在评估模块之前被分配 [module](const).[exports](property) 的值
+        <docs-icon icon="variable.protected">exports</docs-icon> 变量在模块的文件级作用域内可用，并在评估模块之前被分配 <docs-icon icon="variable.protected">module</docs-icon>.<docs-icon icon="property">exports</docs-icon> 的值
 
         ——引用自<https://nodejs.cn/api/modules.html#exports-%E5%BF%AB%E6%8D%B7%E6%96%B9%E5%BC%8F>
 
@@ -102,7 +102,7 @@
             })();
             ```
 
-        === "[](Promise)写法"
+        === "<docs-def>Promise</docs-def>写法"
 
             ```javascript
             console.log('倒计时');
@@ -126,7 +126,7 @@
             });
             ```
 
-        === "[](Promise)+`#!javascript for`写法"
+        === "<docs-def>Promise</docs-def>+`#!javascript for`写法"
 
             ```javascript
             console.log('倒计时');

@@ -1,8 +1,3 @@
-<a href="https://github.com/qndm"><img src="https://img.shields.io/badge/%E8%B4%A1%E7%8C%AE%E8%80%85-qndm-blue"></img></a>
-
-!!! info "这是一个服务端API"
-    该API仅在服务端脚本使用
-
 !!! info "不适用于Arena编辑器"
     该API仅限旧版编辑器  
     若在Arena编辑器使用，会得到一条错误信息：`Error: sql error: Error: storage disabled`
@@ -14,17 +9,15 @@
     - [SQLite - 菜鸟教程](https://www.runoob.com/sqlite/sqlite-tutorial.html)
     - [PostgreSQL - 菜鸟教程](https://www.runoob.com/postgresql/postgresql-tutorial.html)
 
-: [查阅官方文档](https://box3.yuque.com/org-wiki-box3-ev7rl4/guide/hc069ctabo29naig)  
-
-[](Box3Database) / [](GameDatabase)无法（很难）被实例化，但在全局存在一个单例对象[](db)  
-[](db)对象是整个Box3 Database API的入口。在使用数据库之前，需要先掌握一些关于操作数据库的基础知识。
+<docs-def>Box3Database</docs-def> / <docs-def>GameDatabase</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>db</docs-def>  
+<docs-def>db</docs-def>对象是整个Box3 Database API的入口。在使用数据库之前，需要先掌握一些关于操作数据库的基础知识。
 
 ## 方法
 > !p sql(sql: string[], ...params: (number | string | Uint8Array | boolean | null)[]): QueryResult
 
 :   对数据库执行SQL语句  
     有两种调用方法，一种是将语句包含在反引号 ``` `` ``` 里面，另一种是常规的方法调用  
-    [sql](method)方法使用[字符串模板](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)，因此使用反引号包裹使用上最方便，例如：
+    <docs-icon icon="method">sql</docs-icon>方法使用[字符串模板](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Template_literals)，因此使用反引号包裹使用上最方便，例如：
 
     ```javascript
     db.sql`[这里填入SQL代码]`;
@@ -44,7 +37,7 @@
 
     ??? example "示例"
 
-        === "[await](keyword) 写法"
+        === "<docs-icon icon="keyword">await</docs-icon> 写法"
 
             注意：以下的`#!javascript await` 写法都没有错误处理，只是最简单的示例，需要自行写`try...catch`
 
@@ -64,10 +57,10 @@
             })();
             ```
 
-        === "[](Box3QueryResult) 写法"
+        === "<docs-def>Box3QueryResult</docs-def> 写法"
 
-            注意：`#!javascript Box3QueryResult` 写法无需再写`try...catch`，因为错误一般会被[](Box3QueryResult)捕捉（除了语法等错误），`try...catch`无法捕获  
-            详见[](Box3QueryResult)
+            注意：`#!javascript Box3QueryResult` 写法无需再写`try...catch`，因为错误一般会被<docs-def>Box3QueryResult</docs-def>捕捉（除了语法等错误），`try...catch`无法捕获  
+            详见<docs-def>Box3QueryResult</docs-def>
 
             ```javascript
             // 获取数据表 users 中所有内容

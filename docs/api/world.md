@@ -2,11 +2,11 @@
 可以通过<docs-def>world</docs-def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
 
 ## 常用
-- [<method>onTick</method>](#c1)
-- [<method>onPlayerJoin</method>](#c2)
-- [<method>querySelector</method>/<method>querySelectorAll</method>](#c3)
-- [<method>onClick</method>](#c4)
-- [<method>say</method>](#c5)
+- [<docs-icon icon="method">onTick</docs-icon>](#c1)
+- [<docs-icon icon="method">onPlayerJoin</docs-icon>](#c2)
+- [<docs-icon icon="method">querySelector</docs-icon>/<docs-icon icon="method">querySelectorAll</docs-icon>](#c3)
+- [<docs-icon icon="method">onClick</docs-icon>](#c4)
+- [<docs-icon icon="method">say</docs-icon>](#c5)
 
 ---
 
@@ -210,17 +210,17 @@
 
 > !p createEntity(config: Partial< EntityConfig>): Entity | null
 
-:   创建一个新的[](Box3Entity) / [](GameEntity)或复制一个现有实体
-如果超过了实体配额，则返回 [](null)
+:   创建一个新的<docs-def>Box3Entity</docs-def> / <docs-def>GameEntity</docs-def>或复制一个现有实体
+如果超过了实体配额，则返回 <docs-def>null</docs-def>
 
 ### 搜索
 > !p querySelector(selector: SelectorString): Entity | null
 
-:   通过选择器来查找一个实体，如果找不到，则会返回[](null)
+:   通过选择器来查找一个实体，如果找不到，则会返回<docs-def>null</docs-def>
 
 > !p querySelectorAll(selector: SelectorString): Entity[]
 
-:   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个[](Box3Entity) / [](GameEntity)组成的数组。如果没有符合条件的实体，则返回空数组。
+:   与`querySelector`类似，但是可以查找所有符合选择器的实体，返回一个<docs-def>Box3Entity</docs-def> / <docs-def>GameEntity</docs-def>组成的数组。如果没有符合条件的实体，则返回空数组。
 
     !!! warning "使用误区"
 
@@ -277,9 +277,8 @@
 
 > !p raycast(origin: Vector3, direction: Vector3, options?: Partial< RaycastOptions>): RaycastResult
 
-:   射线检测，从 <arg>origin</arg> 原点位置向 <arg>direction</arg> 方向投射一条隐形的射线，返回碰到的实体或方块
-    [Box3RaycastOptions / GameRaycastOptions](type/RaycastOptions.md)  
-    [Box3RaycastResult / GameRaycastResult](type/RaycastResult.md)
+:   射线检测，从 <docs-icon icon="arg">origin</docs-icon> 原点位置向 <docs-icon icon="arg">direction</docs-icon> 方向投射一条隐形的射线，返回碰到的实体或方块
+
     ??? example "示例"
 
         ```javascript
@@ -387,8 +386,8 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
-    | [userIds](arg) | <docs-def>string</docs-def>[] | 必填，加入聊天频道的玩家id数组 |
+    | <docs-icon icon="arg">chatId</docs-icon> | <docs-def>string</docs-def> | 必填，临时聊天频道id |
+    | <docs-icon icon="arg">userIds</docs-icon> | <docs-def>string</docs-def>[] | 必填，加入聊天频道的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
@@ -417,12 +416,12 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
-    | [userIds](arg) | <docs-def>string</docs-def>[] | 必填，需要在聊天频道中移除的玩家id数组 |
+    | <docs-icon icon="arg">chatId</docs-icon> | <docs-def>string</docs-def> | 必填，临时聊天频道id |
+    | <docs-icon icon="arg">userIds</docs-icon> | <docs-def>string</docs-def>[] | 必填，需要在聊天频道中移除的玩家id数组 |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<<docs-def>string</docs-def>[]> | 移除成功的玩家id数组 |
+    | | <docs-def>Promise</docs-def><<docs-def>string</docs-def>[]> | 移除成功的玩家id数组 |
 
     ??? example "示例"
 
@@ -447,7 +446,7 @@
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<<docs-def>string</docs-def>[]> | 当前地图存在的临时聊天频道id数组 |
+    | | <docs-def>Promise</docs-def><<docs-def>string</docs-def>[]> | 当前地图存在的临时聊天频道id数组 |
 
     ??? example "示例"
 
@@ -469,11 +468,11 @@
 
     | 参数 | 类型 | 说明 |
     | :- | :- | :- |
-    | [chatId](arg) | <docs-def>string</docs-def> | 必填，临时聊天频道id |
+    | <docs-icon icon="arg">chatId</docs-icon> | <docs-def>string</docs-def> | 必填，临时聊天频道id |
 
     | 返回值 | 类型 | 说明 |
     | - | :- | :- |
-    | | Promise<<docs-def>string</docs-def>[]> | 在临时聊天频道中的玩家id数组 |
+    | | <docs-def>Promise</docs-def><<docs-def>string</docs-def>[]> | 在临时聊天频道中的玩家id数组 |
 
     ??? example "示例"
 
@@ -502,7 +501,7 @@
 
 > !p removeCollisionFilter(aSelector: SelectorString, bSelector: SelectorString): void
 
-:   移除碰撞过滤器，不再关闭两个实体组 <arg>aSelector</arg> 、 <arg>bSelector</arg> 之间的碰撞
+:   移除碰撞过滤器，不再关闭两个实体组 <docs-icon icon="arg">aSelector</docs-icon> 、 <docs-icon icon="arg">bSelector</docs-icon> 之间的碰撞
 
 > !p clearCollisionFilters(): void
 
@@ -574,7 +573,7 @@
 
 !!! warning "已弃用"
 
-    这三个方法在所有编辑器已经弃用，请使用[addZone](method)、[removeZone](method)、[zones](method)代替
+    这三个方法在所有编辑器已经弃用，请使用<docs-icon icon="method">addZone</docs-icon>、<docs-icon icon="method">removeZone</docs-icon>、<docs-icon icon="method">zones</docs-icon>代替
 
 !!! bug "内容缺失"
 
@@ -647,15 +646,15 @@
     | - | - | - | - |
     | <docs-icon icon="arg">spec</docs-icon> | | <docs-def>string</docs-def> | 声音路径 |
     | <docs-icon icon="arg">spec</docs-icon> | |  | 声音播放参数 |
-    | | [sample](property) | <docs-def>string</docs-def> | 声音路径 |
-    | | [position](property)? | <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> | 声音播放的位置。可以指定在某个实体身上发出声音 |
-    | | [radius](property)? | <docs-def>number</docs-def> = `#!javascript 32` | 声音范围，单位是$\frac{1}{16}$个方块 |
-    | | [gain](property)? | <docs-def>number</docs-def> = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
-    | | [pitch](property)? | <docs-def>number</docs-def> = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
+    | | <docs-icon icon="property">sample</docs-icon> | <docs-def>string</docs-def> | 声音路径 |
+    | | <docs-icon icon="property">position</docs-icon>? | <docs-def>Box3Vector3</docs-def> / <docs-def>GameVector3</docs-def> | 声音播放的位置。可以指定在某个实体身上发出声音 |
+    | | <docs-icon icon="property">radius</docs-icon>? | <docs-def>number</docs-def> = `#!javascript 32` | 声音范围，单位是$\frac{1}{16}$个方块 |
+    | | <docs-icon icon="property">gain</docs-icon>? | <docs-def>number</docs-def> = `#!javascript 1` | 音量增益。正常为 1，数值越大，声音越大 |
+    | | <docs-icon icon="property">pitch</docs-icon>? | <docs-def>number</docs-def> = `#!javascript 1` | 音高增益。正常为 1，大于 1，音调越高，播放速度越快 |
 
     !!! bug
 
-        [position](property)疑似无效，无论设置成什么，实际播放位置都为`#!javascript { x:0, y:0, z:0 }`
+        <docs-icon icon="property">position</docs-icon>疑似无效，无论设置成什么，实际播放位置都为`#!javascript { x:0, y:0, z:0 }`
 
     ??? example "示例"
 
@@ -687,7 +686,7 @@
 
 ### 传送
 !!! warning inline end "警告"
-    - 传送进入的地图为独立服务器，因此同一张目标地图，若不填写<arg>serverId</arg>参数，分批次传送不同的人，所进入的是 **不同** 服务器。
+    - 传送进入的地图为独立服务器，因此同一张目标地图，若不填写<docs-icon icon="arg">serverId</docs-icon>参数，分批次传送不同的人，所进入的是 **不同** 服务器。
     - 只能在已发布地图中生效
     - <docs-icon icon="arg">players</docs-icon>的长度不能超过50
     - <docs-icon icon="arg">players</docs-icon>中不能存在游客（没有UserID）
@@ -728,9 +727,9 @@
 
 | 参数 | 类型 | 说明 |
 | :- | :- | :- |
-| [mapId](arg) | <docs-def>string</docs-def> | 必填，目标地图id |
-| <docs-icon icon="arg">players</docs-icon> | [](GameEntity)[] | 必填，需要传送的玩家 |
-| [serverId](arg)? | <docs-def>string</docs-def>[] | 选填，服务器id。若不填，则会新建一个新的服务器 |
+| <docs-icon icon="arg">mapId</docs-icon> | <docs-def>string</docs-def> | 必填，目标地图id |
+| <docs-icon icon="arg">players</docs-icon> | <docs-def>GameEntity</docs-def>[] | 必填，需要传送的玩家 |
+| <docs-icon icon="arg">serverId</docs-icon>? | <docs-def>string</docs-def>[] | 选填，服务器id。若不填，则会新建一个新的服务器 |
 
 !!! tip "地图id vs 服务器id"
 
@@ -751,8 +750,8 @@
     map2 --> server3
     ```
 
-    你所填的<arg>mapId</arg>，就是图上的 **地图1** / **地图2** 的id；而<arg>serverId</arg>就是 **服务器1** / **服务器2** / **服务器3** 的 **服务器id**  
-    通过<arg>serverId</arg>，可以将玩家传送到已创建的指定服务器
+    你所填的<docs-icon icon="arg">mapId</docs-icon>，就是图上的 **地图1** / **地图2** 的id；而<docs-icon icon="arg">serverId</docs-icon>就是 **服务器1** / **服务器2** / **服务器3** 的 **服务器id**  
+    通过<docs-icon icon="arg">serverId</docs-icon>，可以将玩家传送到已创建的指定服务器
 
 !!! note "上文所说的“服务器”和“地图容器”指的是一种东西，只是不同的叫法"
 
@@ -761,7 +760,7 @@
 > !p onTick: EventChannel< TickEvent>  
   nextTick: EventFuture< TickEvent>
 
-:   Tick 事件，详情请看[](Box3TickEvent) / [](GameTickEvent)
+:   Tick 事件，详情请看<docs-def>Box3TickEvent</docs-def> / <docs-def>GameTickEvent</docs-def>
 
 #### 实体创建/销毁
 > !p onPlayerJoin: EventChannel< PlayerEntityEvent>  
@@ -872,6 +871,3 @@
   nextPlayerPurchaseSuccess: EventFuture< GamePurchaseSuccessEvent>
 
 :   当玩家成功购买物品(或未来)时触发
-
-    !!! info "Arena 独有"
-        该事件仅在Arena编辑器中使用

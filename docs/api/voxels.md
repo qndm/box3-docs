@@ -1,5 +1,5 @@
-<def>Box3Voxels</def> / <def>GameVoxels</def>无法（很难）被实例化，但在全局存在一个单例对象<def>voxels</def>  
-    可以通过<def>voxels</def>对象控制世界的地形变化，利用循环语法批量生成/销毁方块，获取某个方块的类型、名称、旋转角度等。
+<docs-def>Box3Voxels</docs-def> / <docs-def>GameVoxels</docs-def>无法（很难）被实例化，但在全局存在一个单例对象<docs-def>voxels</docs-def>  
+    可以通过<docs-def>voxels</docs-def>对象控制世界的地形变化，利用循环语法批量生成/销毁方块，获取某个方块的类型、名称、旋转角度等。
 
 !!! info "方块名称和方块id"
 
