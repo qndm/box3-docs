@@ -30,13 +30,6 @@ theme:
   custom_dir: overrides
   logo: _assets/logo.svg
   favicon: _assets/favicon.svg
-  icon:
-    tag:
-      world: material/earth
-extra:
-  tags:
-    世界: world
-  pagetime: 'on'
 extra_css:
   - _assets/icons.css
   - _assets/global.css

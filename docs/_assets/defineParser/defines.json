@@ -452,15 +452,15 @@
                 "api/http"
             ],
             "Box3HttpFetchParams": [
-                "type",
+                "type.hidden",
                 "api/type/HttpFetchParams"
             ],
             "Box3HttpHandler": [
-                "type",
+                "type.hidden",
                 "api/type/HttpHandler"
             ],
             "Box3HttpRequest": [
-                "class",
+                "class.hidden",
                 "api/class/HttpRequest"
             ],
             "Box3HttpResponse": [
@@ -1226,9 +1226,17 @@
             "Box3EventHandlerToken",
             "GameEventHandlerToken"
         ],
-        "EventFuture": [
-            "Box3EventFuture",
-            "GameEventFuture"
+        "HttpHandler": [
+            "Box3HttpHandler",
+            "GameHttpHandler"
+        ],
+        "HttpRequest": [
+            "Box3HttpRequest",
+            "GameHttpRequest"
+        ],
+        "HttpResponse": [
+            "Box3HttpResponse",
+            "GameHttpResponse"
         ]
     },
     "config": {
@@ -1251,6 +1259,7 @@
             "oldOnly": {
                 "class": "old-only",
                 "checkURL": "\\/api\\/(\\S)+",
+                "disabled": true,
                 "allowAPIs": [
                     "language",
                     "common",
@@ -1258,7 +1267,7 @@
                 ]
             },
             "proOnly": {
-                "class": "pro-only",
+                "class": "",
                 "checkURL": "\\/api\\/(\\S)+",
                 "allowAPIs": [
                     "language",

@@ -2,8 +2,8 @@
 可以通过<docs-def>world</docs-def>对象控制环境天气、物理重力、画面滤镜等全局场景属性，还可以在世界中创建、搜索实体，或监听世界中实体和玩家的碰撞、伤害、互动等事件。
 
 ## 常用
-- [<docs-icon icon="method">onTick</docs-icon>](#c1)
-- [<docs-icon icon="method">onPlayerJoin</docs-icon>](#c2)
+- [<docs-icon icon="method">onTick</docs-icon>](#onTick)
+- [<docs-icon icon="method">onPlayerJoin</docs-icon>](#onPlayerJoin)
 - [<docs-icon icon="method">querySelector</docs-icon>/<docs-icon icon="method">querySelectorAll</docs-icon>](#c3)
 - [<docs-icon icon="method">onClick</docs-icon>](#c4)
 - [<docs-icon icon="method">say</docs-icon>](#c5)
